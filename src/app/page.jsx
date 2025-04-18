@@ -1,5 +1,10 @@
-const Home = () => {
-  return <div>Hello</div>;
-};
+import CareerOpportunitiesTable from "@/components/CareerOpp";
 
-export default Home;
+export default function Home() {
+  return (
+    <>
+      {/* Other sections */}
+      <CareerOpportunitiesTable />
+    </>
+  );
+}

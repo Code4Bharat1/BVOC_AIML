@@ -1,10 +1,13 @@
+import Navbar from "@/components/Navbar";
 import CareerOpportunitiesTable from "@/components/CareerOpp";
 
-export default function Home() {
+const Home = () => {
   return (
-    <>
-      {/* Other sections */}
+    <div>
+      <Navbar />
       <CareerOpportunitiesTable />
-    </>
+    </div>
   );
-}
+};
+
+export default Home;

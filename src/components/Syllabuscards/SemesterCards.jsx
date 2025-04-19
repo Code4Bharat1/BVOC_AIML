@@ -40,46 +40,46 @@ const card6 = {
 };
 
 const SemesterCards = () => {
-  // Declaring a function before the return
   const handleDownload = () => {
     alert("Download Started"); // Replace this with actual download logic
   };
 
-  // Data is now defined within this component
   const data = [card1, card2, card3, card4, card5, card6];
 
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
-  {data.map((item, index) => (
-    <div
-      key={index}
-      className="flex flex-col md:flex-row max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 mx-auto"
-    >
-      <div className="p-5 md:w-1/2">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {item.title}
-          </h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {item.description}
-        </p>
-        <button
-          onClick={handleDownload}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    <div className="flex flex-wrap gap-6 justify-center p-6">
+      {data.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col md:flex-row max-w-sm bg-white border border-transparent rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-105 hover:border-gradient-card dark:bg-gray-800 dark:border-gray-700 animate-fadeInUp"
         >
-          Download
+          <div className="p-5 md:w-1/2">
+            <a href="#">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {item.title}
+              </h5>
+            </a>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {item.description}
+            </p>
+                    <button
+          onClick={handleDownload}
+          className="inline-flex items-center px-4 py-2 text-white bg-lime-400 bg-gradient-to-r rounded-lg hover:scale-105  transition-all duration-300 ease-in-out "
+        >
+          <span className="text-white">Download</span>
         </button>
-      </div>
-      <div className="p-5 md:w-1/2 flex justify-center">
-        <img className="rounded-lg" src={item.image} alt={item.title} />
-      </div>
+
+          </div>
+          <div className="p-5 md:w-1/2 flex justify-center items-center">
+            <img
+              className="rounded-lg transition-transform duration-500 ease-in-out hover:scale-110"
+              src={item.image}
+              alt={item.title}
+            />
+          </div>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-
-
-    
   );
 };
 

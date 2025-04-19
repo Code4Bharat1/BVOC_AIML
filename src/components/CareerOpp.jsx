@@ -1,12 +1,24 @@
-'use client';   
+"use client";
 import { motion } from "framer-motion";
 
 const roles = [
-  ["Machine Learning Engineer", "AI Product Manager", "Robotics Engineer (AI/ML Focus)"],
-  ["Computer Vision Engineer", "Natural Language Processing (NLP) Engineer", "AI Software Engineer"],
+  [
+    "Machine Learning Engineer",
+    "AI Product Manager",
+    "Robotics Engineer (AI/ML Focus)",
+  ],
+  [
+    "Computer Vision Engineer",
+    "Natural Language Processing (NLP) Engineer",
+    "AI Software Engineer",
+  ],
   ["AI Research Scientist", "Deep Learning Engineer", "Data Scientist"],
   ["AI Ethicist", "Autonomous Systems Engineer", "AI Consultant"],
-  ["Data Analyst (AI/ML Focus)", "Speech Recognition Engineer", "AI Engineer in Healthcare"]
+  [
+    "Data Analyst (AI/ML Focus)",
+    "Speech Recognition Engineer",
+    "AI Engineer in Healthcare",
+  ],
 ];
 
 const rowVariants = {
@@ -17,14 +29,14 @@ const rowVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.6,
-      ease: "easeOut"
-    }
-  })
+      ease: "easeOut",
+    },
+  }),
 };
 
 export default function CareerOpportunitiesTable() {
   return (
-    <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 z-30">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-900 mb-8 tracking-tight">
           Career Opportunities

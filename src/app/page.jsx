@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import CareerOpportunitiesTable from "@/components/CareerOpp";
 import HeroSection from "@/components/HeroSection";
+import SemesterCards from "@/components/Syllabuscards/SemesterCards";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <CareerOpportunitiesTable />
+      <SemesterCards/>
     </div>
   );
 };

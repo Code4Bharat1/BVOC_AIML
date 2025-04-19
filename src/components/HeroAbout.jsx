@@ -1,6 +1,6 @@
-'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+"use client";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const HeroAboutSection = () => {
   const ref = useRef(null);
@@ -26,7 +26,11 @@ const HeroAboutSection = () => {
 
   // About Section scroll transformation
   const opacityAbout = useTransform(scrollY, [height, height + 500], [0, 1]);
-  const translateYAbout = useTransform(scrollY, [height, height + 500], [300, 0]);
+  const translateYAbout = useTransform(
+    scrollY,
+    [height, height + 500],
+    [300, 0]
+  );
 
   return (
     <div>
@@ -79,11 +83,13 @@ const HeroAboutSection = () => {
             We are proud to announce that{" "}
             <span className="font-bold">Code4Bharat</span>, a registered brand
             under <span className="font-bold"> Nexcore Alliance LLP</span>, has
-            officially partnered with <span className="font-bold"> Guru Kashi University (GKU)</span> as an
-            Industry Partner to offer <span className="font-bold"> B.Voc</span> degree programs. This
+            officially partnered with{" "}
+            <span className="font-bold"> Guru Kashi University (GKU)</span> as
+            an Industry Partner to offer{" "}
+            <span className="font-bold"> B.Voc</span> degree programs. This
             strategic collaboration merges academic excellence with hands-on
-            industry exposure, aimed at preparing students for real-world careers
-            in high-demand sectors like AI, ML, and Web Dev.
+            industry exposure, aimed at preparing students for real-world
+            careers in high-demand sectors like AI, ML, and Web Dev.
           </p>
         </div>
       </motion.div>

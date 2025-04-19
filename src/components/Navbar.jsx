@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-black mx-4 sm:mx-10 lg:mx-20 mt-10 rounded-2xl"
+      className="fixed top-0 left-0 right-0 z-50 bg-black mx-4 sm:mx-10 lg:mx-20 mt-6 rounded-2xl"
     >
       <div className="relative flex h-16 items-center justify-center">
         {/* Logo - stuck to the left corner */}
@@ -38,7 +38,7 @@ export default function Navbar() {
               className={classNames(
                 item.current
                   ? "bg-gray-500 text-white"
-                  : "text-gray-300 hover:bg-gray-500 hover:text-white",
+                  : "text-white hover:bg-gray-500 hover:text-white",
                 "rounded-md px-3 py-2 text-md font-medium"
               )}
             >
@@ -49,7 +49,7 @@ export default function Navbar() {
 
         {/* Button - stuck to the right corner */}
         <div className="absolute right-0 pr-4 sm:pr-6 lg:pr-8">
-          <Button className="bg-white text-black hover:bg-gray-500">
+          <Button className="bg-[#fafaf3] text-black hover:bg-slate-200">
             Get In Touch
           </Button>
         </div>

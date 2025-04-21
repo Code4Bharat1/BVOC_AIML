@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import SyllabusSidebar from "./SyllabusSidebar";
 
 const courses = [
   {
@@ -57,29 +58,11 @@ const CourseCards = () => {
 
   return (
     <div className="flex">
-      {/* Vertical Sidebar */}
-      <div className="hidden md:block w-64 pr-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Categories</h2>
-        <nav className="space-y-1">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => {
-                setActiveCategory(category);
-                setCurrentPage(1);
-              }}
-              className={`w-full text-left px-4 py-2 rounded-lg text-base font-medium ${
-                activeCategory === category
-                  ? "bg-lime-400 text-gray-900 font-semibold"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </nav>
-      </div>
-
+      <SyllabusSidebar
+        categories={categories}
+        setActiveCategory={setActiveCategory}
+        activeCategory={activeCategory}
+      />
       {/* Main Content */}
       <div className="flex-1">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -115,32 +98,6 @@ const CourseCards = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-between items-center">
-            <div className="text-sm text-gray-500">
-              {indexOfFirstCourse + 1}-
-              {Math.min(indexOfLastCourse, filteredCourses.length)} of{" "}
-              {filteredCourses.length}
-            </div>
-            <div className="flex space-x-2">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (number) => (
-                  <button
-                    key={number}
-                    onClick={() => setCurrentPage(number)}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      currentPage === number
-                        ? "bg-lime-400 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
-                  >
-                    {number}
-                  </button>
-                )
-              )}
-            </div>
           </div>
         </div>
       </div>

@@ -79,23 +79,26 @@ const CourseCards = () => {
             />
           </div>
 
-          {/* Course Cards */}
-          <div className="flex-1">
+          {/* <div className="flex-1 overflow-x-auto pb-4">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
+
+          {/* Modified cards container */}
+          <div className="flex-1 overflow-x-auto pb-4">
+            <div className="px-4 sm:px-6 lg:px-8 py-8">
+              <div className="flex gap-6 flex-nowrap">
                 {filteredCourses.map((course, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" // Added flex-col
+                    className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
+                    style={{ minWidth: "calc(50% - 12px)" }}
                   >
-                    {/* Increased image height */}
                     <img
                       src={course.image}
                       alt={course.title}
-                      className="w-full h-56 object-cover" // Changed from h-48 to h-56
+                      className="w-full h-56 object-cover"
                     />
 
-                    {/* Content area with adjusted spacing */}
                     <div className="p-6 flex-1 flex flex-col justify-between">
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -106,7 +109,6 @@ const CourseCards = () => {
                         </p>
                       </div>
 
-                      {/* Button container */}
                       <div className="mt-4">
                         <button className="w-full bg-black text-white font-semibold py-3 rounded-xl hover:bg-gray-800 transition-colors">
                           View more

@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaInstagram, FaLinkedin } from 'react-icons/fa'; // Importing React Icons
+import React from "react";
+import { FaInstagram, FaLinkedin } from "react-icons/fa"; // Importing React Icons
 
 const Footer = () => {
   return (
@@ -12,34 +12,41 @@ const Footer = () => {
             <span className="text-white">Tech</span>
           </div>
           <p className="text-font-lg text-lime-500 max-w-md">
-            This platform is the result of a visionary collaboration between Code4Bharat and Guru Kashi University—united by a shared mission to empower India’s youth with cutting-edge skills in Artificial Intelligence & Machine Learning.
+            This platform is the result of a visionary collaboration between
+            Code4Bharat and Guru Kashi University—united by a shared mission to
+            empower India’s youth with cutting-edge skills in Artificial
+            Intelligence & Machine Learning.
           </p>
         </div>
-  
+
         {/* Middle Section: Other Links */}
         <div className="flex flex-col space-y-2 text-lime-500 md:mr-16">
           <h3 className="text-lg font-semibold">Other Links</h3>
           <ul className="space-y-1">
             <li>
-              <a href="#" className="hover:text-lime-500 text-sm">Code4Bharat</a>
+              <a href="#" className="hover:text-lime-500 text-sm">
+                Code4Bharat
+              </a>
             </li>
             <li>
-              <a href="#" className="hover:text-lime-500 text-sm">Guru Kashi University</a>
+              <a href="#" className="hover:text-lime-500 text-sm">
+                Guru Kashi University
+              </a>
             </li>
           </ul>
         </div>
-  
+
         {/* Right Section: Social Media Links */}
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold text-lime-500">Socials</h3>
           <div className="flex space-x-4">
             {/* Instagram icon with colorful gradient */}
             <a href="#" className="hover:text-lime-400">
-             <img src="instagram.png"></img>
+              <img src="instagram.png"></img>
             </a>
             {/* LinkedIn icon with blue color */}
             <a href="#" className="hover:text-lime-400">
-            <img src="linkedin.png"></img>
+              <img src="linkedin.png"></img>
             </a>
           </div>
         </div>

@@ -33,12 +33,13 @@ const Footer = () => {
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold text-lime-500">Socials</h3>
           <div className="flex space-x-4">
-            {/* Replaced FontAwesome with React Icons */}
+            {/* Instagram icon with colorful gradient */}
             <a href="#" className="hover:text-lime-400">
-              <FaInstagram className="text-xl text-white" /> {/* Instagram icon */}
+             <img src="instagram.png"></img>
             </a>
+            {/* LinkedIn icon with blue color */}
             <a href="#" className="hover:text-lime-400">
-              <FaLinkedin className="text-xl text-white" /> {/* LinkedIn icon */}
+            <img src="linkedin.png"></img>
             </a>
           </div>
         </div>

@@ -1,86 +1,151 @@
 "use client";
 import React from "react";
 
-const card1 = {
-  title: "Noteworthy technology acquisitions 2021",
-  description:
-    "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-  image: "pdf.png",
-};
+const courses = [
+  {
+    title: "Basics of cybersecurity",
+    description:
+      "The course is designed for those who want to gain fundamental knowledge of digital security.",
+    duration: "3 Weeks",
+    level: "Beginner level",
+    price: "Free",
+    category: "Cybersecurity & data protection",
+  },
+  {
+    title: "Application Security",
+    description:
+      "Participants will learn the principles of application security against various types of threats.",
+    duration: "5 Weeks",
+    level: "Middle level",
+    price: "$10.00",
+    category: "Cybersecurity & data protection",
+  },
+  // Add more courses as needed
+];
 
-const card2 = {
-  title: "The future of AI in healthcare",
-  description: "Exploring the advancements in AI technologies for healthcare.",
-  image: "pdf.png",
-};
+const categories = [
+  "All",
+  "Programming basics",
+  "Web design & UX/UI",
+  "Graphic design",
+  "Cybersecurity & data protection",
+  "Data analysis & business",
+  "Artificial intelligence & robotics",
+  "Systems administration",
+  "Digital marketing",
+];
 
-const card3 = {
-  title: "The role of blockchain in finance",
-  description:
-    "A deep dive into blockchain technology in the financial sector.",
-  image: "pdf.png",
-};
+const CourseCards = () => {
+  const [activeCategory, setActiveCategory] = React.useState("All");
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const coursesPerPage = 2;
 
-const card4 = {
-  title: "Cloud computing trends 2022",
-  description: "Examining the latest trends in cloud computing for 2022.",
-  image: "pdf.png",
-};
+  // Filter courses by category
+  const filteredCourses =
+    activeCategory === "All"
+      ? courses
+      : courses.filter((course) => course.category === activeCategory);
 
-const card5 = {
-  title: "Artificial Intelligence in everyday life",
-  description: "How AI is making its way into our daily routines and devices.",
-  image: "pdf.png",
-};
-
-const card6 = {
-  title: "Cybersecurity in 2021: Challenges and solutions",
-  description:
-    "An overview of cybersecurity challenges faced in 2021 and their solutions.",
-  image: "pdf.png",
-};
-
-const SemesterCards = () => {
-  const handleDownload = () => {
-    alert("Download Started");
-  };
-
-  const data = [card1, card2, card3, card4, card5, card6];
+  // Pagination logic
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = filteredCourses.slice(
+    indexOfFirstCourse,
+    indexOfLastCourse
+  );
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-      {data.map((item, index) => (
-        <div
-          key={index}
-          className="flex flex-col md:flex-row bg-white border border-transparent rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-105 hover:border-gradient-card dark:bg-gray-800 dark:border-gray-700 animate-fadeInUp"
-        >
-          <div className="p-5 md:w-1/2">
-            <a href="#">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {item.title}
-              </h5>
-            </a>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {item.description}
-            </p>
+    <div className="flex">
+      {/* Vertical Sidebar */}
+      <div className="hidden md:block w-64 pr-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Categories</h2>
+        <nav className="space-y-1">
+          {categories.map((category) => (
             <button
-              onClick={handleDownload}
-              className="inline-flex items-center px-4 py-2 font-semibold text-white bg-lime-400 bg-gradient-to-r rounded-lg hover:scale-105 transition-all duration-300 ease-in-out"
+              key={category}
+              onClick={() => {
+                setActiveCategory(category);
+                setCurrentPage(1);
+              }}
+              className={`w-full text-left px-4 py-2 rounded-lg text-base font-medium ${
+                activeCategory === category
+                  ? "bg-lime-400 text-gray-900 font-semibold"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
-              <span className="text-white">Download</span>
+              {category}
             </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h1 className="text-5xl font-bold text-gray-900 mb-8">Syllabus</h1>
+
+          {/* Course Cards */}
+          <div className="space-y-6 mb-8">
+            {currentCourses.map((course, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div className="p-6">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="inline-block px-3 py-1 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full mb-2">
+                        {course.price}
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {course.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{course.description}</p>
+                    </div>
+                    <button className="text-lime-400 font-semibold hover:text-lime-500">
+                      View more
+                    </button>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <span>{course.duration}</span>
+                    <span className="mx-2">•</span>
+                    <span>{course.level}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="p-5 md:w-1/2 flex justify-center items-center">
-            <img
-              className="rounded-lg transition-transform duration-500 ease-in-out hover:scale-110"
-              src={item.image}
-              alt={item.title}
-            />
+
+          {/* Pagination */}
+          <div className="flex justify-between items-center">
+            <div className="text-sm text-gray-500">
+              {indexOfFirstCourse + 1}-
+              {Math.min(indexOfLastCourse, filteredCourses.length)} of{" "}
+              {filteredCourses.length}
+            </div>
+            <div className="flex space-x-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (number) => (
+                  <button
+                    key={number}
+                    onClick={() => setCurrentPage(number)}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                      currentPage === number
+                        ? "bg-lime-400 text-white"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    }`}
+                  >
+                    {number}
+                  </button>
+                )
+              )}
+            </div>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
 
-export default SemesterCards;
+export default CourseCards;

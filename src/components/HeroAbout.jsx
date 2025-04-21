@@ -19,16 +19,21 @@ const HeroAboutSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Transform to keep HeroSection fixed until scrollY reaches height, then scroll naturally
+  // Hero section transformations
   const heroY = useTransform(scrollY, (value) => Math.min(value, height));
   const opacityHero = useTransform(scrollY, [0, height || 800], [1, 0]);
   const translateYHero = useTransform(scrollY, [0, height || 800], [0, -100]);
 
-  // About Section scroll transformation
-  const opacityAbout = useTransform(scrollY, [height, height + 500], [0, 1]);
+  // About section transformations
+  // Start fading in only after hero is completely faded out
+  const opacityAbout = useTransform(
+    scrollY,
+    [height * 0.8, height * 1.2], // Adjusted range
+    [0, 1]
+  );
   const translateYAbout = useTransform(
     scrollY,
-    [height, height + 500],
+    [height * 0.8, height * 1.2], // Adjusted range to match opacity
     [300, 0]
   );
 
@@ -72,8 +77,13 @@ const HeroAboutSection = () => {
 
       {/* About Section */}
       <motion.div
-        style={{ opacity: opacityAbout, y: translateYAbout }}
-        className="w-full h-[100vh] px-6 lg:px-20 flex items-center justify-center bg-black text-[#fafaf3] z-30"
+        style={{
+          opacity: opacityAbout,
+          y: translateYAbout,
+          position: "relative",
+          zIndex: 10, // Ensure it's above the hero section
+        }}
+        className="w-full min-h-screen px-6 lg:px-20 flex items-center justify-center bg-black text-[#fafaf3]"
       >
         <div className="max-w-4xl text-center">
           <h2 className="text-5xl sm:text-6xl font-bold mb-6 text-lime-400">

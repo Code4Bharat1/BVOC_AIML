@@ -6,8 +6,6 @@ const Home = () => {
   return (
     <div className="bg-[#fafaf3] pt-24">
       <Navbar />
-      {/* <HeroSection />
-      <About /> */}
       <HeroAbout />
       <CareerOpportunitiesTable />
       <SemesterCards />

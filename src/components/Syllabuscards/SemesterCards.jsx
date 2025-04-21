@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import { useState } from "react";
 import SyllabusSidebar from "./SyllabusSidebar";
 
 const courses = [
@@ -37,24 +38,13 @@ const categories = [
 ];
 
 const CourseCards = () => {
-  const [activeCategory, setActiveCategory] = React.useState("All");
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const coursesPerPage = 2;
+  const [activeCategory, setActiveCategory] = useState("All");
 
   // Filter courses by category
   const filteredCourses =
     activeCategory === "All"
       ? courses
       : courses.filter((course) => course.category === activeCategory);
-
-  // Pagination logic
-  const indexOfLastCourse = currentPage * coursesPerPage;
-  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
-  const currentCourses = filteredCourses.slice(
-    indexOfFirstCourse,
-    indexOfLastCourse
-  );
-  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
 
   return (
     <div className="flex">
@@ -70,7 +60,7 @@ const CourseCards = () => {
 
           {/* Course Cards */}
           <div className="space-y-6 mb-8">
-            {currentCourses.map((course, index) => (
+            {filteredCourses.map((course, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-md overflow-hidden"

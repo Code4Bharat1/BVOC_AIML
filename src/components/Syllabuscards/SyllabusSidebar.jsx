@@ -1,19 +1,17 @@
 const SyllabusSidebar = ({ categories, setActiveCategory, activeCategory }) => {
   return (
-    <div className="hidden md:block w-64 pr-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Categories</h2>
-      <nav className="space-y-1">
+    <div className="hidden md:flex flex-col w-64 bg-[#f9f9f6] p-6 rounded-3xl shadow-md">
+      <nav className="flex flex-col space-y-2">
         {categories.map((category) => (
           <button
             key={category}
-            onClick={() => {
-              setActiveCategory(category);
-            }}
-            className={`w-full text-left px-4 py-2 rounded-lg text-base font-medium ${
-              activeCategory === category
-                ? "bg-lime-400 text-gray-900 font-semibold"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
+            onClick={() => setActiveCategory(category)}
+            className={`w-full text-left px-5 py-3 rounded-2xl text-[15px] font-medium transition-all duration-300 ease-in-out
+              ${
+                activeCategory === category
+                  ? "bg-lime-400 text-black shadow-inner"  // Active button color: lime text, light background
+                  : "text-[#333] hover:bg-[#eeeeea] hover:text-lime-400 hover:shadow-sm"  // Default text black, hover changes to lime text
+              }`}
           >
             {category}
           </button>
@@ -22,5 +20,8 @@ const SyllabusSidebar = ({ categories, setActiveCategory, activeCategory }) => {
     </div>
   );
 };
+
+
+
 
 export default SyllabusSidebar;

@@ -1,58 +1,39 @@
+"use client";
 import React from "react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa"; // Importing React Icons
+import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa"; // Import React Icons
 
 const Footer = () => {
   return (
-    <div className="bg-[#0f0f0f] text-lime-400 p-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start">
-        {/* Left Section: Description */}
-        <div className="flex items-start space-x-2 mb-4 md:mb-0">
-          <div className="text-xl font-semibold">
-            <span className="text-green-400">C</span>
-            <span className="text-white">Tech</span>
-          </div>
-          <p className="text-font-lg text-lime-500 max-w-md">
-            This platform is the result of a visionary collaboration between
-            Code4Bharat and Guru Kashi University—united by a shared mission to
-            empower India’s youth with cutting-edge skills in Artificial
-            Intelligence & Machine Learning.
-          </p>
-        </div>
-
-        {/* Middle Section: Other Links */}
-        <div className="flex flex-col space-y-2 text-lime-500 md:mr-16">
-          <h3 className="text-lg font-semibold">Other Links</h3>
-          <ul className="space-y-1">
-            <li>
-              <a href="#" className="hover:text-lime-500 text-sm">
-                Code4Bharat
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-lime-500 text-sm">
-                Guru Kashi University
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Right Section: Social Media Links */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="text-lg font-semibold text-lime-500">Socials</h3>
-          <div className="flex space-x-4">
-            {/* Instagram icon with colorful gradient */}
-            <a href="#" className="hover:text-lime-400">
+    <footer className="bg-gray-800 text-white rounded p-10">
+      <nav className="footer-nav grid grid-flow-col gap-6 justify-center">
+        <a className="text-lg hover:text-blue-500">Code4Bharat</a>
+        <a className="text-lg hover:text-blue-500">Nexcore Alliance</a>
+        <a className="text-lg hover:text-blue-500">Student Alliance</a>
+        <a className="text-lg hover:text-blue-500">MarketingJunction</a>
+        <a className="text-lg hover:text-blue-500">Guru Kashi University</a>
+      </nav>
+      <nav className="footer-social grid grid-flow-col gap-6 justify-center mt-4">
+        {/* Twitter Icon */}
+        <a href="#" className="text-twitter hover:text-blue-400 transition transform hover:scale-110">
+          <FaTwitter size={24} />
+        </a>
+        
+        {/* YouTube Icon */}
+        <a href="#" className="text-red-600 hover:text-red-400 transition transform hover:scale-110">
+       
               <img src="instagram.png"></img>
-            </a>
-            {/* LinkedIn icon with blue color */}
-            <a href="#" className="hover:text-lime-400">
-              <img src="linkedin.png"></img>
-            </a>
-          </div>
-        </div>
-      </div>
-      <hr className="border-white mt-4" />
-    </div>
+            
+        </a>
+        
+        {/* Facebook Icon */}
+        <a href="#" className="text-blue-600 hover:text-blue-400 transition transform hover:scale-110">
+          <FaFacebook size={24} />
+        </a>
+      </nav>
+      <aside className="footer-copyright text-center mt-4">
+        <p className="text-sm text-gray-400">Copyright © {new Date().getFullYear()} - All right reserved by C4B</p>
+      </aside>
+    </footer>
   );
 };
 

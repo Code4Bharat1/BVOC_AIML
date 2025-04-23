@@ -45,7 +45,7 @@ const Brands = () => {
   }, []);
 
   return (
-    <section className="w-full pt-12 overflow-hidden">
+    <section className="bg-white w-full pt-12 overflow-hidden">
       <div className="w-full mb-16">
         {/* Heading Section */}
         <div className="mb-6 text-center">

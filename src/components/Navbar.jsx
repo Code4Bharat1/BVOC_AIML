@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 left-0 right-0 z-50 bg-black"
+      className="fixed h-20 top-0 left-0 right-0 z-50 bg-black"
     >
       <div className="relative flex h-16 items-center justify-center">
         {/* Logo - stuck to the left corner */}

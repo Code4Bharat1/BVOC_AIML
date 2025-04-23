@@ -4,13 +4,13 @@ import React from "react";
 import Image from "next/image";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
-const Courses = () => {
+const ProgramStructure = () => {
   return (
-    <section className="bg-[#B2D5ED] py-16 px-4 md:px-8 mb-8 mt-2">
+    <section className="bg-[#efefef] py-16 px-4 md:px-8 mb-8 mt-2 min-h-screen">
       <div className="container mx-auto">
         {/* Section Title */}
         <h2 className="text-xl md:text-4xl font-semibold text-black mb-4 ml-2 md:ml-20 font-publicSans text-left">
-          Program <span className="text-[#116EB3]">Structure</span>
+          Program <span className="text-lime-400">Structure</span>
         </h2>
         <p className="text-sm md:text-2xl text-[#6D737A] mb-6 md:mb-12 ml-2 md:ml-20 font-publicSans text-left">
           A flexible curriculum with multiple exit points offering progressive qualifications.
@@ -99,4 +99,4 @@ const CourseCard = ({ imageUrl, title, description, customMargin, backgroundImag
   );
 };
 
-export default Courses;
+export default ProgramStructure;

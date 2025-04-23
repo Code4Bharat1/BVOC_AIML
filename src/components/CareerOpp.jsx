@@ -1,79 +1,90 @@
 "use client";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { FaRobot, FaBrain, FaUserNurse, FaCodeBranch } from "react-icons/fa";
+import { MdEngineering, MdManageAccounts } from "react-icons/md";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const roles = [
-  [
-    "Machine Learning Engineer",
-    "AI Product Manager",
-    "Robotics Engineer (AI/ML Focus)",
-  ],
-  [
-    "Computer Vision Engineer",
-    "Natural Language Processing (NLP) Engineer",
-    "AI Software Engineer",
-  ],
-  ["AI Research Scientist", "Deep Learning Engineer", "Data Scientist"],
-  ["AI Ethicist", "Autonomous Systems Engineer", "AI Consultant"],
-  [
-    "Data Analyst (AI/ML Focus)",
-    "Speech Recognition Engineer",
-    "AI Engineer in Healthcare",
-  ],
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+const careers = [
+  { title: "Machine Learning Engineer", icon: <FaBrain size={28} />, bgImage: "/ml.png" },
+  { title: "AI Product Manager", icon: <MdManageAccounts size={28} />, bgImage: "/ai.png" },
+  { title: "Robotics Engineer", icon: <FaRobot size={28} />, bgImage: "/robo.png" },
+  { title: "Computer Vision Engineer", icon: <MdEngineering size={28} />, bgImage: "/vision.png" },
+  { title: "NLP Engineer", icon: <FaCodeBranch size={28} />, bgImage: "/nlp.png" },
+  { title: "AI Software Engineer", icon: <MdEngineering size={28} />, bgImage: "/code.png" },
+  { title: "AI Research Scientist", icon: <FaBrain size={28} />, bgImage: "/lab.png" },
+  { title: "Deep Learning Engineer", icon: <FaBrain size={28} />, bgImage: "/deep.png" },
+  { title: "Data Scientist", icon: <FaCodeBranch size={28} />, bgImage: "/data.png" },
+  { title: "AI Ethicist", icon: <MdManageAccounts size={28} />, bgImage: "/eth.png" },
+  { title: "Autonomous Systems Engineer", icon: <FaRobot size={28} />, bgImage: "/auto.png" },
+  { title: "AI Consultant", icon: <MdManageAccounts size={28} />, bgImage: "/consult.png" },
+  { title: "Data Analyst", icon: <FaCodeBranch size={28} />, bgImage: "/ana.png" },
+  { title: "Speech Recognition Engineer", icon: <FaBrain size={28} />, bgImage: "/speech.png" },
+  { title: "AI Engineer in Healthcare", icon: <FaUserNurse size={28} />, bgImage: "/health.png" },
 ];
 
-const rowVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
+const CareerOpportunities = () => {
+  useEffect(() => {
+    // Entrance animation for each career card without reverse on scroll up
+    gsap.utils.toArray(".career-card").forEach((card, i) => {
+      const xStart = i % 2 === 0 ? -150 : 150;
 
-export default function CareerOpportunitiesTable() {
+      gsap.fromTo(
+        card,
+        { x: xStart, opacity: 0, scale: 0.85 },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "top 65%",
+            toggleActions: "play none none none", // play on enter, no reverse
+            once: true, // ensures it only plays once
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 z-30">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-          Career Opportunities
-        </h2>
+    <section className="py-16 px-4 md:px-16 bg-[#F8FAFC]">
+      <h2 className="text-4xl font-bold text-center text-gray-800 mb-12 font-winky">
+        Career Opportunities
+      </h2>
 
-        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-md bg-white transition-all duration-500">
-          <motion.table
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="min-w-full table-fixed border-collapse"
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        {careers.map((item, index) => (
+          <div
+            key={index}
+            className="career-card aspect-square rounded-2xl overflow-hidden shadow-2xl group relative transition-transform hover:scale-105"
+            style={{
+              backgroundImage: `url(${item.bgImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <tbody>
-              {roles.map((row, rowIndex) => (
-                <motion.tr
-                  key={rowIndex}
-                  variants={rowVariants}
-                  custom={rowIndex}
-                  className={`${
-                    rowIndex % 2 === 0 ? "bg-gray-100" : "bg-white"
-                  } transition duration-300`}
-                >
-                  {row.map((role, colIndex) => (
-                    <td
-                      key={colIndex}
-                      className="px-6 py-5 text-gray-800 text-sm sm:text-base font-medium border border-gray-200 hover:shadow-lg hover:scale-[1.02] hover:z-10 relative transition-all duration-300 rounded-md"
-                    >
-                      <span className="block">{role}</span>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 scale-x-0 hover:scale-x-100 origin-left transition-transform duration-500" />
-                    </td>
-                  ))}
-                </motion.tr>
-              ))}
-            </tbody>
-          </motion.table>
-        </div>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-500" />
+
+            {/* Icon + Text */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <div className="flex flex-col items-center text-white font-semibold text-center px-4">
+                <span className="mb-2">{item.icon}</span>
+                <span className="leading-snug text-sm md:text-base">{item.title}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
-}
+};
+
+export default CareerOpportunities;

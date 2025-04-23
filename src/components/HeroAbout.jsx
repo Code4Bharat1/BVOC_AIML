@@ -1,12 +1,9 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const HeroAboutSection = () => {
   const ref = useRef(null);
   const [height, setHeight] = useState(0);
-
-  const { scrollY } = useScroll();
 
   useEffect(() => {
     if (ref.current) {
@@ -19,90 +16,63 @@ const HeroAboutSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Hero section transformations
-  const heroY = useTransform(scrollY, (value) => Math.min(value, height));
-  const opacityHero = useTransform(scrollY, [0, height || 800], [1, 0]);
-  const translateYHero = useTransform(scrollY, [0, height || 800], [0, -100]);
-
-  // About section transformations
-  // Start fading in only after hero is completely faded out
-  const opacityAbout = useTransform(
-    scrollY,
-    [height * 0.8, height * 1.2], // Adjusted range
-    [0, 1]
-  );
-  const translateYAbout = useTransform(
-    scrollY,
-    [height * 0.8, height * 1.2], // Adjusted range to match opacity
-    [300, 0]
-  );
-
   return (
-    <div>
+    <div className="pt-10">
       {/* Hero Section with Video */}
-      <motion.div
-        ref={ref}
-        style={{ y: heroY }}
-        className="w-full h-screen relative overflow-hidden mt-6"
-      >
-        <div className="w-full h-full px-6 lg:px-20">
-          <div className="w-full h-full rounded-xl overflow-hidden">
-            <motion.video
+      <div ref={ref} className="w-full h-screen relative overflow-hidden mt-6">
+        <div className="w-full h-full relative">
+          <div className="w-full h-full overflow-hidden bg-black">
+            <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
-              style={{ opacity: opacityHero }}
+              className="w-full h-full object-cover bg-black opacity-50"
             >
-              <source src="/bgVideo.mp4" type="video/mp4" />
+              <source src="/Hero_Bg_video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
-            </motion.video>
+            </video>
           </div>
-          <motion.div
-            style={{ opacity: opacityHero, y: translateYHero }}
-            className="absolute top-16 inset-x-0 z-10 flex justify-center px-4"
-          >
-            <div className="max-w-3xl text-center bg-black/50 rounded-xl p-6 shadow-lg backdrop-blur-md">
-              <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-wide">
-                Code4Bharat, by Nexcore Alliance LLP
+
+          {/* Static Text Card */}
+          <div className="absolute top-56 md:top-56 md:left-96 z-10 flex justify-start px-4">
+            <div className="max-w-3xl text-center rounded-xl p-6">
+              <h1 className="hidden md:block text-white text-6xl font-bold leading-tight tracking-wide">
+                Code4Bharat, <br />
+                by Nexcore Alliance LLP
+              </h1>
+              <h1 className="md:hidden text-white text-3xl font-bold leading-tight tracking-wide">
+                Code4Bharat, by <br />
+                Nexcore Alliance LLP
               </h1>
               <p className="text-white mt-4 text-lg sm:text-xl font-medium">
                 In collaboration with Guru Kashi University for B.Voc programs
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* About Section */}
-      <motion.div
-        style={{
-          opacity: opacityAbout,
-          y: translateYAbout,
-          position: "relative",
-          zIndex: 10, // Ensure it's above the hero section
-        }}
-        className="w-full min-h-screen px-6 lg:px-20 flex items-center justify-center bg-black text-[#fafaf3]"
-      >
+      <div className="w-full min-h-screen px-6 lg:px-20 flex items-center justify-center bg-black text-[#fafaf3]">
         <div className="max-w-4xl text-center">
           <h2 className="text-5xl sm:text-6xl font-bold mb-6 text-lime-400">
-            About Us
+            Our Story
           </h2>
           <p className="text-xl sm:text-2xl font-medium leading-relaxed tracking-wide">
             We are proud to announce that{" "}
             <span className="font-bold">Code4Bharat</span>, a registered brand
-            under <span className="font-bold"> Nexcore Alliance LLP</span>, has
+            under <span className="font-bold">Nexcore Alliance LLP</span>, has
             officially partnered with{" "}
-            <span className="font-bold"> Guru Kashi University (GKU)</span> as
-            an Industry Partner to offer{" "}
-            <span className="font-bold"> B.Voc</span> degree programs. This
-            strategic collaboration merges academic excellence with hands-on
-            industry exposure, aimed at preparing students for real-world
-            careers in high-demand sectors like AI, ML, and Web Dev.
+            <span className="font-bold">Guru Kashi University (GKU)</span> as an
+            Industry Partner to offer <span className="font-bold">B.Voc</span>{" "}
+            degree programs. This strategic collaboration merges academic
+            excellence with hands-on industry exposure, aimed at preparing
+            students for real-world careers in high-demand sectors like AI, ML,
+            and Web Dev.
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

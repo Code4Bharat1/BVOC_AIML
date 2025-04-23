@@ -80,7 +80,7 @@ const CourseFilterBar = () => {
   };
 
   return (
-    <div className="w-full mt-14">
+    <div className="w-full py-6">
       {/* Section Heading */}
       <h2 className="text-center text-[6vw] md:text-[2.5vw] font-bold text-[#116EB3]">
         About Our Syllabus

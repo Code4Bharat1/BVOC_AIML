@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
-import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa"; // Import React Icons
+import {FaInstagram , FaFacebook } from "react-icons/fa"; 
+import { RiTwitterXLine } from "react-icons/ri";
+
 
 const Footer = () => {
   return (
@@ -14,24 +16,25 @@ const Footer = () => {
       </nav>
       <nav className="footer-social grid grid-flow-col gap-6 justify-center mt-4">
         {/* Twitter Icon */}
-        <a href="#" className="text-twitter hover:text-blue-400 transition transform hover:scale-110">
-          <FaTwitter size={24} />
+        <a href="#" className="text-twitter hover:text-black transition transform hover:scale-110">
+          <RiTwitterXLine  size={24} />
         </a>
         
         {/* YouTube Icon */}
-        <a href="#" className="text-red-600 hover:text-red-400 transition transform hover:scale-110">
+        <a href="#" className="text-white hover:text-pink-400 transition transform hover:scale-110">
        
-              <img src="instagram.png"></img>
+        <FaInstagram size={24}/>
+
             
         </a>
         
         {/* Facebook Icon */}
-        <a href="#" className="text-blue-600 hover:text-blue-400 transition transform hover:scale-110">
+        <a href="#" className="text-white hover:text-blue-600 transition transform hover:scale-110">
           <FaFacebook size={24} />
         </a>
       </nav>
       <aside className="footer-copyright text-center mt-4">
-        <p className="text-sm text-gray-400">Copyright © {new Date().getFullYear()} - All right reserved by C4B</p>
+        <p className="text-sm text-lime-400">Copyright © {new Date().getFullYear()} - All right reserved by C4B</p>
       </aside>
     </footer>
   );

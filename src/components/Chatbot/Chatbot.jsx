@@ -175,7 +175,7 @@ export default function ChatbotWidget() {
         >
           {isOpen ? 
             <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> : 
-            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
+            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" />
           }
         </motion.button>
       </div>

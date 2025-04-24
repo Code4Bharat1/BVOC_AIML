@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 const courses = [
   {
     title: "SEM I",
@@ -8,14 +8,14 @@ const courses = [
       "You will learn how to create user-friendly and efficient interfaces for large systems.",
     image: "pdf.png",
     semester: "Semester I & II",
-    pdf: "/pdfs/sem1.pdf", // Path to SEM I PDF
+    pdf: "/pdfs/sem1.pdf",
   },
-  {
+  { 
     title: "SEM II",
     description: "Fundamental knowledge of digital security for beginners.",
     image: "pdf.png",
     semester: "Semester I & II",
-    pdf: "/pdfs/sem2.pdf", // Path to SEM II PDF
+    pdf: "/pdfs/sem2.pdf",
   },
   {
     title: "SEM III",
@@ -23,28 +23,28 @@ const courses = [
       "A deep dive into protecting complex systems and architectures.",
     image: "pdf.png",
     semester: "Semester III & IV",
-    pdf: "/pdfs/sem3.pdf", // Path to SEM III PDF
+    pdf: "/pdfs/sem3.pdf",
   },
   {
     title: "SEM IV",
     level: "Middle level",
     image: "pdf.png",
     semester: "Semester III & IV",
-    pdf: "/pdfs/sem4.pdf", // Path to SEM IV PDF
+    pdf: "/pdfs/sem4.pdf",
   },
   {
     title: "SEM V",
     level: "Beginner level",
     image: "pdf.png",
     semester: "Semester V & VI",
-    pdf: "/pdfs/sem5.pdf", // Path to SEM V PDF
+    pdf: "/pdfs/sem5.pdf",
   },
   {
     title: "SEM VI",
     level: "Advanced level",
     image: "pdf.png",
     semester: "Semester V & VI",
-    pdf: "/pdfs/sem6.pdf", // Path to SEM VI PDF
+    pdf: "/pdfs/sem6.pdf",
   },
 ];
 
@@ -57,7 +57,26 @@ const CourseFilterBar = () => {
   ];
   const [selectedFilter, setSelectedFilter] = useState("All Semester");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPdf, setSelectedPdf] = useState(""); // Track the selected PDF for modal
+  const [selectedPdf, setSelectedPdf] = useState("");
+
+  // State for mobile carousel
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Detect mobile view
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Reset carousel index when filter changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [selectedFilter]);
 
   const filteredCourses =
     selectedFilter === "All Semester"
@@ -65,16 +84,15 @@ const CourseFilterBar = () => {
       : courses.filter((course) => course.semester === selectedFilter);
 
   const openModal = (pdfPath) => {
-    setSelectedPdf(pdfPath); // Pass the PDF URL to modal
+    setSelectedPdf(pdfPath);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedPdf(""); // Clear selected PDF
+    setSelectedPdf("");
   };
 
-  // New function to download the selected PDF
   const downloadPdf = () => {
     const link = document.createElement("a");
     link.href = selectedPdf;
@@ -82,6 +100,18 @@ const CourseFilterBar = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  // Handlers for carousel navigation
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? filteredCourses.length - 1 : prev - 1
+    );
+  };
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev === filteredCourses.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -117,52 +147,163 @@ const CourseFilterBar = () => {
         ))}
       </div>
 
-      {/* Course Cards */}
-      <div
-        className={`mt-12 mx-auto px-4 ${
-          selectedFilter === "All Semester"
-            ? "grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 max-w-7xl"
-            : "flex flex-wrap justify-center gap-6"
-        }`}
-      >
-        {filteredCourses.map((course, index) => (
-          <div
-            key={index}
-            className="w-full md:w-[300px] bg-white shadow-lg rounded-lg overflow-hidden"
-          >
-            <img
-              src={course.image}
-              alt={course.title}
-              className="w-full h-[200px] object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-bold text-[#116EB3]">
-                {course.title}
-              </h3>
-              {course.description && (
-                <p className="text-gray-600 mt-2 text-sm">{course.description}</p>
-              )}
-              <div className="mt-4">
-                {course.duration && (
-                  <span className="text-sm text-gray-500 block">
-                    Duration: {course.duration}
-                  </span>
+      {/* Course Cards / Carousel */}
+      <div className="mt-12 mx-auto px-4">
+        {selectedFilter === "All Semester" && isMobile ? (
+          <div className="relative w-full max-w-xs mx-auto">
+            {/* Single Card View */}
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <img
+                src={filteredCourses[currentIndex].image}
+                alt={filteredCourses[currentIndex].title}
+                className="w-full h-[200px] object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-[#116EB3]">
+                  {filteredCourses[currentIndex].title}
+                </h3>
+                {filteredCourses[currentIndex].description && (
+                  <p className="text-gray-600 mt-2 text-sm">
+                    {filteredCourses[currentIndex].description}
+                  </p>
                 )}
-                {course.level && (
-                  <span className="text-sm text-gray-500 block">
-                    Level: {course.level}
-                  </span>
-                )}
+                <div className="mt-4">
+                  {filteredCourses[currentIndex].duration && (
+                    <span className="text-sm text-gray-500 block">
+                      Duration: {filteredCourses[currentIndex].duration}
+                    </span>
+                  )}
+                  {filteredCourses[currentIndex].level && (
+                    <span className="text-sm text-gray-500 block">
+                      Level: {filteredCourses[currentIndex].level}
+                    </span>
+                  )}
+                </div>
+                <button
+                  onClick={() => openModal(filteredCourses[currentIndex].pdf)}
+                  className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors hover:cursor-pointer"
+                >
+                  View Syllabus
+                </button>
               </div>
-              <button
-                onClick={() => openModal(course.pdf)} // Pass the specific PDF URL
-                className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors hover:cursor-pointer"
-              >
-                View Syllabus
-              </button>
             </div>
+            {/* Navigation Arrows */}
+                  <button
+        onClick={handlePrev}
+        disabled={currentIndex <= 0}
+        className={`
+          absolute left-2 top-1/2 transform -translate-y-1/2
+          bg-lime-400 text-white p-2 rounded-full
+          transition-all duration-300
+          ${currentIndex <= 0
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:bg-lime-600 hover:cursor-pointer"}
+        `}
+      >
+        <ArrowBack />
+        </button>
+          <button
+          onClick={handleNext}
+          disabled={currentIndex >= filteredCourses.length - 1}
+          className={`
+            absolute right-2 top-1/2 transform -translate-y-1/2
+            bg-lime-400 text-white p-2 rounded-full
+            transition-all duration-300
+            ${currentIndex >= filteredCourses.length - 1
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-lime-600 hover:cursor-pointer"}
+          `}
+        >
+          <ArrowForward />
+        </button>
           </div>
-        ))}
+        ) : selectedFilter === "All Semester" ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 max-w-7xl mx-auto">
+            {filteredCourses.map((course, index) => (
+              <div
+                key={index}
+                className="w-full md:w-[300px] bg-white shadow-lg rounded-lg overflow-hidden"
+              >
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-[200px] object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-[#116EB3]">
+                    {course.title}
+                  </h3>
+                  {course.description && (
+                    <p className="text-gray-600 mt-2 text-sm">
+                      {course.description}
+                    </p>
+                  )}
+                  <div className="mt-4">
+                    {course.duration && (
+                      <span className="text-sm text-gray-500 block">
+                        Duration: {course.duration}
+                      </span>
+                    )}
+                    {course.level && (
+                      <span className="text-sm text-gray-500 block">
+                        Level: {course.level}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => openModal(course.pdf)}
+                    className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors hover:cursor-pointer"
+                  >
+                    View Syllabus
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-wrap justify-center gap-6">
+            {filteredCourses.map((course, index) => (
+              <div
+                key={index}
+                className="w-full md:w-[300px] bg-white shadow-lg rounded-lg overflow-hidden"
+              >
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-[200px] object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-[#116EB3]">
+                    {course.title}
+                  </h3>
+                  {course.description && (
+                    <p className="text-gray-600 mt-2 text-sm">
+                      {course.description}
+                    </p>
+                  )}
+                  <div className="mt-4">
+                    {course.duration && (
+                      <span className="text-sm text-gray-500 block">
+                        Duration: {course.duration}
+                      </span>
+                    )}
+                    {course.level && (
+                      <span className="text-sm text-gray-500 block">
+                        Level: {course.level}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => openModal(course.pdf)}
+                    className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors hover:cursor-pointer"
+                  >
+                    View Syllabus
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Modal */}
@@ -176,7 +317,6 @@ const CourseFilterBar = () => {
               X
             </button>
             <h3 className="text-2xl font-bold text-[#116EB3] mb-4">Syllabus</h3>
-            {/* PDF Viewer */}
             <div className="w-full h-[500px]">
               <iframe
                 src={selectedPdf}
@@ -185,7 +325,6 @@ const CourseFilterBar = () => {
                 title="Syllabus PDF"
               ></iframe>
             </div>
-            {/* Download Button */}
             <button
               onClick={downloadPdf}
               className="mt-4 w-1/2 mx-auto block bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition-colors hover:cursor-pointer"

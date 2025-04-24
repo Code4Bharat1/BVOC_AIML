@@ -7,23 +7,49 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white px-4 py-8 sm:px-10 sm:py-10 w-full overflow-hidden">
       {/* Navigation Links */}
-      <nav className="flex flex-wrap  justify-center items-center gap-4 sm:gap-6 text-center text-sm sm:text-base">
-        <a href="https://code4bharat.org" className="hover:text-blue-400 transition duration-200">
-          Code4Bharat
-        </a>
-        <a href="https://nexcorealliance.org" className="hover:text-blue-400 transition duration-200">
-          Nexcore Alliance
-        </a>
-        <a href="https://studentalliance.org" className="hover:text-blue-400 transition duration-200">
-          Student Alliance
-        </a>
-        <a href="https://marketingjunction.in" className="hover:text-blue-400 transition duration-200">
-          Marketing Junction
-        </a>
-        <a href="https://gurukashiuniversity.in" className="hover:text-blue-400 transition duration-200">
-          Guru Kashi University
-        </a>
-      </nav>
+      <nav className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-center text-sm sm:text-base">
+  <a 
+    href="https://code4bharat.com/" 
+    className="hover:text-blue-400 transition duration-200"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Code4Bharat
+  </a>
+  <a 
+    href="https://nexcorealliance.com/" 
+    className="hover:text-blue-400 transition duration-200"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Nexcore Alliance
+  </a>
+  <a 
+    href="https://studentalliance.in/" 
+    className="hover:text-blue-400 transition duration-200"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Student Alliance
+  </a>
+  <a 
+    href="https://marketiqjunction.com/" 
+    className="hover:text-blue-400 transition duration-200"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    MarketiqJunction
+  </a>
+  <a 
+    href="https://www.gku.ac.in/" 
+    className="hover:text-blue-400 transition duration-200"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Guru Kashi University
+  </a>
+</nav>
+
 
       {/* Social Media Icons */}
       <div className="flex justify-center items-center gap-6 mt-6">

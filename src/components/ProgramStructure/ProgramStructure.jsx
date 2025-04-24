@@ -6,19 +6,18 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 const ProgramStructure = () => {
   return (
-    <section className="bg-[#efefef] py-16 px-4 md:px-8 mb-8 mt-2 min-h-screen">
+    <section className="bg-[#efefef] py-24 px-6 md:px-12 mb-8 mt-2 min-h-screen">
       <div className="container mx-auto">
         {/* Section Title */}
-        <h2 className="text-xl md:text-4xl font-semibold text-black mb-4 ml-2 md:ml-20 font-publicSans text-left">
+        <h2 className="text-3xl md:text-6xl font-extrabold text-black mb-6 ml-2 md:ml-20 font-publicSans text-left">
           Program <span className="text-lime-400">Structure</span>
         </h2>
-        <p className="text-sm md:text-2xl text-[#6D737A] mb-6 md:mb-12 ml-2 md:ml-20 font-publicSans text-left">
+        <p className="text-sm md:text-2xl text-[#6D737A] mb-8 md:mb-16 ml-2 md:ml-20 font-publicSans text-left">
           A flexible curriculum with multiple exit points offering progressive qualifications.
         </p>
 
         {/* Grid Layout for Program Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          {/* NSQF Level 7 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <CourseCard
             imageUrl="/ProgramLogo.png"
             backgroundImage="/cert1.png"
@@ -27,7 +26,6 @@ const ProgramStructure = () => {
             customMargin="mt-4 md:mt-0 md:ml-36"
           />
 
-          {/* NSQF Level 6 */}
           <CourseCard
             imageUrl="/ProgramLogo.png"
             backgroundImage="/cert2.png"
@@ -36,7 +34,6 @@ const ProgramStructure = () => {
             customMargin="mt-4 md:mt-0 md:ml-4"
           />
 
-          {/* NSQF Level 5 */}
           <CourseCard
             imageUrl="/ProgramLogo.png"
             backgroundImage="/cert3.png"
@@ -45,7 +42,6 @@ const ProgramStructure = () => {
             customMargin="mt-8 md:mt-0 md:ml-56"
           />
 
-          {/* NSQF Level 4 */}
           <CourseCard
             imageUrl="/ProgramLogo.png"
             backgroundImage="/cert4.png"
@@ -59,27 +55,31 @@ const ProgramStructure = () => {
   );
 };
 
-// Split Layout CourseCard Component
-const CourseCard = ({ imageUrl, title, description, customMargin, backgroundImage }) => {
+const CourseCard = ({
+  imageUrl,
+  title,
+  description,
+  customMargin,
+  backgroundImage,
+}) => {
   return (
     <div
       className={`flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-xl w-full max-w-full md:max-w-[75%] transition-transform transform hover:scale-105 duration-300 ${customMargin}`}
     >
       {/* Image Section (1/3) */}
       <div
-        className="w-full md:w-1/3 h-40 md:h-auto relative"
+        className="w-full md:w-1/3 h-56 relative"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Optional overlay for effect */}
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Text Section (2/3) */}
-      <div className="w-full md:w-2/3 bg-white p-4 md:p-6 flex flex-col justify-center space-y-4">
+      <div className="w-full md:w-2/3 bg-white p-6 flex flex-col justify-center space-y-6">
         <div className="flex items-center">
           <Image
             src={imageUrl}
@@ -93,7 +93,9 @@ const CourseCard = ({ imageUrl, title, description, customMargin, backgroundImag
           </h3>
           <FormatQuoteIcon className="text-yellow-500 text-lg md:text-3xl ml-auto" />
         </div>
-        <p className="text-sm md:text-lg text-gray-700 font-publicSans">{description}</p>
+        <p className="text-sm md:text-lg text-gray-700 font-publicSans">
+          {description}
+        </p>
       </div>
     </div>
   );

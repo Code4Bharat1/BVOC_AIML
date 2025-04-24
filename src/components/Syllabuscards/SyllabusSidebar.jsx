@@ -13,7 +13,6 @@ const courses = [
   {
     title: "SEM II",
     description: "Fundamental knowledge of digital security for beginners.",
-   
     image: "pdf.png",
     semester: "Semester I & II",
     pdf: "/pdfs/sem2.pdf", // Path to SEM II PDF
@@ -22,14 +21,12 @@ const courses = [
     title: "SEM III",
     description:
       "A deep dive into protecting complex systems and architectures.",
-   
     image: "pdf.png",
     semester: "Semester III & IV",
     pdf: "/pdfs/sem3.pdf", // Path to SEM III PDF
   },
   {
     title: "SEM IV",
-    
     level: "Middle level",
     image: "pdf.png",
     semester: "Semester III & IV",
@@ -37,7 +34,6 @@ const courses = [
   },
   {
     title: "SEM V",
-    
     level: "Beginner level",
     image: "pdf.png",
     semester: "Semester V & VI",
@@ -45,7 +41,6 @@ const courses = [
   },
   {
     title: "SEM VI",
-    
     level: "Advanced level",
     image: "pdf.png",
     semester: "Semester V & VI",
@@ -79,6 +74,16 @@ const CourseFilterBar = () => {
     setSelectedPdf(""); // Clear selected PDF
   };
 
+  // New function to download the selected PDF
+  const downloadPdf = () => {
+    const link = document.createElement("a");
+    link.href = selectedPdf;
+    link.download = selectedPdf.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="w-full py-6">
       {/* Section Heading */}
@@ -92,7 +97,7 @@ const CourseFilterBar = () => {
           <button
             key={filter}
             aria-label={`Filter by ${filter}`}
-            className={`px-2 md:px-4 text-[3vw] md:text-[1.2vw] py-1 md:py-2 rounded-md font-medium ${
+            className={`px-2 md:px-4 text-[3vw] md:text-[1.2vw] py-1 md:py-2 rounded-md font-medium hover:cursor-pointer ${
               selectedFilter === filter
                 ? "bg-[#116EB3] text-white"
                 : "border-[#818C96] border-[1.5px] text-[#818C96]"
@@ -134,18 +139,24 @@ const CourseFilterBar = () => {
               <h3 className="text-lg font-bold text-[#116EB3]">
                 {course.title}
               </h3>
-              <p className="text-gray-600 mt-2 text-sm">{course.description}</p>
+              {course.description && (
+                <p className="text-gray-600 mt-2 text-sm">{course.description}</p>
+              )}
               <div className="mt-4">
-                <span className="text-sm text-gray-500 block">
-                  Duration: {course.duration}
-                </span>
-                <span className="text-sm text-gray-500 block">
-                  Level: {course.level}
-                </span>
+                {course.duration && (
+                  <span className="text-sm text-gray-500 block">
+                    Duration: {course.duration}
+                  </span>
+                )}
+                {course.level && (
+                  <span className="text-sm text-gray-500 block">
+                    Level: {course.level}
+                  </span>
+                )}
               </div>
               <button
                 onClick={() => openModal(course.pdf)} // Pass the specific PDF URL
-                className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="mt-4 w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition-colors hover:cursor-pointer"
               >
                 View Syllabus
               </button>
@@ -160,7 +171,7 @@ const CourseFilterBar = () => {
           <div className="bg-white p-8 w-3/4 md:w-2/3 lg:w-1/2 rounded-lg relative">
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-lg font-semibold text-black"
+              className="absolute top-2 right-2 text-lg font-semibold text-black hover:cursor-pointer"
             >
               X
             </button>
@@ -174,6 +185,13 @@ const CourseFilterBar = () => {
                 title="Syllabus PDF"
               ></iframe>
             </div>
+            {/* Download Button */}
+            <button
+              onClick={downloadPdf}
+              className="mt-4 w-1/2 mx-auto block bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition-colors hover:cursor-pointer"
+            >
+              Download PDF
+            </button>
           </div>
         </div>
       )}

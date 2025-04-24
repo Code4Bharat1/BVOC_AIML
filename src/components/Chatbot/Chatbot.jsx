@@ -66,7 +66,7 @@ export default function ChatbotWidget() {
               <div className="px-4 sm:px-6 pt-4 sm:pt-8 pb-2 sm:pb-4">
                 <div className="flex items-center mb-2 sm:mb-3">
                   <div className="bg-white p-2 sm:p-3 rounded-xl sm:rounded-2xl shadow-sm mr-3 sm:mr-4">
-                    <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
+                    <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400 " />
                   </div>
                   <div>
                     <h1 className="text-lg sm:text-xl font-semibold text-gray-800">NexBot Assistant</h1>
@@ -74,13 +74,13 @@ export default function ChatbotWidget() {
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="ml-auto bg-white p-1.5 sm:p-2 rounded-full transition-all duration-200 hover:bg-gray-100 shadow-sm"
+                    className="ml-auto bg-white p-1.5 sm:p-2 rounded-full transition-all duration-200 hover:bg-gray-100 shadow-sm hover:cursor-pointer"
                   >
                     <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
                   </button>
                 </div>
               </div>
-              
+
               {/* Messages */}
               <div className="flex-1 px-4 sm:px-6 py-2 sm:py-4 overflow-y-auto space-y-3 sm:space-y-4 custom-scrollbar">
                 <AnimatePresence initial={false}>
@@ -102,11 +102,10 @@ export default function ChatbotWidget() {
                           </div>
                         )}
                         <div
-                          className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl max-w-[85%] text-xs sm:text-sm leading-relaxed shadow-sm ${
-                            isUser
+                          className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl max-w-[85%] text-xs sm:text-sm leading-relaxed shadow-sm ${isUser
                               ? 'bg-blue-500 text-white'
                               : 'bg-white text-gray-700'
-                          }`}
+                            }`}
                         >
                           <ReactMarkdown>{msg.text}</ReactMarkdown>
                         </div>
@@ -154,7 +153,7 @@ export default function ChatbotWidget() {
                   />
                   <button
                     type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 text-white p-2 sm:p-3 rounded-lg sm:rounded-xl transition-colors duration-200 shadow-sm"
+                    className="bg-lime-500 hover:bg-lime-600 text-white p-2 sm:p-3 rounded-lg sm:rounded-xl transition-colors duration-200 shadow-sm hover:cursor-pointer"
                   >
                     <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
@@ -166,19 +165,21 @@ export default function ChatbotWidget() {
       </AnimatePresence>
 
       {/* Toggle Button */}
-      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
+      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 cursor-pointer">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
           className="bg-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 border border-gray-100"
+          style={{ cursor: 'pointer' }} // Inline style to ensure the cursor pointer is applied
         >
-          {isOpen ? 
-            <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> : 
-            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" />
+          {isOpen ?
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> :
+            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400 " />
           }
         </motion.button>
       </div>
+
 
       {/* Custom Styles */}
       <style jsx>{`

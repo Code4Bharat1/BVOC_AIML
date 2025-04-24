@@ -185,7 +185,7 @@ const StudentExperiance = () => {
             className={`bg-white shadow-lg p-2 rounded-full transition-all duration-300 ${
               currentPage === 0
                 ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-gray-300"
+                : "hover:bg-gray-300 hover:cursor-pointer"
             }`}
           >
             <ArrowBack />
@@ -226,7 +226,7 @@ const StudentExperiance = () => {
             className={`bg-lime-400 text-white p-2 rounded-full transition-all duration-300 ${
               currentPage >= totalPages - 1
                 ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-lime-100"
+                : "hover:bg-lime-600 hover:cursor-pointer"
             }`}
           >
             <ArrowForward />

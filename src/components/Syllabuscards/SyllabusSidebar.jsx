@@ -117,8 +117,8 @@ const CourseFilterBar = () => {
   return (
     <div className="w-full py-6">
       {/* Section Heading */}
-      <h2 className="text-center text-[6vw] md:text-[2.5vw] font-bold text-[#116EB3]">
-        About Our Syllabus
+      <h2 className="text-center text-[6vw] md:text-[2.5vw] font-bold">
+        About Our <span className="text-lime-400">Syllabus</span> 
       </h2>
 
       {/* Filter Bar */}
@@ -129,8 +129,8 @@ const CourseFilterBar = () => {
             aria-label={`Filter by ${filter}`}
             className={`px-2 md:px-4 text-[3vw] md:text-[1.2vw] py-1 md:py-2 rounded-md font-medium hover:cursor-pointer ${
               selectedFilter === filter
-                ? "bg-[#116EB3] text-white"
-                : "border-[#818C96] border-[1.5px] text-[#818C96]"
+                ? "bg-lime-400 text-white "
+                : "border-[#818C96] border-[1.5px] text-black"
             }`}
             onClick={() => {
               if (typeof window !== "undefined" && typeof gtag === "function") {
@@ -159,7 +159,7 @@ const CourseFilterBar = () => {
                 className="w-full h-[200px] object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-bold text-[#116EB3]">
+                <h3 className="text-lg font-bold text-lime-400">
                   {filteredCourses[currentIndex].title}
                 </h3>
                 {filteredCourses[currentIndex].description && (
@@ -230,7 +230,7 @@ const CourseFilterBar = () => {
                   className="w-full h-[200px] object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-bold text-[#116EB3]">
+                  <h3 className="text-lg font-bold text-lime-400">
                     {course.title}
                   </h3>
                   {course.description && (
@@ -273,7 +273,7 @@ const CourseFilterBar = () => {
                   className="w-full h-[200px] object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-bold text-[#116EB3]">
+                  <h3 className="text-lg font-bold text-lime-400">
                     {course.title}
                   </h3>
                   {course.description && (
@@ -316,7 +316,7 @@ const CourseFilterBar = () => {
             >
               X
             </button>
-            <h3 className="text-2xl font-bold text-[#116EB3] mb-4">Syllabus</h3>
+            <h3 className="text-2xl font-bold text-black mb-4">Syllabus</h3>
             <div className="w-full h-[500px]">
               <iframe
                 src={selectedPdf}
@@ -327,7 +327,7 @@ const CourseFilterBar = () => {
             </div>
             <button
               onClick={downloadPdf}
-              className="mt-4 w-1/2 mx-auto block bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition-colors hover:cursor-pointer"
+              className="mt-4 w-1/2 mx-auto block bg-red-500 text-white font-semibold py-2 rounded-md hover:bg-red-6  00 transition-colors hover:cursor-pointer"
             >
               Download PDF
             </button>

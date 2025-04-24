@@ -41,7 +41,7 @@ const StudentExperiance = () => {
   };
 
   return (
-    <div className="bg-[#efefef] min-h-screen w-full mx-auto py-12 px-4">
+    <div className="bg-[#efefef] h-auto w-full mx-auto py-12 px-4">
       {/* Section Title */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-6xl font-semibold text-gray-800">

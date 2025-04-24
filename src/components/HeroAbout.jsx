@@ -27,9 +27,9 @@ const HeroAboutSection = () => {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover bg-black opacity-50"
+              className="w-full h-full object-cover"
             >
-              <source src="/Hero_Bg_video.mp4" type="video/mp4" />
+              <source src="/AI_Brain_Bg.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -53,26 +53,33 @@ const HeroAboutSection = () => {
         </div>
       </div>
 
-      {/* About Section */}
-      <div className="w-full min-h-screen px-6 lg:px-20 flex items-center justify-center bg-black text-[#fafaf3]">
-        <div className="max-w-4xl text-center">
-          <h2 className="text-5xl sm:text-6xl font-bold mb-6 text-lime-400">
-            Our Story
-          </h2>
-          <p className="text-xl sm:text-2xl font-medium leading-relaxed tracking-wide">
-            We are proud to announce that{" "}
-            <span className="font-bold">Code4Bharat</span>, a registered brand
-            under <span className="font-bold">Nexcore Alliance LLP</span>, has
-            officially partnered with{" "}
-            <span className="font-bold">Guru Kashi University (GKU)</span> as an
-            Industry Partner to offer <span className="font-bold">B.Voc</span>{" "}
-            degree programs. This strategic collaboration merges academic
-            excellence with hands-on industry exposure, aimed at preparing
-            students for real-world careers in high-demand sectors like AI, ML,
-            and Web Dev.
-          </p>
-        </div>
-      </div>
+{/* About Section */}
+<div className="w-full min-h-screen px-6 md:px-4 py-12 bg-white text-black flex items-center justify-center">
+  <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-10">
+    
+    {/* Left: Text Content */}
+    <div className="flex-1 text-center lg:text-left">
+      <h2 className="text-5xl md:text-6xl font-bold mb-6 text-lime-400">
+        Who We Are?
+      </h2>
+      <p className="text-xl sm:text-2xl font-medium leading-relaxed tracking-wide">
+  <strong>Code4Bharat</strong> is a leading tech education brand under <strong>Nexcore Alliance LLP</strong>, dedicated to upskilling India’s youth in emerging technologies. With a vision to make India a global digital talent hub, Code4Bharat works on real-world IT projects, conducts training programs, and now delivers industry-integrated B.Voc courses in collaboration with reputed universities like GKU.
+</p>
+    </div>
+
+    {/* Right: Image */}
+    <div className="flex-1">
+      <img
+        src="/Hero_About_Bg.jpg"
+        alt="About Us"
+        className="w-full h-[420px] rounded-xl shadow-lg object-cover"
+      />
+    </div>
+
+  </div>
+</div>
+
+
     </div>
   );
 };

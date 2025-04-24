@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRobot, FaBrain, FaUserNurse, FaCodeBranch } from "react-icons/fa";
 import { MdEngineering, MdManageAccounts } from "react-icons/md";
 import gsap from "gsap";
@@ -27,8 +27,21 @@ const careers = [
 ];
 
 const CareerOpportunities = () => {
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    // Entrance animation for each career card without reverse on scroll up
+    // Detect screen size
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     gsap.utils.toArray(".career-card").forEach((card, i) => {
       const xStart = i % 2 === 0 ? -150 : 150;
 
@@ -45,22 +58,24 @@ const CareerOpportunities = () => {
             trigger: card,
             start: "top 85%",
             end: "top 65%",
-            toggleActions: "play none none none", // play on enter, no reverse
-            once: true, // ensures it only plays once
+            toggleActions: "play none none none",
+            once: true,
           },
         }
       );
     });
-  }, []);
+  }, [showAll]);
+
+  const displayedCareers = isMobile && !showAll ? careers.slice(0, 6) : careers;
 
   return (
     <section className="py-16 px-4 md:px-16 bg-[#F8FAFC]">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-12 font-winky">
-        Career Opportunities
+      Your Path to Guaranteed Success
       </h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-        {careers.map((item, index) => (
+        {displayedCareers.map((item, index) => (
           <div
             key={index}
             className="career-card aspect-square rounded-2xl overflow-hidden shadow-2xl group relative transition-transform hover:scale-105"
@@ -70,10 +85,7 @@ const CareerOpportunities = () => {
               backgroundPosition: "center",
             }}
           >
-            {/* Overlay */}
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-500" />
-
-            {/* Icon + Text */}
             <div className="absolute inset-0 z-10 flex items-center justify-center">
               <div className="flex flex-col items-center text-white font-semibold text-center px-4">
                 <span className="mb-2">{item.icon}</span>
@@ -83,6 +95,18 @@ const CareerOpportunities = () => {
           </div>
         ))}
       </div>
+
+      {/* View More / Less Button */}
+      {isMobile && (
+        <div className="mt-8 text-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            {showAll ? "View Less" : "View More"}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

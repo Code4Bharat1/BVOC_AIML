@@ -1,4 +1,6 @@
+"use client";
 import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
@@ -16,44 +18,85 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed h-20 top-0 left-0 right-0 z-50 bg-black"
+      className="bg-black fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden"
     >
-      <div className="relative flex h-16 items-center justify-center">
-        {/* Logo - stuck to the left corner */}
-        <div className="absolute left-0 pl-4 sm:pl-6 lg:pl-8">
-          <img
-            alt="Your Company"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-            className="h-8 w-auto"
-          />
-        </div>
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 items-center justify-between">
+              {/* Logo */}
+              <div className="flex items-center">
+                <img
+                  className="h-8 w-auto"
+                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                  alt="Logo"
+                />
+              </div>
 
-        {/* Centered navigation */}
-        <div className="flex space-x-4">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              aria-current={item.current ? "page" : undefined}
-              className={classNames(
-                item.current
-                  ? "bg-gray-500 text-white"
-                  : "text-white hover:bg-gray-500 hover:text-white",
-                "rounded-md px-3 py-2 text-md font-medium"
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
+              {/* Desktop Nav */}
+              <div className="hidden md:flex space-x-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      item.current
+                        ? "bg-gray-700 text-white"
+                        : "text-white hover:bg-gray-600 hover:text-white",
+                      "rounded-md px-3 py-2 text-sm font-medium"
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
 
-        {/* Button - stuck to the right corner */}
-        <div className="absolute right-0 pr-4 sm:pr-6 lg:pr-8">
-          <Button className="bg-[#fafaf3] text-black hover:bg-slate-200">
-            Get In Touch
-          </Button>
-        </div>
-      </div>
+              {/* Button */}
+              <div className="hidden md:block">
+                <Button className="bg-white text-black hover:bg-gray-200">
+                  Get In Touch
+                </Button>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 focus:outline-none">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Menu Panel */}
+          <Disclosure.Panel className="md:hidden bg-black">
+            <div className="space-y-1 px-4 pt-2 pb-3">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={classNames(
+                    item.current
+                      ? "bg-gray-700 text-white"
+                      : "text-white hover:bg-gray-600 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
+                  )}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <Button className="w-full mt-2 bg-white text-black hover:bg-gray-200">
+                Get In Touch
+              </Button>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
     </Disclosure>
   );
 }

@@ -86,7 +86,7 @@ const CourseCard = ({
     >
       {/* Image Section (1/3) */}
       <div
-        className="w-full md:w-1/3 h-56 relative"
+        className="w-full md:w-1/3 h-44 relative"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",

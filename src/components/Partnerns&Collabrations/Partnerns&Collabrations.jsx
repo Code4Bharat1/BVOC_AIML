@@ -57,7 +57,7 @@ const Brands = () => {
         <div className="relative overflow-hidden">
           <motion.div
             className="flex gap-8"
-            animate={{ x: ["0%", "-100%"] }}
+            animate={{ x: ["-100%", "0%"] }}
             transition={{
               repeat: Infinity,
               duration: 20,

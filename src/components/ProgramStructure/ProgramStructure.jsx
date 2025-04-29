@@ -50,6 +50,24 @@ const ProgramStructure = () => {
             customMargin="mt-8 md:mt-0 md:ml-24"
           />
         </div>
+        {/* Certifications and Industry Tie-ups */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-semibold text-black mb-4">Industry-Endorsed Certifications</h3>
+          {/* Add badges or certifications per program */}
+        </div>
+
+        {/* Hands-On Learning and Live Projects */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-semibold text-black mb-4">Hands-On Learning and Live Projects</h3>
+          {/* Add explanation of live projects */}
+        </div>
+
+        {/* Placement Success Rate and Industry Tie-ups */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-semibold text-black mb-4">Placement Success Rate</h3>
+          {/* Add success metrics, companies, and logos */}
+        </div>
+
       </div>
     </section>
   );

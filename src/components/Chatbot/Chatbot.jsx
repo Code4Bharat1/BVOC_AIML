@@ -14,7 +14,7 @@ export default function ChatbotWidget() {
 
   const fetchBotResponse = async (userMessage) => {
     try {
-      const response = await fetch('http://193.203.260.238:5869/chat', {
+      const response = await fetch('http://193.203.160.238:5869/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),

@@ -14,7 +14,7 @@ export default function ChatbotWidget() {
 
   const fetchBotResponse = async (userMessage) => {
     try {
-      const response = await fetch('https://bvoc-chatbot.code4bharat.com', {
+      const response = await fetch('https://bvoc-chatbot.code4bharat.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),

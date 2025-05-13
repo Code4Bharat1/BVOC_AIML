@@ -5,6 +5,7 @@ import DegreeComparisonTable from '@/components/WhyChooseUs/Tablesection'
 import WhyChooseBVoc from '@/components/WhyChooseUs/WhyChooseBvoc'
 import PeerToPeerLearning from '@/components/WhyChooseUs/PeerToPeerLearning'
 import CenteredBoxWithCards from '@/components/WhyChooseUs/TopBenefits'
+import Footer from '@/components/layout/Footer'
  const page = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ import CenteredBoxWithCards from '@/components/WhyChooseUs/TopBenefits'
     <WhyChooseBVoc/>
     <PeerToPeerLearning/>
     <CenteredBoxWithCards/>
+    <Footer/>
     </main>
     </div>
   )

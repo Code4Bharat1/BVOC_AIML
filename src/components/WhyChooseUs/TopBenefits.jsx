@@ -161,7 +161,7 @@ const MobileFlowChart = () => {
         {/* 1st Bubble - Left */}
         <div className="flex justify-start">
           <img
-            src="/why-it-works.png"
+            src="/why-it-works.jpeg"
             alt="Why It Works for You"
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
@@ -170,16 +170,16 @@ const MobileFlowChart = () => {
         {/* Centered Arrow */}
         <div className="flex justify-center">
           <img
-            src="/purple-arrow-down.png"
+            src="/purple-arrow-down.svg"
             alt="Arrow to next"
-            className="w-14 h-14 object-contain"
+            className="w-14 h-17 object-contain"
           />
         </div>
 
         {/* 2nd Bubble - Right */}
         <div className="flex justify-end">
           <img
-            src="/real-world-experience.png"
+            src="/real-world-experience.jpeg"
             alt="Real-World Experience"
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
@@ -188,16 +188,16 @@ const MobileFlowChart = () => {
         {/* Centered Arrow */}
         <div className="flex justify-center">
           <img
-            src="/purple-arrow-down2.png"
+            src="/purple-arrow-down2.svg"
             alt="Arrow to next"
-            className="w-14 h-14 object-contain"
+            className="w-14 h-17 object-contain"
           />
         </div>
 
         {/* 3rd Bubble - Left */}
         <div className="flex justify-start">
           <img
-            src="/flexible-learning.png"
+            src="/flexible-learning.jpeg"
             alt="Flexible Learning Path"
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
@@ -208,14 +208,14 @@ const MobileFlowChart = () => {
           <img
             src="/purple-arrow-down3.png"
             alt="Arrow to next"
-            className="w-14 h-14 object-contain"
+            className="w-17 h-17 object-contain"
           />
         </div>
 
         {/* 4th Bubble - Right */}
         <div className="flex justify-end">
           <img
-            src="/global-opportunities.png"
+            src="/global-opportunities.jpeg"
             alt="Global Opportunities"
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />

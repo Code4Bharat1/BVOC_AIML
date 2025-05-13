@@ -13,6 +13,7 @@ import KickStart from '@/components/Hub/KickStart';
 import NextLevelRole from '@/components/Hub/NextLevelRole';
 import ShapeTheFuture from '@/components/Hub/ShapeTheFuture';
 import HubHero from '@/components/Hub/HubHero';
+import ChatbotWidget from '@/components/Chatbot/chatbot';
 
 const Page = () => {
   return (
@@ -31,6 +32,7 @@ const Page = () => {
         <KickStart/>
         <NextLevelRole/>
         <ShapeTheFuture/>
+        <ChatbotWidget/>
       </main>
       <Footer />
     </div>

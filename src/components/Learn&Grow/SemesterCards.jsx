@@ -76,20 +76,19 @@ const SemesterCards = () => {
 
       {/* Mobile Layout */}
       <div className="lg:hidden min-h-screen bg-[#B379FF] py-12 mt-36 px-4 m-8 rounded-4xl text-center">
-       {/* Nexcore Logo */}
-<div className="relative w-full mb-10 ">
-  <div className="absolute -top-44 left-12">
-    <Image
-      src="/elements/Nexcore_Alliance.svg"
-      alt="Nexcore Alliance"
-      width={170}
-      height={170}
-      className="object-contain rounded-full"
-      priority
-    />
-  </div>
-</div>
-
+        {/* Nexcore Logo */}
+        <div className="relative w-full mb-10 ">
+          <div className="">
+            <Image
+              src="/elements/Nexcore_Alliance.svg"
+              alt="Nexcore Alliance"
+              width={170}
+              height={170}
+              className="object-contain rounded-full absolute -top-44 left-[20%]"
+              priority
+            />
+          </div>
+        </div>
 
         {/* Mobile Cards */}
         <div className="flex flex-col gap-6 max-w-md mx-auto">

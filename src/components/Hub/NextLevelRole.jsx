@@ -28,7 +28,7 @@ const NextLevelRole = () => {
             alt="Top SVG"
             width={100}
             height={100}
-            className="absolute top-12 right-14 lg:top-9 lg:right-2/6 w-6 h-16 lg:w-10 lg:h-24 z-0"
+            className="absolute top-12 right-10 lg:top-9 lg:right-2/6 w-6 h-16 lg:w-10 lg:h-24 z-0"
           />
           <Image
             src="/elements/PlanetElement_Home.svg"
@@ -65,7 +65,7 @@ const NextLevelRole = () => {
               key={index}
               className="bg-[#EADAFF] rounded-3xl px-4 py-6 flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center relative z-10"
             >
-              <p className="text-[#06071B] font-extrabold  break-words leading-snug whitespace-pre-line">
+              <p className="text-[#06071B] font-extrabold break-words leading-snug whitespace-pre-line">
                 {role}
               </p>
             </div>
@@ -77,14 +77,37 @@ const NextLevelRole = () => {
           GO BIG WITH IMPACT
         </h3>
 
-        {/* Bottom Row Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 px-4 lg:px-20 relative z-10">
+        {/* Bottom Row Cards - Mobile View */}
+        <div className="grid grid-cols-2 gap-6 px-4 lg:hidden relative z-10">
+          {bottomRoles.slice(0, 4).map((role, index) => (
+            <div
+              key={index}
+              className="bg-[#EADAFF] rounded-3xl px-4 py-6 flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center"
+            >
+              <p className="text-[#06071B] font-extrabold break-words leading-snug whitespace-pre-line">
+                {role}
+              </p>
+            </div>
+          ))}
+        </div>
+        {bottomRoles.length === 5 && (
+          <div className="flex justify-center mt-6 px-4 lg:hidden relative z-10">
+            <div className="bg-[#EADAFF] rounded-3xl px-4 py-6 flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center w-full max-w-[200px]">
+              <p className="text-[#06071B] font-extrabold break-words leading-snug whitespace-pre-line">
+                {bottomRoles[4]}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Bottom Row Cards - Desktop View */}
+        <div className="hidden lg:grid grid-cols-5 gap-6 px-20 relative z-10">
           {bottomRoles.map((role, index) => (
             <div
               key={index}
-              className="bg-[#EADAFF] rounded-3xl px-4 py-6 flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center relative z-10"
+              className="bg-[#EADAFF] rounded-3xl px-4 py-6 flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center"
             >
-              <p className="text-[#06071B] font-extrabold  break-words leading-snug whitespace-pre-line">
+              <p className="text-[#06071B] font-extrabold break-words leading-snug whitespace-pre-line">
                 {role}
               </p>
             </div>

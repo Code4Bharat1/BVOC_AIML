@@ -12,7 +12,7 @@ const AdmissionCard = () => {
           alt="Ellipse"
           width={80}
           height={80}
-          className="absolute top-48 lg:bottom-30 w-14 lg:w-30 left-0"
+          className="absolute top-48 lg:bottom-30 w-10 lg:w-30 left-0"
         />
 
         <Image

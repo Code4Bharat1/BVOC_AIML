@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const CareerOpportunities = () => {
   return (
-    <section className="z-10 bg-cover lg:h-[600px] bg-center py-16 bg-[url('/CareerOpp-bg_Home-mob.svg')] lg:bg-[url('/CareerOpp-bg_Home.svg')] ">
+    <section className="z-10 bg-cover bg-center m-2 py-10 w-auto lg:h-[600px] bg-[url('/CareerOpp-bg_Home-mob.svg')] lg:bg-[url('/CareerOpp-bg_Home.svg')]">
       <div className="container mx-auto p-8 text-start">
         {/* Heading and Subheading */}
         <div className="mb-7 lg:mb-12 lg:pl-20">
@@ -29,7 +29,7 @@ const CareerOpportunities = () => {
         </div>
 
         {/* Mobile Career Grid */}
-        <div className="lg:hidden grid grid-cols-2 gap-6 text-center">
+        <div className="lg:hidden grid grid-cols-2 gap-8 text-center">
           {/* Career Item 1 */}
           <div className="group flex flex-col justify-center items-center w-full max-w-[140px] mx-auto">
             <div className="w-24 h-24 flex justify-center items-center">

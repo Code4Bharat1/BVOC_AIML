@@ -16,7 +16,7 @@ import HubHero from '@/components/Hub/HubHero';
 
 const Page = () => {
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow py-16"> {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}

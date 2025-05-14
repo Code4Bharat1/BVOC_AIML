@@ -5,9 +5,9 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#2C2E33] text-white mt-auto">
-      <div className="mx-auto w-full px-14 py-10">
-        <hr className="my-8 border-white" />
+    <footer className="bg-[#2C2E33] text-white">
+      <div className="mx-auto w-full lg:px-14 px-7">
+        <hr className="my-2 border-white" />
 
         {/* Main layout: description left, links right */}
         <div className="flex flex-col md:flex-row justify-between gap-x-20">
@@ -74,27 +74,27 @@ const Footer = () => {
                 <li className="flex items-start gap-2">
                   <MapPin className="w-5 h-5 mt-0.5" />
                   <a
-                    href="https://www.google.com/maps?q=Off+BKC+Mumbai,+India,+400070"
+                    href="https://www.google.com/maps/place/Student+Alliance+LLP/@19.0726487,72.8778329,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c892197ad4a7:0x6f69acffd67753e2!8m2!3d19.0726487!4d72.8804078!16s%2Fg%2F11cs4jnk_w?entry=ttu&g_ep=EgoyMDI1MDUxMS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline"
                   >
-                    Off BKC Mumbai, India, 400070
+                      Kurla West, Mumbai, Maharashtra 400070
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
                   <Phone className="w-5 h-5 mt-0.5" />
                   <a href="tel:+918235678901" className="hover:underline">
-                    +91 823 567 8901
+                    +91 8992398976
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
                   <Mail className="w-5 h-5 mt-0.5" />
                   <a
-                    href="mailto:contact@yourbrand.ai"
+                    href="mailto:bvoc@nexcorealliance.com"
                     className="hover:underline"
                   >
-                    contact@yourbrand.ai
+                    bvoc@nexcorealliance.com
                   </a>
                 </li>
               </ul>

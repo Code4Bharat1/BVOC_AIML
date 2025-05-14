@@ -24,7 +24,7 @@ const Page = () => {
         <SemesterCards />
         <YourCareerStarts/>
         <Testimonials2 />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <OurSyllabus/>
         <AllSemesters />
 

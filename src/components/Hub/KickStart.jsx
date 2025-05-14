@@ -44,7 +44,7 @@ const KickStart = () => {
           {cardData.map((card) => (
             <div
               key={card.id}
-              className="w-[320px] lg:w-[350px] h-[400px] lg:h-[440px] bg-[#2B2038] rounded-2xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6"
+              className="w-[290px] lg:w-[350px] h-[400px] lg:h-[440px] bg-[#2B2038] rounded-2xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6"
             >
               <div className="relative w-full h-[300px] rounded-2xl overflow-hidden">
                 <Image

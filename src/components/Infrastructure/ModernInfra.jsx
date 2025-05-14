@@ -39,7 +39,7 @@ const ModernInfra = () => {
           <p className="text-white text-3xl text-center my-10">Modern <span className="text-[#AC6CFF]"> Infrastructure: </span><br /> Experience Our Campus</p>
         <div className="flex items-center justify-center mb-4">
           <Image
-            src="/modernInfrastructure.svg"
+            src="/infrastructure/modernInfrastructure.svg"
             alt="Modern Infrastructure Mobile"
             width={500}
             height={650}

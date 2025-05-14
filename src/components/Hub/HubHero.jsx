@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HubHero = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col lg:min-h-screen">
       {/* Hero Section with Background */}
       <div
         className="hidden relative w-full h-screen bg-cover bg-center bg-no-repeat lg:flex flex-col items-center justify-center text-white px-4"

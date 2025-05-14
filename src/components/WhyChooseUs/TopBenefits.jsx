@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useInView } from "framer-motion";
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const CenteredBoxWithCards = () => {
   const cards = [
@@ -286,63 +287,77 @@ const CenteredBoxWithCards = () => {
   );
 };
 
-// 👇 MobileFlowChart component
 const MobileFlowChart = () => {
   return (
-    <div className="flex flex-col items-center px-4 text-white space-y-4">
-      <div className="w-full max-w-xs relative space-y-4">
-        <div className="flex justify-start">
-          <img
-            src="/x3.svg"
-            alt="Why It Works for You"
-            className="w-36 h-36 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
-          />
-        </div>
-        <div className="flex justify-center">
-          <img
-            src="/purple-arrow-down.svg"
-            alt="Arrow"
-            className="w-14 h-17 object-contain"
-          />
-        </div>
-        <div className="flex justify-end">
-          <img
-            src="/x1.svg"
-            alt="Real-World Experience"
-            className="w-36 h-36 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
-          />
-        </div>
-        <div className="flex justify-center">
-          <img
-            src="/purple-arrow-down2.svg"
-            alt="Arrow"
-            className="w-14 h-17 object-contain"
-          />
-        </div>
-        <div className="flex justify-start">
-          <img
-            src="/x2.svg"
-            alt="Flexible Learning Path"
-            className="w-36 h-36 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
-          />
-        </div>
-        <div className="flex justify-center">
-          <img
-            src="/purple-arrow-down3.svg"
-            alt="Arrow"
-            className="w-17 h-17 object-contain"
-          />
-        </div>
-        <div className="flex justify-end">
-          <img
-            src="/x4.svg"
-            alt="Global Opportunities"
-            className="w-36 h-36 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
-          />
-        </div>
+    <div className="flex flex-col items-center px-4 py-0 text-white">
+      <div className="w-full max-w-xs relative h-[700px]">
+        {/* Step 1: Left */}
+        <Image
+          src="/x3.svg"
+          alt="Why It Works for You"
+          width={144}
+          height={144}
+          className="absolute top-0 left-4"
+        />
+
+        {/* Arrow 1 */}
+        <Image
+          src="/purple-arrow-down.svg"
+          alt="Arrow 1"
+          width={68}
+          height={68}
+          className="absolute top-[90px] right-18"
+        />
+
+        {/* Step 2: Right */}
+        <Image
+          src="/x1.svg"
+          alt="Real-World Experience"
+          width={144}
+          height={144}
+          className="absolute top-[160px] right-4"
+        />
+
+        {/* Arrow 2 */}
+        <Image
+          src="/purple-arrow-down2.svg"
+          alt="Arrow 2"
+          width={68}
+          height={68}
+          className="absolute top-[300px] right-30"
+        />
+
+        {/* Step 3: Left */}
+        <Image
+          src="/x2.svg"
+          alt="Flexible Learning Path"
+          width={144}
+          height={144}
+          className="absolute top-[350] left-4"
+        />
+
+        {/* Arrow 3 */}
+        <Image
+          src="/purple-arrow-down3.svg"
+          alt="Arrow 3"
+          width={68}
+          height={68}
+          className="absolute top-[450px] left-40"
+        />
+
+        {/* Step 4: Right */}
+        <Image
+          src="/x4.svg"
+          alt="Global Opportunities"
+          width={144}
+          height={144}
+          className="absolute top-[530px] right-4"
+        />
       </div>
     </div>
   );
 };
 
-export default CenteredBoxWithCards;
+export default MobileFlowChart;
+
+

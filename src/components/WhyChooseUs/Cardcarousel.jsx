@@ -20,7 +20,6 @@ const cards = [
       </>
     ),
     image: "/chat-ai.png",
-    highlight: "Chat AI",
   },
   {
     title: "Real-Time Content Recommendations",
@@ -132,7 +131,7 @@ export default function AIToolsManagement() {
   };
 
   return (
-    <div className="bg-[#0f0f1a] min-h-screen py-16 px-4">
+    <div className="bg-[#232529] min-h-screen py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 relative">
@@ -159,7 +158,7 @@ export default function AIToolsManagement() {
                 {/* Card Content */}
                 <div
                   className="bg-[#1a1a2e] relative z-10 h-[480px] overflow-hidden border-2 border-white
-                  [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] transition-all duration-300 "
+                  [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] transition-all duration-300"
                 >
                   {/* Image Section */}
                   <div className="h-[45%] overflow-hidden">
@@ -187,20 +186,20 @@ export default function AIToolsManagement() {
                 </div>
 
                 {/* Improved Purple Slanted Bottom Border */}
-                <div className="absolute bottom-0 left-0 w-full h-9.5 bg-transparent">
+                <div className="absolute bottom-0 left-0 w-full h-10 bg-transparent">
                   <svg
                     className="w-full h-full"
                     preserveAspectRatio="none"
                     viewBox="0 0 100 50"
                   >
                     <polygon
-                      points="0,0 100,0 100,50 0,3.5" // Modified points for asymmetric slant
+                      points="0,0 100,0 100,50 0,10" // Increased Y value at left-bottom for deeper right slant
                       className="fill-white"
                     />
                   </svg>
                 </div>
 
-                {/* Improved Card Shadow with Adjusted Slant */}
+                {/* Shadow */}
                 <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
                   <svg
                     className="w-full h-full"
@@ -208,7 +207,7 @@ export default function AIToolsManagement() {
                     viewBox="0 0 100 50"
                   >
                     <polygon
-                      points="0,0 100,0 100,50 0,3" // Matches border shape
+                      points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
                       className="fill-white"
                     />
                   </svg>
@@ -219,7 +218,7 @@ export default function AIToolsManagement() {
         </div>
 
         {/* Enhanced Mobile Carousel */}
-        <div className="md:hidden ">
+        <div className="md:hidden">
           <div
             className="relative"
             onTouchStart={handleTouchStart}
@@ -227,8 +226,8 @@ export default function AIToolsManagement() {
           >
             {/* Card Content */}
             <div
-              className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-white border-4 rounded-t-lg
-                            [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] "
+              className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-2 border-white rounded-t-lg
+                            [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)]"
             >
               {/* Image Section */}
               <div className="h-[45%] overflow-hidden">
@@ -265,22 +264,19 @@ export default function AIToolsManagement() {
                 </div>
               </div>
             </div>
-
-            {/* Improved Purple Slanted Bottom Border */}
-            <div className="absolute bottom-28 left-0 w-full h-10 bg-transparent">
+            <div className="absolute bottom-26 left-0 w-full h-10 bg-transparent rotate-[2deg]">
               <svg
                 className="w-full h-full"
                 preserveAspectRatio="none"
-                viewBox="0 0 100 50"
+                viewBox="0 0 100 100"
               >
                 <polygon
-                  points="0,0 100,0 100,50 0,3.5" // Modified points for asymmetric slant
-                  className="fill-white "
+                  points="0,0 100,0 100,100 0,5"
+                  className="fill-white"
                 />
               </svg>
             </div>
-
-            {/* Improved Card Shadow with Adjusted Slant */}
+            {/* Shadow */}
             <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
               <svg
                 className="w-full h-full"
@@ -288,7 +284,7 @@ export default function AIToolsManagement() {
                 viewBox="0 0 100 50"
               >
                 <polygon
-                  points="0,0 100,0 100,50 0,3" // Matches border shape
+                  points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
                   className="fill-white"
                 />
               </svg>

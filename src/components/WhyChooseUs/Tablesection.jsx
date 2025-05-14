@@ -43,9 +43,9 @@ const DegreeComparisonTable = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-center">
       <h2 className="text-3xl font-semibold text-white mb-4 leading-snug">
-        <span className="text-purple-300">B.Voc</span> vs{" "}
-        <span className="text-purple-300">B.Tech</span> vs{" "}
-        <span className="text-purple-300">B.Sc</span>:{" "}
+        <span className="text-[#AC6CFF]">B.Voc</span> vs{" "}
+        <span className="text-[#AC6CFF]">B.Tech</span> vs{" "}
+        <span className="text-[#AC6CFF]">B.Sc</span>:{" "}
         <span className="text-white">The Clear Choice for Your Future</span>
       </h2>
 
@@ -54,25 +54,25 @@ const DegreeComparisonTable = () => {
           Choosing the right course is one of the most important decisions you'll make. Let's break it down:
         </span>
         <br />
-        while traditional degrees like <span className="text-purple-300 font-semibold">B.Tech</span> and{" "}
-        <span className="text-purple-300 font-semibold">B.Sc</span> offer a solid foundation,{" "}
-        <span className="text-purple-300 font-semibold">B.Voc</span> is the{" "}
-        <span className="text-purple-300 font-semibold">fast track to industry-ready skills</span>. Here's why{" "}
-        <span className="text-purple-300 font-semibold">B.Voc</span> stands out:
+        while traditional degrees like <span className="text-[#AC6CFF] font-semibold">B.Tech</span> and{" "}
+        <span className="text-[#AC6CFF] font-semibold">B.Sc</span> offer a solid foundation,{" "}
+        <span className="text-[#AC6CFF] font-semibold">B.Voc</span> is the{" "}
+        <span className="text-[#AC6CFF] font-semibold">fast track to industry-ready skills</span>. Here's why{" "}
+        <span className="text-[#AC6CFF] font-semibold">B.Voc</span> stands out:
       </p>
 
       <div className="overflow-x-auto mt-6">
         <table className="w-full border-collapse rounded-lg overflow-hidden" style={{ borderRadius: "8px" }}>
           <thead>
             <tr>
-              <th className="bg-purple-400 text-purple-900 p-3 font-bold text-center border border-white">Feature</th>
-              <th className="bg-purple-400 text-purple-900 p-3 font-bold text-center border border-white">
+              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">Feature</th>
+              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
                 B.Voc (Bachelor of Vocation)
               </th>
-              <th className="bg-purple-400 text-purple-900 p-3 font-bold text-center border border-white">
+              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
                 B.Tech (Bachelor of Technology)
               </th>
-              <th className="bg-purple-400 text-purple-900 p-3 font-bold text-center border border-white">
+              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
                 B.Sc (Bachelor of Science)
               </th>
             </tr>
@@ -80,16 +80,16 @@ const DegreeComparisonTable = () => {
           <tbody>
             {tableData.map((row, index) => (
               <tr key={index}>
-                <td className="bg-purple-400 text-purple-900 p-3 font-semibold text-center border border-white">
+                <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">
                   {row.feature}
                 </td>
-                <td className="bg-purple-900 text-white p-3 font-medium text-center border border-white">
+                <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">
                   {row.bvoc}
                 </td>
-                <td className="bg-purple text-white p-3 font-medium text-center border border-white">
+                <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
                   {row.btech}
                 </td>
-                <td className="bg-purple text-white p-3 font-medium text-center border border-white">
+                <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
                   {row.bsc}
                 </td>
               </tr>

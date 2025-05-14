@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const CenteredBoxWithCards = () => {
   const cards = [
@@ -43,20 +44,39 @@ const CenteredBoxWithCards = () => {
   ];
 
   const [openIndex, setOpenIndex] = useState(null);
-
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const mobileCardColors = [
+    "bg-[#E4CFFF]",
+    "bg-[#D6B6FF]",
+    "bg-[#C89DFF]",
+    "bg-[#B87AFF]",
+    "bg-[#A45EFF]",
+    "bg-[#933FFF]",
+  ];
+
+  const mobileTextColors = [
+    "text-black",
+    "text-black",
+    "text-black",
+    "text-white",
+    "text-white",
+    "text-white",
+  ];
 
   return (
     <div className="flex flex-col items-center justify-center py-16 px-8 min-h-screen space-y-16">
       {/* Top Section */}
       <div className="w-full text-center">
-        <div className="bg-purple-500 w-full max-w-3xl mx-auto py-8 px-10 rounded-lg shadow-lg">
-          <h1 className="text-black text-4xl font-extrabold">Top Benefits</h1>
-          <p className="text-white text-xl font-medium mt-2">
-            The Fast-Track to Your Career
-          </p>
+        <div className="bg-purple-500 w-full max-w-3xl mx-auto py-4 px-6 rounded-lg shadow-lg border-2 border-black">
+          <h1 className="text-black text-sm md:text-lg whitespace-nowrap overflow-hidden text-ellipsis">
+            Top Benefits:{" "}
+            <span className="text-white text-sm md:text-lg">
+              The Fast-Track to Your Career
+            </span>
+          </h1>
         </div>
       </div>
 
@@ -74,7 +94,6 @@ const CenteredBoxWithCards = () => {
               borderBottomRightRadius: "20px",
             }}
           >
-            {/* Image wrapper */}
             <div className="w-full h-48 overflow-hidden rounded-xl mb-6">
               <img
                 src={card.image}
@@ -82,7 +101,6 @@ const CenteredBoxWithCards = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Card Content */}
             <h3 className="text-lg font-semibold mb-2">{card.heading}</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               {card.description}
@@ -93,44 +111,52 @@ const CenteredBoxWithCards = () => {
 
       {/* Mobile Accordion Section */}
       <div className="flex flex-col gap-4 w-full max-w-md md:hidden">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="overflow-hidden border border-purple-300 rounded-lg shadow-md"
-          >
-            <button
-              onClick={() => toggleAccordion(index)}
-              className="flex justify-between items-center w-full px-6 py-4 font-semibold text-black text-left bg-gradient-to-r from-purple-300 to-purple-500"
+        {cards.map((card, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div
+              key={index}
+              className={`overflow-hidden border border-purple-300 shadow-md transition-all duration-300 ${
+                openIndex === index ? "rounded-lg" : "rounded-full"
+              } ${mobileCardColors[index % mobileCardColors.length]}`}
             >
-              {card.heading}
-              <span className="text-2xl">
-                {openIndex === index ? "▲" : "▼"}
-              </span>
-            </button>
-
-            <AnimatePresence initial={false}>
-              {openIndex === index && (
-                <motion.div
-                  key="content"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white px-6 py-4 overflow-hidden"
-                >
-                  <img
-                    src={card.image}
-                    alt={card.heading}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {card.description}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
+              <button
+                onClick={() => toggleAccordion(index)}
+                className={`flex justify-between items-center w-full px-6 py-4 font-semibold ${
+                  mobileTextColors[index % mobileTextColors.length]
+                } text-left`}
+              >
+                {card.heading}
+                <ChevronDown
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </button>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white px-6 py-4 overflow-hidden"
+                  >
+                    <img
+                      src={card.image}
+                      alt={card.heading}
+                      className="w-full h-40 object-cover rounded-lg mb-4"
+                    />
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {card.description}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
       </div>
 
       {/* Bottom Section - Desktop Image and Mobile Flow Chart */}
@@ -153,12 +179,10 @@ const CenteredBoxWithCards = () => {
   );
 };
 
-// Mobile Flow Chart Component
 const MobileFlowChart = () => {
   return (
     <div className="flex flex-col items-center px-4 text-white space-y-4">
       <div className="w-full max-w-xs relative space-y-4">
-        {/* 1st Bubble - Left */}
         <div className="flex justify-start">
           <img
             src="/why-it-works.jpeg"
@@ -166,8 +190,6 @@ const MobileFlowChart = () => {
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
         </div>
-
-        {/* Centered Arrow */}
         <div className="flex justify-center">
           <img
             src="/purple-arrow-down.svg"
@@ -175,8 +197,6 @@ const MobileFlowChart = () => {
             className="w-14 h-17 object-contain"
           />
         </div>
-
-        {/* 2nd Bubble - Right */}
         <div className="flex justify-end">
           <img
             src="/real-world-experience.jpeg"
@@ -184,8 +204,6 @@ const MobileFlowChart = () => {
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
         </div>
-
-        {/* Centered Arrow */}
         <div className="flex justify-center">
           <img
             src="/purple-arrow-down2.svg"
@@ -193,8 +211,6 @@ const MobileFlowChart = () => {
             className="w-14 h-17 object-contain"
           />
         </div>
-
-        {/* 3rd Bubble - Left */}
         <div className="flex justify-start">
           <img
             src="/flexible-learning.jpeg"
@@ -202,8 +218,6 @@ const MobileFlowChart = () => {
             className="w-28 h-28 object-contain rounded-full shadow-md transition-transform duration-300 hover:scale-110"
           />
         </div>
-
-        {/* Centered Arrow */}
         <div className="flex justify-center">
           <img
             src="/purple-arrow-down3.png"
@@ -211,8 +225,6 @@ const MobileFlowChart = () => {
             className="w-17 h-17 object-contain"
           />
         </div>
-
-        {/* 4th Bubble - Right */}
         <div className="flex justify-end">
           <img
             src="/global-opportunities.jpeg"

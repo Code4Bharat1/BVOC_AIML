@@ -85,7 +85,7 @@ const CenteredBoxWithCards = () => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="bg-[#cfb0f7] shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
+            className="bg-[#F1E6FF] shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
             style={{
               borderRadius: "20px",
               borderTopLeftRadius: "20px",
@@ -103,7 +103,76 @@ const CenteredBoxWithCards = () => {
             </div>
             <h3 className="text-lg font-semibold mb-2">{card.heading}</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
-              {card.description}
+              {/* Adding colored highlights to desktop description */}
+              {index === 0 && (
+                <>
+                  Get hands-on,{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    industry-driven training{" "}
+                  </span>{" "}
+                  from the start. Work on{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    live projects
+                  </span>{" "}
+                  and{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    global challenges
+                  </span>{" "}
+                  to gain the skills employers want.
+                </>
+              )}
+              {index === 1 && (
+                <>
+                  Collaborate with global industry leaders and gain experience
+                  that sets you apart in the{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    international job market.{" "}
+                  </span>
+                </>
+              )}
+              {index === 2 && (
+                <>
+                  Apply what you learn with{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    real-world internships
+                  </span>{" "}
+                  and projects—boosting your resume and skills while still
+                  studying.
+                </>
+              )}
+              {index === 3 && (
+                <>
+                  Enjoy the opportunity to{" "}
+                  <span className="text-[#9747FF] font-semibold">earn</span>{" "}
+                  through internships, gaining practical experience and
+                  financial support along the way.
+                </>
+              )}
+              {index === 4 && (
+                <>
+                  Your qualifications are{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    UGC-approved
+                  </span>{" "}
+                  and{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    NSQF-certified
+                  </span>
+                  , opening doors to global opportunities.
+                </>
+              )}
+              {index === 5 && (
+                <>
+                  Exit with a{" "}
+                  <span className="text-[#9747FF] font-semibold">diploma</span>,{" "}
+                  <span className="text-[#9747FF] font-semibold">
+                    advanced diploma
+                  </span>
+                  , or{" "}
+                  <span className="text-[#9747FF] font-semibold">degree</span>
+                  —tailor your education to your career goals and timeline.
+                </>
+              )}
             </p>
           </div>
         ))}
@@ -122,13 +191,13 @@ const CenteredBoxWithCards = () => {
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className={`flex justify-between items-center w-full px-6 py-4 font-semibold ${
+                className={`relative flex items-center justify-center w-full px-6 py-4 font-semibold ${
                   mobileTextColors[index % mobileTextColors.length]
-                } text-left`}
+                }`}
               >
-                {card.heading}
+                <span className="pointer-events-none">{card.heading}</span>
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform duration-300 ${
+                  className={`w-5 h-5 absolute right-6 transition-transform duration-300 ${
                     isOpen ? "rotate-180" : "rotate-0"
                   }`}
                 />
@@ -141,7 +210,7 @@ const CenteredBoxWithCards = () => {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-white px-6 py-4 overflow-hidden"
+                    className="bg-[#F1E6FF] px-6 py-4 overflow-hidden"
                   >
                     <img
                       src={card.image}
@@ -149,7 +218,84 @@ const CenteredBoxWithCards = () => {
                       className="w-full h-40 object-cover rounded-lg mb-4"
                     />
                     <p className="text-gray-700 text-sm leading-relaxed">
-                      {card.description}
+                      {/* Adding colored highlights to desktop description */}
+                      {index === 0 && (
+                        <>
+                          Get hands-on,{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            industry-driven training{" "}
+                          </span>{" "}
+                          from the start. Work on{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            live projects
+                          </span>{" "}
+                          and{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            global challenges
+                          </span>{" "}
+                          to gain the skills employers want.
+                        </>
+                      )}
+                      {index === 1 && (
+                        <>
+                          Collaborate with global industry leaders and gain
+                          experience that sets you apart in the{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            international job market.{" "}
+                          </span>
+                        </>
+                      )}
+                      {index === 2 && (
+                        <>
+                          Apply what you learn with{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            real-world internships
+                          </span>{" "}
+                          and projects—boosting your resume and skills while
+                          still studying.
+                        </>
+                      )}
+                      {index === 3 && (
+                        <>
+                          Enjoy the opportunity to{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            earn
+                          </span>{" "}
+                          through internships, gaining practical experience and
+                          financial support along the way.
+                        </>
+                      )}
+                      {index === 4 && (
+                        <>
+                          Your qualifications are{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            UGC-approved
+                          </span>{" "}
+                          and{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            NSQF-certified
+                          </span>
+                          , opening doors to global opportunities.
+                        </>
+                      )}
+                      {index === 5 && (
+                        <>
+                          Exit with a{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            diploma
+                          </span>
+                          ,{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            advanced diploma
+                          </span>
+                          , or{" "}
+                          <span className="text-[#9747FF] font-semibold">
+                            degree
+                          </span>
+                          —tailor your education to your career goals and
+                          timeline.
+                        </>
+                      )}
                     </p>
                   </motion.div>
                 )}

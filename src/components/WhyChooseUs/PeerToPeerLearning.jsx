@@ -54,7 +54,7 @@ const PeerToPeerLearning = () => {
       `}</style>
 
       {/* Header */}
-      <div className="text-2xl md:text-3xl font-semibold space-y-2 px-4 pb-8 md:pb-0 relative">
+      <div className="text-3xl md:text-4xl font-semibold space-y-2 px-4 pb-8 md:pb-0 relative">
         <div className="text-white flex items-center justify-center">
           <div className="relative w-6 h-6 mr-2">
             <Image
@@ -90,7 +90,7 @@ const PeerToPeerLearning = () => {
 
       {/* Sections */}
       <Section
-        bgColor="#cda7ff"
+        bgColor="#CDA7FF"
         textColor="text-black"
         leftCircle={"/elements/CircleElement_Home.svg"}
         title="Collaborative Learning Environment"
@@ -99,6 +99,7 @@ const PeerToPeerLearning = () => {
         tailText=" connects you with like-minded students, fostering collaboration, innovation, and deeper learning."
         image="/collaborative-learning.png"
         reverseOnDesktop={false}
+        boldColor="text-[#6B009D]"
         stars={[
           { top: 15, left: 10, size: 1.2, opacity: 0.7, delay: 0 },
           { top: 75, left: 85, size: 1.0, opacity: 0.8, delay: 1.5 },
@@ -115,6 +116,7 @@ const PeerToPeerLearning = () => {
         boldPhrases={["real-world projects", "hackathons", "doing"]}
         tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
         image="/group-projects-hackathons.png"
+        boldColor = "text-white"
         reverseOnDesktop={true}
         stars={[
           { top: 20, left: 15, size: 1.1, opacity: 0.7, delay: 0.5 },
@@ -132,7 +134,7 @@ const PeerToPeerLearning = () => {
         tailText=" through our interactive discussion boards. Learn from diverse perspectives and build your professional network."
         image="/discussion-boards-networking.png"
         reverseOnDesktop={false}
-        boldColor="text-purple-300"
+        boldColor="text-[#AC6CFF]"
         stars={[
           { top: 15, left: 85, size: 1.2, opacity: 0.8, delay: 0.3 },
           { top: 65, left: 8, size: 1.0, opacity: 0.9, delay: 1.2 },
@@ -150,7 +152,7 @@ const PeerToPeerLearning = () => {
         tailText=", key assets for success in any career."
         image="/build-skills-success.png"
         reverseOnDesktop={true}
-        boldColor="text-purple-300"
+        boldColor="text-[#AC6CFF]"
         stars={[
           { top: 20, left: 20, size: 1.2, opacity: 0.8, delay: 0.7 },
           { top: 75, left: 75, size: 1.4, opacity: 0.7, delay: 1.5 },
@@ -171,35 +173,35 @@ const Section = ({
   reverseOnDesktop,
   boldColor = "text-purple-700",
   stars = [],
-  leftCircle, // pass: "/half-circle-left.png"
-  rightCircle, // pass: "/half-circle-right.png"
+  leftCircle,
+  rightCircle,
 }) => {
   return (
     <div
-      className={`${textColor} py-10 px-4 md:px-8 flex flex-col ${
-        reverseOnDesktop ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center gap-6 md:gap-8 shadow-lg relative overflow-hidden`}
+      className={`${textColor} py-14 px-4 md:px-12 flex flex-col items-center gap-8 shadow-lg relative overflow-hidden`}
       style={{ backgroundColor: bgColor }}
     >
-      {/* Left Half-Circle */}
+      {/* Desktop Title: Display above the image for desktop view only */}
+      <div className="hidden md:block w-full text-center mt-4">
+        <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
+      </div>
+      {/* Decorative Circles */}
       {leftCircle && (
         <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-0 opacity-50">
           <Image
             src={leftCircle}
-            alt="Left Decorative Circle"
+            alt="Left Circle"
             width={100}
             height={100}
             className="object-contain"
           />
         </div>
       )}
-
-      {/* Right Half-Circle */}
       {rightCircle && (
         <div className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 translate-x-1/2 z-0 opacity-50">
           <Image
             src={rightCircle}
-            alt="Right Decorative Circle"
+            alt="Right Circle"
             width={100}
             height={100}
             className="object-contain"
@@ -207,42 +209,47 @@ const Section = ({
         </div>
       )}
 
-      {/* Stars */}
+      {/* Animated Stars */}
       {stars.map((star, index) => (
-        <Star
-          key={index}
-          top={star.top}
-          left={star.left}
-          size={star.size}
-          opacity={star.opacity}
-          delay={star.delay}
-        />
+        <Star key={index} {...star} />
       ))}
 
-      {/* Image */}
-      <div className="flex-1 flex justify-center w-full relative z-10">
-        <Image
-          src={image}
-          alt={title}
-          width={320}
-          height={240}
-          className="shadow-md w-full max-w-[350px] object-contain"
-        />
-      </div>
+      {/* Main Content */}
+      <div
+        className={`flex flex-col ${
+          reverseOnDesktop ? "md:flex-row-reverse" : "md:flex-row"
+        } items-center gap-6 md:gap-10 w-full relative z-10`}
+      >
+        {/* Image */}
+        <div className="flex-1 flex justify-center w-full relative z-10">
+          <Image
+            src={image}
+            alt={title}
+            width={320}
+            height={240}
+            className="shadow-md w-full max-w-[350px] object-contain"
+          />
+        </div>
 
-      {/* Text */}
-      <div className="flex-1 text-center md:text-left text-sm md:text-lg leading-relaxed space-y-4 relative z-10">
-        <h1 className="text-xl md:text-3xl font-bold">{title}</h1>
-        <p>
-          {desc}
-          {boldPhrases.map((phrase, i) => (
-            <span key={i} className={`font-bold ${boldColor}`}>
-              {phrase}
-              {i < boldPhrases.length - 1 && ", "}
-            </span>
-          ))}
-          {tailText}
-        </p>
+        {/* Text Content */}
+        <div className="flex-1 flex flex-col items-center md:items-start space-y-4 text-lg md:text-2xl leading-relaxed text-center md:text-left relative z-10">
+          {/* For mobile, the title is kept inside the text block.
+              On desktop, you can choose to hide this if desired.
+              Here we leave it visible on mobile only. */}
+          <h1 className="block md:hidden text-2xl font-bold leading-snug max-w-4xl">
+            {title}
+          </h1>
+          <p>
+            {desc}
+            {boldPhrases.map((phrase, i) => (
+              <span key={i} className={`font-bold ${boldColor}`}>
+                {phrase}
+                {i < boldPhrases.length - 1 && ", "}
+              </span>
+            ))}
+            {tailText}
+          </p>
+        </div>
       </div>
     </div>
   );

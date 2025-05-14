@@ -74,8 +74,9 @@ export default function AIToolsManagement() {
     if (!isPaused) {
       timerRef.current = setInterval(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
-      }, 5000);
+      }, 5000); // Change card every 5 seconds
     }
+
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -84,21 +85,28 @@ export default function AIToolsManagement() {
   }, [isPaused]);
 
   const nextCard = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
     setIsPaused(true);
+    // Resume auto-rotation after 10 seconds of inactivity
     setTimeout(() => setIsPaused(false), 10000);
   };
 
   const prevCard = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     setActiveIndex(
       (prevIndex) => (prevIndex - 1 + cards.length) % cards.length
     );
     setIsPaused(true);
+    // Resume auto-rotation after 10 seconds of inactivity
     setTimeout(() => setIsPaused(false), 10000);
   };
 
+  // Touch event handlers for swipe functionality
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
     setIsPaused(true);
@@ -107,15 +115,26 @@ export default function AIToolsManagement() {
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
+
+    // Swipe threshold of 50px
     if (Math.abs(diff) > 50) {
-      diff > 0 ? nextCard() : prevCard();
+      if (diff > 0) {
+        // Swipe left to go to next card
+        nextCard();
+      } else {
+        // Swipe right to go to previous card
+        prevCard();
+      }
     }
+
+    // Resume auto-rotation after 10 seconds of inactivity
     setTimeout(() => setIsPaused(false), 10000);
   };
 
   return (
     <div className="bg-[#0f0f1a] min-h-screen py-16 px-4">
       <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
         <div className="text-center mb-16 relative">
           <h1 className="text-4xl font-bold text-white mb-2 mt-6">
             AI Tools Management{" "}
@@ -135,8 +154,14 @@ export default function AIToolsManagement() {
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card, index) => (
             <div key={index} className="relative group">
+              {/* Card Container */}
               <div className="relative">
-                <div className="bg-[#1a1a2e] relative z-10 h-[500px] overflow-hidden border-2 border-white transition-all duration-300">
+                {/* Card Content */}
+                <div
+                  className="bg-[#1a1a2e] relative z-10 h-[480px] overflow-hidden border-2 border-white
+                  [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] transition-all duration-300 "
+                >
+                  {/* Image Section */}
                   <div className="h-[45%] overflow-hidden">
                     <img
                       src={card.image}
@@ -144,7 +169,9 @@ export default function AIToolsManagement() {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-5 flex flex-col border-2 border-white h-[55%]">
+
+                  {/* Content Section */}
+                  <div className="p-5 h-[55%] flex flex-col border-2 border-white">
                     {card.highlight && (
                       <div className="text-purple-400 text-sm font-semibold mb-2">
                         {card.highlight}
@@ -159,26 +186,30 @@ export default function AIToolsManagement() {
                   </div>
                 </div>
 
-                {/* Right-to-left slope - white base */}
-                <div className="absolute bottom-0 left-0 w-full h-16 bg-transparent overflow-hidden">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                {/* Improved Purple Slanted Bottom Border */}
+                <div className="absolute bottom-0 left-0 w-full h-9.5 bg-transparent">
+                  <svg
+                    className="w-full h-full"
+                    preserveAspectRatio="none"
+                    viewBox="0 0 100 50"
+                  >
                     <polygon
-                      points="0,0 100,50 100,100 0,100"
+                      points="0,0 100,0 100,50 0,3.5" // Modified points for asymmetric slant
                       className="fill-white"
-                      stroke="white"
-                      strokeWidth="1"
                     />
                   </svg>
                 </div>
 
-                {/* Purple shadow */}
-                <div className="absolute w-full h-16 bottom-0 left-0 -z-10 transform translate-y-2 overflow-hidden">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                {/* Improved Card Shadow with Adjusted Slant */}
+                <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
+                  <svg
+                    className="w-full h-full"
+                    preserveAspectRatio="none"
+                    viewBox="0 0 100 50"
+                  >
                     <polygon
-                      points="0,0 100,50 100,100 0,100"
-                      className="fill-purple-600/20"
-                      stroke="white"
-                      strokeWidth="1"
+                      points="0,0 100,0 100,50 0,3" // Matches border shape
+                      className="fill-white"
                     />
                   </svg>
                 </div>
@@ -187,22 +218,35 @@ export default function AIToolsManagement() {
           ))}
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="md:hidden">
-          <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-            <div className="bg-[#1a1a2e] relative z-10 h-[520px] overflow-hidden border-2 border-purple-500 rounded-t-lg">
+        {/* Enhanced Mobile Carousel */}
+        <div className="md:hidden ">
+          <div
+            className="relative"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Card Content */}
+            <div
+              className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-white border-4 rounded-t-lg
+                            [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] "
+            >
+              {/* Image Section */}
               <div className="h-[45%] overflow-hidden">
                 <img
                   src={cards[activeIndex].image}
                   alt={cards[activeIndex].title}
                   className="w-full h-full object-cover transition-all duration-500"
                 />
+
+                {/* Highlight Badge */}
                 {cards[activeIndex].highlight && (
                   <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
                     {cards[activeIndex].highlight}
                   </div>
                 )}
               </div>
+
+              {/* Content Section */}
               <div className="p-6 flex flex-col">
                 <h3 className="text-white text-2xl font-bold mb-4 text-center">
                   {cards[activeIndex].title}
@@ -210,42 +254,59 @@ export default function AIToolsManagement() {
                 <div className="text-gray-300 leading-relaxed text-center">
                   {cards[activeIndex].description}
                 </div>
+
+                {/* Swipe Indicator */}
                 <div className="absolute bottom-20 left-0 w-full flex justify-center items-center mt-4">
                   <div className="text-gray-400 text-xs flex items-center py-1 px-3 bg-gray-800/40 rounded-full animate-pulse">
-                    <span className="mr-1">◀</span> Swipe to navigate{" "}
+                    <span className="mr-1">◀</span>
+                    Swipe to navigate
                     <span className="ml-1">▶</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right-to-left slope - white base (mobile) */}
-            <div className="absolute bottom-0 left-0 w-full h-16 bg-transparent overflow-hidden">
-              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+            {/* Improved Purple Slanted Bottom Border */}
+            <div className="absolute bottom-28 left-0 w-full h-10 bg-transparent">
+              <svg
+                className="w-full h-full"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 50"
+              >
                 <polygon
-                  points="0,0 100,50 100,100 0,100"
-                  className="fill-white"
-                  stroke="white"
-                  strokeWidth="1"
+                  points="0,0 100,0 100,50 0,3.5" // Modified points for asymmetric slant
+                  className="fill-white "
                 />
               </svg>
             </div>
 
-            {/* Purple shadow (mobile) */}
-            <div className="absolute w-full h-16 bottom-0 left-0 -z-10 transform translate-y-2 overflow-hidden">
-              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+            {/* Improved Card Shadow with Adjusted Slant */}
+            <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
+              <svg
+                className="w-full h-full"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 50"
+              >
                 <polygon
-                  points="0,0 100,50 100,100 0,100"
-                  className="fill-purple-600/20"
-                  stroke="white"
-                  strokeWidth="1"
+                  points="0,0 100,0 100,50 0,3" // Matches border shape
+                  className="fill-white"
                 />
               </svg>
             </div>
+
+            {/* Card Shadow with Slant */}
+            <div
+              className="absolute w-full h-full bottom-0 left-0 
+                          [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] 
+                          bg-white -z-10 transform translate-y-2"
+            ></div>
+
+            {/* Clear spacer to ensure proper layout */}
             <div className="h-6"></div>
 
-            {/* Controls */}
+            {/* Navigation Controls */}
             <div className="mt-12 flex flex-col items-center">
+              {/* Progress Indicators */}
               <div className="flex space-x-2 mb-6">
                 {cards.map((_, index) => (
                   <button
@@ -256,34 +317,13 @@ export default function AIToolsManagement() {
                       setTimeout(() => setIsPaused(false), 10000);
                     }}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeIndex ? "bg-purple-500 w-6" : "bg-gray-600"
+                      index === activeIndex
+                        ? "bg-purple-500 w-6"
+                        : "bg-gray-600"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
-              </div>
-              <div className="flex justify-center items-center w-full gap-12">
-                <button
-                  onClick={prevCard}
-                  className="bg-purple-600 hover:bg-purple-700 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform active:scale-95"
-                  aria-label="Previous card"
-                >
-                  ◀
-                </button>
-                <div
-                  className={`${
-                    isPaused ? "opacity-0" : "opacity-100"
-                  } transition-opacity duration-300 w-4 h-4 flex items-center justify-center`}
-                >
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-ping"></div>
-                </div>
-                <button
-                  onClick={nextCard}
-                  className="bg-purple-600 hover:bg-purple-700 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform active:scale-95"
-                  aria-label="Next card"
-                >
-                  ▶
-                </button>
               </div>
             </div>
           </div>

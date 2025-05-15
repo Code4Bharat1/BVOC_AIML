@@ -6,3 +6,22 @@ body {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@media (max-width: 899px) {
+  .modern-desktop {
+    display: none !important;
+  }
+  .modern-mobile {
+    display: block !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .modern-desktop {
+    display: block !important;
+  }
+  .modern-mobile {
+    display: none !important;
+  }
+}

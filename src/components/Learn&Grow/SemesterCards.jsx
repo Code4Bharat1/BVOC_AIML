@@ -44,7 +44,7 @@ const MobileSemesterCards = () => {
       {/* Nexcore Logo with Background */}
       <div className="relative w-full mb-10">
         {/* Background SVG positioned behind the logo */}
-        <div className="absolute -top-52 left-[15%] w-64 h-64 -z-10">
+        <div className="absolute -top-52 left-[11%] w-64 h-64 -z-10">
           <Image
             src="/elements/Nexcore-learngrow-bg.svg"
             alt="Background Circle"
@@ -61,7 +61,7 @@ const MobileSemesterCards = () => {
             alt="Nexcore Alliance"
             width={190}
             height={170}
-            className="object-contain rounded-full absolute -top-44 left-[23%]"
+            className="object-contain rounded-full absolute -top-44 left-[20%]"
             priority
           />
         </div>

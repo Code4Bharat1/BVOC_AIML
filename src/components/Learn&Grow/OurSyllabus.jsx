@@ -25,7 +25,7 @@ const OurSyllabus = () => {
         >
           {/* Robot Image */}
           <div
-            className={`absolute left-0 bottom-0 w-1/3 z-50 transition-transform duration-300 ease-in-out ${
+            className={`absolute left-0 bottom-0 w-1/3 z-40 transition-transform duration-300 ease-in-out ${
               isHovered ? "scale-110 origin-bottom-left" : ""
             }`}
           >

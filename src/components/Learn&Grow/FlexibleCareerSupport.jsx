@@ -34,7 +34,7 @@ const FlexibleCareerSupport = () => {
       {/* Text Content */}
       <div className="mt-20 text-start pl-6 lg:pl-24">
         <h1 className="text-white text-2xl lg:text-5xl font-bold">
-          NexCore Alliance LLP– A <br className="lg:hidden" /> Clear Path
+          NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path
           Forward
         </h1>
         <p className="text-[#AC6CFF] text-xl lg:text-3xl pt-4 mb-10">

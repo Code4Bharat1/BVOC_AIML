@@ -15,6 +15,7 @@ import Footer from '@/components/layout/Footer'
     <DegreeComparisonTable/>
     <WhyChooseBVoc/>
     <PeerToPeerLearning/>
+    
     <CenteredBoxWithCards/>
     <Footer/>
     </main>

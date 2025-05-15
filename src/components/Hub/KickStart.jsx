@@ -32,9 +32,11 @@ const cardData = [
 const KickStart = () => {
   return (
     <div className="bg-[#EADAFF] p-3 lg:p-8 ">
-      <h1 className="lg:hidden text-center text-[#2B2038] text-4xl font-extrabold pb-16 pt-9 leading-tight">
+      {/* Mobile Head */}
+      <h1 className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight">
         Kickstart <br /> Your Career
       </h1>
+      {/* Desktop Head */}
       <h1 className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight">
         Kickstart Your Career
       </h1>
@@ -44,9 +46,9 @@ const KickStart = () => {
           {cardData.map((card) => (
             <div
               key={card.id}
-              className="w-[290px] lg:w-[350px] h-[400px] lg:h-[440px] bg-[#2B2038] rounded-2xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6"
+              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14"
             >
-              <div className="relative w-full h-[300px] rounded-2xl overflow-hidden">
+              <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
                 <Image
                   src={card.image}
                   alt={card.title}
@@ -55,7 +57,7 @@ const KickStart = () => {
                   className="object-cover w-full h-full rounded-2xl"
                 />
               </div>
-              <h3 className="text-white font-bold text-center text-base lg:text-2xl mt-8 uppercase leading-snug whitespace-pre-line">
+              <h3 className="text-white font-bold text-center text-xl lg:text-2xl mt-4 uppercase leading-snug whitespace-pre-line">
                 {card.title}
               </h3>
             </div>

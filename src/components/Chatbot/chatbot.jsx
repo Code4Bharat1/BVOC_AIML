@@ -58,7 +58,7 @@ export default function ChatbotWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100%-2rem)] sm:w-[32rem] md:w-[36rem] lg:w-[40rem] h-[70vh] sm:h-[28rem] rounded-2xl sm:rounded-3xl shadow-xl flex flex-col border border-gray-100 overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 animate-gradient"
+            className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100%-2rem)] sm:w-[32rem] md:w-[36rem] lg:w-[40rem] h-[70vh] sm:h-[28rem] rounded-2xl sm:rounded-3xl shadow-xl flex flex-col border border-gray-100 overflow-hidden bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-200 animate-gradient"
           >
             {/* Content container with padding */}
             <div className="flex flex-col h-full">
@@ -66,7 +66,7 @@ export default function ChatbotWidget() {
               <div className="px-4 sm:px-6 pt-4 sm:pt-8 pb-2 sm:pb-4">
                 <div className="flex items-center mb-2 sm:mb-3">
                   <div className="bg-white p-2 sm:p-3 rounded-xl sm:rounded-2xl shadow-sm mr-3 sm:mr-4">
-                    <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400 " />
+                    <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500" />
                   </div>
                   <div>
                     <h1 className="text-lg sm:text-xl font-semibold text-gray-800">NexBot Assistant</h1>
@@ -98,19 +98,19 @@ export default function ChatbotWidget() {
                       >
                         {!isUser && (
                           <div className="flex-shrink-0 mt-1 bg-white p-1.5 sm:p-2 rounded-full shadow-sm">
-                            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
                           </div>
                         )}
                         <div
                           className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl max-w-[85%] text-xs sm:text-sm leading-relaxed shadow-sm ${isUser
-                              ? 'bg-blue-500 text-white'
+                              ? 'bg-purple-600 text-white'
                               : 'bg-white text-gray-700'
                             }`}
                         >
                           <ReactMarkdown>{msg.text}</ReactMarkdown>
                         </div>
                         {isUser && (
-                          <div className="flex-shrink-0 mt-1 bg-blue-500 p-1.5 sm:p-2 rounded-full shadow-sm">
+                          <div className="flex-shrink-0 mt-1 bg-purple-600 p-1.5 sm:p-2 rounded-full shadow-sm">
                             <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           </div>
                         )}
@@ -122,7 +122,7 @@ export default function ChatbotWidget() {
                 {botTyping && (
                   <div className="flex items-start gap-2 sm:gap-3 justify-start">
                     <div className="flex-shrink-0 mt-1 bg-white p-1.5 sm:p-2 rounded-full shadow-sm">
-                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
                     </div>
                     <div className="flex space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl max-w-[85%] text-xs sm:text-sm bg-white text-gray-700 shadow-sm">
                       <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300 rounded-full animate-bounce delay-0"></span>
@@ -149,11 +149,11 @@ export default function ChatbotWidget() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type a message..."
-                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-white border border-gray-100 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent transition-all duration-200 shadow-sm"
+                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-white border border-gray-100 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-200 focus:border-transparent transition-all duration-200 shadow-sm"
                   />
                   <button
                     type="submit"
-                    className="bg-lime-500 hover:bg-lime-600 text-white p-2 sm:p-3 rounded-lg sm:rounded-xl transition-colors duration-200 shadow-sm hover:cursor-pointer"
+                    className="bg-purple-600 hover:bg-purple-700 text-white p-2 sm:p-3 rounded-lg sm:rounded-xl transition-colors duration-200 shadow-sm hover:cursor-pointer"
                   >
                     <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
@@ -175,7 +175,7 @@ export default function ChatbotWidget() {
         >
           {isOpen ?
             <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> :
-            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400 " />
+            <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500" />
           }
         </motion.button>
       </div>
@@ -187,7 +187,7 @@ export default function ChatbotWidget() {
           width: 3px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: rgba(203, 213, 224, 0.8);
+          background-color: rgba(167, 139, 250, 0.8);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
@@ -210,13 +210,13 @@ export default function ChatbotWidget() {
         /* Gradient Animation */
         @keyframes gradientBG {
           0% {
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+            background: linear-gradient(45deg, #d8b4fe, #c4b5fd, #a78bfa);
           }
           50% {
-            background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #a1c4fd);
+            background: linear-gradient(45deg, #a78bfa, #8b5cf6, #7c3aed);
           }
           100% {
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+            background: linear-gradient(45deg, #d8b4fe, #c4b5fd, #a78bfa);
           }
         }
 

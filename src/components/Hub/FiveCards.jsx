@@ -38,20 +38,18 @@ const FiveCards = () => {
   };
 
   return (
-    <>
-      <div className="bg-[#2F1C48] text-white p-6 lg:p-12 shadow-sm shadow-white  m-10 rounded-3xl">
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 text-center">
-          {cardData.map((card, index) => (
-            <div key={index} className="flex flex-col items-center h-full">
-              {/* Card Box */}
-              <div className="bg-[#AC6CFF] rounded-3xl p-4 w-[200px] lg:w-full shadow-md h-full">
-                <h3 className="text-lg font-semibold">
-                  {card.title.split('\n').map((line, i) => (
-                    <div key={i}>{line}</div>
-                  ))}
-                </h3>
-              </div>
+    <div className="bg-[#2F1C48] text-white p-6 lg:p-12 shadow-sm shadow-white m-10 rounded-3xl">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 text-center">
+        {cardData.map((card, index) => (
+          <div key={index} className="flex flex-col items-center h-full">
+            {/* Card Box */}
+            <div className="bg-[#AC6CFF] rounded-3xl p-4 w-[200px] lg:w-full shadow-md h-full">
+              <h3 className="text-lg font-semibold">
+                {card.title.split('\n').map((line, i) => (
+                  <div key={i}>{line}</div>
+                ))}
+              </h3>
 
               {/* Mobile Arrow */}
               <div className="block lg:hidden mt-2">
@@ -64,37 +62,37 @@ const FiveCards = () => {
                 </button>
               </div>
 
-              {/* Mobile Expanded Content */}
+              {/* Mobile Content - toggle */}
               {openCard === index && (
-                <div className="block lg:hidden mt-3 transition-all duration-500 ease-in-out p-4 rounded-xl text-white w-full">
+                <div className="block lg:hidden mt-3">
                   <p className="text-base">{card.content}</p>
                 </div>
               )}
             </div>
-          ))}
-        </div>
-
-        {/* Large Screen Arrow Row */}
-        <div className="hidden lg:flex justify-around mt-4">
-          {cardData.map((_, index) => (
-            <button key={index} onClick={() => toggleCard(index)}>
-              {openCard === index ? (
-                <CircleChevronUp size={32} />
-              ) : (
-                <CircleChevronDown size={32} />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Large Screen Expanded Content */}
-        {openCard !== null && (
-          <div className="hidden lg:block mt-6 transition-all duration-500 ease-in-out p-6 rounded-xl text-center text-white w-full">
-            <p className="text-lg">{cardData[openCard].content}</p>
           </div>
-        )}
+        ))}
       </div>
-      </>
+
+      {/* Large Screen Arrow Row */}
+      <div className="hidden lg:flex justify-around mt-4">
+        {cardData.map((_, index) => (
+          <button key={index} onClick={() => toggleCard(index)}>
+            {openCard === index ? (
+              <CircleChevronUp size={32} />
+            ) : (
+              <CircleChevronDown size={32} />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Large Screen Expanded Content */}
+      {openCard !== null && (
+        <div className="hidden lg:block mt-6 transition-all duration-500 ease-in-out p-6 rounded-xl text-center text-white w-full">
+          <p className="text-lg">{cardData[openCard].content}</p>
+        </div>
+      )}
+    </div>
   );
 };
 

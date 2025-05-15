@@ -8,7 +8,7 @@ const OurSyllabus = () => {
   return (
     <>
       {/* Header (Visible on Large Screens) */}
-      <div className="hidden lg:flex items-start justify-center py-3 mb-16 text-center w-3xl mx-auto rounded-4xl bg-purple-200">
+      <div className="hidden lg:flex items-start justify-center py-3 mt-14 text-center w-3xl mx-auto rounded-4xl bg-[#D8BCFD]">
         <h2 className="text-5xl font-extrabold py-6">
           About Our <span className="text-purple-500">Syllabus</span>
         </h2>
@@ -17,7 +17,7 @@ const OurSyllabus = () => {
       {/* Large Screen Version */}
       <div className="hidden lg:block">
         <div
-          className={`relative rounded-3xl p-6 h-[320px] w-7xl mx-auto transition-all duration-300 mt-44 ease-in-out ${
+          className={`relative rounded-3xl p-6 h-[320px] w-7xl mx-auto transition-all duration-300 mt-16 ease-in-out ${
             isHovered ? "bg-purple-500 text-white" : "bg-purple-100"
           }`}
           onMouseEnter={() => setIsHovered(true)}
@@ -87,12 +87,12 @@ const OurSyllabus = () => {
 
       {/* Small/Medium Screen Version */}
       <div className="block lg:hidden px-2">
-        <div className="flex items-start justify-center py-3 mb-16 text-center w-64 mx-auto rounded-2xl bg-purple-200">
+        <div className="flex items-start justify-center py-3 mb-16 mt-10 text-center w-64 mx-auto rounded-2xl bg-[#EADAFF]">
         <h2 className="text-lg font-extrabold py-1">
           About Our <span className="text-purple-500">Syllabus</span>
         </h2>
       </div>
-      <div className="relative rounded-3xl p-4 h-[220px] mx-auto bg-purple-100 flex items-center overflow-visible">
+      <div className="relative rounded-3xl p-4 h-[200px] mx-auto bg-[#EADAFF] flex items-center overflow-visible">
         {/* Robot Image */}
         <div className=" w-[30%] z-10">
           <Image
@@ -100,7 +100,7 @@ const OurSyllabus = () => {
             alt="Robot"
             width={250}
             height={250}
-            className="w-72 h-auto absolute -left-6 bottom-0"
+            className="w-64 h-auto absolute -left-6 bottom-0"
           />
         </div>
 

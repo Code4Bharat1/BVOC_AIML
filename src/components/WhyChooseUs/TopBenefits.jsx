@@ -72,12 +72,17 @@ const CenteredBoxWithCards = () => {
     <div className="flex flex-col items-center justify-center py-16 px-8 min-h-screen space-y-16">
       {/* Title Box */}
       <div className="w-full text-center">
-        <div className="bg-purple-500 w-full max-w-[1182px] h-[130px] mx-auto py-2 px-0 rounded-lg shadow-lg border-2 border-black flex items-center justify-center">
-          <h1 className="text-black text-base font-bold md:hidden">
-            Top Benefits: <span className="text-white">The Fast-Track to Your Career</span>
+        <div className="bg-purple-500 w-full max-w-[1182px] h-auto mx-auto px-4 py-6 rounded-lg shadow-lg border-2 border-black flex items-center justify-center">
+          {/* For small screens */}
+          <h1 className="text-black text-base font-bold md:hidden leading-relaxed">
+            Top Benefits: <br />
+            <span className="text-white">The Fast-Track to Your Career</span>
           </h1>
-          <h1 className="hidden md:block text-black text-3xl font-bold">
-            Top Benefits: <span className="text-white">The Fast-Track to Your Career</span>
+
+          {/* For medium+ screens */}
+          <h1 className="hidden md:block text-black text-3xl font-bold leading-relaxed text-center">
+            Top Benefits: <br />
+            <span className="text-white">The Fast-Track to Your Career</span>
           </h1>
         </div>
       </div>
@@ -90,7 +95,11 @@ const CenteredBoxWithCards = () => {
             className="bg-[#F1E6FF] border-4 border-[#AC6CFF] shadow-lg flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 rounded-[24px_0px_24px_0px] overflow-hidden"
           >
             <div className="w-full h-56">
-              <img src={card.image} alt={card.heading} className="w-full h-full object-cover" />
+              <img
+                src={card.image}
+                alt={card.heading}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3">{card.heading}</h3>
@@ -139,7 +148,9 @@ const CenteredBoxWithCards = () => {
                       alt={card.heading}
                       className="w-full h-40 object-cover rounded-lg mb-4"
                     />
-                    <p className="text-gray-700 text-sm leading-relaxed">{card.description}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {card.description}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -201,9 +212,14 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[90px] right-20"
+        className="absolute top-[90px] right-20 right-arrow-2 "
       >
-        <Image src="/purple-arrow-down.svg" alt="Arrow 1" width={68} height={68} />
+        <Image
+          src="/purple-arrow-down.svg"
+          alt="Arrow 1"
+          width={68}
+          height={68}
+        />
       </motion.div>
 
       {/* Step 2 */}
@@ -222,9 +238,14 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[310px] right-28"
+        className="absolute top-[310px] right-28 right-arrow"
       >
-        <Image src="/purple-arrow-down2.svg" alt="Arrow 2" width={68} height={68} />
+        <Image
+          src="/purple-arrow-down2.svg"
+          alt="Arrow 2"
+          width={68}
+          height={68}
+        />
       </motion.div>
 
       {/* Step 3 */}
@@ -245,7 +266,12 @@ const MobileFlowChart = () => (
         variants={fadeInUp}
         className="absolute top-[460px] left-40"
       >
-        <Image src="/purple-arrow-down3.svg" alt="Arrow 3" width={68} height={68} />
+        <Image
+          src="/purple-arrow-down3.svg"
+          alt="Arrow 3"
+          width={68}
+          height={68}
+        />
       </motion.div>
 
       {/* Step 4 */}

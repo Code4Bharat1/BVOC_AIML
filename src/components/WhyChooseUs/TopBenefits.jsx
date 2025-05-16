@@ -69,10 +69,10 @@ const CenteredBoxWithCards = () => {
   if (!isClient) return null; // ✅ Prevent mismatches on SSR
 
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-8 min-h-screen space-y-16">
+    <div className="flex flex-col items-center justify-center py-16 px-8 min-h-screen lg:space-y-16">
       {/* Title Box */}
       <div className="w-full text-center">
-        <div className="bg-purple-500 w-full max-w-[1182px] h-auto mx-auto px-4 py-6 rounded-lg shadow-lg border-2 border-black flex items-center justify-center">
+        <div className="bg-purple-500 mb-10 lg:mb-0 w-full max-w-[1182px] h-auto mx-auto px-4 py-6 rounded-lg shadow-lg border-2 border-black flex items-center justify-center">
           {/* For small screens */}
           <h1 className="text-black text-base font-bold md:hidden leading-relaxed">
             Top Benefits: <br />

@@ -123,7 +123,7 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#8E1DBA] to-[#33135B] text-white py-16 px-4 overflow-hidden">
+    <div className="bg-gradient-to-b from-[#8E1DBA] to-[#33135B] mt-10 text-white py-16 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Testimonials</h2>

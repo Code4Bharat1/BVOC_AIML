@@ -13,7 +13,7 @@ const YourCareerStarts = () => {
         </div>
 
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 p-10 pt-40 lg:pt-32 group hover:bg-[#AC6CFF] lg:rounded-r-3xl transition-colors duration-300">
+        <div className="w-full lg:w-1/2 p-10 pt-40 lg:pt-32 group lg:hover:bg-[#AC6CFF] lg:rounded-r-3xl transition-colors duration-300">
           <div className="bg-[#D9D9D9] rounded-2xl p-8 transition-all duration-300 group-hover:scale-105">
             <div className="flex flex-col items-start space-y-6">
               <img 

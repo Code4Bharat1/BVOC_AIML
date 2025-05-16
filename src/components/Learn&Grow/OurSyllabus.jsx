@@ -17,7 +17,7 @@ const OurSyllabus = () => {
       {/* Large Screen Version */}
       <div className="hidden lg:block">
         <div
-          className={`relative rounded-3xl p-6 h-[320px] w-7xl mx-auto transition-all duration-300 mt-16 ease-in-out ${
+          className={`relative rounded-3xl p-6 h-[320px] w-7xl lg:max-w-full mx-auto transition-all duration-300 mt-16 ease-in-out ${
             isHovered ? "bg-purple-500 text-white" : "bg-purple-100"
           }`}
           onMouseEnter={() => setIsHovered(true)}

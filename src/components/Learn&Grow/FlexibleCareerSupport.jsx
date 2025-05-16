@@ -6,7 +6,7 @@ const FlexibleCareerSupport = () => {
   return (
     <>
       {/* Desktop View (visible on lg and up) */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block overflow-x-hidden">
         <div className="relative bg-[#E8D7FF] p-10 overflow-hidden my-10">
           {/* Left Content */}
           <div className="flex flex-col lg:flex-row items-center justify-between z-10 relative">
@@ -49,13 +49,13 @@ const FlexibleCareerSupport = () => {
       </div>
 
       {/* Mobile View (visible on small screens only) */}
-      <div className="block lg:hidden">
+      <div className="block lg:hidden overflow-x-hidden">
         <div className="mt-20 text-start pl-6 lg:pl-24">
           <h1 className="text-white text-2xl lg:text-5xl font-bold text-center">
             Flexible Career Support
           </h1>
         </div>
-        <div className="w-full max-w-xs relative h-[600px] ms-auto">
+        <div className="w-full max-w-xs relative h-[600px] mx-auto overflow-x-hidden">
           {/* Step 1 */}
           <motion.div
             className="absolute top-[50px] left-4"
@@ -132,6 +132,17 @@ const FlexibleCareerSupport = () => {
             to industry <br />
             jobs
           </motion.div>
+        </div>
+        <div className="mt-10 text-start pl-6 lg:hidden">
+          <h1 className="text-white text-3xl font-bold">
+            NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path
+            Forward
+          </h1>
+          <p className="text-[#AC6CFF] text-xl lg:text-3xl pt-4 mb-10">
+            With exit points tailored to your goals, our NSQF-certified{" "}
+            <br className="hidden lg:block" />
+            program offers flexibility
+          </p>
         </div>
       </div>
     </>

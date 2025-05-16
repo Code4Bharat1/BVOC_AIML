@@ -25,3 +25,14 @@ body {
     display: none !important;
   }
 }
+
+
+@media (max-width: 440px) {
+  .right-arrow {
+    right: 60px !important;
+  }
+  .right-arrow-2 {
+    right: 40px !important;
+    rotate: 10deg !important;
+  }
+}

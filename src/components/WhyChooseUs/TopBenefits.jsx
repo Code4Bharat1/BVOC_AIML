@@ -212,7 +212,7 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[90px] right-20"
+        className="absolute top-[90px] right-20 right-arrow-2 "
       >
         <Image
           src="/purple-arrow-down.svg"
@@ -238,7 +238,7 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[310px] right-28"
+        className="absolute top-[310px] right-28 right-arrow"
       >
         <Image
           src="/purple-arrow-down2.svg"

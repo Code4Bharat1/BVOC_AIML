@@ -195,16 +195,16 @@ const fadeInUp = {
 
 const MobileFlowChart = () => (
   <div className="flex flex-col items-center px-4 py-0 text-white">
-    <div className="w-full max-w-xs relative h-[700px]">
+    <div className="w-full max-w-xs relative h-[700px] hight-of-device-300">
       {/* Step 1 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-0 left-4"
+        className="absolute top-0 left-4 circle-1"
       >
-        <Image src="/x3.svg" alt="Step 1" width={144} height={144} />
+        <Image src="/x3.svg" alt="Step 1" className="circle-2-size" width={144} height={144} />
       </motion.div>
 
       <motion.div
@@ -212,11 +212,12 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[90px] right-20 right-arrow-2 "
+        className="absolute top-[90px] right-20 right-arrow-2 arrow-1"
       >
         <Image
           src="/purple-arrow-down.svg"
           alt="Arrow 1"
+          className="arrow-size"
           width={68}
           height={68}
         />
@@ -228,9 +229,9 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[160px] right-4"
+        className="absolute top-[160px] right-4 circle-2-440"
       >
-        <Image src="/x1.svg" alt="Step 2" width={144} height={144} />
+        <Image src="/x1.svg" alt="Step 2" className="circle-2-size" width={144} height={144} />
       </motion.div>
 
       <motion.div
@@ -238,7 +239,7 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[310px] right-28 right-arrow"
+        className="absolute top-[310px] right-28 right-arrow arrow-2"
       >
         <Image
           src="/purple-arrow-down2.svg"
@@ -254,9 +255,9 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[350px] left-4"
+        className="absolute top-[350px] left-4 circle-2"
       >
-        <Image src="/x2.svg" alt="Step 3" width={144} height={144} />
+        <Image src="/x2.svg" alt="Step 3" className="circle-2-size" width={144} height={144} />
       </motion.div>
 
       <motion.div
@@ -264,7 +265,7 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[460px] left-40"
+        className="absolute top-[460px] left-40 arrow-3"
       >
         <Image
           src="/purple-arrow-down3.svg"
@@ -280,9 +281,9 @@ const MobileFlowChart = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="absolute top-[530px] right-4"
+        className="absolute top-[530px] right-4 circle-3"
       >
-        <Image src="/x4.svg" alt="Step 4" width={144} height={144} />
+        <Image src="/x4.svg" alt="Step 4" className="circle-2-size" width={144} height={144} />
       </motion.div>
     </div>
   </div>

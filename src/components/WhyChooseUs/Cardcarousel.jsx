@@ -145,7 +145,7 @@ export default function AIToolsManagement() {
             <span className="absolute text-purple-300 text-sm -left-4 top-1">
               ++
             </span>
-            A Smarter Way to Learn <span className="text-pink-500">!</span>
+            A Smarter Way to Learn <span className="text-purple-500">!</span>
           </p>
         </div>
 
@@ -157,7 +157,7 @@ export default function AIToolsManagement() {
               <div className="relative">
                 {/* Card Content */}
                 <div
-                  className="bg-[#1a1a2e] relative z-10 h-[480px] overflow-hidden border-2 border-white
+                  className="bg-[#1a1a2e] relative z-10 h-[480px] overflow-hidden border-2 border-purple-500 rounded-t-lg
                   [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] transition-all duration-300"
                 >
                   {/* Image Section */}
@@ -170,7 +170,7 @@ export default function AIToolsManagement() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-5 h-[55%] flex flex-col border-2 border-white">
+                  <div className="p-5 h-[55%] flex flex-col border-2 border-purple-500">
                     {card.highlight && (
                       <div className="text-purple-400 text-sm font-semibold mb-2">
                         {card.highlight}
@@ -194,7 +194,7 @@ export default function AIToolsManagement() {
                   >
                     <polygon
                       points="0,0 100,0 100,50 0,10" // Increased Y value at left-bottom for deeper right slant
-                      className="fill-white"
+                      className="fill-purple-500"
                     />
                   </svg>
                 </div>
@@ -208,7 +208,7 @@ export default function AIToolsManagement() {
                   >
                     <polygon
                       points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
-                      className="fill-white"
+                      className="fill-purple-500"
                     />
                   </svg>
                 </div>
@@ -226,7 +226,7 @@ export default function AIToolsManagement() {
           >
             {/* Card Content */}
             <div
-              className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-2 border-white rounded-t-lg
+              className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-2 border-purple-500 rounded-t-lg
                             [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)]"
             >
               {/* Image Section */}
@@ -272,7 +272,7 @@ export default function AIToolsManagement() {
               >
                 <polygon
                   points="0,0 100,0 100,100 0,5"
-                  className="fill-white"
+                  className="fill-purple-500"
                 />
               </svg>
             </div>
@@ -285,15 +285,15 @@ export default function AIToolsManagement() {
               >
                 <polygon
                   points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
-                  className="fill-white"
+                  className="fill-purple-500"
                 />
               </svg>
             </div>
 
             {/* Card Shadow with Slant */}
             <div
-              className="absolute w-full h-full bottom-0 left-0 
-                          [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] 
+              className="absolute w-full h-full bottom-0 left-0
+                          [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)]
                           bg-white -z-10 transform translate-y-2"
             ></div>
 
@@ -328,3 +328,97 @@ export default function AIToolsManagement() {
     </div>
   );
 }
+
+// export default function CardCarousel() {
+//   return (
+//     <div>
+//       <div className="mt-16">
+//         <div className="flex flex-wrap justify-center gap-5 pt-6 mt-10 mb-0 pb-0">
+//           <img
+//             src="/chat-ai.png"
+//             className="w-[280px] object-contain rounded-lg"
+//             alt="Card 1"
+//           />
+//           <img
+//             src="/recommendation.png"
+//             className="w-[280px] object-contain rounded-lg"
+//             alt="Card 2"
+//           />
+//           <img
+//             src="/insights.png"
+//             className="w-[280px] object-contain rounded-lg"
+//             alt="Card 3"
+//           />
+//           <img
+//             src="/tools.png"
+//             className="w-[280px] object-contain rounded-lg"
+//             alt="Card 4"
+//           />
+//         </div>
+
+//         <div className="flex flex-wrap justify-center gap-5">
+//           <div className="relative w-[280px] rounded-lg overflow-hidden">
+//             <img
+//               src="/bottom_of_card.svg"
+//               className="w-full object-contain rounded-lg"
+//               alt="Card 1"
+//             />
+//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
+//               Personalized Learning Path
+//             </h1>
+//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-bold  text-sm pointer-events-none text-center px-2">
+//               <span className="text-purple-400">Our Al-driven tools create a</span> customized learning journey,
+//               <span className="text-purple-400">
+//                 recommending relevant courses, projects, and resources based on
+//                 your goals and progress.
+//               </span>
+//             </p>
+//           </div>
+
+//           <div className="relative w-[280px] rounded-lg overflow-hidden">
+//             <img
+//               src="/bottom_of_card.svg"
+//               className="w-full object-contain rounded-lg"
+//               alt="Card 2"
+//             />
+//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
+//               Real-Time Content <br />
+//               Recommendations
+//             </h1>
+//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
+//               Get updated suggestions as you progress.
+//             </p>
+//           </div>
+
+//           <div className="relative w-[280px] rounded-lg overflow-hidden">
+//             <img
+//               src="/bottom_of_card.svg"
+//               className="w-full object-contain rounded-lg"
+//               alt="Card 3"
+//             />
+//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
+//               Track Progress with Insights
+//             </h1>
+//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
+//               Visualize your growth and stay motivated.
+//             </p>
+//           </div>
+
+//           <div className="relative w-[280px] rounded-lg overflow-hidden">
+//             <img
+//               src="/bottom_of_card.svg"
+//               className="w-full object-contain rounded-lg"
+//               alt="Card 4"
+//             />
+//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
+//               Industry-Ready Tools
+//             </h1>
+//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
+//               Equip yourself with the latest software and skills.
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

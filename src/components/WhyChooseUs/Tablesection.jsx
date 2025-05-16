@@ -1,6 +1,27 @@
 "use client";
+import { useEffect, useState } from "react";
 
 const DegreeComparisonTable = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Detect if screen is mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on initial load
+    checkIfMobile();
+    
+    // Add listener for resize events
+    window.addEventListener("resize", checkIfMobile);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
+
   const tableData = [
     {
       feature: "Focus",
@@ -61,42 +82,119 @@ const DegreeComparisonTable = () => {
         <span className="text-[#AC6CFF] font-semibold">B.Voc</span> stands out:
       </p>
 
-      <div className="overflow-x-auto mt-6">
-        <table className="w-full border-collapse rounded-lg overflow-hidden" style={{ borderRadius: "8px" }}>
-          <thead>
-            <tr>
-              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">Feature</th>
-              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                B.Voc (Bachelor of Vocation)
-              </th>
-              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                B.Tech (Bachelor of Technology)
-              </th>
-              <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                B.Sc (Bachelor of Science)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((row, index) => (
-              <tr key={index}>
-                <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">
+      {isMobile ? (
+        // Mobile table with fixed first column and scrollable other columns
+        <div className="mt-6 relative">
+          <div className="flex">
+            {/* Fixed Feature Column */}
+            <div className="relative z-10">
+              <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
+                Feature
+              </div>
+              {tableData.map((row, index) => (
+                <div 
+                  key={`feature-${index}`} 
+                  className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white flex items-center"
+                  style={{ height: "64px" }} // Fixed height to ensure alignment
+                >
                   {row.feature}
-                </td>
-                <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">
-                  {row.bvoc}
-                </td>
-                <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                  {row.btech}
-                </td>
-                <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                  {row.bsc}
-                </td>
+                </div>
+              ))}
+            </div>
+            
+            {/* Scrollable Degree Columns */}
+            <div className="overflow-x-auto">
+              <div className="flex min-w-max">
+                {/* B.Voc Column */}
+                <div>
+                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
+                    B.Voc
+                  </div>
+                  {tableData.map((row, index) => (
+                    <div 
+                      key={`bvoc-${index}`} 
+                      className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
+                      style={{ height: "64px" }}
+                    >
+                      {row.bvoc}
+                    </div>
+                  ))}
+                </div>
+                
+                {/* B.Tech Column */}
+                <div>
+                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
+                    B.Tech
+                  </div>
+                  {tableData.map((row, index) => (
+                    <div 
+                      key={`btech-${index}`} 
+                      className="bg-[#232529] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
+                      style={{ height: "64px" }}
+                    >
+                      {row.btech}
+                    </div>
+                  ))}
+                </div>
+                
+                {/* B.Sc Column */}
+                <div>
+                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
+                    B.Sc
+                  </div>
+                  {tableData.map((row, index) => (
+                    <div 
+                      key={`bsc-${index}`} 
+                      className="bg-[#232529] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
+                      style={{ height: "64px" }}
+                    >
+                      {row.bsc}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Desktop view - original table
+        <div className="overflow-x-auto mt-6">
+          <table className="w-full border-collapse rounded-lg overflow-hidden" style={{ borderRadius: "8px" }}>
+            <thead>
+              <tr>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">Feature</th>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
+                  B.Voc (Bachelor of Vocation)
+                </th>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
+                  B.Tech (Bachelor of Technology)
+                </th>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
+                  B.Sc (Bachelor of Science)
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {tableData.map((row, index) => (
+                <tr key={index}>
+                  <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">
+                    {row.feature}
+                  </td>
+                  <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">
+                    {row.bvoc}
+                  </td>
+                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
+                    {row.btech}
+                  </td>
+                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
+                    {row.bsc}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

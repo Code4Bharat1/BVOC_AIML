@@ -31,13 +31,14 @@ const Welcome = () => {
       {/* Text Section */}
       <div className="relative lg:w-1/2 text-center lg:text-left">
         {/* SVG Element Positioned Above Heading */}
-        <div className="absolute top-5 right-10 lg:left-1/2 lg:top-6 transform -translate-x-1/2 lg:-translate-x-0 z-10">
+        <div className=" transform -translate-x-1/2 absolute top-5 right-10 sm:right-40 md:-right-28 lg:left-1/2 lg:top-8
+         lg:-translate-x-0 z-10">
           <Image
             src="/elements/HeroElement.svg"
             alt="Decorative Element"
             width={80}
             height={30}
-            className="w-8 h-4 lg:w-16 lg:h-8"
+            className="w-8 h-4 lg:w-16 lg:h-8 "
           />
         </div>
 

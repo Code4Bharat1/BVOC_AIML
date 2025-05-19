@@ -5,6 +5,7 @@ import Admission_Eligibility from "@/components/Opportunities/Admission_Eligibil
 import ObjectiveStipendStructure from "@/components/Opportunities/PaidInternship/ObjectiveStipendStructure";
 import DurationTimelineAndEligibilityCriteria from "@/components/Opportunities/PaidInternship/DurationTimelineAndEligibilityCriteria";
 import SelectionAndPerformanceCards from "@/components/Opportunities/PaidInternship/SelectionAndPerformanceCards";
+import TermsConditionAndSupport from "@/components/Opportunities/PaidInternship/TermsConditionAndSupport";
 export default function page() {
   return (
     <div className="flex flex-col min-h-screen ">
@@ -13,6 +14,7 @@ export default function page() {
         <ObjectiveStipendStructure />
         <DurationTimelineAndEligibilityCriteria />
         <SelectionAndPerformanceCards />
+        <TermsConditionAndSupport />
       </main>
       <Footer />
     </div>

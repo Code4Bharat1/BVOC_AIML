@@ -6,60 +6,76 @@ import { MapPin, Phone, Mail } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-[#2C2E33] text-white">
-      <div className="mx-auto w-full lg:px-14 px-7">
-        <hr className="my-2 border-white" />
+      <div className="mx-auto w-full lg:px-20 px-7">
+        <hr className="my-6 border-white" />
 
         {/* Main layout: description left, links right */}
-        <div className="flex flex-col md:flex-row justify-between gap-x-20">
+        <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Left - Description */}
-          <div className="md:w-1/2 mb-10 md:my-8 md:mb-0">
-            <p className="hidden md:block text-base md:text-xl leading-relaxed text-white">
+          <div className="md:w-1/3 mb-8 md:mb-0">
+            <p className="text-base md:text-lg leading-relaxed text-white">
               <strong className="text-xl">
                 <span className="text-[#AC6CFF]">B.</span>Voc in AI & ML
               </strong>{" "}
-              is a next-gen undergraduate <br />
-              program designed to equip students with real- <br />
-              world AI skills. Co-developed with industry <br />
-              leaders, it blends theory with hands-on training to <br />
-              launch tech-driven careers.
-            </p>
-            <p className="text-base md:text-xl leading-relaxed text-white md:hidden">
-              <strong className="text-xl">
-                <span className="text-[#AC6CFF]">B.</span>Voc in AI & ML
-              </strong>{" "}
-              is a next-gen undergraduate program designed to equip students
-              with real- world AI skills. Co-developed with industry leaders, it
-              blends theory with hands-on training to launch tech-driven
-              careers.
+              is a next-gen undergraduate program designed to equip students with real-world AI skills. Co-developed with industry leaders, it blends theory with hands-on training to launch tech-driven careers.
             </p>
           </div>
 
           {/* Right - Links section */}
-          <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div className="md:w-2/3 lg:ml-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {/* Explore More */}
             <div>
               <h2 className="mb-4 text-lg font-semibold text-[#AC6CFF]">
                 Explore More
               </h2>
-              <ul className="space-y-5 text-white text-base">
+              <ul className="space-y-3 text-white text-base">
                 <li>
-                  <Link href="/infrastructure" className="hover:underline">
+                  <Link href="/infrastructure" className="hover:underline transition-colors duration-200">
                     Infrastructure
                   </Link>
                 </li>
                 <li>
-                  <Link href="/learn-grow" className="hover:underline">
+                  <Link href="/learn-grow" className="hover:underline transition-colors duration-200">
                     Learn and Grow
                   </Link>
                 </li>
                 <li>
-                  <Link href="/why-us" className="hover:underline">
+                  <Link href="/why-us" className="hover:underline transition-colors duration-200">
                     Why Choose Us
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            {/* Policies */}
+            <div>
+              <h2 className="mb-4 text-lg font-semibold text-[#AC6CFF]">
+                Policies
+              </h2>
+              <ul className="space-y-3 text-white text-base">
                 <li>
-                  <Link href="/privacy-policy" className="hover:underline">
-                    Privacy and Policy
+                  <Link href="/selection-policy" className="hover:underline transition-colors duration-200">
+                    Selection Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/eligibility-criteria" className="hover:underline transition-colors duration-200">
+                    Eligibility Criteria
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/placement-policy" className="hover:underline transition-colors duration-200">
+                    Placement Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/internship-policy" className="hover:underline transition-colors duration-200">
+                    Paid Internship Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/scholarship-policy" className="hover:underline transition-colors duration-200">
+                    Scholarship Policy
                   </Link>
                 </li>
               </ul>
@@ -72,27 +88,27 @@ const Footer = () => {
               </h2>
               <ul className="space-y-3 text-white text-base">
                 <li className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 mt-0.5" />
+                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <a
                     href="https://www.google.com/maps/place/Student+Alliance+LLP/@19.0726487,72.8778329,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c892197ad4a7:0x6f69acffd67753e2!8m2!3d19.0726487!4d72.8804078!16s%2Fg%2F11cs4jnk_w?entry=ttu&g_ep=EgoyMDI1MDUxMS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
+                    className="hover:underline transition-colors duration-200"
                   >
-                      Kurla West, Mumbai, Maharashtra 400070
+                    Kurla West, Mumbai, Maharashtra 400070
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Phone className="w-5 h-5 mt-0.5" />
-                  <a href="tel:+918235678901" className="hover:underline">
+                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <a href="tel:+918235678901" className="hover:underline transition-colors duration-200">
                     +91 8992398976
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Mail className="w-5 h-5 mt-0.5" />
+                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <a
                     href="mailto:bvoc@nexcorealliance.com"
-                    className="hover:underline"
+                    className="hover:underline transition-colors duration-200"
                   >
                     bvoc@nexcorealliance.com
                   </a>
@@ -105,10 +121,10 @@ const Footer = () => {
         <hr className="my-8 border-white" />
 
         {/* Footer bottom row */}
-        <div className="sm:flex sm:items-center sm:justify-between text-gray-400 text-sm">
+        <div className="pb-6 sm:flex sm:items-center sm:justify-between text-gray-400 text-sm">
           <span>
             © 2023{" "}
-            <Link href="#" className="hover:underline text-white">
+            <Link href="#" className="hover:underline text-white transition-colors duration-200">
               BVOC™
             </Link>
             . All Rights Reserved.

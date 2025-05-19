@@ -3,6 +3,7 @@ import React from "react";
 export default function Placement_Policy() {
   const Placement_Policy = [
     {
+      image: "/placement_policy/image1.svg",
       heading: "Placement Guarantee Overview",
       description: [
         "Minimum Guaranteed Package: ₹3,00,000 per annum (₹25,000/month).",
@@ -18,6 +19,7 @@ export default function Placement_Policy() {
       ],
     },
     {
+      image: "/placement_policy/image2.svg",
       heading: "Eligibility Criteria",
       description: [
         "To be eligible for the guaranteed placement, a student must:",
@@ -31,6 +33,7 @@ export default function Placement_Policy() {
       ],
     },
     {
+      image: "/placement_policy/image3.svg",
       heading: "Student Responsibilities",
       description: [
         "Apply to all relevant job opportunities shared by the placement cell.",
@@ -40,6 +43,7 @@ export default function Placement_Policy() {
       ],
     },
     {
+      image: "/placement_policy/image4.svg",
       heading: "Force Majeure & Exemptions",
       description: [
         "Nexcore Alliance is not liable for placement outcomes impacted by unforeseen events like pandemics, economic crises, or personal emergencies.",
@@ -47,6 +51,7 @@ export default function Placement_Policy() {
       ],
     },
     {
+      image: "/placement_policy/image5.svg",
       heading: "Policy Terms",
       description: [
         "This policy is applicable only to the B.Voc in AI & ML program.",
@@ -101,7 +106,7 @@ export default function Placement_Policy() {
                 <img
                   src={item.image}
                   alt={item.heading}
-                  className="w-28 h-28 rounded-full object-cover"
+                  className="w-full h-full object-cover rounded-t-3xl scale-110 transition-transform duration-300"
                 />
               </div>
 

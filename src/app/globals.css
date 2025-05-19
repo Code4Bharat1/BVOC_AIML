@@ -78,3 +78,16 @@ body {
     height: 600px !important;
   }
 }
+.arrow-banner {
+  background: linear-gradient(to right, #1a001f, #6B009D);
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  clip-path: polygon(
+    20px 0%, 
+    calc(100% - 20px) 0%, 
+    100% 50%, 
+    calc(100% - 20px) 100%, 
+    20px 100%, 
+    0% 50%
+  );
+}

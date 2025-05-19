@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 
 export default function Scholarship_Policy() {
@@ -98,18 +99,19 @@ export default function Scholarship_Policy() {
         [
           "- Marksheet of Class 12.",
           "- Aadhaar card or government ID as proof of gender.",
-          "- Short essay (150–200 words) on “Why I want to build a career in AI & ML",
+          "- Short essay (150–200 words) on Why I want to build a career in AI & ML",
         ],
       ],
     },
   ];
+
   return (
     <>
       <div className="max-w-6xl mx-auto mb-6 mt-10 px-6 text-center">
-        <h1 className="text-4xl font-extrabold text-white mb-15">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-15">
           <span className="text-[#AC6CFF]">Scholarship Policy</span> Document
         </h1>
-        <p className="text-xl font-medium text-white mb-15">
+        <p className="text-base sm:text-xl font-medium text-white mb-15">
           This document outlines the{" "}
           <span className="text-[#AC6CFF]">Scholarship policies</span> for
           students enrolling in the{" "}
@@ -121,91 +123,194 @@ export default function Scholarship_Policy() {
           <span className="text-[#AC6CFF]">Recognized University.</span>
         </p>
       </div>
-      {Scholarship_Policy.map((item, idx) => (
-        <div
-          key={idx}
-          className="w-full max-w-6xl mx-auto mb-10 relative h-[600px]"
-        >
-          {/* Purple boxes behind */}
-          <div className="absolute inset-0 flex justify-between items-center -z-10 px-4">
-            <div
-              className="w-[300px] h-[600px] bg-[#AC6CFF]"
-              style={{
-                borderTopLeftRadius: "40px",
-                borderBottomLeftRadius: "40px",
-                borderTopRightRadius: "0px",
-                borderBottomRightRadius: "0px",
-              }}
-            ></div>
-            <div
-              className="w-[300px] h-[600px] bg-[#AC6CFF]"
-              style={{
-                borderTopRightRadius: "40px",
-                borderBottomRightRadius: "40px",
-                borderTopLeftRadius: "0px",
-                borderBottomLeftRadius: "0px",
-              }}
-            ></div>
-          </div>
+      
+      <style jsx>{`
+        /* Custom scrollbar styling */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(234, 218, 255, 0.3);
+          border-radius: 10px;
+          margin: 10px 0;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: rgba(172, 108, 255, 0.6);
+          border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(172, 108, 255, 0.8);
+        }
+        
+        /* Hide scrollbar for non-hover state */
+        .scroll-container {
+          scrollbar-width: thin;
+          scrollbar-color: transparent transparent;
+          transition: scrollbar-color 0.3s ease;
+        }
+        
+        /* Show scrollbar on hover */
+        .scroll-container:hover {
+          scrollbar-color: rgba(172, 108, 255, 0.6) rgba(234, 218, 255, 0.3);
+        }
 
-          {/* Center the light purple box */}
-          <div className="flex justify-center items-center h-full">
+        /* Keep normal content padding to ensure text doesn't get cut off */
+        .content-container {
+          padding-bottom: 20px;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 640px) {
+          .desktop-view {
+            display: none;
+          }
+          .mobile-view {
+            display: block;
+          }
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 641px) {
+          .desktop-view {
+            display: block;
+          }
+          .mobile-view {
+            display: none;
+          }
+        }
+      `}</style>
+      
+      {/* Desktop View - Original Layout */}
+      <div className="desktop-view">
+        {Scholarship_Policy.map((item, idx) => (
+          <div
+            key={idx}
+            className="w-full max-w-5xl mx-auto mb-20 relative h-[600px]"
+          >
+            {/* Purple boxes behind */}
+            <div className="absolute inset-0 flex justify-between items-center -z-10 px-4">
+              <div
+                className="w-[300px] h-[610px] bg-[#AC6CFF]"
+                style={{
+                  borderTopLeftRadius: "70px",
+                  borderBottomLeftRadius: "70px",
+                  borderTopRightRadius: "0px",
+                  borderBottomRightRadius: "0px",
+                }}
+              ></div>
+              <div
+                className="w-[300px] h-[610px] bg-[#AC6CFF]"
+                style={{
+                  borderTopRightRadius: "70px",
+                  borderBottomRightRadius: "70px",
+                  borderTopLeftRadius: "0px",
+                  borderBottomLeftRadius: "0px",
+                }}
+              ></div>
+            </div>
+  
             {/* Center the light purple box */}
-            <div className="flex justify-center items-center h-full relative">
-              {/* Center the light purple box */}
+            <div className="flex justify-center items-center h-full">
               <div className="flex justify-center items-center h-full relative">
-                <div className="bg-[#EADAFF] w-[800px] rounded-[40px] p-6 text-black overflow-y-auto h-[500px] shadow-lg relative">
-                  <h3 className="text-xl font-extrabold mb-4 text-left">
-                    {item.heading}
-                  </h3>
-                  {item.para.map((point, i) => {
-                    if (typeof point === "string") {
-                      return (
-                        <p
-                          key={i}
-                          className="text-xs font-medium mb-2 leading-tight"
-                        >
-                          {point}
-                        </p>
-                      );
-                    } else if (Array.isArray(point)) {
-                      return (
-                        <ul
-                          key={i}
-                          className="list-disc list-inside text-xs pl-5 space-y-1 mb-3"
-                        >
-                          {point.map((line, j) => (
-                            <li key={j} className="leading-tight">
-                              {line}
-                            </li>
-                          ))}
-                        </ul>
-                      );
-                    }
-                    return null;
-                  })}
-
-                  {/* Gradient fade at bottom */}
-                  <div
-                    style={{
-                      position: "sticky",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: "40px",
-                      pointerEvents: "none",
-                      background:
-                        "linear-gradient(180deg, rgba(234,218,255,0) 0%, #EADAFF 100%)",
-                      borderBottomLeftRadius: "40px",
-                      borderBottomRightRadius: "40px",
-                    }}
-                  />
+                <div className="flex justify-center items-center h-full relative">
+                  <div className="bg-[#EADAFF] w-[800px] rounded-[70px] p-6 text-black shadow-lg relative">
+                    <div className="h-[500px] overflow-y-auto pr-3 relative custom-scrollbar scroll-container">
+                      <div className="content-container">
+                        <h3 className="text-3xl font-extrabold mb-4 mx-10 text-left">
+                          {item.heading}
+                        </h3>
+  
+                        {item.para.map((point, i) => {
+                          if (typeof point === "string") {
+                            return (
+                              <p
+                                key={i}
+                                className="text-base font-medium mb-2 mx-10 leading-tight"
+                              >
+                                {point}
+                              </p>
+                            );
+                          } else if (Array.isArray(point)) {
+                            return (
+                              <ul
+                                key={i}
+                                className="list-disc list-inside text-base pl-5 space-y-1 mb-3 mx-10"
+                              >
+                                {point.map((line, j) => (
+                                  <li key={j} className="leading-tight">
+                                    {line}
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      
+      {/* Mobile View - New Layout */}
+      <div className="mobile-view">
+        {Scholarship_Policy.map((item, idx) => (
+          <div
+            key={idx}
+            className="w-full mx-auto mb-10 relative"
+          >
+            {/* Combined purple background box that adapts to content height */}
+            <div className="absolute inset-0 bg-[#AC6CFF] mx-4 rounded-[40px]"></div>
+  
+            {/* Center the light purple box */}
+            <div className="relative py-6 px-4 flex justify-center">
+              <div className="bg-[#EADAFF] w-full rounded-[40px] p-4 text-black shadow-lg">
+                <div className="h-[400px] overflow-y-auto pr-2 relative custom-scrollbar scroll-container">
+                  <div className="content-container">
+                    <h3 className="text-2xl font-extrabold mb-3 mx-4 text-left">
+                      {item.heading}
+                    </h3>
+  
+                    {item.para.map((point, i) => {
+                      if (typeof point === "string") {
+                        return (
+                          <p
+                            key={i}
+                            className="text-sm font-medium mb-2 mx-4 leading-tight"
+                          >
+                            {point}
+                          </p>
+                        );
+                      } else if (Array.isArray(point)) {
+                        return (
+                          <ul
+                            key={i}
+                            className="list-disc list-inside text-sm pl-3 space-y-1 mb-3 mx-4"
+                          >
+                            {point.map((line, j) => (
+                              <li key={j} className="leading-tight">
+                                {line}
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

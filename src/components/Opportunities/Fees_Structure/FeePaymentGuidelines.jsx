@@ -1,156 +1,145 @@
-"use client"
-import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import React from "react";
 
 export default function FeePaymentGuidelines() {
-  // State to track viewport width
-  const [windowWidth, setWindowWidth] = useState(0);
-  
-  // Refs for measuring text content height
-  const textRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
-  
-  // State to store calculated heights for each card
-  const [cardHeights, setCardHeights] = useState([140, 140, 140, 140, 140]);
-
-  // Base classes
-  const cardClasses =
-    "relative w-full max-w-4xl mx-auto mb-4 flex items-center justify-center text-center px-6 py-6";
-
-  const textClasses =
-    "absolute inset-0 flex items-center justify-center text-white text-base sm:text-lg font-semibold leading-snug px-6";
-
-  // Handle resize and initial measurements
-  useEffect(() => {
-    // Set initial window width
-    setWindowWidth(window.innerWidth);
-    
-    // Calculate card heights based on content
-    updateCardHeights();
-    
-    // Add resize listener
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      updateCardHeights();
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Clean up
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Recalculate heights when window width changes
-  useEffect(() => {
-    updateCardHeights();
-  }, [windowWidth]);
-
-  // Function to calculate appropriate heights
-  const updateCardHeights = () => {
-    const newHeights = textRefs.map((ref, index) => {
-      if (!ref.current) return 140;
-      
-      // Get content height
-      const contentHeight = ref.current.scrollHeight;
-      
-      // Base height calculation
-      let baseHeight = 140; // Default height
-      
-      // On mobile (under 640px - Tailwind's sm breakpoint)
-      if (windowWidth < 640) {
-        // Card 4 has longer text with the <br>
-        if (index === 3) {
-          baseHeight = 180;
-        } else {
-          // Adjust other cards based on content length
-          baseHeight = contentHeight > 60 ? 160 : 140;
-        }
-      }
-      
-      return baseHeight;
-    });
-    
-    setCardHeights(newHeights);
-  };
+  const guidelines = [
+    {
+      title: "Payment Methods",
+      description:
+        "Fees can be paid via bank transfer, UPI, net banking, or at the university finance counter.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <line x1="2" x2="22" y1="10" y2="10" />
+        </svg>
+      ),
+    },
+    {
+      title: "Late Fees",
+      description: "A late fee of ₹500/week is applicable after the due date.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      ),
+    },
+    {
+      title: "Fee Receipts",
+      description:
+        "Fee receipts must be retained and submitted during semester registration.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10 9 9 9 8 9" />
+        </svg>
+      ),
+    },
+    {
+      title: "Scholarships & Internships",
+      description:
+        "Students availing scholarships or paid internships must notify the accounts department for adjustments.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="9 11 12 14 22 4" />
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+        </svg>
+      ),
+    },
+    {
+      title: "Refund Policy",
+      description:
+        "No refunds after 15 days of admission, unless approved under exceptional cases.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 3v18h18" />
+          <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" />
+        </svg>
+      ),
+    },
+  ];
 
   return (
-    <div>
-      <h1 className="text-white text-center text-2xl sm:text-3xl md:text-4xl font-bold mt-8 sm:mt-12 md:mt-16 mb-6 sm:mb-8 md:mb-10">
-        Fee Payment Guidelines
-      </h1>
+    <div className="min-h-screen py-12 px-4">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <h1 className="text-white text-center text-4xl font-bold mt-16 mb-10">
+          Fee Payment Guidelines
+        </h1>
 
-      {/* Card 1 */}
-      <div className={cardClasses}>
-        <Image
-          src="/elements/arrow_box.svg"
-          alt="Arrow Box"
-          width={1200}
-          height={400}
-          className="w-full object-contain"
-          style={{ height: `${cardHeights[0]}px` }}
-        />
-        <p className={textClasses} ref={textRefs[0]}>
-          Fees can be paid via bank transfer, UPI, net banking, or at the university finance counter.
-        </p>
-      </div>
-
-      {/* Card 2 */}
-      <div className={cardClasses}>
-        <Image
-          src="/elements/arrow_box.svg"
-          alt="Arrow Box"
-          width={1200}
-          height={400}
-          className="w-full object-contain"
-          style={{ height: `${cardHeights[1]}px` }}
-        />
-        <p className={textClasses} ref={textRefs[1]}>
-          A late fee of ₹500/week is applicable after the due date.
-        </p>
-      </div>
-
-      {/* Card 3 */}
-      <div className={cardClasses}>
-        <Image
-          src="/elements/arrow_box.svg"
-          alt="Arrow Box"
-          width={1200}
-          height={400}
-          className="w-full object-contain"
-          style={{ height: `${cardHeights[2]}px` }}
-        />
-        <p className={textClasses} ref={textRefs[2]}>
-          Fee receipts must be retained and submitted during semester registration.
-        </p>
-      </div>
-
-      {/* Card 4 */}
-      <div className={cardClasses}>
-        <Image
-          src="/elements/arrow_box.svg"
-          alt="Arrow Box"
-          width={1200}
-          height={400}
-          className="w-full object-contain"
-          style={{ height: `${cardHeights[3]}px` }}
-        />
-        <p className={textClasses} ref={textRefs[3]}>
-          Students availing scholarships or paid internships must notify the accounts department for adjustments.
-        </p>
-      </div>
-
-      {/* Card 5 */}
-      <div className={cardClasses}>
-        <Image
-          src="/elements/arrow_box.svg"
-          alt="Arrow Box"
-          width={1200}
-          height={200}
-          className="w-full object-contain"
-          style={{ height: `${cardHeights[4]}px` }}
-        />
-        <p className={textClasses} ref={textRefs[4]}>
-          No refunds after 15 days of admission, unless approved under exceptional cases.
-        </p>
+        {/* Guidelines Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {guidelines.map((item, index) => (
+            <div
+              key={index}
+              className="bg-gradient-to-br from-[#6B009D] to-[#3b0055] rounded-xl shadow-lg p-6"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 text-white">{item.icon}</div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white text-sm sm:text-lg">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

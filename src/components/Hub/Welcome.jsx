@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { IoMdPlay } from "react-icons/io";
+import { motion, useInView } from "framer-motion";
 
 const Welcome = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="bg-[#1712331B] relative lg:mt-6 py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
+    <section
+      ref={ref}
+      className="bg-[#1712331B] relative lg:mt-6 py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-12 overflow-hidden"
+    >
       {/* Decorative Stars SVGs */}
       <Image
         src="/elements/StarsElement.svg"
         alt="Star Top Right"
         width={50}
         height={50}
-        className="absolute top-4 left-4 w-8 h-8 lg:w-12 lg:h-7" //this is the top right star
+        className="absolute top-4 left-4 w-8 h-8 lg:w-12 lg:h-7"
       />
       <Image
         src="/elements/StarsElement.svg"
         alt="Star Bottom Right"
         width={50}
         height={50}
-        className="absolute bottom-28 right-20 lg:bottom-8 lg:right-52 w-8 h-6 lg:w-12 lg:h-12" //this is the bottom right star
+        className="absolute bottom-28 right-20 lg:bottom-8 lg:right-52 w-8 h-6 lg:w-12 lg:h-12"
       />
       <Image
         src="/elements/StarsElement.svg"
@@ -29,10 +36,13 @@ const Welcome = () => {
       />
 
       {/* Text Section */}
-      <div className="relative lg:w-1/2 text-center lg:text-left">
-        {/* SVG Element Positioned Above Heading */}
-        <div className=" transform -translate-x-1/2 absolute top-5 right-10 sm:right-40 md:-right-28 lg:left-1/2 lg:top-8
-         lg:-translate-x-0 z-10">
+      <motion.div
+        className="relative lg:w-1/2 text-center lg:text-left"
+        initial={{ opacity: 0, x: -60 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <div className="transform -translate-x-1/2 absolute top-5 right-10 sm:right-40 md:-right-28 lg:left-1/2 lg:top-8 lg:-translate-x-0 z-10">
           <Image
             src="/elements/HeroElement.svg"
             alt="Decorative Element"
@@ -48,40 +58,60 @@ const Welcome = () => {
           <span className="text-[#AC6CFF]">Learning!</span>
         </h1>
 
-        <p className="hidden lg:block text-[28px] text-white mb-8">
+        <motion.p
+          className="hidden lg:block text-[28px] text-white mb-8"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
           We’re excited to introduce a game-changing partnership between{" "}
           <span className="text-[#AC6CFF]">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—an
-          alliance designed to bring you the{" "}
+          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—
+          an alliance designed to bring you the{" "}
           <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
           degree programs that fuse industry expertise with academic excellence.
-        </p>
-        <p className="lg:hidden text-lg text-white mb-8">
-          We’re excited to introduce a game-changing partnership between{" "}
-          <span className="text-[#AC6CFF]">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—an
-          alliance designed to bring you the{" "}
-          <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
-          degree programs that fuse industry expertise with academic excellence.
-        </p>
+        </motion.p>
 
-        {/* Enroll Button */}
-        <button className="bg-[#EADAFF] text-[#AC6CFF] font-semibold py-4 px-5 lg:px-10 rounded-full transition-transform hover:scale-105 flex items-center space-x-2 mx-auto">
+        <motion.p
+          className="lg:hidden text-lg text-white mb-8"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          We’re excited to introduce a game-changing partnership between{" "}
+          <span className="text-[#AC6CFF]">Nexcore Alliance LLP</span> and{" "}
+          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—
+          an alliance designed to bring you the{" "}
+          <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
+          degree programs that fuse industry expertise with academic excellence.
+        </motion.p>
+
+        <motion.button
+          className="bg-[#EADAFF] text-[#AC6CFF] font-semibold py-4 px-5 lg:px-10 rounded-full transition-transform hover:scale-105 flex items-center space-x-2 mx-auto"
+          initial={{ scale: 0 }}
+          animate={isInView ? { scale: 1 } : {}}
+          transition={{ delay: 0.05, type: "spring", stiffness: 120 }}
+        >
           <IoMdPlay />
           <span>Enroll Now</span>
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
       {/* Image Section */}
-      <div className="hidden lg:block md:w-1/2">
+      <motion.div
+        className="hidden lg:block md:w-1/2"
+        initial={{ opacity: 0, x: 100 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ delay: 0.4, duration: 1 }}
+      >
         <Image
           src="/elements/AI_Element_Home.svg"
           alt="Hero Illustration"
           width={200}
           height={150}
-          className="mx-auto"  // Center the image in its container
+          className="mx-auto"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

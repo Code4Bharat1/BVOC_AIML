@@ -1,14 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+
+const leftVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const rightVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
 
 const Hero = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="w-7xl max-w-full mx-auto px-6 py-10">
+    <section className="w-7xl max-w-full mx-auto px-6 py-10" ref={ref}>
       <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
         {/* Left Side */}
-        <div className="lg:w-[70%] w-full">
+        <motion.div
+          variants={leftVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="lg:w-[70%] w-full"
+        >
           {/* For Mobile */}
           <h1 className="lg:hidden text-4xl text-center font-bold text-white leading-12">
             Where Innovation <br /> Meets World-Class <br />
@@ -34,10 +53,15 @@ const Hero = () => {
             <br />
             simulation.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Right Side with Manual Positioning via className on <Image /> */}
-        <div className="hidden lg:block lg:w-[30%] w-full relative h-[200px]">
+        {/* Right Side */}
+        <motion.div
+          variants={rightVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="hidden lg:block lg:w-[30%] w-full relative h-[200px]"
+        >
           <Image
             src="/elements/StarsElementWhiteBg.svg"
             alt="Icon 1"
@@ -73,7 +97,7 @@ const Hero = () => {
             height={60}
             className="absolute bottom-20 left-1/3 transform -translate-x-1/2"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -23,9 +23,26 @@ const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+
+  // Close menu/dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="bg-[#2C2E33] fixed w-full top-0 z-50 border-b border-gray-700">
@@ -38,26 +55,36 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Hamburger Button */}
         <button
           onClick={toggleMenu}
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600"
+          className="inline-flex items-center justify-center p-2 w-10 h-10 text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all"
           aria-controls="navbar-default"
           aria-expanded={menuOpen}
         >
           <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 17 14"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1 1h15M1 7h15M1 13h15" />
-          </svg>
+          <div className="space-y-1">
+            <span
+              className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
+                menuOpen ? "rotate-45 translate-y-1.5" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${
+                menuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            />
+          </div>
         </button>
 
+        {/* Main Nav */}
         <div
+          ref={menuRef}
           className={`w-full md:flex md:items-center md:justify-center md:w-auto ${
             menuOpen ? "block" : "hidden"
           }`}
@@ -86,7 +113,7 @@ const Navbar = () => {
             })}
 
             {/* Opportunities Dropdown */}
-            <li className="relative text-center">
+            <li className="relative text-center" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
                 className="block py-2 px-3 w-full transition-colors hover:text-gray-300 md:group"
@@ -94,7 +121,6 @@ const Navbar = () => {
                 Opportunities
               </button>
 
-              {/* Desktop (hover) + Mobile (click) visibility */}
               <ul
                 className={`${
                   dropdownOpen ? "block" : "hidden"

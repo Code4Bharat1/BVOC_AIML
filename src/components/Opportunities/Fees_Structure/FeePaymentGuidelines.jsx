@@ -3,7 +3,6 @@ import React from "react";
 export default function FeePaymentGuidelines() {
   const guidelines = [
     {
-      title: "Payment Methods",
       description:
         "Fees can be paid via bank transfer, UPI, net banking, or at the university finance counter.",
       icon: (
@@ -24,7 +23,6 @@ export default function FeePaymentGuidelines() {
       ),
     },
     {
-      title: "Late Fees",
       description: "A late fee of ₹500/week is applicable after the due date.",
       icon: (
         <svg
@@ -44,7 +42,6 @@ export default function FeePaymentGuidelines() {
       ),
     },
     {
-      title: "Fee Receipts",
       description:
         "Fee receipts must be retained and submitted during semester registration.",
       icon: (
@@ -68,7 +65,6 @@ export default function FeePaymentGuidelines() {
       ),
     },
     {
-      title: "Scholarships & Internships",
       description:
         "Students availing scholarships or paid internships must notify the accounts department for adjustments.",
       icon: (
@@ -89,7 +85,6 @@ export default function FeePaymentGuidelines() {
       ),
     },
     {
-      title: "Refund Policy",
       description:
         "No refunds after 15 days of admission, unless approved under exceptional cases.",
       icon: (
@@ -115,30 +110,39 @@ export default function FeePaymentGuidelines() {
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <h1 className="text-white text-center text-4xl font-bold mt-8 mb-10">
+        <h1 className="text-white text-center text-4xl font-bold mb-12">
           Fee Payment Guidelines
         </h1>
 
         {/* Guidelines Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {guidelines.map((item, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-[#6B009D] to-[#3b0055] rounded-xl shadow-lg p-6"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 text-white">{item.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-white text-sm sm:text-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {guidelines.map((item, index) => {
+            const isLast = index === guidelines.length - 1;
+            const isOdd = guidelines.length % 2 !== 0;
+
+            return (
+              <div
+                key={index}
+                className={`group relative bg-gradient-to-br from-[#6B009D] to-[#3b0055] rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center min-h-[150px] transform transition-all duration-500 ease-out animate-fadeIn ${
+                  isLast && isOdd
+                    ? "md:col-span-2 md:mx-auto max-w-md"
+                    : ""
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex-shrink-0 p-3 rounded-full bg-white/10 text-white group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <div className="text-center mt-4">
+                  <p className="text-white text-base sm:text-lg font-medium leading-relaxed">
                     {item.description}
                   </p>
                 </div>
+                {/* Subtle overlay effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

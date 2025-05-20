@@ -42,14 +42,14 @@ export default function LastComponenet() {
       </h2>
 
       {/* Mobile View */}
-      <div className="flex flex-col gap-8 items-center lg:hidden px-4">
+      <div className="flex flex-col gap-6 items-center justify-center lg:hidden px-2 sm:px-4 w-full">
         {CardData.map((card, index) => (
           <div
             key={`mobile-performance-${index}`}
-            className="w-full max-w-[380px]" // Increased width
+            className="h-full w-full max-w-[90vw] sm:max-w-[85vw] mx-2 sm:mx-4" // Responsive width and margins
           >
-            <div className="rounded-2xl w-full bg-gradient-to-b from-[#6B009D] to-[#2B2038] border-[3px] border-white shadow-sm shadow-white p-6 -skew-x-12">
-              <div className="text-white text-sm sm:text-base md:text-lg font-bold text-center skew-x-12 whitespace-pre-line">
+            <div className="rounded-2xl bg-gradient-to-b from-[#6B009D] to-[#2B2038] border-[3px] border-white shadow-sm shadow-white p-4 sm:p-6 -skew-x-12">
+              <div className="text-white text-sm xs:text-sm sm:text-base md:text-lg font-bold text-center skew-x-12 whitespace-pre-line">
                 {card.heading + "\n\n" + card.param}
               </div>
             </div>

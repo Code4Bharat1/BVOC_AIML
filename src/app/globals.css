@@ -91,3 +91,19 @@ body {
     0% 50%
   );
 }
+
+/* Dropdown container with initial hidden state */
+.dropdown-menu {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* When open: reveal content with animation */
+.dropdown-menu.open {
+  max-height: 500px; /* enough for all items */
+  opacity: 1;
+  transform: translateY(0);
+}

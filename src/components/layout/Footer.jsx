@@ -95,7 +95,7 @@ const Footer = () => {
                 <li className="flex items-start gap-2">
                   <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <a
-                    href="https://www.google.com/maps/place/Student+Alliance+LLP/@19.0726487,72.8778329,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c892197ad4a7:0x6f69acffd67753e2!8m2!3d19.0726487!4d72.8804078!16s%2Fg%2F11cs4jnk_w?entry=ttu&g_ep=EgoyMDI1MDUxMS4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps/place/Nexcore+Alliance+LLP/@19.0726231,72.8778438,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c9d250f21f0d:0xdb46fbfa10678856!8m2!3d19.072618!4d72.8804187!16s%2Fg%2F11mdp1lx22?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline transition-colors duration-200"
@@ -105,8 +105,8 @@ const Footer = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <a href="tel:+918235678901" className="hover:underline transition-colors duration-200">
-                    +91 8992398976
+                  <a href="tel:+919892398976" className="hover:underline transition-colors duration-200">
+                    +91 9892398976
                   </a>
                 </li>
                 <li className="flex items-start gap-2">

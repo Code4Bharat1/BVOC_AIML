@@ -168,7 +168,7 @@ function ThreeCardsMobile() {
 export default function ThreeCards() {
   return (
     <>
-      <h1 className="text-4xl font-semibold text-white text-center m-20">
+      <h1 className="text-4xl font-semibold text-white text-center mb-20">
         Financial Assistance
       </h1>
       <ThreeCardsMobile />

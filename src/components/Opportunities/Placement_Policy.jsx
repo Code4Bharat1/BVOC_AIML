@@ -51,7 +51,7 @@ export default function Placement_Policy() {
       ],
     },
     {
-      image: "/placement_policy/image5.svg",
+      image: "/placement_policy/image5MobileView.png",
       heading: "Policy Terms",
       description: [
         "This policy is applicable only to the B.Voc in AI & ML program.",
@@ -60,6 +60,7 @@ export default function Placement_Policy() {
       ],
     },
   ];
+
   return (
     <>
       <h1 className="text-center text-5xl sm:text-6xl font-extrabold text-white mt-12 mb-6 tracking-tight drop-shadow-lg">
@@ -77,72 +78,95 @@ export default function Placement_Policy() {
         criteria for students to qualify for the guaranteed placement offer.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 justify-items-center p-6">
-        {Placement_Policy.map((item, index) => (
-          <div
-            key={index}
-            className={`w-full max-w-[420px] h-160 rounded-3xl overflow-hidden ${
-              Placement_Policy.length % 2 === 1 &&
-              index === Placement_Policy.length - 1
-                ? "sm:col-span-2 sm:justify-self-center"
-                : ""
-            }`}
-          >
-            <div className="w-full h-full bg-[#FFFF] relative">
-              {/* Background purple div */}
-              <div
-                className="w-full h-1/2 bg-[#AC6CFF] absolute top-0 left-0 rounded-3xl"
-                style={{
-                  borderBottomLeftRadius: "0px",
-                  borderBottomRightRadius: "30px",
-                }}
-              ></div>
+      {/* Grid layout: 1 column on mobile, 2 on md+ */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 justify-items-center p-6">
+        {Placement_Policy.map((item, index) => {
+          // Flatten description to text to calculate length
+          const getDescriptionText = (desc) => {
+            if (Array.isArray(desc)) {
+              return desc
+                .flatMap((d) => (Array.isArray(d) ? d : [d]))
+                .join(" ");
+            }
+            return desc;
+          };
 
-              {/* White image area */}
-              <div
-                className="w-full h-1/2 bg-white absolute top-0 left-0 rounded-3xl flex items-center justify-center"
-                style={{ borderBottomLeftRadius: "20px" }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.heading}
-                  className="w-full h-full object-cover rounded-t-3xl scale-110 transition-transform duration-300"
-                />
-              </div>
+          // Calculate total description length
+          const totalDescLength = getDescriptionText(item.description).length;
 
-              {/* Text area */}
-              <div
-                className="w-full bg-[#AC6CFF] absolute bottom-0 left-0 rounded-3xl p-5 text-white"
-                style={{ height: "50%", borderTopLeftRadius: "0px" }}
-              >
-                <h3 className="text-xl font-bold mb-2 text-center">
-                  {item.heading}
-                </h3>
+          // Threshold for switching font size
+          const isLongText = totalDescLength > 300;
 
-                <ul className="text-sm list-disc pl-5 space-y-1">
-                  {Array.isArray(item.description) ? (
-                    item.description.map((desc, i) =>
-                      Array.isArray(desc) ? (
-                        <ul
-                          key={i}
-                          className="list-[lower-alpha] pl-6 space-y-1"
-                        >
-                          {desc.map((sub, j) => (
-                            <li key={j}>{sub}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <li key={i}>{desc}</li>
+          return (
+            <div
+              key={index}
+              className={`w-full max-w-[480px] h-[750px] md:h-[700px] rounded-3xl overflow-hidden ${
+                Placement_Policy.length % 2 === 1 &&
+                index === Placement_Policy.length - 1
+                  ? "md:col-span-2 md:justify-self-center"
+                  : ""
+              }`}
+            >
+              <div className="w-full h-full bg-white relative rounded-3xl">
+                {/* Top purple background */}
+                <div
+                  className="w-full h-[50%] bg-[#AC6CFF] absolute top-0 left-0 rounded-t-3xl"
+                  style={{
+                    borderBottomLeftRadius: "0px",
+                    borderBottomRightRadius: "30px",
+                  }}
+                ></div>
+
+                {/* Image section */}
+                <div
+                  className="w-full h-[50%] absolute top-0 left-0 flex items-center justify-center bg-white rounded-t-3xl"
+                  style={{ borderBottomLeftRadius: "20px" }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.heading}
+                    className="w-full h-full object-cover rounded-bl-[20px] md:scale-104 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Bottom content area */}
+                <div
+                  className="w-full bg-[#AC6CFF] absolute bottom-0 left-0 p-5 text-white rounded-b-3xl"
+                  style={{ height: "50%", borderTopLeftRadius: "0px" }}
+                >
+                  <h3 className="text-xl font-bold mb-2 text-center">
+                    {item.heading}
+                  </h3>
+
+                  <ul
+                    className={`list-disc pl-5 space-y-1 ${
+                      isLongText ? "text-sm" : "text-base"
+                    }`}
+                  >
+                    {Array.isArray(item.description) ? (
+                      item.description.map((desc, i) =>
+                        Array.isArray(desc) ? (
+                          <ul
+                            key={i}
+                            className="list-[lower-alpha] pl-6 space-y-1"
+                          >
+                            {desc.map((sub, j) => (
+                              <li key={j}>{sub}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <li key={i}>{desc}</li>
+                        )
                       )
-                    )
-                  ) : (
-                    <li>{item.description}</li>
-                  )}
-                </ul>
+                    ) : (
+                      <li>{item.description}</li>
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );

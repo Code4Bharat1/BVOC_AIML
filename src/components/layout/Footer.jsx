@@ -78,6 +78,11 @@ const Footer = () => {
                     Scholarship Policy
                   </Link>
                 </li>
+                <li>
+                  <Link href="/fees-policy" className="hover:underline transition-colors duration-200">
+                    Fees Policy
+                  </Link>
+                </li>
               </ul>
             </div>
 

@@ -115,7 +115,7 @@ export default function FeePaymentGuidelines() {
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <h1 className="text-white text-center text-4xl font-bold mt-16 mb-10">
+        <h1 className="text-white text-center text-4xl font-bold mt-8 mb-10">
           Fee Payment Guidelines
         </h1>
 

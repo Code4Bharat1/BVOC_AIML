@@ -30,14 +30,14 @@ export default function LastComponenet() {
         <h2 className="text-4xl font-bold mb-4 text-center">
           Paid Internship Impact on Fee Payment
         </h2>
-        <p className="text-lg text-center mt-10">
+        <p className="text-xl text-center mt-10">
           Students starting from the second year may receive monthly stipends
           between ₹3,000 to ₹10,000 under Nexcore’s Paid Internship Program.
           This enables students to partially or fully cover their semester fees.
         </p>
       </div>
 
-      <h2 className="text-4xl font-bold mb-4 text-center my-16 text-white">
+      <h2 className="text-4xl font-bold mt-10 mb-10 text-center text-white">
         Sample Case Studies
       </h2>
 

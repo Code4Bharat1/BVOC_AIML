@@ -19,7 +19,7 @@ export default function Fee_Policy() {
       </div>
 
       {/** table of compoenent and fee */}
-      <h2 className="text-2xl sm:text-3xl font-semibold text-[#ffff] mt-15 text-bold">
+      <h2 className="text-2xl sm:text-4xl font-bold text-[#ffff] mt-15 text-bold">
         Detailed Fee Bifurcation (Per Year)
       </h2>
       <div className="overflow-x-auto mt-10 max-w-4xl mx-auto">
@@ -70,7 +70,7 @@ export default function Fee_Policy() {
       </div>
 
       {/** Payment Schedule & Options */}
-      <h2 className="text-2xl sm:text-3xl font-semibold text-[#ffff] mt-15 mb-15 text-bold">
+      <h2 className="text-4xl font-bold text-[#ffff] mt-15 mb-15 text-bold">
         Payment Schedule & Options
       </h2>
       <div className="flex flex-col sm:flex-row justify-center items-stretch gap-15 mt-10 px-4">

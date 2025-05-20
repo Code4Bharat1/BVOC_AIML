@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -16,6 +17,42 @@ import HubHero from '@/components/Hub/HubHero';
 import ChatbotWidget from '@/components/Chatbot/chatbot';
 
 const Page = () => {
+  useEffect(() => {
+     const script = document.createElement('script');
+     script.src = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?97631';
+     script.async = true;
+     script.onload = () => {
+       if (typeof CreateWhatsappChatWidget === 'function') {
+         CreateWhatsappChatWidget({
+           enabled: true,
+           chatButtonSetting: {
+             backgroundColor: '#00e785',
+             ctaText: 'Chat with us',
+             borderRadius: '25',
+             marginLeft: '0',
+             marginRight: '13',
+             marginBottom: '70',
+             ctaIconWATI: false,
+             position: 'right',
+           },
+           brandSetting: {
+             brandName: 'BVOC AI & ML',
+             brandSubTitle: 'undefined',
+             brandImg: 'https://www.wati.io/wp-content/uploads/2023/04/Wati-logo.svg',
+             welcomeText: 'Hi there!\nWelocme',
+             messageText: 'Hi',
+             backgroundColor: '#00e785',
+             ctaText: 'Chat with us',
+             borderRadius: '25',
+             autoShow: false,
+             phoneNumber: '919892398976',
+           },
+         });
+       }
+     };
+ 
+     document.body.appendChild(script);
+   }, []);
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />

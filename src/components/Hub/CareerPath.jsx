@@ -1,9 +1,36 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 function CareerPath() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const leftVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const rightVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section className="bg-[#2B2038] w-full py-16 px-6 relative overflow-hidden">
+    <section
+      ref={ref}
+      className="bg-[#2B2038] w-full py-16 px-6 relative overflow-hidden"
+    >
       {/* Circle Element OUTSIDE content container */}
       <div className="absolute top-24 lg:top-[55%] left-0 -translate-y-1/2 z-0 overflow-hidden">
         <Image
@@ -11,14 +38,19 @@ function CareerPath() {
           alt="Circle Element"
           width={140}
           height={100}
-          className="object-cover w-16 lg:w-40" // Ensure the circle image doesn't stretch
+          className="object-cover w-16 lg:w-40"
         />
       </div>
 
       {/* Content Container */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center relative z-10">
         {/* Left Side */}
-        <div className="z-10">
+        <motion.div
+          variants={leftVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="z-10"
+        >
           <h2 className="text-[#F8F9FF] text-4xl lg:text-5xl font-extrabold my-6 lg:my-12">
             Career Path
           </h2>
@@ -29,13 +61,17 @@ function CareerPath() {
               alt="Career Path"
               width={500}
               height={500}
-              className=""
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side */}
-        <div className="relative">
+        <motion.div
+          variants={rightVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="relative"
+        >
           {/* Star Element */}
           <div className="absolute right-2 top-20 lg:right-28 lg:top-48 transform -translate-y-1/2 z-0">
             <Image
@@ -43,7 +79,6 @@ function CareerPath() {
               alt="Star Element"
               width={30}
               height={120}
-              className=""
             />
           </div>
 
@@ -72,7 +107,7 @@ function CareerPath() {
               your career.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

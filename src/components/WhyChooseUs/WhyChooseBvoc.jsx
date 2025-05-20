@@ -1,8 +1,11 @@
+'use client';
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const WhyChooseBVoc = () => {
   return (
-    <div className="flex flex-col items-center bg-[#2d2544] text-white p-10 rounded-xl shadow-lg">
+    <div className="flex flex-col items-center bg-[#2d2544] text-white p-10 rounded-xl shadow-lg overflow-hidden">
       {/* Header Section */}
       <h1 className="text-4xl font-extrabold mb-8 text-center">
         Why Choose <span className="text-purple-400">B.Voc?</span>
@@ -10,8 +13,14 @@ const WhyChooseBVoc = () => {
 
       {/* Content Section */}
       <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-6xl">
-        {/* Image Section */}
-        <div className="flex-1">
+        {/* Image Section with scroll-triggered animation */}
+        <motion.div
+          className="flex-1"
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Image
             src="/bvoc-image.png"
             alt="B.Voc illustration"
@@ -19,11 +28,16 @@ const WhyChooseBVoc = () => {
             height={300}
             className="rounded-xl shadow-md"
           />
-        </div>
+        </motion.div>
 
-        {/* Text Content Section */}
-        <div className="flex-1">
-          {/* Fast-Track Section */}
+        {/* Text Section with scroll-triggered animation */}
+        <motion.div
+          className="flex-1"
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="text-2xl font-semibold text-purple-400 mb-4">
             Fast-Track Your Career
           </h2>
@@ -32,7 +46,6 @@ const WhyChooseBVoc = () => {
             projects get you job-ready quicker than traditional degrees.
           </p>
 
-          {/* Comparison Section */}
           <h2 className="text-2xl font-semibold text-purple-400 mb-4">
             B.Voc vs. Traditional Degrees
           </h2>
@@ -46,12 +59,11 @@ const WhyChooseBVoc = () => {
             <li>Lead in AI, ML, and Data Science</li>
           </ul>
 
-          {/* Final Paragraph */}
           <p className="text-base leading-relaxed">
             B.Voc equips you with the skills to excel in these fast-evolving
             fields and launch your career faster.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

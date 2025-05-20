@@ -1,198 +1,216 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const DegreeComparisonTable = () => {
   const [isMobile, setIsMobile] = useState(false);
-  
-  // Detect if screen is mobile
+
+  // Detect mobile device
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const checkIfMobile = () => setIsMobile(window.innerWidth < 768);
+
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(checkIfMobile, 150);
     };
-    
-    // Check on initial load
+
     checkIfMobile();
-    
-    // Add listener for resize events
-    window.addEventListener("resize", checkIfMobile);
-    
-    // Clean up
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener("resize", checkIfMobile);
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const tableData = [
-    {
-      feature: "Focus",
-      bvoc: "Get job-ready today",
-      btech: "Theory overload",
-      bsc: "Science geeks only",
-    },
-    {
-      feature: "Curriculum",
-      bvoc: "Hands-on, real-world",
-      btech: "Rigid & outdated",
-      bsc: "Mostly books",
-    },
-    {
-      feature: "Job Readiness",
-      bvoc: "High—ready on Day 1",
-      btech: "More courses needed",
-      bsc: "Extra steps required",
-    },
-    {
-      feature: "Exit Options",
-      bvoc: "Flexible exits",
-      btech: "All or nothing",
-      bsc: "Locked for 3 years",
-    },
-    {
-      feature: "Duration",
-      bvoc: "1-3 years",
-      btech: "4 years",
-      bsc: "3 years",
-    },
-    {
-      feature: "Best For",
-      bvoc: "Quick career launchers",
-      btech: "Hardcore engineers",
-      bsc: "Future researchers",
-    },
+    { feature: "Focus", bvoc: "Get job-ready today", btech: "Theory overload", bsc: "Science geeks only" },
+    { feature: "Curriculum", bvoc: "Hands-on, real-world", btech: "Rigid & outdated", bsc: "Mostly books" },
+    { feature: "Job Readiness", bvoc: "High—ready on Day 1", btech: "More courses needed", bsc: "Extra steps required" },
+    { feature: "Exit Options", bvoc: "Flexible exits", btech: "All or nothing", bsc: "Locked for 3 years" },
+    { feature: "Duration", bvoc: "1-3 years", btech: "4 years", bsc: "3 years" },
+    { feature: "Best For", bvoc: "Quick career launchers", btech: "Hardcore engineers", bsc: "Future researchers" },
   ];
 
+  const componentRef = useRef(null);
+  const isInView = useInView(componentRef, { once: true, margin: "-100px 0px -100px 0px" });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [isInView, controls]);
+
+  const headingVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const descriptionVariants = {
+    hidden: { x: 100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut", delay: 0.5 } },
+  };
+
+  const rowVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: (index) => ({
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut", delay: 0.15 * index },
+    }),
+  };
+
+  const tableVariants = {
+    visible: (isMobile) => ({
+      borderColor: isMobile ? "#FFFFFF66" : "#AC6CFF",
+      boxShadow: isMobile ? "none" : "0 0 15px 3px #AC6CFF",
+      transition: { duration: 0.6 },
+    }),
+    hidden: {
+      borderColor: "#FFFFFF66",
+      boxShadow: "none",
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-      <h2 className="text-3xl font-semibold text-white mb-4 leading-snug">
+    <div className="max-w-4xl mx-auto px-4 py-8 text-center" ref={componentRef}>
+      {/* Heading */}
+      <motion.h2
+        className="text-3xl font-semibold text-white mb-4 leading-snug"
+        variants={headingVariants}
+        animate={controls}
+      >
         <span className="text-[#AC6CFF]">B.Voc</span> vs{" "}
         <span className="text-[#AC6CFF]">B.Tech</span> vs{" "}
         <span className="text-[#AC6CFF]">B.Sc</span>:{" "}
         <span className="text-white">The Clear Choice for Your Future</span>
-      </h2>
+      </motion.h2>
 
-      <p className="text-gray-300 text-lg leading-relaxed font-sans">
-        <span className="font-semibold text-white">
-          Choosing the right course is one of the most important decisions you'll make. Let's break it down:
-        </span>
+      {/* Description */}
+      <motion.p
+        className="text-gray-300 text-lg leading-relaxed font-sans"
+        variants={descriptionVariants}
+        animate={controls}
+      >
+        <span className="font-semibold text-white">Choosing the right course is one of the most important decisions you'll make. Let's break it down:</span>
         <br />
-        while traditional degrees like <span className="text-[#AC6CFF] font-semibold">B.Tech</span> and{" "}
+        while traditional degrees like{" "}
+        <span className="text-[#AC6CFF] font-semibold">B.Tech</span> and{" "}
         <span className="text-[#AC6CFF] font-semibold">B.Sc</span> offer a solid foundation,{" "}
         <span className="text-[#AC6CFF] font-semibold">B.Voc</span> is the{" "}
         <span className="text-[#AC6CFF] font-semibold">fast track to industry-ready skills</span>. Here's why{" "}
         <span className="text-[#AC6CFF] font-semibold">B.Voc</span> stands out:
-      </p>
+      </motion.p>
 
+      {/* Table */}
       {isMobile ? (
-        // Mobile table with fixed first column and scrollable other columns
-        <div className="mt-6 relative">
+        // Mobile View
+        <motion.div
+          className="mt-6 relative"
+          style={{
+            borderRadius: "8px",
+            borderWidth: "4px",
+            borderStyle: "solid",
+          }}
+          animate={controls}
+          custom={isMobile}
+        >
           <div className="flex">
-            {/* Fixed Feature Column */}
+            {/* Feature Column */}
             <div className="relative z-10">
-              <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
+              <motion.div
+                className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white"
+                variants={rowVariants}
+                custom={0}
+                animate={controls}
+              >
                 Feature
-              </div>
-              {tableData.map((row, index) => (
-                <div 
-                  key={`feature-${index}`} 
+              </motion.div>
+              {tableData.map((row, i) => (
+                <motion.div
+                  key={`feature-${i}`}
                   className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white flex items-center"
-                  style={{ height: "64px" }} // Fixed height to ensure alignment
+                  style={{ height: "64px" }}
+                  variants={rowVariants}
+                  custom={i + 1}
+                  animate={controls}
                 >
                   {row.feature}
-                </div>
+                </motion.div>
               ))}
             </div>
-            
-            {/* Scrollable Degree Columns */}
+
+            {/* Degrees */}
             <div className="overflow-x-auto">
               <div className="flex min-w-max">
-                {/* B.Voc Column */}
-                <div>
-                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
-                    B.Voc
-                  </div>
-                  {tableData.map((row, index) => (
-                    <div 
-                      key={`bvoc-${index}`} 
-                      className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
-                      style={{ height: "64px" }}
+                {["bvoc", "btech", "bsc"].map((degreeKey) => (
+                  <div key={degreeKey}>
+                    <motion.div
+                      className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32"
+                      variants={rowVariants}
+                      custom={0}
+                      animate={controls}
                     >
-                      {row.bvoc}
-                    </div>
-                  ))}
-                </div>
-                
-                {/* B.Tech Column */}
-                <div>
-                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
-                    B.Tech
+                      {degreeKey === "bvoc" ? "B.Voc" : degreeKey === "btech" ? "B.Tech" : "B.Sc"}
+                    </motion.div>
+                    {tableData.map((row, i) => (
+                      <motion.div
+                        key={`${degreeKey}-${i}`}
+                        className={`p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center ${
+                          degreeKey === "bvoc" ? "bg-[#2F1C48]" : "bg-[#232529]"
+                        } text-white`}
+                        style={{ height: "64px" }}
+                        variants={rowVariants}
+                        custom={i + 1}
+                        animate={controls}
+                      >
+                        {row[degreeKey]}
+                      </motion.div>
+                    ))}
                   </div>
-                  {tableData.map((row, index) => (
-                    <div 
-                      key={`btech-${index}`} 
-                      className="bg-[#232529] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
-                      style={{ height: "64px" }}
-                    >
-                      {row.btech}
-                    </div>
-                  ))}
-                </div>
-                
-                {/* B.Sc Column */}
-                <div>
-                  <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white whitespace-nowrap min-w-32">
-                    B.Sc
-                  </div>
-                  {tableData.map((row, index) => (
-                    <div 
-                      key={`bsc-${index}`} 
-                      className="bg-[#232529] text-white p-3 font-medium text-center border border-white whitespace-nowrap min-w-32 flex items-center justify-center"
-                      style={{ height: "64px" }}
-                    >
-                      {row.bsc}
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ) : (
-        // Desktop view - original table
+        // Desktop View
         <div className="overflow-x-auto mt-6">
-          <table className="w-full border-collapse rounded-lg overflow-hidden" style={{ borderRadius: "8px" }}>
-            <thead>
-              <tr>
+          <motion.table
+            className="w-full border-collapse rounded-lg overflow-hidden"
+            style={{
+              borderRadius: "8px",
+              borderWidth: "4px",
+              borderStyle: "solid",
+            }}
+            variants={tableVariants}
+            animate={controls}
+            custom={isMobile}
+          >
+            <motion.thead>
+              <motion.tr variants={rowVariants} custom={0} animate={controls}>
                 <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">Feature</th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Voc (Bachelor of Vocation)
-                </th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Tech (Bachelor of Technology)
-                </th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Sc (Bachelor of Science)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">B.Voc</th>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">B.Tech</th>
+                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">B.Sc</th>
+              </motion.tr>
+            </motion.thead>
+            <motion.tbody>
               {tableData.map((row, index) => (
-                <tr key={index}>
-                  <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">
-                    {row.feature}
-                  </td>
-                  <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">
-                    {row.bvoc}
-                  </td>
-                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                    {row.btech}
-                  </td>
-                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                    {row.bsc}
-                  </td>
-                </tr>
+                <motion.tr key={index} variants={rowVariants} custom={index + 1} animate={controls}>
+                  <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">{row.feature}</td>
+                  <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">{row.bvoc}</td>
+                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">{row.btech}</td>
+                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">{row.bsc}</td>
+                </motion.tr>
               ))}
-            </tbody>
-          </table>
+            </motion.tbody>
+          </motion.table>
         </div>
       )}
     </div>

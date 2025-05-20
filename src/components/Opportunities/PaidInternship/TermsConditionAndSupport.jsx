@@ -58,6 +58,8 @@ function TermsConditionAndSupport() {
   ];
 
   return (
+    <>
+    {/* =============== Terms & Condition Section ================== */}
     <div className="py-12 px-4 min-h-screen">
       {/* Header */}
       <div className="mx-auto lg:w-max w-72 relative mb-14">
@@ -99,6 +101,42 @@ function TermsConditionAndSupport() {
         ))}
       </div>
     </div>
+
+    {/* =============== Suuport and Guidence Section ================ */}
+    <div className="w-full bg-[#3F0D55] py-10 mt-10">
+  {/* Heading */}
+  <div className="mx-auto w-max mb-10">
+    <h2 className="text-white text-3xl md:text-4xl font-bold text-center">
+      Support & Guidance
+    </h2>
+  </div>
+
+  {/* Content: Image + Text */}
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-0">
+    {/* Left: Image */}
+    <div className="w-md:w-[400px] lg:w-[500px] flex justify-center mb-6 lg:mb-0">
+      <Image
+        src="/paid-internship/support.svg"
+        alt="Support & Guidance"
+        width={400}
+        height={400}
+        className="w-60 lg:w-92"
+      />
+    </div>
+
+    {/* Right: List */}
+    <div className="text-white text-base  font-bold leading-relaxed text-center lg:text-left">
+      <p className="mb-8 lg:text-3xl text-lg">The Internship & Placement Cell will assist students in:</p>
+      <ol className="list-decimal pl-6 md:text-3xl text-base lg:text-left text-center lg:pl-20 space-y-4">
+        <li>Resume building and interview preparation.</li>
+        <li>Identifying internship and placement opportunities.</li>
+        <li>Providing mentorship for career development.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+    </>
   );
 }
 

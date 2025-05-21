@@ -98,7 +98,7 @@ const PeerToPeerLearning = () => {
         desc="At Nexcore, we believe in the power of learning "
         boldPhrases={["together", "peer-to-peer learning platform"]}
         tailText=" connects you with like-minded students, fostering collaboration, innovation, and deeper learning."
-        image="/collaborative-learning.png"
+        image="/peertopeer/image1.png"
         reverseOnDesktop={false}
         boldColor="text-[#6B009D]"
         stars={[
@@ -116,7 +116,7 @@ const PeerToPeerLearning = () => {
         desc="Work alongside your peers on "
         boldPhrases={["real-world projects", "hackathons", "doing"]}
         tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
-        image="/group-projects-hackathons.png"
+        image="/peertopeer/image2.png"
         boldColor="text-white"
         reverseOnDesktop={true}
         stars={[
@@ -133,7 +133,7 @@ const PeerToPeerLearning = () => {
         desc="Engage in "
         boldPhrases={["discussions", "industry-driven topics"]}
         tailText=" through our interactive discussion boards. Learn from diverse perspectives and build your professional network."
-        image="/discussion-boards-networking.png"
+        image="/peertopeer/image3.png"
         reverseOnDesktop={false}
         boldColor="text-[#AC6CFF]"
         stars={[
@@ -151,7 +151,7 @@ const PeerToPeerLearning = () => {
         desc="Through collaboration, you'll sharpen essential "
         boldPhrases={["problem-solving", "communication skills"]}
         tailText=", key assets for success in any career."
-        image="/build-skills-success.png"
+        image="/peertopeer/image4.svg"
         reverseOnDesktop={true}
         boldColor="text-[#AC6CFF]"
         stars={[

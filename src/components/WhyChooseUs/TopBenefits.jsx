@@ -8,37 +8,37 @@ import Image from "next/image";
 const CenteredBoxWithCards = () => {
   const cards = [
     {
-      image: "/topbenefits1.png",
+      image: "/TopBenifits/topbenefits1.svg",
       heading: "Job-Ready Skills from Day 1",
       description:
         "Get hands-on, industry-driven training from the start. Work on live projects and global challenges to gain the skills employers want.",
     },
     {
-      image: "/topbenefits2.png",
+      image: "/TopBenifits/topbenefits2.svg",
       heading: "Work on International Projects",
       description:
         "Collaborate with global industry leaders and gain experience that sets you apart in the international job market.",
     },
     {
-      image: "/topbenefits3.png",
+      image: "/TopBenifits/topbenefits3.svg",
       heading: "Built-in Internships",
       description:
         "Apply what you learn with real-world internships and projects—boosting your resume and skills while still studying.",
     },
     {
-      image: "/topbenefits4.png",
+      image: "/TopBenifits/topbenefits4.svg",
       heading: "Earn While You Learn",
       description:
         "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
     },
     {
-      image: "/topbenefits5.png",
+      image: "/TopBenifits/topbenefits5.svg",
       heading: "Recognized by UGC & NSQF",
       description:
         "Your qualifications are UGC-approved and NSQF-certified, opening doors to global opportunities.",
     },
     {
-      image: "/topbenefits6.png",
+      image: "/TopBenifits/topbenefits6.svg",
       heading: "Flexible Exits",
       description:
         "Exit with a diploma, advanced diploma, or degree—tailor your education to your career goals and timeline.",

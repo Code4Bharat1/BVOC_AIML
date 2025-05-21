@@ -26,13 +26,13 @@ const CenteredBoxWithCards = () => {
         "Apply what you learn with real-world internships and projects—boosting your resume and skills while still studying.",
     },
     {
-      image: "/TopBenifits/topbenefits4.svg",
+      image: "/TopBenifits/topbenefits5.svg",
       heading: "Earn While You Learn",
       description:
-        "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
+      "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
     },
     {
-      image: "/TopBenifits/topbenefits5.svg",
+      image: "/TopBenifits/topbenefits4.svg",
       heading: "Recognized by UGC & NSQF",
       description:
         "Your qualifications are UGC-approved and NSQF-certified, opening doors to global opportunities.",

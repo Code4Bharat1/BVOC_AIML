@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const testimonials = [
   {
@@ -39,15 +39,21 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 4500);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const getPosition = (index) => {
     const total = testimonials.length;
@@ -72,65 +78,44 @@ export default function Testimonials() {
   const getMotionStyle = (position) => {
     switch (position) {
       case "center":
-        return {
-          scale: 1,
-          opacity: 1,
-          zIndex: 30,
-          x: 0,
-          rotateY: 0,
-        };
+        return { scale: 1, opacity: 1, zIndex: 30, x: 0, rotateY: 0 };
       case "left1":
-        return {
-          scale: 0.85,
-          opacity: 0.6,
-          zIndex: 20,
-          x: "-55%",
-          rotateY: 15,
-        };
+        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "-55%", rotateY: 15 };
       case "left2":
-        return {
-          scale: 0.7,
-          opacity: 0.4,
-          zIndex: 10,
-          x: "-100%",
-          rotateY: 25,
-        };
+        return { scale: 0.7, opacity: 0.4, zIndex: 10, x: "-100%", rotateY: 25 };
       case "right1":
-        return {
-          scale: 0.85,
-          opacity: 0.6,
-          zIndex: 20,
-          x: "55%",
-          rotateY: -15,
-        };
+        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "55%", rotateY: -15 };
       case "right2":
-        return {
-          scale: 0.7,
-          opacity: 0.4,
-          zIndex: 10,
-          x: "100%",
-          rotateY: -25,
-        };
+        return { scale: 0.7, opacity: 0.4, zIndex: 10, x: "100%", rotateY: -25 };
       default:
-        return {
-          scale: 0.5,
-          opacity: 0,
-          zIndex: 0,
-          x: 0,
-          rotateY: 0,
-        };
+        return { scale: 0.5, opacity: 0, zIndex: 0, x: 0, rotateY: 0 };
     }
   };
 
+  const handleTouchStart = () => setIsPaused(true);
+  const handleTouchEnd = () => setIsPaused(false);
+
   return (
-    <div className="bg-gradient-to-b from-[#8E1DBA] to-[#33135B] mt-10 text-white py-16 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <div
+      ref={containerRef}
+      className="bg-gradient-to-b from-[#8E1DBA] to-[#33135B] mt-10 text-white py-16 px-4 overflow-hidden"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl mx-auto"
+      >
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
           <div className="w-24 h-1 bg-purple-300 mx-auto mb-6"></div>
         </div>
 
-        <div className="relative flex justify-center items-center h-[28rem] perspective-1000">
+        <div
+          className="relative flex justify-center items-center h-[28rem] perspective-1000 touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="relative w-full flex items-center justify-center">
             {testimonials.map((t, index) => {
               const position = getPosition(index);
@@ -145,11 +130,11 @@ export default function Testimonials() {
                     position === "hidden" ? "pointer-events-none" : ""
                   } transform preserve-3d flex flex-col lg:flex-row overflow-hidden`}
                 >
-                  <div className="w-full h-64 lg:w-64 lg:h-80 shrink-0">
+                  <div className="w-full h-48 sm:h-64 lg:w-64 lg:h-80 shrink-0">
                     <img
                       src={t.src}
                       alt={t.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
 
@@ -172,7 +157,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-8 sm:mt-10">
           {testimonials.map((_, index) => (
             <div
               key={index}
@@ -184,7 +169,9 @@ export default function Testimonials() {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default Testimonials;

@@ -1,8 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 import React from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import Welcome from '@/components/Hub/Welcome';
 import AdmissionCard from '@/components/Hub/AdmissionCard';
 import AboutUs from '@/components/Hub/AboutUs';
@@ -14,7 +12,6 @@ import KickStart from '@/components/Hub/KickStart';
 import NextLevelRole from '@/components/Hub/NextLevelRole';
 import ShapeTheFuture from '@/components/Hub/ShapeTheFuture';
 import HubHero from '@/components/Hub/HubHero';
-import ChatbotWidget from '@/components/Chatbot/chatbot';
 
 const Page = () => {
   useEffect(() => {
@@ -55,7 +52,6 @@ const Page = () => {
    }, []);
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-grow py-16"> {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
         <HubHero/>
@@ -69,9 +65,9 @@ const Page = () => {
         <KickStart/>
         <NextLevelRole/>
         <ShapeTheFuture/>
-        <ChatbotWidget/>
+        
       </main>
-      <Footer />
+      
     </div>
   );
 };

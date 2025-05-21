@@ -10,27 +10,6 @@ const navItems = [
   { name: "Why We're Different", href: "/whychooseus" },
 ];
 
-const dropdownItems = [
-  {
-    name: "Admission Criteria",
-    href: "/docs/Admission Eligibility Criteria.pdf",
-  },
-  { name: "Scholarships", href: "/docs/BVoc_Scholarship_Policy.pdf" },
-  { name: "Paid Internships", href: "/docs/BVoc_Paid_Internship_Policy.pdf" },
-  {
-    name: "Fees Structure",
-    href: "/docs/BVoc_Fee_Structure_and_Payment_Policy.pdf",
-  },
-  {
-    name: "Selection Process",
-    href: "/docs/Internal_Selection_Process_Policy.pdf",
-  },
-  {
-    name: "Placement Guarantee",
-    href: "/docs/Guaranteed_Placement_Policy.pdf",
-  },
-];
-
 const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -194,32 +173,15 @@ const Navbar = () => {
                   );
                 })}
 
-                {/* Opportunities Dropdown */}
-                <li className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={toggleDropdown}
-                    className="block py-2 px-3 w-full transition-colors hover:text-gray-300 md:group"
+                {/* Brochure Link */}
+                <li className="relative">
+                  <a
+                    href="/docs/BVoc_Program_Brochure.pdf" 
+                    download
+                    className="block py-2 px-3 transition-colors hover:text-gray-300"
                   >
-                    Opportunities
-                  </button>
-
-                  <ul
-                    className={`dropdown-menu bg-[#2C2E33] border border-gray-600 rounded shadow-lg min-w-[200px] text-sm text-white ${
-                      dropdownOpen ? "open" : ""
-                    }`}
-                  >
-                    {dropdownItems.map(({ name, href }) => (
-                      <li key={name}>
-                        <a
-                          href={href}
-                          download
-                          className="block px-4 py-2 hover:bg-gray-700"
-                        >
-                          {name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                    Brochure
+                  </a>
                 </li>
               </ul>
             </div>

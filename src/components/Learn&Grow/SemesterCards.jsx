@@ -41,64 +41,74 @@ const cardsData = [
 // Mobile view component
 const MobileSemesterCards = () => {
   return (
-    <div className="lg:hidden min-h-screen bg-[#B379FF] py-12 mt-56 px-4 m-8 rounded-4xl text-center overflow-hidden">
-      {/* Logo with animated background */}
-      <div className="relative w-full mb-10">
-        <motion.div
-          initial={{ opacity: 0, y: -80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="absolute -top-52 left-[11%] w-64 h-64 -z-10"
-        >
-          <Image
-            src="/elements/Nexcore-learngrow-bg.svg"
-            alt="Background Circle"
-            width={240}
-            height={240}
-            className="object-contain"
-            priority
-          />
-        </motion.div>
+    <div className="lg:hidden relative mt-44">
+      {/* Logo completely above the purple card - FIXED POSITIONING */}
+      <div
+        className="absolute w-full flex justify-center"
+        style={{ top: "-150px" }}
+      >
+        <div className="relative w-full h-[300px]">
+  {/* Background Image Behind Nexcore */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[200px] h-[350px] z-[-10]"
+  >
+    <Image
+      src="/elements/Nexcore-learngrow-bg.svg"
+      alt="Background Circle"
+      fill
+      className="object-contain"
+      priority
+    />
+  </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: -60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <Image
-            src="/elements/Nexcore_Alliance.svg"
-            alt="Nexcore Alliance"
-            width={190}
-            height={170}
-            className="object-contain rounded-full absolute -top-44 left-[20%]"
-            priority
-          />
-        </motion.div>
+  {/* Foreground Nexcore Logo */}
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.1 }}
+    viewport={{ once: true }}
+    className="relative z-10 w-[160px] h-[160px] mx-auto"
+  >
+    <Image
+      src="/elements/Nexcore_Alliance.svg"
+      alt="Nexcore Alliance"
+      fill
+      className="object-contain rounded-full"
+      priority
+    />
+  </motion.div>
+</div>
+
       </div>
 
-      {/* Cards */}
-      <div className="flex flex-col gap-6 max-w-md mx-auto">
-        {cardsData
-          .slice()
-          .reverse()
-          .map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`${card.bg} ${card.text} rounded-[2rem] p-6 transform transition-all duration-300 ease-in-out min-h-[180px] hover:min-h-[240px] hover:shadow-xl flex items-center`}
-            >
-              <div className="space-y-2">
-                <h2 className="text-xl font-bold">{card.title}</h2>
-                <p className="text-base font-bold">{card.duration}</p>
-                <p className="text-base font-bold">{card.description}</p>
-              </div>
-            </motion.div>
-          ))}
+      {/* Purple Card Container */}
+      <div className="min-h-screen bg-[#B379FF] py-12 mt-24 px-4 m-8 rounded-4xl text-center overflow-hidden">
+        {/* Cards */}
+        <div className="flex flex-col gap-6 max-w-md mx-auto pt-8">
+          {cardsData
+            .slice()
+            .reverse()
+            .map((card, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`${card.bg} ${card.text} rounded-[2rem] p-6 transform transition-all duration-300 ease-in-out min-h-[180px] hover:min-h-[240px] hover:shadow-xl flex items-center`}
+              >
+                <div className="space-y-2">
+                  <h2 className="text-xl font-bold">{card.title}</h2>
+                  <p className="text-base font-bold">{card.duration}</p>
+                  <p className="text-base font-bold">{card.description}</p>
+                </div>
+              </motion.div>
+            ))}
+        </div>
       </div>
     </div>
   );

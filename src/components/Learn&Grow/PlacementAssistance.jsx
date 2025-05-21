@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { IoMdPlay } from "react-icons/io";
 import { motion } from "framer-motion";
+import EnrollNow from "../Hub/EnrollNow";
 
 const PlacementAssistance = () => {
   return (
@@ -60,18 +61,7 @@ const PlacementAssistance = () => {
             <span className="text-[#460E73]">100% placement assistance</span>{" "}
             ensures you're job-ready.
           </p>
-
-          {/* Enroll Button */}
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="bg-[#933FFF] lg:bg-[#EADAFF] text-white lg:text-[#AC6CFF] font-semibold py-4 px-10 lg:px-10 rounded-2xl lg:rounded-full transition-transform hover:scale-105 flex items-center space-x-2 mx-auto lg:mx-0 border-2 border-[#AB6BFF] lg:border-none"
-          >
-            <IoMdPlay />
-            <span>Enroll Now</span>
-          </motion.button>
+          <EnrollNow />
         </motion.div>
       </div>
     </section>

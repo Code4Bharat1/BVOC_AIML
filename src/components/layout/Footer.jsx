@@ -125,15 +125,23 @@ const Footer = () => {
 
         <hr className="my-8 border-white" />
 
-        {/* Footer bottom row */}
-        <div className="pb-6 sm:flex sm:items-center sm:justify-between text-gray-400 text-sm">
-          <span>
-            © 2023{" "}
-            <Link href="#" className="hover:underline text-white transition-colors duration-200">
-              BVOC™
-            </Link>
-            . All Rights Reserved.
-          </span>
+        <div className="text-center mb-2 text-sm sm:text-base text-gray-400">
+          Built with ❤️ and passion by{" "}
+          <a
+            href="https://code4bharat.com" // Replace with actual site if different
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#AC6CFF] hover:underline"
+          >
+            Code4Bharat
+          </a>
+        </div>
+        <div className="text-center text-gray-400 pb-5 text-sm">
+          © 2025{" "}
+          <Link href="#" className="hover:underline text-white transition-colors duration-200">
+            BVOC™
+          </Link>
+          . All Rights Reserved.
         </div>
       </div>
     </footer>

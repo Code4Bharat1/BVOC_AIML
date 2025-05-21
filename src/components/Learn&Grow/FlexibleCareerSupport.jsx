@@ -7,7 +7,13 @@ const FlexibleCareerSupport = () => {
     <>
       {/* Desktop View (visible on lg and up) */}
       <div className="hidden lg:block overflow-x-hidden">
-        <div className="relative bg-[#E8D7FF] p-10 overflow-hidden my-10">
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative bg-[#E8D7FF] p-10 overflow-hidden my-10"
+        >
           {/* Left Content */}
           <div className="flex flex-col lg:flex-row items-center justify-between z-10 relative">
             {/* Left Image */}
@@ -32,10 +38,16 @@ const FlexibleCareerSupport = () => {
               className="object-contain"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Desktop Text Content */}
-        <div className="mt-20 text-start pl-6 lg:pl-24">
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20 text-start pl-6 lg:pl-24"
+        >
           <h1 className="text-white text-2xl lg:text-5xl font-bold">
             NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path
             Forward
@@ -45,7 +57,7 @@ const FlexibleCareerSupport = () => {
             <br className="hidden lg:block" />
             program offers flexibility
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile View (visible on small screens only) */}

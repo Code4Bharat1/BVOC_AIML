@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-// Shared data for both components
+// Shared data
 const cardsData = [
   {
     title: "B.Voc Degree",
@@ -37,14 +38,19 @@ const cardsData = [
   },
 ];
 
-// Alternative version based on the second example
+// Mobile view component
 const MobileSemesterCards = () => {
   return (
-    <div className="lg:hidden min-h-screen bg-[#B379FF] py-12 mt-56 px-4 m-8 rounded-4xl text-center">
-      {/* Nexcore Logo with Background */}
+    <div className="lg:hidden min-h-screen bg-[#B379FF] py-12 mt-56 px-4 m-8 rounded-4xl text-center overflow-hidden">
+      {/* Logo with animated background */}
       <div className="relative w-full mb-10">
-        {/* Background SVG positioned behind the logo */}
-        <div className="absolute -top-52 left-[11%] w-64 h-64 -z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="absolute -top-52 left-[11%] w-64 h-64 -z-10"
+        >
           <Image
             src="/elements/Nexcore-learngrow-bg.svg"
             alt="Background Circle"
@@ -53,9 +59,14 @@ const MobileSemesterCards = () => {
             className="object-contain"
             priority
           />
-        </div>
-        
-        <div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
           <Image
             src="/elements/Nexcore_Alliance.svg"
             alt="Nexcore Alliance"
@@ -64,41 +75,46 @@ const MobileSemesterCards = () => {
             className="object-contain rounded-full absolute -top-44 left-[20%]"
             priority
           />
-        </div>
+        </motion.div>
       </div>
 
-      {/* Mobile Cards */}
+      {/* Cards */}
       <div className="flex flex-col gap-6 max-w-md mx-auto">
         {cardsData
           .slice()
           .reverse()
           .map((card, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`
-                ${card.bg} ${card.text} rounded-[2rem] p-6
-                transform transition-all duration-300 ease-in-out
-                min-h-[180px] hover:min-h-[240px] hover:shadow-xl
-                flex items-center
-              `}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`${card.bg} ${card.text} rounded-[2rem] p-6 transform transition-all duration-300 ease-in-out min-h-[180px] hover:min-h-[240px] hover:shadow-xl flex items-center`}
             >
               <div className="space-y-2">
                 <h2 className="text-xl font-bold">{card.title}</h2>
                 <p className="text-base font-bold">{card.duration}</p>
                 <p className="text-base font-bold">{card.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
       </div>
     </div>
   );
 };
 
-// Alternative Desktop version based on the second example
+// Desktop view component
 const DesktopSemesterCards = () => {
   return (
-    <div className="hidden lg:block relative min-h-screen bg-[#E8D7FF] py-20 px-4">
-      <div className="absolute top-[44%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 z-20">
+    <div className="hidden lg:block relative min-h-screen bg-[#E8D7FF] py-20 px-4 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: -80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="absolute top-[44%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 z-20"
+      >
         <Image
           src="/elements/Nexcore_Alliance.svg"
           alt="Nexcore Alliance"
@@ -107,12 +123,16 @@ const DesktopSemesterCards = () => {
           className="object-contain"
           priority
         />
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-2 gap-x-32 gap-y-20 max-w-7xl mx-auto">
         {cardsData.map((card, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
             className={`
               ${card.bg} ${card.text} rounded-[2rem] p-8
               transform transition-all duration-300 ease-in-out
@@ -126,14 +146,14 @@ const DesktopSemesterCards = () => {
               <p className="text-lg font-medium">{card.duration}</p>
               <p className="text-lg">{card.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
   );
 };
 
-// Main component that combines both
+// Combined
 const SemesterCards = () => {
   return (
     <>

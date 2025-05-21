@@ -1,22 +1,35 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const InternAndPlacementCards = () => {
   return (
     <>
       {/* For Desktop View */}
-      <div className="hidden lg:flex flex-col items-center gap-24 relative">
-        {/* SVG on Left of Card 1 */}
-        <div className="absolute left-10 top-0 lg:top-6 z-0 w-64 h-64 pointer-events-none">
+      <div className="hidden lg:flex flex-col items-center gap-24 relative overflow-visible px-4">
+        {/* Animated SVG on Left of Card 1 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="absolute left-0 top-10 z-0 w-54 h-54 pointer-events-none"
+        >
           <Image
             src="/elements/AI-left.svg"
             alt="Decorative Left"
             fill
             className="object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Card 1 - Internship */}
-        <div className="self-end w-full max-w-6xl z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="self-end w-full max-w-6xl z-10"
+        >
           <a
             href="#"
             className="flex flex-col md:flex-row rounded-3xl shadow-md w-full overflow-hidden"
@@ -27,8 +40,7 @@ const InternAndPlacementCards = () => {
                 Internship Before Graduation
               </h5>
               <p className="mb-3 text-3xl font-normal text-black">
-                Apply your skills with <strong>real-world</strong> internships{" "}
-                <br />
+                Apply your skills with <strong>real-world</strong> internships <br />
                 that give you <strong>hands-on experience</strong> and <br />
                 industry exposure.
               </p>
@@ -43,23 +55,35 @@ const InternAndPlacementCards = () => {
               />
             </div>
           </a>
-        </div>
+        </motion.div>
 
-        {/* SVG on Right of Card 2 */}
-        <div className="absolute right-6 lg:bottom-8 z-0 w-64 h-64 pointer-events-none">
+        {/* Animated SVG on Right of Card 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="absolute right-0 bottom-10 z-0 w-54 h-54 pointer-events-none"
+        >
           <Image
             src="/elements/AI-right.svg"
             alt="Decorative Right"
             fill
             className="object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Card 2 - Job Placement */}
-        <div className="self-start w-full max-w-6xl z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="self-start w-full max-w-6xl z-10"
+        >
           <a
             href="#"
-            className="flex flex-col md:flex-row-reverse rounded-3xl shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full overflow-hidden"
+            className="flex flex-col md:flex-row-reverse rounded-3xl shadow-md w-full overflow-hidden"
           >
             {/* Text */}
             <div className="flex flex-col justify-between p-8 pl-14 leading-normal flex-1 bg-[#EADAFF]">
@@ -68,9 +92,8 @@ const InternAndPlacementCards = () => {
               </h5>
               <p className="mb-3 text-3xl font-normal text-black">
                 We connect you directly with hiring companies, offering{" "}
-                <strong>mock interviews</strong>,{" "}
-                <strong>resume building</strong>, and a <strong>network</strong>{" "}
-                of employers looking for fresh talent.
+                <strong>mock interviews</strong>, <strong>resume building</strong>, and a{" "}
+                <strong>network</strong> of employers looking for fresh talent.
               </p>
             </div>
             {/* Image */}
@@ -83,13 +106,19 @@ const InternAndPlacementCards = () => {
               />
             </div>
           </a>
-        </div>
+        </motion.div>
       </div>
 
       {/* For Mobile View */}
       <div className="flex flex-col items-center px-6 gap-12 lg:hidden">
         {/* Card 1 */}
-        <div className="bg-[#2F1C48] rounded-2xl flex flex-col items-center text-center p-6 w-full max-w-md border border-white shadow-sm shadow-white">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-[#2F1C48] rounded-2xl flex flex-col items-center text-center p-6 w-full max-w-md border border-white shadow-sm shadow-white"
+        >
           <div className="w-full h-72 relative mb-4">
             <Image
               src="/internship-image.png"
@@ -105,10 +134,16 @@ const InternAndPlacementCards = () => {
             Apply your skills with real-world internships that give you hands-on
             experience and industry exposure.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 2 */}
-        <div className="bg-[#AC6CFF] rounded-2xl flex flex-col items-center text-center p-6 w-full max-w-md border border-white shadow-sm shadow-white">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="bg-[#AC6CFF] rounded-2xl flex flex-col items-center text-center p-6 w-full max-w-md border border-white shadow-sm shadow-white"
+        >
           <div className="w-full h-72 relative mb-4">
             <Image
               src="/placement-image.png"
@@ -124,7 +159,7 @@ const InternAndPlacementCards = () => {
             Apply your skills with real-world internships that give you hands-on
             experience and industry exposure.
           </p>
-        </div>
+        </motion.div>
       </div>
     </>
   );

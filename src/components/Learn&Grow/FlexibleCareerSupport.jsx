@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -7,16 +8,22 @@ const FlexibleCareerSupport = () => {
     <>
       {/* Desktop View (visible on lg and up) */}
       <div className="hidden lg:block overflow-x-hidden">
+        {/* Animate Background First */}
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="relative bg-[#E8D7FF] p-10 overflow-hidden my-10"
         >
-          {/* Left Content */}
-          <div className="flex flex-col lg:flex-row items-center justify-between z-10 relative">
-            {/* Left Image */}
+          {/* Left Image */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row items-center justify-between z-10 relative"
+          >
             <div className="w-full lg:w-[60%] flex justify-center lg:justify-start">
               <Image
                 src="/path-to-left-image.svg"
@@ -26,10 +33,16 @@ const FlexibleCareerSupport = () => {
                 className="w-full h-auto"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Positioned Image */}
-          <div className="absolute right-0 bottom-0 hidden lg:block">
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+            viewport={{ once: true }}
+            className="absolute right-0 bottom-0 hidden lg:block"
+          >
             <Image
               src="/path-to-right-image.svg"
               alt="Right Icon"
@@ -37,15 +50,15 @@ const FlexibleCareerSupport = () => {
               height={500}
               className="object-contain"
             />
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Desktop Text Content */}
+        {/* Desktop Text Content (animate last) */}
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-20 text-start pl-6 lg:pl-24"
         >
           <h1 className="text-white text-2xl lg:text-5xl font-bold">
@@ -60,13 +73,16 @@ const FlexibleCareerSupport = () => {
         </motion.div>
       </div>
 
-      {/* Mobile View (visible on small screens only) */}
+      {/* Mobile View (unchanged except animations already added) */}
       <div className="block lg:hidden overflow-x-hidden">
+        {/* Heading */}
         <div className="mt-20 text-start pl-6 lg:pl-24">
           <h1 className="text-white text-2xl lg:text-5xl font-bold text-center">
             Flexible Career Support
           </h1>
         </div>
+
+        {/* Steps with animations already applied */}
         <div className="w-full max-w-xs relative h-[600px] mx-auto overflow-x-hidden">
           {/* Step 1 */}
           <motion.div
@@ -90,7 +106,7 @@ const FlexibleCareerSupport = () => {
             coaching
           </motion.div>
 
-          {/* Arrow 1 (static) */}
+          {/* Arrow 1 */}
           <div className="absolute top-[130px] right-20">
             <Image src="/Arrow_2.svg" alt="Arrow 1" width={68} height={68} />
           </div>
@@ -117,7 +133,7 @@ const FlexibleCareerSupport = () => {
             interviews <br />& workshops
           </motion.div>
 
-          {/* Arrow 2 (static) */}
+          {/* Arrow 2 */}
           <div className="absolute top-[340px] right-44">
             <Image src="/Arrow_1.svg" alt="Arrow 2" width={68} height={68} />
           </div>
@@ -145,6 +161,8 @@ const FlexibleCareerSupport = () => {
             jobs
           </motion.div>
         </div>
+
+        {/* Mobile Text */}
         <div className="mt-10 text-start pl-6 lg:hidden">
           <h1 className="text-white text-3xl font-bold">
             NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path

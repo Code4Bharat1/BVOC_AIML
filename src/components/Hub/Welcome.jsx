@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { IoMdPlay } from "react-icons/io";
 import { motion, useInView } from "framer-motion";
+import EnrollNow from "./EnrollNow";
 
 const Welcome = () => {
   const ref = useRef(null);
@@ -85,16 +86,7 @@ const Welcome = () => {
           <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
           degree programs that fuse industry expertise with academic excellence.
         </motion.p>
-
-        <motion.button
-          className="bg-[#EADAFF] text-[#AC6CFF] font-semibold py-4 px-5 lg:px-10 rounded-full transition-transform hover:scale-105 flex items-center space-x-2 mx-auto"
-          initial={{ scale: 0 }}
-          animate={isInView ? { scale: 1 } : {}}
-          transition={{ delay: 0.05, type: "spring", stiffness: 120 }}
-        >
-          <IoMdPlay />
-          <span>Enroll Now</span>
-        </motion.button>
+        <EnrollNow />
       </motion.div>
 
       {/* Image Section */}

@@ -91,14 +91,14 @@ const KickStart = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="overflow-x-auto"
+        className="overflow-x-auto scrollbar-hidden"
       >
         <div className="flex gap-8 w-max pr-8">
           {cardData.map((card) => (
             <motion.div
               key={card.id}
               variants={cardVariants}
-              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14"
+              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 "
             >
               <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
                 <Image

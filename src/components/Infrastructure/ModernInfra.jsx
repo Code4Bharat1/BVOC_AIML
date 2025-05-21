@@ -55,7 +55,7 @@ const ModernInfra = () => {
           {/* Quadrants */}
           <FadeIn delay={0.3}>
             <div
-              className="absolute top-0 left-30 transform -translate-x-1/4 -translate-y-1/4 transition-all duration-300 cursor-pointer"
+              className="absolute top-0 left-30 transform -translate-x-1/4 -translate-y-1/4 transition-all duration-300 "
               onMouseEnter={() => handleMouseEnter("topLeft")}
               onMouseLeave={handleMouseLeave}
             >
@@ -72,7 +72,7 @@ const ModernInfra = () => {
 
           <FadeIn delay={0.4}>
             <div
-              className="absolute top-0 right-30 transform translate-x-1/4 -translate-y-1/4 transition-all duration-300 cursor-pointer"
+              className="absolute top-0 right-30 transform translate-x-1/4 -translate-y-1/4 transition-all duration-300 "
               onMouseEnter={() => handleMouseEnter("topRight")}
               onMouseLeave={handleMouseLeave}
             >
@@ -89,7 +89,7 @@ const ModernInfra = () => {
 
           <FadeIn delay={0.5}>
             <div
-              className="absolute bottom-0 left-30 transform -translate-x-1/4 translate-y-1/4 transition-all duration-300 cursor-pointer"
+              className="absolute bottom-0 left-30 transform -translate-x-1/4 translate-y-1/4 transition-all duration-300 "
               onMouseEnter={() => handleMouseEnter("bottomLeft")}
               onMouseLeave={handleMouseLeave}
             >
@@ -106,7 +106,7 @@ const ModernInfra = () => {
 
           <FadeIn delay={0.6}>
             <div
-              className="absolute bottom-0 right-30 transform translate-x-1/4 translate-y-1/4 transition-all duration-300 cursor-pointer"
+              className="absolute bottom-0 right-30 transform translate-x-1/4 translate-y-1/4 transition-all duration-300 "
               onMouseEnter={() => handleMouseEnter("bottomRight")}
               onMouseLeave={handleMouseLeave}
             >

@@ -5,8 +5,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
-// ✅ Mobile FlowChart component at the end
-
 const CenteredBoxWithCards = () => {
   const cards = [
     {
@@ -88,10 +86,28 @@ const CenteredBoxWithCards = () => {
       </div>
 
       {/* Desktop Cards */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl">
+      <motion.div
+        className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
         {cards.map((card, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="bg-[#F1E6FF] border-4 border-[#AC6CFF] shadow-lg flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 rounded-[24px_0px_24px_0px] overflow-hidden"
           >
             <div className="w-full h-56">
@@ -107,17 +123,35 @@ const CenteredBoxWithCards = () => {
                 {card.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Mobile Accordion */}
-      <div className="flex flex-col gap-4 w-full max-w-md md:hidden">
+      <motion.div
+        className="flex flex-col gap-4 w-full max-w-md md:hidden"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
         {cards.map((card, index) => {
           const isOpen = openIndex === index;
           return (
-            <div
+            <motion.div
               key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className={`overflow-hidden border border-purple-300 shadow-md transition-all duration-300 ${
                 isOpen ? "rounded-lg" : "rounded-full"
               }`}
@@ -154,12 +188,26 @@ const CenteredBoxWithCards = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
-      {/* Desktop vs Mobile Flow Chart */}
+      {/* ✅ Flow Chart (UNCHANGED) */}
+      <motion.div
+        className="hidden md:flex justify-center items-center max-w-xl mx-auto"
+        initial={{ opacity: 0, rotate: 0 }}
+        whileInView={{ opacity: 1, rotate: 360 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      >
+        <img
+          src="/why_it_work_for_you.svg"
+          alt="Why It Works for You"
+          className="w-full object-contain rounded-lg"
+        />
+      </motion.div>
+
       <motion.div
         ref={ref}
         initial="hidden"
@@ -170,15 +218,6 @@ const CenteredBoxWithCards = () => {
         }}
         className="w-full max-w-4xl mt-16"
       >
-        {/* Desktop SVG */}
-        <div className="hidden md:flex justify-center items-center">
-          <img
-            src="/why_it_work_for_you.svg"
-            alt="Why It Works for You"
-            className="w-full object-contain rounded-lg"
-          />
-        </div>
-
         {/* Mobile FlowChart */}
         <div className="md:hidden rounded-lg px-4">
           <MobileFlowChart />
@@ -188,11 +227,13 @@ const CenteredBoxWithCards = () => {
   );
 };
 
+// 👇 Leave this fade-in effect as-is
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+// ✅ UNCHANGED Mobile Flow Chart
 const MobileFlowChart = () => (
   <div className="flex flex-col items-center px-4 py-0 text-white">
     <div className="w-full max-w-xs relative h-[700px] hight-of-device-300">
@@ -204,7 +245,13 @@ const MobileFlowChart = () => (
         variants={fadeInUp}
         className="absolute top-0 left-4 circle-1"
       >
-        <Image src="/x3.svg" alt="Step 1" className="circle-2-size" width={144} height={144} />
+        <Image
+          src="/x3.svg"
+          alt="Step 1"
+          className="circle-2-size"
+          width={144}
+          height={144}
+        />
       </motion.div>
 
       <motion.div
@@ -231,7 +278,13 @@ const MobileFlowChart = () => (
         variants={fadeInUp}
         className="absolute top-[160px] right-4 circle-2-440"
       >
-        <Image src="/x1.svg" alt="Step 2" className="circle-2-size" width={144} height={144} />
+        <Image
+          src="/x1.svg"
+          alt="Step 2"
+          className="circle-2-size"
+          width={144}
+          height={144}
+        />
       </motion.div>
 
       <motion.div
@@ -257,7 +310,13 @@ const MobileFlowChart = () => (
         variants={fadeInUp}
         className="absolute top-[350px] left-4 circle-2"
       >
-        <Image src="/x2.svg" alt="Step 3" className="circle-2-size" width={144} height={144} />
+        <Image
+          src="/x2.svg"
+          alt="Step 3"
+          className="circle-2-size"
+          width={144}
+          height={144}
+        />
       </motion.div>
 
       <motion.div
@@ -283,7 +342,13 @@ const MobileFlowChart = () => (
         variants={fadeInUp}
         className="absolute top-[530px] right-4 circle-3"
       >
-        <Image src="/x4.svg" alt="Step 4" className="circle-2-size" width={144} height={144} />
+        <Image
+          src="/x4.svg"
+          alt="Step 4"
+          className="circle-2-size"
+          width={144}
+          height={144}
+        />
       </motion.div>
     </div>
   </div>

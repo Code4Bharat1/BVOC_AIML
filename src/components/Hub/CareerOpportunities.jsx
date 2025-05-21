@@ -7,36 +7,38 @@ const CareerOpportunities = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // Animations for heading sliding from left
+  // Unified heading animation that works across screen sizes
   const headingVariants = {
-    hidden: { opacity: 0, x: -100 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
-  // Animation variants for career items - left items slide from left, right items from right
-  const itemVariantsLeft = {
-    hidden: { opacity: 0, x: -100 },
+  // Staggered fade-in animation for all career items
+  const containerVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: {
+        staggerChildren: 0.15,
+      },
     },
   };
 
-  const itemVariantsRight = {
-    hidden: { opacity: 0, x: 100 },
+  // Individual item animation
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
-  // Data array to map with index for left/right animation
+  // Data array for career items
   const careers = [
     { img: "/career1.svg", alt: "Career 1", label: "Adoption" },
     { img: "/career2.svg", alt: "Career 2", label: "Opportunities" },
@@ -81,14 +83,17 @@ const CareerOpportunities = () => {
           </h2>
         </motion.div>
 
-        {/* Mobile Career Grid */}
-        <div className="lg:hidden grid grid-cols-2 gap-8 text-center">
+        {/* Mobile Career Grid with unified animation */}
+        <motion.div 
+          className="lg:hidden grid grid-cols-2 gap-8 text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {careers.map((career, index) => (
             <motion.div
               key={index}
-              variants={index % 2 === 0 ? itemVariantsLeft : itemVariantsRight}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
               className="group flex flex-col justify-center items-center w-full max-w-[140px] mx-auto"
             >
               <div className="w-24 h-24 flex justify-center items-center">
@@ -108,16 +113,19 @@ const CareerOpportunities = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Desktop Career Grid */}
-        <div className="hidden lg:grid lg:grid-cols-6 gap-6 lg:pl-16">
+        {/* Desktop Career Grid with unified animation */}
+        <motion.div 
+          className="hidden lg:grid lg:grid-cols-6 gap-6 lg:pl-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {careers.map((career, index) => (
             <motion.div
               key={index}
-              variants={index < 3 ? itemVariantsLeft : itemVariantsRight}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
               className="group flex flex-col justify-center items-center transition-transform transform hover:scale-110 w-full max-w-[140px] mx-auto"
             >
               <div className="w-24 h-24 flex justify-center items-center">
@@ -142,7 +150,7 @@ const CareerOpportunities = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

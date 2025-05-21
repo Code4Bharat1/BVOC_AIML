@@ -17,7 +17,7 @@ const AllSemesters = () => {
     <div>
       {/** mobile view */}
       <div className="block md:hidden overflow-x-hidden">
-        <div className="relative w-full max-w-6xl mx-auto h-[1400px] px-4 py-8 bg-gray-900 overflow-x-hidden">
+        <div className="relative w-full max-w-6xl mx-auto h-[1400px] px-4 py-8 overflow-x-hidden">
           {/* Heading */}
           <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
             <div className="bg-[#D8BCFD] border-2 border-white rounded-2xl p-6 text-[#903BFF] w-fit font-extrabold">

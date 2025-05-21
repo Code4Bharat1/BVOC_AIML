@@ -23,6 +23,7 @@ export default function ChatbotWidget() {
   // Function to fetch bot response from the API
   const fetchBotResponse = async (userMessage) => {
     try {
+      // use this url for localhost testing "http://localhost:5869/chat"
       const response = await fetch('https://bvoc-chatbot.code4bharat.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

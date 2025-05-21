@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Star component to create individual stars with glow animation
 const Star = ({ top, left, size, opacity, delay }) => {
@@ -116,7 +117,7 @@ const PeerToPeerLearning = () => {
         boldPhrases={["real-world projects", "hackathons", "doing"]}
         tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
         image="/group-projects-hackathons.png"
-        boldColor = "text-white"
+        boldColor="text-white"
         reverseOnDesktop={true}
         stars={[
           { top: 20, left: 15, size: 1.1, opacity: 0.7, delay: 0.5 },
@@ -181,10 +182,11 @@ const Section = ({
       className={`${textColor} py-14 px-4 md:px-12 flex flex-col items-center gap-8 shadow-lg relative overflow-hidden`}
       style={{ backgroundColor: bgColor }}
     >
-      {/* Desktop Title: Display above the image for desktop view only */}
+      {/* Desktop Title */}
       <div className="hidden md:block w-full text-center mt-4">
         <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
       </div>
+
       {/* Decorative Circles */}
       {leftCircle && (
         <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-0 opacity-50">
@@ -221,7 +223,13 @@ const Section = ({
         } items-center gap-6 md:gap-10 w-full relative z-10`}
       >
         {/* Image */}
-        <div className="flex-1 flex justify-center w-full relative z-10">
+        <motion.div
+          className="flex-1 flex justify-center w-full relative z-10"
+          initial={{ opacity: 0, x: reverseOnDesktop ? 100 : -100, y: -50 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <Image
             src={image}
             alt={title}
@@ -229,13 +237,16 @@ const Section = ({
             height={240}
             className="shadow-md w-full max-w-[350px] object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Text Content */}
-        <div className="flex-1 flex flex-col items-center md:items-start space-y-4 text-lg md:text-2xl leading-relaxed text-center md:text-left relative z-10">
-          {/* For mobile, the title is kept inside the text block.
-              On desktop, you can choose to hide this if desired.
-              Here we leave it visible on mobile only. */}
+        <motion.div
+          className="flex-1 flex flex-col items-center md:items-start space-y-4 text-lg md:text-2xl leading-relaxed text-center md:text-left relative z-10"
+          initial={{ opacity: 0, x: reverseOnDesktop ? -100 : 100, y: 50 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h1 className="block md:hidden text-2xl font-bold leading-snug max-w-4xl">
             {title}
           </h1>
@@ -249,7 +260,7 @@ const Section = ({
             ))}
             {tailText}
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

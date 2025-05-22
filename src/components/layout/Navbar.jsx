@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { name: "Hub", href: "/" },
@@ -13,14 +14,10 @@ const navItems = [
 const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const menuRef = useRef(null);
-  const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -32,163 +29,236 @@ const Navbar = () => {
       ) {
         setMenuOpen(false);
       }
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Animation variants for mobile menu
+  const mobileMenuVariants = {
+    closed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut"
+      }
+    },
+    open: {
+      height: "auto",
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Animation variants for menu items
+  const menuItemVariants = {
+    closed: {
+      opacity: 0,
+      y: -10,
+      transition: {
+        duration: 0.2
+      }
+    },
+    open: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.1,
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <>
-      <style>{`
-        /* Mobile menu animation */
-        .mobile-menu {
-          max-height: 0;
-          opacity: 0;
-          transform: translateY(-10px);
-          transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-          position: absolute;
-          width: 100%;
-          left: 0;
-          top: 100%;
-          background: #2C2E33;
-          z-index: 40;
-          pointer-events: none; /* Disable pointer events when closed */
-        }
-        .mobile-menu.open {
-          max-height: 600px;
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: auto; /* Enable pointer events when open */
-        }
-        /* Dropdown animation */
-        .dropdown-menu {
-          max-height: 0;
-          opacity: 0;
-          transform: translateY(-10px);
-          transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          transform-origin: top;
-          background: #2C2E33;
-          pointer-events: none; /* Disable pointer events when closed */
-          z-index: 50;
-        }
-        .dropdown-menu.open {
-          max-height: 600px;
-          opacity: 1;
-          transform: translateY(0) translateX(-50%);
-          pointer-events: auto; /* Enable pointer events when open */
-        }
-        /* Ensure no layout shift */
-        @media (min-width: 768px) {
-          .mobile-menu {
-            position: static;
-            max-height: none;
-            opacity: 1;
-            transform: none;
-            transition: none;
-            pointer-events: auto; /* Always interactive in desktop view */
-          }
-          .dropdown-menu {
-            position: absolute;
-            pointer-events: none; /* Keep dropdown non-interactive when closed */
-          }
-          .dropdown-menu.open {
-            pointer-events: auto; /* Enable when open */
-          }
-        }
-      `}</style>
+    <nav className="bg-[#2C2E33] fixed w-full top-0 z-50 border-b border-gray-700">
+      <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between gap-x-8">
+        {/* Logo with animation */}
+        <motion.div 
+          className="text-white text-2xl font-extrabold tracking-wide"
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Link href="/">
+            <span>
+              <span className="text-[#AC6CFF]">B</span>VOC
+            </span>
+          </Link>
+        </motion.div>
 
-      <nav className="bg-[#2C2E33] fixed w-full top-0 z-50 border-b border-gray-700">
-        <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between gap-x-8">
-          <div className="text-white text-2xl font-extrabold tracking-wide">
-            <Link href="/">
-              <span>
-                <span className="text-[#AC6CFF]">B</span>VOC
-              </span>
-            </Link>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Hamburger for Mobile */}
-            <button
-              ref={buttonRef}
-              onClick={toggleMenu}
-              className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-gray-400 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all"
-              aria-controls="navbar-default"
-              aria-expanded={menuOpen}
-            >
-              <span className="sr-only">Open main menu</span>
-              <div className="space-y-1">
-                <span
-                  className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
-                    menuOpen ? "rotate-45 translate-y-1.5" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${
-                    menuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
-                    menuOpen ? "-rotate-45 -translate-y-1.5" : ""
-                  }`}
-                />
-              </div>
-            </button>
-
-            {/* Main Nav */}
-            <div
-              ref={menuRef}
-              className={`mobile-menu md:flex md:items-center md:space-x-10 md:static md:w-auto ${
-                menuOpen ? "open" : ""
-              }`}
-              id="navbar-default"
-            >
-              <ul className="flex flex-col md:flex-row font-medium text-white mt-4 md:mt-0 text-center md:space-x-10">
-                {navItems.map(({ name, href }) => {
-                  const isActive = pathname === href;
-                  return (
-                    <li key={name} className="relative">
-                      <Link
-                        href={href}
-                        className={`block py-2 px-3 transition-colors ${
-                          isActive ? "font-bold" : "hover:text-gray-300"
-                        }`}
-                      >
-                        {name}
-                      </Link>
-                      {isActive && (
-                        <div className="absolute left-1/2 -bottom-1 transform -translate-x-1/2">
-                          <span className="w-1 h-1 bg-purple-500 rounded-full block" />
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
-
-                {/* Brochure Link */}
-                <li className="relative">
-                  <a
-                    href="/docs/BVoc_Program_Brochure.pdf" 
-                    download
-                    className="block py-2 px-3 transition-colors hover:text-gray-300"
-                  >
-                    Brochure
-                  </a>
-                </li>
-              </ul>
+        <div className="flex items-center space-x-4">
+          {/* Animated hamburger menu button */}
+          <motion.button
+            ref={buttonRef}
+            onClick={toggleMenu}
+            className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-gray-400 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all"
+            aria-controls="navbar-default"
+            aria-expanded={menuOpen}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, rotate: -90 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <span className="sr-only">Open main menu</span>
+            <div className="space-y-1">
+              <motion.span
+                className="block w-6 h-0.5 bg-white origin-center"
+                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="block w-6 h-0.5 bg-white"
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="block w-6 h-0.5 bg-white origin-center"
+                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
             </div>
-          </div>
+          </motion.button>
+
+          {/* Desktop navigation with animations */}
+          <motion.div
+            className="hidden md:flex md:items-center md:space-x-10"
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            <ul className="flex font-medium text-white space-x-10">
+              {navItems.map(({ name, href }, index) => {
+                const isActive = pathname === href;
+                return (
+                  <motion.li 
+                    key={name} 
+                    className="relative"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.4, 
+                      delay: 0.4 + (index * 0.1),
+                      ease: "easeOut"
+                    }}
+                  >
+                    <Link
+                      href={href}
+                      className={`block py-2 px-3 transition-colors ${
+                        isActive ? "font-bold" : "hover:text-gray-300"
+                      }`}
+                    >
+                      {name}
+                    </Link>
+                    {isActive && (
+                      <motion.div 
+                        className="absolute left-1/2 -bottom-1 transform -translate-x-1/2"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                      >
+                        <span className="w-1 h-1 bg-purple-500 rounded-full block" />
+                      </motion.div>
+                    )}
+                  </motion.li>
+                );
+              })}
+              <motion.li
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 0.4 + (navItems.length * 0.1),
+                  ease: "easeOut"
+                }}
+              >
+                <a
+                  href="/docs/BVoc_Program_Brochure.pdf" 
+                  download
+                  className="block py-2 px-3 transition-colors hover:text-gray-300"
+                >
+                  Brochure
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+
+          {/* Mobile navigation menu */}
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div
+                ref={menuRef}
+                className="md:hidden absolute top-full left-0 w-full bg-[#2C2E33] z-40 overflow-hidden"
+                variants={mobileMenuVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                id="navbar-default"
+              >
+                <ul className="flex flex-col font-medium text-white text-center py-4">
+                  {navItems.map(({ name, href }, index) => {
+                    const isActive = pathname === href;
+                    return (
+                      <motion.li 
+                        key={name} 
+                        className="relative"
+                        custom={index}
+                        variants={menuItemVariants}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                      >
+                        <Link
+                          href={href}
+                          className={`block py-3 px-6 transition-colors ${
+                            isActive ? "font-bold bg-gray-700" : "hover:bg-gray-700"
+                          }`}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {name}
+                        </Link>
+                        {isActive && (
+                          <motion.div 
+                            className="absolute left-1/2 bottom-2 transform -translate-x-1/2"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 0.3, delay: 0.2 }}
+                          >
+                            <span className="w-1 h-1 bg-purple-500 rounded-full block" />
+                          </motion.div>
+                        )}
+                      </motion.li>
+                    );
+                  })}
+                  <motion.li
+                    custom={navItems.length}
+                    variants={menuItemVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                  >
+                    <a
+                      href="/docs/BVoc_Program_Brochure.pdf" 
+                      download
+                      className="block py-3 px-6 transition-colors hover:bg-gray-700"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Brochure
+                    </a>
+                  </motion.li>
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

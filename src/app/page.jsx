@@ -26,11 +26,11 @@ const Page = () => {
              backgroundColor: '#00e785',
              ctaText: 'Chat with us',
              borderRadius: '25',
-             marginLeft: '0',
-             marginRight: '13',
-             marginBottom: '70',
+             marginLeft: '20',
+             marginRight: '0',
+             marginBottom: '35',
              ctaIconWATI: false,
-             position: 'right',
+             position: 'left',
            },
            brandSetting: {
              brandName: 'BVOC AI & ML',
@@ -52,7 +52,7 @@ const Page = () => {
    }, []);
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow py-16"> {/* Add padding top to prevent overlap with fixed navbar */}
+      <main className="flex-grow py-16 "> {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
         <HubHero/>
         <Welcome/>

@@ -12,7 +12,7 @@ const InternAndPlacementCards = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="absolute left-0 top-10 z-0 w-54 h-54 pointer-events-none"
+          className="absolute left-2 top-10 z-0 w-54 h-54 pointer-events-none"
         >
           <Image
             src="/elements/AI-left.svg"
@@ -63,7 +63,7 @@ const InternAndPlacementCards = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="absolute right-0 bottom-10 z-0 w-54 h-54 pointer-events-none"
+          className="absolute right-2 bottom-10 z-0 w-54 h-54 pointer-events-none"
         >
           <Image
             src="/elements/AI-right.svg"

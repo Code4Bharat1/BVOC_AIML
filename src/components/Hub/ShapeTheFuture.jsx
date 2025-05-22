@@ -35,24 +35,25 @@ const ShapeTheFuture = () => {
   };
 
   return (
-    <div className="p-5 lg:p-0 bg-[#181234] relative lg:min-h-screen flex justify-center items-center">
-      <motion.img
-        src="/elements/ShapeFutureRobo_Home.svg"
-        alt="Shape the Future"
-        className="absolute bottom-0 lg:-bottom-22 -left-14 lg:left-0 w-72 h-[13rem] md:w-[23rem] lg:w-[25rem] lg:h-[50rem]"
-        variants={imageVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      />
-
-      {/* Card */}
+    <div className="p-5 lg:p-0 bg-[#181234] lg:min-h-screen flex justify-center items-center">
+      {/* Card with relative position */}
       <motion.div
         ref={ref}
-        className="bg-[#3F1F55] rounded-xl p-8 text-center max-w-7xl w-full shadow-lg"
+        className="relative bg-[#3F1F55] z-20 rounded-xl p-8 text-center max-w-7xl w-full shadow-lg"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
+        {/* Positioned image inside the card */}
+        <motion.img
+          src="/elements/ShapeFutureRobo_Home.svg"
+          alt="Shape the Future"
+          className="absolute z-30 bottom-0 lg:-bottom-[300px] -left-14 lg:-left-32 w-72 h-[13rem] md:w-[23rem] lg:w-[25rem] lg:h-[50rem]"
+          variants={imageVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        />
+
         <motion.h2
           className="text-3xl lg:text-5xl font-bold text-[#fff] mb-4 py-6"
           variants={containerVariants}

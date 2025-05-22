@@ -36,9 +36,9 @@ const CareerOpportunities = () => {
   return (
     <section
       ref={sectionRef}
-      className="z-10 bg-cover bg-center m-2 lg:m-0 py-10 w-full lg:h-[600px] bg-[url('/CareerOpp-bg_Home-mob.svg')] lg:bg-[url('/CareerOpp-bg_Home.svg')]"
+      className="z-10 bg-cover bg-center m-2 my-20 lg:m-0 py-10 max-w-7xl lg:max-w-full lg:w-full h-auto lg:h-[600px] bg-[url('/CareerOpp-bg_Home-mob.svg')] lg:bg-[url('/CareerOpp-bg_Home.svg')]"
     >
-      <div className="container mx-auto p-8 text-start">
+      <div className="container mx-auto p-8 text-start ">
         {/* Headings */}
         <motion.div
           variants={headingVariants}

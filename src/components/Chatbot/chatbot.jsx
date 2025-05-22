@@ -270,7 +270,7 @@ export default function ChatbotWidget() {
       </AnimatePresence>
 
       {/* Toggle Button */}
-      <div className="fixed z-50 bottom-4 right-4">
+      <div className="fixed z-50 bottom-10 right-6">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -278,8 +278,8 @@ export default function ChatbotWidget() {
           className="bg-white p-3 rounded-full shadow-lg transition-all duration-300 border border-gray-100"
         >
           {isOpen ?
-            <X className="w-4 h-4 text-gray-600" /> : 
-            <Bot className="w-5 h-5 text-purple-500" />
+            <X className="w-6 h-6 text-gray-600" /> : 
+            <Bot className="w-6 h-6 lg:w-9 lg:h-9 text-purple-500" />
           }
         </motion.button>
       </div>

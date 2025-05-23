@@ -18,7 +18,11 @@ const CareerOpportunities = () => {
 
   const headingVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const containerVariants = {
@@ -30,7 +34,11 @@ const CareerOpportunities = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -59,7 +67,7 @@ const CareerOpportunities = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 lg:grid-cols-6 gap-6 text-center lg:pl-24"
+          className="grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-10 text-center lg:pl-24"
         >
           {careers.map((career, index) => (
             <motion.div
@@ -79,11 +87,12 @@ const CareerOpportunities = () => {
               <p
                 className={`mt-4 text-sm lg:text-2xl font-bold ${
                   index === 0
-                    ? "text-black"
+                    ? "text-[#AC6CFF]"
                     : index >= 3
                     ? "text-white"
                     : "text-white lg:text-black"
                 }`}
+                // className={`mt-4 text-sm lg:text-2xl font-bold text-[#AC6CFF]`}
               >
                 {career.label}
               </p>

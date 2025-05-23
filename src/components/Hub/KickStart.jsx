@@ -7,27 +7,27 @@ import { motion, useInView } from "framer-motion";
 const cardData = [
   {
     id: 1,
-    image: "/MachineLearning_Home.svg",
+    image: "/hub/MachineLearning_Home.png",
     title: "Machine Learning\nEngineer",
   },
   {
     id: 2,
-    image: "/AiSoftware_Home.svg",
+    image: "/hub/AiSoftware_Home.png",
     title: "AI Software\nEngineer",
   },
   {
     id: 3,
-    image: "/DA_Home.svg",
+    image: "/hub/DA_Home.png",
     title: "Data Analyst\n(AI/ML Focus)",
   },
   {
     id: 4,
-    image: "/AiHealthcare_Home.svg",
+    image: "/hub/AiHealthcare_Home.png",
     title: "AI Engineer\nin Healthcare",
   },
   {
     id: 5,
-    image: "/Speech_Recognition_Home.svg",
+    image: "/hub/Speech_Recognition_Home.png",
     title: "Speech Recognition\nEngineer",
   },
 ];

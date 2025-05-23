@@ -4,6 +4,7 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { MdFileDownload } from "react-icons/md";
 
 const AllSemesters = () => {
   useEffect(() => {
@@ -12,6 +13,15 @@ const AllSemesters = () => {
       once: true,
     });
   }, []);
+
+  const handleDownload = (pdfPath, filename) => {
+    const link = document.createElement('a');
+    link.href = pdfPath;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div>
@@ -26,175 +36,191 @@ const AllSemesters = () => {
           </div>
 
           {/* Semester 1 */}
-          <a href="/docs/sem1.pdf" download>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[160px] left-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-right"
+            className="absolute top-[160px] left-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem1.pdf", "semester-1.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <MdFileDownload size={20} />
               <h1>Semester 1</h1>
             </div>
-            <div data-aos="fade-right" className="absolute top-[200px] left-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterLeft.svg"
-                alt="Left Top"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[210px] left-18 text-white"
-            >
-              <p>
-                You will learn how to <br />
-                create user-friendly <br />
-                and efficient interfaces <br />
-                for large System
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-right" className="absolute top-[200px] left-4">
+            <Image
+              src="/elements/SemesterLeft.svg"
+              alt="Left Top"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-right"
+            className="absolute top-[210px] left-18 text-white"
+          >
+            <p>
+              You will learn how to <br />
+              create user-friendly <br />
+              and efficient interfaces <br />
+              for large System
+            </p>
+          </div>
 
           {/* Semester 2 */}
-          <a href="/docs/sem2.pdf" download>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[360px] right-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-left"
+            className="absolute top-[360px] right-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem2.pdf", "semester-2.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <MdFileDownload size={20} />
               <h1>Semester 2</h1>
             </div>
-            <div data-aos="fade-left" className="absolute top-[400px] right-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterRight.svg"
-                alt="Right Mid"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[410px] right-20 text-white"
-            >
-              <p>
-                Fundamental <br />
-                knowledge <br />
-                of digital security <br />
-                for beginners
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-left" className="absolute top-[400px] right-4">
+            <Image
+              src="/elements/SemesterRight.svg"
+              alt="Right Mid"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-left"
+            className="absolute top-[410px] right-20 text-white"
+          >
+            <p>
+              Fundamental <br />
+              knowledge <br />
+              of digital security <br />
+              for beginners
+            </p>
+          </div>
 
           {/* Semester 3 */}
-          <a href="/docs/sem3.pdf" download>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[560px] left-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-right"
+            className="absolute top-[560px] left-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem3.pdf", "semester-3.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <MdFileDownload size={20} />
               <h1>Semester 3</h1>
             </div>
-            <div data-aos="fade-right" className="absolute top-[600px] left-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterLeft.svg"
-                alt="Left Lower"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[610px] left-20 text-white"
-            >
-              <p>
-                A deep dive into <br />
-                protecting complex <br />
-                systems and <br />
-                architectures
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-right" className="absolute top-[600px] left-4">
+            <Image
+              src="/elements/SemesterLeft.svg"
+              alt="Left Lower"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-right"
+            className="absolute top-[610px] left-20 text-white"
+          >
+            <p>
+              A deep dive into <br />
+              protecting complex <br />
+              systems and <br />
+              architectures
+            </p>
+          </div>
 
           {/* Semester 4 */}
-          <a href="/docs/sem4.pdf" download>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[760px] right-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-left"
+            className="absolute top-[760px] right-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem4.pdf", "semester-4.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <MdFileDownload size={20} />
               <h1>Semester 4</h1>
             </div>
-            <div data-aos="fade-left" className="absolute top-[800px] right-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterRight.svg"
-                alt="Right Lower"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[825px] right-20 text-white"
-            >
-              <p>
-                You will Learn <br />
-                Level: Middle <br />
-                level
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-left" className="absolute top-[800px] right-4">
+            <Image
+              src="/elements/SemesterRight.svg"
+              alt="Right Lower"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-left"
+            className="absolute top-[825px] right-20 text-white"
+          >
+            <p>
+              You will Learn <br />
+              Level: Middle <br />
+              level
+            </p>
+          </div>
 
           {/* Semester 5 */}
-          <a href="/docs/sem5.pdf" download>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[960px] left-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-right"
+            className="absolute top-[960px] left-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem5.pdf", "semester-5.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 20h14v-2H5v2zm7-18v12l5-5 1.41 1.41L12 18.83l-6.41-6.42L7 11l5 5V2h2z"/>
+              </svg>
               <h1>Semester 5</h1>
             </div>
-            <div data-aos="fade-right" className="absolute top-[1000px] left-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterLeft.svg"
-                alt="Left Lower"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-right"
-              className="absolute top-[1025px] left-20 text-white"
-            >
-              <p>
-                You will Learn <br />
-                Level: beginner <br />
-                level
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-right" className="absolute top-[1000px] left-4">
+            <Image
+              src="/elements/SemesterLeft.svg"
+              alt="Left Lower"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-right"
+            className="absolute top-[1025px] left-20 text-white"
+          >
+            <p>
+              You will Learn <br />
+              Level: beginner <br />
+              level
+            </p>
+          </div>
 
           {/* Semester 6 */}
-          <a href="/docs/sem6.pdf" download>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[1160px] right-1/5 text-2xl text-white cursor-pointer"
-            >
+          <div
+            data-aos="fade-left"
+            className="absolute top-[1160px] right-1/7 text-2xl text-white cursor-pointer"
+            onClick={() => handleDownload("/docs/sem6.pdf", "semester-6.pdf")}
+          >
+            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 20h14v-2H5v2zm7-18v12l5-5 1.41 1.41L12 18.83l-6.41-6.42L7 11l5 5V2h2z"/>
+              </svg>
               <h1>Semester 6</h1>
             </div>
-            <div data-aos="fade-left" className="absolute top-[1200px] right-4 cursor-pointer">
-              <Image
-                src="/elements/SemesterRight.svg"
-                alt="Right Lower"
-                width={250}
-                height={200}
-              />
-            </div>
-            <div
-              data-aos="fade-left"
-              className="absolute top-[1220px] right-20 text-white"
-            >
-              <p>
-                You will Learn <br />
-                Level: Advanced <br />
-                level
-              </p>
-            </div>
-          </a>
+          </div>
+          <div data-aos="fade-left" className="absolute top-[1200px] right-4">
+            <Image
+              src="/elements/SemesterRight.svg"
+              alt="Right Lower"
+              width={250}
+              height={200}
+            />
+          </div>
+          <div
+            data-aos="fade-left"
+            className="absolute top-[1220px] right-20 text-white"
+          >
+            <p>
+              You will Learn <br />
+              Level: Advanced <br />
+              level
+            </p>
+          </div>
         </div>
       </div>
     </div>

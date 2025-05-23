@@ -48,7 +48,7 @@ const ShapeTheFuture = () => {
         <motion.img
           src="/elements/ShapeFutureRobo_Home.svg"
           alt="Shape the Future"
-          className="absolute z-30 bottom-0 lg:-bottom-[300px] -left-14 lg:-left-32 w-72 h-[13rem] md:w-[23rem] lg:w-[25rem] lg:h-[50rem]"
+          className="hidden lg:block absolute z-30 lg:-bottom-[200px] lg:-left-30 lg:w-[25rem] lg:h-[50rem]"
           variants={imageVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -76,7 +76,7 @@ const ShapeTheFuture = () => {
         </motion.p>
 
         <motion.button
-          className="bg-[#EADAFF] text-[#AC6CFF] mt-16 mb-12 lg:my-6 rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto"
+          className="hidden lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
           variants={buttonVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -85,6 +85,31 @@ const ShapeTheFuture = () => {
         >
           Get Started <ChevronRight />
         </motion.button>
+
+        <div className="block lg:hidden flex flex-row items-end justify-between gap-0.5 w-full ml-[-63px]">
+          {/* Image touching left edge */}
+          <motion.img
+            src="/elements/ShapeFutureRobo_Home.svg"
+            alt="Shape the Future"
+            className="block w-72 h-[13rem] md:w-[23rem] object-contain"
+            style={{ marginLeft: 0 }}
+            variants={imageVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          />
+
+          {/* Centered Button */}
+          <motion.button
+            className="bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
+            variants={buttonVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get Started <ChevronRight />
+          </motion.button>
+        </div>
       </motion.div>
     </div>
   );

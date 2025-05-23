@@ -29,7 +29,7 @@ const CenteredBoxWithCards = () => {
       image: "/TopBenifits/topbenefits5.svg",
       heading: "Earn While You Learn",
       description:
-      "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
+        "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
     },
     {
       image: "/TopBenifits/topbenefits4.svg",
@@ -72,9 +72,12 @@ const CenteredBoxWithCards = () => {
       <div className="w-full text-center">
         <div className="bg-purple-500 mb-10 lg:mb-0 w-full max-w-[1182px] h-auto mx-auto px-4 py-6 rounded-lg shadow-lg border-2 border-black flex items-center justify-center">
           {/* For small screens */}
-          <h1 className="text-black text-base font-bold md:hidden leading-relaxed">
-            Top Benefits: <br />
-            <span className="text-white">The Fast-Track to Your Career</span>
+          <h1 className="text-black text-xl font-bold leading-snug text-center md:hidden">
+            Top Benefits:
+            <br />
+            <span className="text-white text-2xl block mt-1">
+              The Fast-Track to Your Career
+            </span>
           </h1>
 
           {/* For medium+ screens */}

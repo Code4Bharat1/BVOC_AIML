@@ -91,7 +91,7 @@ const PeerToPeerLearning = () => {
 
       {/* Sections */}
       <Section
-        bgColor="#CDA7FF"
+        bgColor="#D1A8EB"
         textColor="text-black"
         leftCircle={"/elements/CircleElement_Home.svg"}
         title="Collaborative Learning Environment"
@@ -109,7 +109,7 @@ const PeerToPeerLearning = () => {
       />
 
       <Section
-        bgColor="#AC6CFF"
+        bgColor="#9E52C3"
         textColor="text-black"
         rightCircle={"/elements/CircleElementRight.svg"}
         title="Group Projects & Hackathons"
@@ -126,7 +126,7 @@ const PeerToPeerLearning = () => {
       />
 
       <Section
-        bgColor="#6B009D"
+        bgColor="#6A1A89"
         textColor="text-white"
         leftCircle={"/elements/CircleElement_Home.svg"}
         title="Discussion Boards & Networking"

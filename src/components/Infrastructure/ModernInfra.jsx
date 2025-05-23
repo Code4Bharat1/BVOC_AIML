@@ -33,7 +33,7 @@ const ModernInfra = () => {
           <FadeIn delay={0.1}>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
               <Image
-                src="/Modern_infra_main.svg"
+                src="/infrastructure/elements/Modern_infra_main.svg"
                 alt="Center"
                 width={250}
                 height={250}
@@ -64,7 +64,7 @@ const ModernInfra = () => {
                   ? "brightness-140 scale-110 filter " 
                   : ""
               }`}>
-                <Image src="/Modern_infra_1.svg" alt="Top Left" width={400} height={400} />
+                <Image src="/infrastructure/elements/Modern_infra_1.svg" alt="Top Left" width={400} height={400} />
               </div>
               <div className="absolute top-35 left-25">
                 <p className={`text-white text-3xl text-center my-10 ${
@@ -89,7 +89,7 @@ const ModernInfra = () => {
                   ? "brightness-140 scale-110 filter" 
                   : ""
               }`}>
-                <Image src="/Modern_infra_2.svg" alt="Top Right" width={400} height={400} />
+                <Image src="/infrastructure/elements/Modern_infra_2.svg" alt="Top Right" width={400} height={400} />
               </div>
               <div className="absolute top-35 right-5 -translate-x-16">
                 <p className={`text-white text-3xl text-center my-10 ${
@@ -114,7 +114,7 @@ const ModernInfra = () => {
                   ? "brightness-140 scale-110 filter" 
                   : ""
               }`}>
-                <Image src="/Modern_infra_3.svg" alt="Bottom Left" width={400} height={400} />
+                <Image src="/infrastructure/elements/Modern_infra_3.svg" alt="Bottom Left" width={400} height={400} />
               </div>
               <div className="absolute bottom-35 left-20">
                 <p className={`text-white text-3xl text-center my-10 ${
@@ -139,7 +139,7 @@ const ModernInfra = () => {
                   ? "brightness-140 scale-110 filter" 
                   : ""
               }`}>
-                <Image src="/Modern_infra_4.svg" alt="Bottom Right" width={400} height={400} />
+                <Image src="/infrastructure/elements/Modern_infra_4.svg" alt="Bottom Right" width={400} height={400} />
               </div>
               <div className="absolute bottom-35 right-15 -translate-x-16">
                 <p className={`text-white text-3xl text-center my-10 ${

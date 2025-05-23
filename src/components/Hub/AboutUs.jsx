@@ -47,7 +47,7 @@ const AboutUs = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/AboutUs_Home.png"
+          src="/Hub/AboutUs_Home.png"
           alt="About Us Image"
           width={500}
           height={384}

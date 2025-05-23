@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Bot, User, Send } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+import { useState, useRef, useEffect } from "react";
+import { MessageCircle, X, Bot, User, Send } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [botTyping, setBotTyping] = useState(false);
   const [lastActivityTime, setLastActivityTime] = useState(Date.now());
   const inactivityTimerRef = useRef(null);
   const router = useRouter();
-  
+
   const INACTIVITY_TIMEOUT = 120000; // 2 minutes in milliseconds
   const INACTIVITY_CHECK_INTERVAL = 10000; // Check every 10 seconds
 
@@ -24,35 +24,38 @@ export default function ChatbotWidget() {
   const fetchBotResponse = async (userMessage) => {
     try {
       // use this url for localhost testing "http://localhost:5869/chat"
-      const response = await fetch('https://bvoc-chatbot.code4bharat.com/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage }),
-      });
+      const response = await fetch(
+        "https://bvoc-chatbot.code4bharat.com/chat",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userMessage }),
+        }
+      );
 
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
       return data.reply;
     } catch (error) {
-      console.error('Error fetching bot response:', error);
-      return 'Sorry, I encountered an error while processing your request.';
+      console.error("Error fetching bot response:", error);
+      return "Sorry, I encountered an error while processing your request.";
     }
   };
 
   // Function to handle sending a message
   const handleSend = async () => {
-    if (input.trim() === '') return;
-    
+    if (input.trim() === "") return;
+
     // Record user activity
     recordUserActivity();
-    
-    setMessages([...messages, { text: input, sender: 'user' }]);
-    setInput('');
+
+    setMessages([...messages, { text: input, sender: "user" }]);
+    setInput("");
     setBotTyping(true);
 
     setTimeout(async () => {
       const botResponse = await fetchBotResponse(input);
-      setMessages((prev) => [...prev, { text: botResponse, sender: 'bot' }]);
+      setMessages((prev) => [...prev, { text: botResponse, sender: "bot" }]);
       setBotTyping(false);
     }, 1000);
   };
@@ -62,14 +65,21 @@ export default function ChatbotWidget() {
     // Only send if chat is open and we haven't just sent an inactivity message
     // Check if the last message was from the bot
     const lastMessage = messages[messages.length - 1];
-    if (!isOpen || !lastMessage || 
-        (lastMessage.sender === 'bot' && 
-         lastMessage.text.includes('Are you still there?'))) {
+    if (
+      !isOpen ||
+      !lastMessage ||
+      (lastMessage.sender === "bot" &&
+        lastMessage.text.includes("Are you still there?"))
+    ) {
       return;
     }
-    
-    const inactivityMessage = "Are you still there? I'm here if you have any questions!";
-    setMessages((prev) => [...prev, { text: inactivityMessage, sender: 'bot' }]);
+
+    const inactivityMessage =
+      "Are you still there? I'm here if you have any questions!";
+    setMessages((prev) => [
+      ...prev,
+      { text: inactivityMessage, sender: "bot" },
+    ]);
   };
 
   // Record user activity
@@ -84,7 +94,7 @@ export default function ChatbotWidget() {
       if (inactivityTimerRef.current) {
         clearInterval(inactivityTimerRef.current);
       }
-      
+
       // Set new interval to check for inactivity
       inactivityTimerRef.current = setInterval(() => {
         const now = Date.now();
@@ -101,7 +111,7 @@ export default function ChatbotWidget() {
         inactivityTimerRef.current = null;
       }
     }
-    
+
     // Cleanup function
     return () => {
       if (inactivityTimerRef.current) {
@@ -119,22 +129,25 @@ export default function ChatbotWidget() {
     };
 
     // User interactions that count as activity
-    window.addEventListener('keydown', handleActivity);
-    window.addEventListener('mousedown', handleActivity);
-    window.addEventListener('touchstart', handleActivity);
-    
+    window.addEventListener("keydown", handleActivity);
+    window.addEventListener("mousedown", handleActivity);
+    window.addEventListener("touchstart", handleActivity);
+
     // Cleanup function to remove event listeners
     return () => {
-      window.removeEventListener('keydown', handleActivity);
-      window.removeEventListener('mousedown', handleActivity);
-      window.removeEventListener('touchstart', handleActivity);
+      window.removeEventListener("keydown", handleActivity);
+      window.removeEventListener("mousedown", handleActivity);
+      window.removeEventListener("touchstart", handleActivity);
     };
   }, [isOpen]);
 
   // Auto-scroll to the latest message
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      messagesEndRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
     }
   }, [messages, botTyping]);
 
@@ -155,10 +168,10 @@ export default function ChatbotWidget() {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
             className="fixed z-50 border border-gray-100 overflow-hidden bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50 animate-gradient shadow-xl flex flex-col
-                       bottom-16 right-4 w-11/12 h-4/5 rounded-2xl
-                       sm:bottom-20 sm:right-6 sm:w-80 sm:h-96 sm:max-h-[32rem]
-                       md:w-96 md:h-[28rem]
-                       lg:w-[32rem]"
+           bottom-[7rem] right-4 w-11/12 h-4/5 rounded-2xl
+           sm:bottom-[6rem] sm:right-6 sm:w-80 sm:h-96 sm:max-h-[32rem]
+           md:bottom-[7rem] md:w-96 md:h-[28rem]
+           lg:bottom-[8rem] lg:w-[32rem]"
             onClick={recordUserActivity}
           >
             {/* Content container with padding */}
@@ -170,8 +183,12 @@ export default function ChatbotWidget() {
                     <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
                   </div>
                   <div>
-                    <h1 className="text-base sm:text-lg font-semibold text-gray-800">NexBot Assistant</h1>
-                    <p className="text-xs text-gray-500">Ask me anything about your tasks</p>
+                    <h1 className="text-base sm:text-lg font-semibold text-gray-800">
+                      NexBot Assistant
+                    </h1>
+                    <p className="text-xs text-gray-500">
+                      Ask me anything about your tasks
+                    </p>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
@@ -181,12 +198,12 @@ export default function ChatbotWidget() {
                   </button>
                 </div>
               </div>
-              
+
               {/* Messages */}
               <div className="flex-1 px-3 py-2 sm:px-4 sm:py-3 overflow-y-auto space-y-3 custom-scrollbar">
                 <AnimatePresence initial={false}>
                   {messages.map((msg, index) => {
-                    const isUser = msg.sender === 'user';
+                    const isUser = msg.sender === "user";
 
                     return (
                       <motion.div
@@ -195,7 +212,9 @@ export default function ChatbotWidget() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3 }}
-                        className={`flex items-start gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}
+                        className={`flex items-start gap-2 ${
+                          isUser ? "justify-end" : "justify-start"
+                        }`}
                       >
                         {!isUser && (
                           <div className="flex-shrink-0 mt-1 bg-white p-1.5 rounded-full shadow-sm">
@@ -205,8 +224,8 @@ export default function ChatbotWidget() {
                         <div
                           className={`px-3 py-2 rounded-2xl max-w-[75%] sm:max-w-[85%] text-xs leading-relaxed shadow-sm ${
                             isUser
-                              ? 'bg-purple-500 text-white'
-                              : 'bg-white text-gray-700'
+                              ? "bg-purple-500 text-white"
+                              : "bg-white text-gray-700"
                           }`}
                         >
                           <ReactMarkdown>{msg.text}</ReactMarkdown>
@@ -277,10 +296,11 @@ export default function ChatbotWidget() {
           onClick={handleChatButtonClick}
           className="bg-white p-3 rounded-full shadow-lg transition-all duration-300 border border-gray-100"
         >
-          {isOpen ?
-            <X className="w-6 h-6 text-gray-600" /> : 
+          {isOpen ? (
+            <X className="w-6 h-6 text-gray-600" />
+          ) : (
             <Bot className="w-6 h-6 lg:w-9 lg:h-9 text-purple-500" />
-          }
+          )}
         </motion.button>
       </div>
 

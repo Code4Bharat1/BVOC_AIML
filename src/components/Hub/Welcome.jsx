@@ -33,7 +33,7 @@ const Welcome = () => {
         alt="Star Bottom Left"
         width={50}
         height={50}
-        className="absolute right-6 top-40 lg:bottom-28 lg:left-72 w-8 h-5 lg:w-12 lg:h-8"
+        className="hidden lg:absolute lg:bottom-28 lg:left-65 w-8 h-5 lg:w-12 lg:h-8"
       />
 
       {/* Text Section */}

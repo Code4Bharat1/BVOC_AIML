@@ -153,7 +153,7 @@ const DegreeComparisonTable = () => {
       </motion.p>
 
       {isMobile ? (
-        // Mobile — No animation
+        // Mobile — Centered feature column text & taller columns
         <div className="mt-6 relative border-2 border-white/40 rounded-md">
           <div className="flex">
             <div className="relative z-10">
@@ -163,8 +163,8 @@ const DegreeComparisonTable = () => {
               {tableData.map((row, i) => (
                 <div
                   key={`feature-${i}`}
-                  className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white flex items-center"
-                  style={{ height: "64px" }}
+                  className="bg-[#AC6CFF] text-black px-3 py-5 font-semibold text-center border border-white flex items-center justify-center"
+                  style={{ height: "80px" }} // <- Increased height
                 >
                   {row.feature}
                 </div>
@@ -184,10 +184,10 @@ const DegreeComparisonTable = () => {
                     {tableData.map((row, i) => (
                       <div
                         key={`${degreeKey}-${i}`}
-                        className={`p-3 font-medium text-center border border-white min-w-32 flex items-center justify-center ${
+                        className={`px-3 py-5 font-medium text-center border border-white min-w-32 flex items-center justify-center ${
                           degreeKey === "bvoc" ? "bg-[#2F1C48]" : "bg-[#232529]"
                         } text-white`}
-                        style={{ height: "64px" }}
+                        style={{ height: "80px" }} // <- Increased height
                       >
                         {row[degreeKey]}
                       </div>

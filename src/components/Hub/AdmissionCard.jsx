@@ -359,7 +359,7 @@ const AdmissionCard = () => {
           alt="Rocket"
           width={60}
           height={60}
-          className="absolute top-60 right-5 lg:bottom-44 lg:left-64 w-10 lg:w-20"
+          className="absolute top-120 right-5 lg:bottom-44 lg:left-40 w-10 lg:w-20"
         />
 
         <Image

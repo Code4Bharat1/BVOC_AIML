@@ -12,7 +12,7 @@ const YourCareerStarts = () => {
   const headingInView = useInView(headingRef, { once: true, margin: '-100px' });
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="lg:min-h-screen flex items-center justify-center px-4">
       <div className="flex flex-col lg:flex-row w-full max-w-3xl mx-auto overflow-hidden rounded-4xl shadow-2xl relative bg-white">
         
         {/* Main Heading */}
@@ -35,7 +35,7 @@ const YourCareerStarts = () => {
           initial={{ opacity: 0, x: -100 }}
           animate={leftInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 p-10 pt-40 lg:pt-32 group lg:hover:bg-[#AC6CFF] lg:rounded-r-3xl transition-colors duration-300"
+          className="w-full lg:w-1/2 p-10 pt-28 lg:pt-32 group lg:hover:bg-[#AC6CFF] lg:rounded-r-3xl transition-colors duration-300"
         >
           <div className="bg-[#D9D9D9] rounded-2xl p-8 transition-all duration-300 group-hover:scale-105">
             <div className="flex flex-col items-start space-y-6">

@@ -40,8 +40,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/why-us" className="hover:underline transition-colors duration-200">
-                    Why Choose Us
+                  <Link href="/whychooseus" className="hover:underline transition-colors duration-200">
+                   Why We're Different
                   </Link>
                 </li>
               </ul>

@@ -48,45 +48,44 @@ const MobileSemesterCards = () => {
         style={{ top: "-150px" }}
       >
         <div className="relative w-full h-[300px]">
-  {/* Background Image Behind Nexcore */}
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[200px] h-[350px] z-[-10]"
-  >
-    <Image
-      src="/elements/Nexcore-learngrow-bg.svg"
-      alt="Background Circle"
-      fill
-      className="object-contain"
-      priority
-    />
-  </motion.div>
+          {/* Background Image Behind Nexcore */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[200px] h-[350px] z-[-10]"
+          >
+            <Image
+              src="/elements/Nexcore-learngrow-bg.svg"
+              alt="Background Circle"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
 
-  {/* Foreground Nexcore Logo */}
-  <motion.div
-    initial={{ opacity: 0, y: -20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.1 }}
-    viewport={{ once: true }}
-    className="relative z-10 w-[160px] h-[160px] mx-auto"
-  >
-    <Image
-      src="/elements/Nexcore_Alliance.svg"
-      alt="Nexcore Alliance"
-      fill
-      className="object-contain rounded-full"
-      priority
-    />
-  </motion.div>
-</div>
-
+          {/* Foreground Nexcore Logo */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="relative z-10 w-[160px] h-[160px] mx-auto"
+          >
+            <Image
+              src="/elements/Nexcore_Alliance.svg"
+              alt="Nexcore Alliance"
+              fill
+              className="object-contain rounded-full"
+              priority
+            />
+          </motion.div>
+        </div>
       </div>
 
       {/* Purple Card Container */}
-      <div className="min-h-screen bg-[#B379FF] py-12 mt-24 px-4 m-8 rounded-4xl text-center overflow-hidden">
+      <div className="min-h-screen bg-[#B379FF] py-10 mt-24 px-4 m-8 rounded-4xl text-center overflow-hidden">
         {/* Cards */}
         <div className="flex flex-col gap-6 max-w-md mx-auto pt-8">
           {cardsData

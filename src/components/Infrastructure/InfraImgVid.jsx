@@ -42,23 +42,23 @@ const infraData = [
       },
     ],
   },
+  // {
+  //   heading: "Head Of Growth",
+  //   items: [
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/head_of_growth/head_of_growth_1.jpeg",
+  //       alt: "Conference Room",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/head_of_growth/head_of_growth_2.jpeg",
+  //       alt: "Conference Room",
+  //     },
+  //   ],
+  // },
   {
-    heading: "Head Of Growth",
-    items: [
-      {
-        type: "image",
-        src: "/infrastructure/head_of_growth/head_of_growth_1.jpeg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/head_of_growth/head_of_growth_2.jpeg",
-        alt: "Conference Room",
-      },
-    ],
-  },
-  {
-    heading: "Conference No . 3",
+    heading: "Conference",
     items: [
       {
         type: "image",
@@ -80,16 +80,62 @@ const infraData = [
         src: "/infrastructure/conference3/conference3_4.jpeg",
         alt: "Conference Room",
       },
+      
       {
         type: "image",
-        src: "/infrastructure/conference3/conference3_5.jpeg",
+        src: "/infrastructure/conference3/conference3_6.png",
         alt: "Conference Room",
-      }
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_7.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_8.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_9.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_10.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_11.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_12.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_13.png",
+        alt: "Conference Room",
+      },
     ],
   },
   {
-    heading: "Work Space 4",
+    heading: "Work Spaces",
     items: [
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_1.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_2.png",
+        alt: "Workspace 1",
+      },
       {
         type: "image",
         src: "/infrastructure/work_space_4/work_space_4_1.jpeg",
@@ -97,7 +143,47 @@ const infraData = [
       },
       {
         type: "image",
+        src: "/infrastructure/work_space_4/workspace_3.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_4.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
         src: "/infrastructure/work_space_4/work_space_4_2.jpeg",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_5.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_6.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_7.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_8.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_9.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_10.png",
         alt: "Workspace 1",
       },
     ],

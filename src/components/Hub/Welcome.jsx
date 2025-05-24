@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Image from "next/image";
-import { IoMdPlay } from "react-icons/io";
 import { motion, useInView } from "framer-motion";
 import EnrollNow from "./EnrollNow";
 
@@ -43,18 +42,23 @@ const Welcome = () => {
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="transform -translate-x-1/2 absolute top-5 right-10 sm:right-40 md:-right-28 lg:left-1/2 lg:top-8 lg:-translate-x-0 z-10">
-          <Image
-            src="/elements/HeroElement.svg"
-            alt="Decorative Element"
-            width={80}
-            height={30}
-            className="w-8 h-4 lg:w-16 lg:h-8 "
-          />
-        </div>
-
         <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 mt-6 lg:mt-14">
-          Welcome to <br />
+          Welcome{" "}
+          t
+          <span className="relative inline-block">
+            o
+            {/* Decorative Element Positioned Over "o" in "to" */}
+            <div className="  z-10">
+              <Image
+                src="/elements/HeroElement.svg"
+                alt="Decorative Element"
+                width={100}
+                height={30}
+                className="absolute w-44 h-10 lg:w-16 lg:h-8 -top-5 -right-4 lg:-right-8 transform -translate-x-1/4"
+              />
+            </div>
+          </span>{" "}
+          <br />
           the Future of <br />
           <span className="text-[#AC6CFF]">Learning!</span>
         </h1>
@@ -67,8 +71,8 @@ const Welcome = () => {
         >
           We’re excited to introduce a game-changing partnership between{" "}
           <span className="text-[#AC6CFF]">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—
-          an alliance designed to bring you the{" "}
+          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—an
+          alliance designed to bring you the{" "}
           <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
           degree programs that fuse industry expertise with academic excellence.
         </motion.p>
@@ -81,8 +85,8 @@ const Welcome = () => {
         >
           We’re excited to introduce a game-changing partnership between{" "}
           <span className="text-[#AC6CFF]">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—
-          an alliance designed to bring you the{" "}
+          <span className="text-[#AC6CFF]">Guru Kashi University (GKU)</span>—an
+          alliance designed to bring you the{" "}
           <span className="text-[#AC6CFF]">B.Voc (Bachelor of Vocation)</span>{" "}
           degree programs that fuse industry expertise with academic excellence.
         </motion.p>

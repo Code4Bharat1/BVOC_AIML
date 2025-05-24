@@ -7,7 +7,7 @@ const FlexibleCareerSupport = () => {
   return (
     <>
       {/* Desktop View (visible on lg and up) */}
-      <div className="hidden lg:block overflow-x-hidden">
+      <div className="hidden lg:block overflow-x-hidden overflow-y-hidden">
         {/* Animate Background First */}
         <motion.div
           initial={{ opacity: 0 }}

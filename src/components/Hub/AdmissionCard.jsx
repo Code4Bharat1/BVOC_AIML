@@ -343,7 +343,7 @@ const AdmissionCard = () => {
   };
 
   return (
-    <div className="flex w-full  justify-center items-center py-6 lg:py-10 px-4">
+    <div className="flex w-full  justify-center items-center -mt-10 lg:py-10 px-4">
       <div className="relative lg:py-16 border border-white bg-[#2F1C48] text-white text-center rounded-2xl p-8 lg:p-10 w-[90%]">
         {/* Decorative SVGs */}
         <Image
@@ -359,7 +359,7 @@ const AdmissionCard = () => {
           alt="Rocket"
           width={60}
           height={60}
-          className="absolute top-120 right-5 lg:bottom-44 lg:left-40 w-10 lg:w-20"
+          className="hidden lg:block absolute top-120 right-5 lg:bottom-44 lg:left-40 w-10 lg:w-20"
         />
 
         <Image
@@ -390,11 +390,21 @@ const AdmissionCard = () => {
           A Unique Blend of Industry & Academia
         </h3>
 
-        {/* mobile text */}
-        <h3 className="md:hidden text-2xl font-bold mb-6">
-          A Unique Blend of <br />
-          Industry & Academia
-        </h3>
+        {/* mobile text with rocket */}
+        <div className="relative  md:hidden mb-6">
+          <h3 className="text-2xl font-bold">
+            <Image
+              src="/elements/RocketElement_Home.svg"
+              alt="Rocket"
+              width={40}
+              height={40}
+              className="absolute -top-4 -right-6 w-8 h-8"
+            />
+            A Unique Blend of <br />
+            Industry & Academia
+          </h3>
+        </div>
+
         <p className="md:hidden block text-base lg:text-3xl font-extralight mb-6 lg:leading-10">
           Join a course that goes beyond theory. Experience practical, hands-on
           learning in collaboration with top industry leaders.

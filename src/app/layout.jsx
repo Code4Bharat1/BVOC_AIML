@@ -15,22 +15,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://bvoc.nexcorealliance.com/"),
   title: "BVOC in AI & ML | Nexcore x Code4Bharat",
-  description: "Build your future in Artificial Intelligence & Machine Learning. Join our hands-on BVOC program powered by Nexcore and Code4Bharat. Industry projects, expert mentors, and real-world skills – all in one course!",
+  description:
+    "Build your future in Artificial Intelligence & Machine Learning. Join our hands-on BVOC program powered by Nexcore and Code4Bharat. Industry projects, expert mentors, and real-world skills – all in one course!",
   openGraph: {
     title: "BVOC in AI & ML | Nexcore x Code4Bharat",
-    description: "Build your future in Artificial Intelligence & Machine Learning. Join our hands-on BVOC program powered by Nexcore and Code4Bharat.",
+    description:
+      "Build your future in Artificial Intelligence & Machine Learning. Join our hands-on BVOC program powered by Nexcore and Code4Bharat.",
     images: [
       {
-        url: "/", // You should generate or link to the actual OG image
+        url: "/og-image.png", // Relative path becomes absolute via metadataBase
         width: 1200,
         height: 630,
-        alt: "BVOC in AI & ML – Admissions Open"
-      }
-    ]
-  }
+        alt: "BVOC in AI & ML – Admissions Open",
+      },
+    ],
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -38,10 +40,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
         <ChatbotWidget />
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

@@ -98,11 +98,6 @@ const infraData = [
       },
       {
         type: "image",
-        src: "/infrastructure/conference3/conference3_9.png",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
         src: "/infrastructure/conference3/conference3_10.png",
         alt: "Conference Room",
       },

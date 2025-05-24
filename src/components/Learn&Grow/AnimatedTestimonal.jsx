@@ -2,7 +2,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export const AnimatedTestimonials = ({ testimonials, autoplaySpeed = 5000 }) => {
+export const AnimatedTestimonials = ({
+  testimonials,
+  autoplaySpeed = 5000,
+}) => {
   const [active, setActive] = useState(0);
 
   // Auto-advance slides
@@ -10,7 +13,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplaySpeed = 5000 }) => 
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
     }, autoplaySpeed);
-    
+
     return () => clearInterval(interval);
   }, [testimonials.length, autoplaySpeed]);
 
@@ -38,7 +41,9 @@ export const AnimatedTestimonials = ({ testimonials, autoplaySpeed = 5000 }) => 
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index) ? 40 : testimonials.length + 2 - index,
+                    zIndex: isActive(index)
+                      ? 40
+                      : testimonials.length + 2 - index,
                     y: isActive(index) ? [0, -80, 0] : 0,
                   }}
                   exit={{
@@ -98,11 +103,11 @@ export const AnimatedTestimonials = ({ testimonials, autoplaySpeed = 5000 }) => 
               ))}
             </motion.p>
           </motion.div>
-          
+
           {/* Indicator dots to show current slide */}
           <div className="flex justify-center gap-2 pt-12 md:pt-0">
             {testimonials.map((_, index) => (
-              <div 
+              <div
                 key={index}
                 className={`h-2 w-2 rounded-full transition-all duration-300 ${
                   isActive(index) ? "bg-white w-4" : "bg-gray-600"

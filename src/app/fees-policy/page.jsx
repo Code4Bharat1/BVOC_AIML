@@ -7,7 +7,7 @@ export default function page() {
   return (
     <div className="flex flex-col min-h-screen ">
       <main className="flex-grow py-16">
-        <Fee_Policy/>
+        <Fee_Policy />
         <FeePaymentGuidelines />
         <FinancialAssistance />
         <LastComponenet />

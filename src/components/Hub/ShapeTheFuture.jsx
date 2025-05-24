@@ -76,7 +76,7 @@ const ShapeTheFuture = () => {
         </motion.p>
 
         <motion.button
-          className="hidden lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
+          className="hidden lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap"
           variants={buttonVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -86,7 +86,7 @@ const ShapeTheFuture = () => {
           Get Started <ChevronRight />
         </motion.button>
 
-        <div className="block lg:hidden flex flex-row items-end justify-between gap-0.5 w-full ml-[-63px]">
+        <div className="lg:hidden flex flex-row items-end justify-between gap-0.5 w-full ml-[-63px]">
           {/* Image touching left edge */}
           <motion.img
             src="/elements/ShapeFutureRobo_Home.svg"

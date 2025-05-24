@@ -167,7 +167,10 @@ const NextLevelRole = () => {
           </motion.h3>
           <div className="flex gap-6 px-4">
             {/* Left column */}
-            <motion.div className="flex flex-col gap-6 flex-1" variants={containerVariants}>
+            <motion.div
+              className="flex flex-col gap-6 flex-1"
+              variants={containerVariants}
+            >
               {bottomLeft.map((role, i) => (
                 <motion.div
                   key={i}
@@ -182,7 +185,10 @@ const NextLevelRole = () => {
               ))}
             </motion.div>
             {/* Right column with padding top */}
-            <motion.div className="flex flex-col gap-6 flex-1 pt-10" variants={containerVariants}>
+            <motion.div
+              className="flex flex-col gap-6 flex-1 pt-10"
+              variants={containerVariants}
+            >
               {bottomRight.map((role, i) => (
                 <motion.div
                   key={i}

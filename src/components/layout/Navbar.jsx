@@ -42,17 +42,17 @@ const Navbar = () => {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: "easeInOut"
-      }
+        ease: "easeInOut",
+      },
     },
     open: {
       height: "auto",
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   // Animation variants for menu items
@@ -61,8 +61,8 @@ const Navbar = () => {
       opacity: 0,
       y: -10,
       transition: {
-        duration: 0.2
-      }
+        duration: 0.2,
+      },
     },
     open: (index) => ({
       opacity: 1,
@@ -70,16 +70,16 @@ const Navbar = () => {
       transition: {
         delay: index * 0.1,
         duration: 0.3,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   return (
     <nav className="bg-[#2C2E33] fixed w-full top-0 z-50 border-b border-gray-700">
       <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between gap-x-8">
         {/* Logo with animation */}
-        <motion.div 
+        <motion.div
           className="text-white text-2xl font-extrabold tracking-wide"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -120,7 +120,9 @@ const Navbar = () => {
               />
               <motion.span
                 className="block w-6 h-0.5 bg-white origin-center"
-                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                animate={
+                  menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
               />
             </div>
@@ -137,15 +139,15 @@ const Navbar = () => {
               {navItems.map(({ name, href }, index) => {
                 const isActive = pathname === href;
                 return (
-                  <motion.li 
-                    key={name} 
+                  <motion.li
+                    key={name}
                     className="relative"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: 0.4 + (index * 0.1),
-                      ease: "easeOut"
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.4 + index * 0.1,
+                      ease: "easeOut",
                     }}
                   >
                     <Link
@@ -157,7 +159,7 @@ const Navbar = () => {
                       {name}
                     </Link>
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         className="absolute left-1/2 -bottom-1 transform -translate-x-1/2"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -172,14 +174,14 @@ const Navbar = () => {
               <motion.li
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: 0.4 + (navItems.length * 0.1),
-                  ease: "easeOut"
+                transition={{
+                  duration: 0.4,
+                  delay: 0.4 + navItems.length * 0.1,
+                  ease: "easeOut",
                 }}
               >
                 <a
-                  href="/docs/BVoc_Program_Brochure.pdf" 
+                  href="/docs/BVoc_Program_Brochure.pdf"
                   download
                   className="block py-2 px-3 transition-colors hover:text-gray-300"
                 >
@@ -205,8 +207,8 @@ const Navbar = () => {
                   {navItems.map(({ name, href }, index) => {
                     const isActive = pathname === href;
                     return (
-                      <motion.li 
-                        key={name} 
+                      <motion.li
+                        key={name}
                         className="relative"
                         custom={index}
                         variants={menuItemVariants}
@@ -217,14 +219,16 @@ const Navbar = () => {
                         <Link
                           href={href}
                           className={`block py-3 px-6 transition-colors ${
-                            isActive ? "font-bold bg-gray-700" : "hover:bg-gray-700"
+                            isActive
+                              ? "font-bold bg-gray-700"
+                              : "hover:bg-gray-700"
                           }`}
                           onClick={() => setMenuOpen(false)}
                         >
                           {name}
                         </Link>
                         {isActive && (
-                          <motion.div 
+                          <motion.div
                             className="absolute left-1/2 bottom-2 transform -translate-x-1/2"
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -244,7 +248,7 @@ const Navbar = () => {
                     exit="closed"
                   >
                     <a
-                      href="/docs/BVoc_Program_Brochure.pdf" 
+                      href="/docs/BVoc_Program_Brochure.pdf"
                       download
                       className="block py-3 px-6 transition-colors hover:bg-gray-700"
                       onClick={() => setMenuOpen(false)}

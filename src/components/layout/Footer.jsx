@@ -17,7 +17,10 @@ const Footer = () => {
               <strong className="text-xl">
                 <span className="text-[#AC6CFF]">B.</span>Voc in AI & ML
               </strong>{" "}
-              is a next-gen undergraduate program designed to equip students with real-world AI skills. Co-developed with industry leaders, it blends theory with hands-on training to launch tech-driven careers.
+              is a next-gen undergraduate program designed to equip students
+              with real-world AI skills. Co-developed with industry leaders, it
+              blends theory with hands-on training to launch tech-driven
+              careers.
             </p>
           </div>
 
@@ -30,18 +33,27 @@ const Footer = () => {
               </h2>
               <ul className="space-y-3 text-white text-base">
                 <li>
-                  <Link href="/infrastructure" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/infrastructure"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Infrastructure
                   </Link>
                 </li>
                 <li>
-                  <Link href="/learn-grow" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/learn-grow"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Learn and Grow
                   </Link>
                 </li>
                 <li>
-                  <Link href="/whychooseus" className="hover:underline transition-colors duration-200">
-                   Why We're Different
+                  <Link
+                    href="/whychooseus"
+                    className="hover:underline transition-colors duration-200"
+                  >
+                    Why We're Different
                   </Link>
                 </li>
               </ul>
@@ -54,32 +66,50 @@ const Footer = () => {
               </h2>
               <ul className="space-y-3 text-white text-base">
                 <li>
-                  <Link href="/selection-policy" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/selection-policy"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Selection Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/eligibility-criteria" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/eligibility-criteria"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Eligibility Criteria
                   </Link>
                 </li>
                 <li>
-                  <Link href="/placement-policy" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/placement-policy"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Placement Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/internship-policy" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/internship-policy"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Paid Internship Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/scholarship-policy" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/scholarship-policy"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Scholarship Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/fees-policy" className="hover:underline transition-colors duration-200">
+                  <Link
+                    href="/fees-policy"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     Fees Policy
                   </Link>
                 </li>
@@ -105,7 +135,10 @@ const Footer = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <a href="tel:+919892398976" className="hover:underline transition-colors duration-200">
+                  <a
+                    href="tel:+919892398976"
+                    className="hover:underline transition-colors duration-200"
+                  >
                     +91 9892398976
                   </a>
                 </li>
@@ -138,7 +171,10 @@ const Footer = () => {
         </div>
         <div className="text-center text-gray-400 pb-5 text-sm">
           © 2025{" "}
-          <Link href="#" className="hover:underline text-white transition-colors duration-200">
+          <Link
+            href="#"
+            className="hover:underline text-white transition-colors duration-200"
+          >
             BVOC™
           </Link>
           . All Rights Reserved.

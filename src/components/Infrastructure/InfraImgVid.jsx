@@ -80,7 +80,7 @@ const infraData = [
         src: "/infrastructure/conference3/conference3_4.jpeg",
         alt: "Conference Room",
       },
-      
+
       {
         type: "image",
         src: "/infrastructure/conference3/conference3_6.png",
@@ -233,30 +233,34 @@ function Modal({ item, onClose }) {
   );
 }
 
-  // Main Component yaha ki functional component hai jo sab kuch render karegi
+// Main Component yaha ki functional component hai jo sab kuch render karegi
 // yaha pe humne useState hook ka use kiya h jo selectedItem ko track karega
 function InfraImgVid() {
   const [selectedItem, setSelectedItem] = useState(null);
   const scrollContainerRefs = useRef([]);
-  
+
   // Store scroll positions and animation states persistently
-  const scrollStatesRef = useRef(Array(infraData.length).fill(null).map(() => ({
-    scrollPosition: 0,
-    scrollDirection: 1,
-    atEnd: false,
-    isPaused: false
-  })));
+  const scrollStatesRef = useRef(
+    Array(infraData.length)
+      .fill(null)
+      .map(() => ({
+        scrollPosition: 0,
+        scrollDirection: 1,
+        atEnd: false,
+        isPaused: false,
+      }))
+  );
   useEffect(() => {
     const animationFrames = [];
-    
+
     // Setup animation for each gallery section
     scrollContainerRefs.current.forEach((container, index) => {
       if (!container) return;
-      
+
       // Only apply auto-scrolling if the content exceeds container width
       if (container.scrollWidth > container.clientWidth) {
         const scrollState = scrollStatesRef.current[index];
-        
+
         // Animation function
         const animate = () => {
           // Skip if paused
@@ -264,21 +268,24 @@ function InfraImgVid() {
             animationFrames[index] = requestAnimationFrame(animate);
             return;
           }
-          
+
           // Get current scroll state
           let { scrollPosition, scrollDirection, atEnd } = scrollState;
-          
+
           // Scroll speed - adjust for smoother scrolling
           const scrollSpeed = 0.7;
-          
+
           if (scrollDirection === 1) {
             // Scrolling right
             scrollPosition += scrollSpeed;
-            
+
             // Check if reached the end
-            if (scrollPosition >= container.scrollWidth - container.clientWidth) {
+            if (
+              scrollPosition >=
+              container.scrollWidth - container.clientWidth
+            ) {
               scrollPosition = container.scrollWidth - container.clientWidth;
-              
+
               // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
@@ -291,11 +298,11 @@ function InfraImgVid() {
           } else {
             // Scrolling left
             scrollPosition -= scrollSpeed;
-            
+
             // Check if reached the beginning
             if (scrollPosition <= 0) {
               scrollPosition = 0;
-              
+
               // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
@@ -306,24 +313,24 @@ function InfraImgVid() {
               }
             }
           }
-          
+
           // Update position in DOM and state
           container.scrollLeft = scrollPosition;
           scrollState.scrollPosition = scrollPosition;
           scrollState.atEnd = atEnd;
-          
+
           // Continue animation
           animationFrames[index] = requestAnimationFrame(animate);
         };
-        
+
         // Start animation
         animationFrames[index] = requestAnimationFrame(animate);
       }
     });
-    
+
     // Cleanup animation frames on unmount
     return () => {
-      animationFrames.forEach(frameId => {
+      animationFrames.forEach((frameId) => {
         if (frameId) cancelAnimationFrame(frameId);
       });
     };
@@ -349,16 +356,16 @@ function InfraImgVid() {
           <h2 className="text-4xl lg:text-5xl text-white font-bold my-12">
             {section.heading}
           </h2>
-          
+
           {/* No navigation buttons */}
-          
+
           {/* Scrolling container */}
-          <div 
+          <div
             className="flex space-x-4 overflow-x-auto scrollbar-hide"
-            ref={el => scrollContainerRefs.current[index] = el}
+            ref={(el) => (scrollContainerRefs.current[index] = el)}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {section.items.map((item, idx) => (
               <InfraCard key={idx} item={item} onClick={setSelectedItem} />

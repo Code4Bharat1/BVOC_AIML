@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -51,10 +51,12 @@ const WhyChooseBVoc = () => {
           </h2>
           <ul className="list-disc list-inside mb-6 space-y-4">
             <li>
-              <strong>B.Tech/B.E:</strong> Strong theory, but lacks job readiness.
+              <strong>B.Tech/B.E:</strong> Strong theory, but lacks job
+              readiness.
             </li>
             <li>
-              <strong>B.Sc:</strong> Great for research, but not industry-focused.
+              <strong>B.Sc:</strong> Great for research, but not
+              industry-focused.
             </li>
             <li>Lead in AI, ML, and Data Science</li>
           </ul>

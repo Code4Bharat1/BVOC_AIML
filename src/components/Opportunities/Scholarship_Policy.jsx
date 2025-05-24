@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 
 export default function Scholarship_Policy() {
@@ -123,35 +123,35 @@ export default function Scholarship_Policy() {
           <span className="text-[#AC6CFF]">Recognized University.</span>
         </p>
       </div>
-      
+
       <style jsx>{`
         /* Custom scrollbar styling */
         .custom-scrollbar::-webkit-scrollbar {
           width: 8px;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar-track {
           background: rgba(234, 218, 255, 0.3);
           border-radius: 10px;
           margin: 10px 0;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
           background-color: rgba(172, 108, 255, 0.6);
           border-radius: 10px;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background-color: rgba(172, 108, 255, 0.8);
         }
-        
+
         /* Hide scrollbar for non-hover state */
         .scroll-container {
           scrollbar-width: thin;
           scrollbar-color: transparent transparent;
           transition: scrollbar-color 0.3s ease;
         }
-        
+
         /* Show scrollbar on hover */
         .scroll-container:hover {
           scrollbar-color: rgba(172, 108, 255, 0.6) rgba(234, 218, 255, 0.3);
@@ -161,7 +161,7 @@ export default function Scholarship_Policy() {
         .content-container {
           padding-bottom: 20px;
         }
-        
+
         /* Mobile styles */
         @media (max-width: 640px) {
           .desktop-view {
@@ -171,7 +171,7 @@ export default function Scholarship_Policy() {
             display: block;
           }
         }
-        
+
         /* Desktop styles */
         @media (min-width: 641px) {
           .desktop-view {
@@ -182,7 +182,7 @@ export default function Scholarship_Policy() {
           }
         }
       `}</style>
-      
+
       {/* Desktop View - Original Layout */}
       <div className="desktop-view">
         {Scholarship_Policy.map((item, idx) => (
@@ -211,7 +211,7 @@ export default function Scholarship_Policy() {
                 }}
               ></div>
             </div>
-  
+
             {/* Center the light purple box */}
             <div className="flex justify-center items-center h-full">
               <div className="flex justify-center items-center h-full relative">
@@ -222,7 +222,7 @@ export default function Scholarship_Policy() {
                         <h3 className="text-3xl font-extrabold mb-4 mx-10 text-left">
                           {item.heading}
                         </h3>
-  
+
                         {item.para.map((point, i) => {
                           if (typeof point === "string") {
                             return (
@@ -258,17 +258,14 @@ export default function Scholarship_Policy() {
           </div>
         ))}
       </div>
-      
+
       {/* Mobile View - New Layout */}
       <div className="mobile-view">
         {Scholarship_Policy.map((item, idx) => (
-          <div
-            key={idx}
-            className="w-full mx-auto mb-10 relative"
-          >
+          <div key={idx} className="w-full mx-auto mb-10 relative">
             {/* Combined purple background box that adapts to content height */}
             <div className="absolute inset-0 bg-[#AC6CFF] mx-4 rounded-[40px]"></div>
-  
+
             {/* Center the light purple box */}
             <div className="relative py-6 px-4 flex justify-center">
               <div className="bg-[#EADAFF] w-full rounded-[40px] p-4 text-black shadow-lg">
@@ -277,7 +274,7 @@ export default function Scholarship_Policy() {
                     <h3 className="text-2xl font-extrabold mb-3 mx-4 text-left">
                       {item.heading}
                     </h3>
-  
+
                     {item.para.map((point, i) => {
                       if (typeof point === "string") {
                         return (

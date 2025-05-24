@@ -6,7 +6,7 @@ import FlexibleCareerSupport from "@/components/Learn&Grow/FlexibleCareerSupport
 import SemesterCards from "@/components/Learn&Grow/SemesterCards";
 import YourCareerStarts from "@/components/Learn&Grow/YourCareerStarts";
 import Testimonials2 from "@/components/Learn&Grow/Testimonals2";
-import Testimonials from "@/components/Learn&Grow/Testimonals";
+// import Testimonials from "@/components/Learn&Grow/Testimonals";
 import OurSyllabus from "@/components/Learn&Grow/OurSyllabus";
 import AllSemesters from "@/components/Learn&Grow/AllSemesters";
 
@@ -19,13 +19,11 @@ const Page = () => {
         <InternAndPlacementCards />
         <FlexibleCareerSupport />
         <SemesterCards />
-        <YourCareerStarts/>
+        <YourCareerStarts />
         <Testimonials2 />
         {/* <Testimonials /> */}
-        <OurSyllabus/>
+        <OurSyllabus />
         <AllSemesters />
-
-
       </main>
     </div>
   );

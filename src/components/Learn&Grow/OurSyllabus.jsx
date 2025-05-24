@@ -85,9 +85,7 @@ const OurSyllabus = () => {
                 &{" "}
                 <span
                   className={`font-bold ${
-                    isHovered
-                      ? "text-black font-extrabold"
-                      : "text-purple-600"
+                    isHovered ? "text-black font-extrabold" : "text-purple-600"
                   }`}
                 >
                   ML
@@ -151,12 +149,12 @@ const OurSyllabus = () => {
             className="ml-28 w-[70%] z-20"
           >
             <p className="text-sm text-left leading-snug">
-              Our{" "}
-              <span className="font-bold text-purple-500">B.Voc</span>{" "}
+              Our <span className="font-bold text-purple-500">B.Voc</span>{" "}
               <span className="font-bold text-purple-500">AI</span> &{" "}
               <span className="font-bold text-purple-600">ML</span> program is
               structured across six dynamic semesters, designed to provide you
-              with hands-on skills and deep theoretical knowledge in the fields of{" "}
+              with hands-on skills and deep theoretical knowledge in the fields
+              of{" "}
               <span className="font-bold text-black">
                 AI, ML, and Data Science.
               </span>

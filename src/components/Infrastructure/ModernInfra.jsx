@@ -59,19 +59,26 @@ const ModernInfra = () => {
               onMouseEnter={() => handleMouseEnter("topLeft")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={`transition-all duration-300 ${
-                hoveredSection === "topLeft" 
-                  ? "brightness-140 scale-110 filter " 
-                  : ""
-              }`}>
-                <Image src="/infrastructure/elements/Modern_infra_1.svg" alt="Top Left" width={400} height={400} />
+              <div
+                className={`transition-all duration-300 ${
+                  hoveredSection === "topLeft"
+                    ? "brightness-140 scale-110 filter "
+                    : ""
+                }`}
+              >
+                <Image
+                  src="/infrastructure/elements/Modern_infra_1.svg"
+                  alt="Top Left"
+                  width={400}
+                  height={400}
+                />
               </div>
               <div className="absolute top-35 left-25">
-                <p className={`text-white text-3xl text-center my-10 ${
-                  hoveredSection === "topLeft" 
-                    ? "font-bold scale-105" 
-                    : ""
-                } transition-all`}>
+                <p
+                  className={`text-white text-3xl text-center my-10 ${
+                    hoveredSection === "topLeft" ? "font-bold scale-105" : ""
+                  } transition-all`}
+                >
                   Explore Through <br /> Videos & Photos
                 </p>
               </div>
@@ -84,19 +91,26 @@ const ModernInfra = () => {
               onMouseEnter={() => handleMouseEnter("topRight")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={`transition-all duration-300 ${
-                hoveredSection === "topRight" 
-                  ? "brightness-140 scale-110 filter" 
-                  : ""
-              }`}>
-                <Image src="/infrastructure/elements/Modern_infra_2.svg" alt="Top Right" width={400} height={400} />
+              <div
+                className={`transition-all duration-300 ${
+                  hoveredSection === "topRight"
+                    ? "brightness-140 scale-110 filter"
+                    : ""
+                }`}
+              >
+                <Image
+                  src="/infrastructure/elements/Modern_infra_2.svg"
+                  alt="Top Right"
+                  width={400}
+                  height={400}
+                />
               </div>
               <div className="absolute top-35 right-5 -translate-x-16">
-                <p className={`text-white text-3xl text-center my-10 ${
-                  hoveredSection === "topRight" 
-                    ? "font-bold scale-105" 
-                    : ""
-                } transition-all`}>
+                <p
+                  className={`text-white text-3xl text-center my-10 ${
+                    hoveredSection === "topRight" ? "font-bold scale-105" : ""
+                  } transition-all`}
+                >
                   Innovation-Driven <br /> Workspaces
                 </p>
               </div>
@@ -109,19 +123,26 @@ const ModernInfra = () => {
               onMouseEnter={() => handleMouseEnter("bottomLeft")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={`transition-all duration-300 ${
-                hoveredSection === "bottomLeft" 
-                  ? "brightness-140 scale-110 filter" 
-                  : ""
-              }`}>
-                <Image src="/infrastructure/elements/Modern_infra_3.svg" alt="Bottom Left" width={400} height={400} />
+              <div
+                className={`transition-all duration-300 ${
+                  hoveredSection === "bottomLeft"
+                    ? "brightness-140 scale-110 filter"
+                    : ""
+                }`}
+              >
+                <Image
+                  src="/infrastructure/elements/Modern_infra_3.svg"
+                  alt="Bottom Left"
+                  width={400}
+                  height={400}
+                />
               </div>
               <div className="absolute bottom-35 left-20">
-                <p className={`text-white text-3xl text-center my-10 ${
-                  hoveredSection === "bottomLeft" 
-                    ? "font-bold scale-105" 
-                    : ""
-                } transition-all`}>
+                <p
+                  className={`text-white text-3xl text-center my-10 ${
+                    hoveredSection === "bottomLeft" ? "font-bold scale-105" : ""
+                  } transition-all`}
+                >
                   Dynamic & <br /> Comfortable Spaces
                 </p>
               </div>
@@ -134,19 +155,28 @@ const ModernInfra = () => {
               onMouseEnter={() => handleMouseEnter("bottomRight")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={`transition-all duration-300 ${
-                hoveredSection === "bottomRight" 
-                  ? "brightness-140 scale-110 filter" 
-                  : ""
-              }`}>
-                <Image src="/infrastructure/elements/Modern_infra_4.svg" alt="Bottom Right" width={400} height={400} />
+              <div
+                className={`transition-all duration-300 ${
+                  hoveredSection === "bottomRight"
+                    ? "brightness-140 scale-110 filter"
+                    : ""
+                }`}
+              >
+                <Image
+                  src="/infrastructure/elements/Modern_infra_4.svg"
+                  alt="Bottom Right"
+                  width={400}
+                  height={400}
+                />
               </div>
               <div className="absolute bottom-35 right-15 -translate-x-16">
-                <p className={`text-white text-3xl text-center my-10 ${
-                  hoveredSection === "bottomRight" 
-                    ? "font-bold scale-105" 
-                    : ""
-                } transition-all`}>
+                <p
+                  className={`text-white text-3xl text-center my-10 ${
+                    hoveredSection === "bottomRight"
+                      ? "font-bold scale-105"
+                      : ""
+                  } transition-all`}
+                >
                   Cutting-Edge <br /> Technology
                 </p>
               </div>

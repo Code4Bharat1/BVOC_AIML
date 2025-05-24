@@ -43,11 +43,9 @@ const Welcome = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 mt-6 lg:mt-14">
-          Welcome{" "}
-          t
+          Welcome t
           <span className="relative inline-block">
-            o
-            {/* Decorative Element Positioned Over "o" in "to" */}
+            o{/* Decorative Element Positioned Over "o" in "to" */}
             <div className="  z-10">
               <Image
                 src="/elements/HeroElement.svg"

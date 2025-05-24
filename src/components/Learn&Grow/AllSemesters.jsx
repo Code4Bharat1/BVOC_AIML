@@ -165,9 +165,7 @@ const AllSemesters = () => {
             onClick={() => handleDownload("/docs/sem5.pdf", "semester-5.pdf")}
           >
             <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5 20h14v-2H5v2zm7-18v12l5-5 1.41 1.41L12 18.83l-6.41-6.42L7 11l5 5V2h2z"/>
-              </svg>
+              <MdFileDownload size={20} />
               <h1>Semester 5</h1>
             </div>
           </div>
@@ -197,9 +195,7 @@ const AllSemesters = () => {
             onClick={() => handleDownload("/docs/sem6.pdf", "semester-6.pdf")}
           >
             <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5 20h14v-2H5v2zm7-18v12l5-5 1.41 1.41L12 18.83l-6.41-6.42L7 11l5 5V2h2z"/>
-              </svg>
+              <MdFileDownload size={20} />
               <h1>Semester 6</h1>
             </div>
           </div>

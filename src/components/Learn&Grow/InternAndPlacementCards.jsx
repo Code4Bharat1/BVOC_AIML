@@ -123,7 +123,7 @@ const InternAndPlacementCards = () => {
         >
           <div className="w-full h-72 relative mb-4">
             <Image
-              src="/internship-image.png"
+              src="/learn&grow/internship-image.svg"
               alt="Internship"
               fill
               className="object-cover border border-white rounded-2xl"
@@ -148,7 +148,7 @@ const InternAndPlacementCards = () => {
         >
           <div className="w-full h-72 relative mb-4">
             <Image
-              src="/placement-image.png"
+              src="/learn&grow/placement-image.svg"
               alt="Job Placement"
               fill
               className="object-cover rounded-2xl border border-white"

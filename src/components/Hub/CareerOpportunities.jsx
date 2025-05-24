@@ -87,7 +87,7 @@ const CareerOpportunities = () => {
               <p
                 className={`mt-4 text-sm lg:text-2xl font-bold ${
                   index === 0
-                    ? "text-[#AC6CFF]"
+                    ? "text-black"
                     : index >= 3
                     ? "text-white"
                     : "text-white lg:text-black"

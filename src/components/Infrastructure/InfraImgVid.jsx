@@ -123,71 +123,71 @@ const infraData = [
       },
     ],
   },
-  {
-    heading: "Work Spaces",
-    items: [
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_1.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_2.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/work_space_4_1.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_3.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_4.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/work_space_4_2.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_5.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_6.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_7.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_8.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_9.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_10.png",
-        alt: "Workspace 1",
-      },
-    ],
-  },
+  // {
+  //   heading: "Work Spaces",
+  //   items: [
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_1.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_2.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/work_space_4_1.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_3.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_4.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/work_space_4_2.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_5.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_6.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_7.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_8.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_9.png",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/work_space_4/workspace_10.png",
+  //       alt: "Workspace 1",
+  //     },
+  //   ],
+  // },
 ];
 
 // Card Component yaha pe humne ek card banaya h jo image ya video ko dikhata h

@@ -316,19 +316,23 @@ const BookingForm = ({ onClose }) => {
 };
 
 export default function EnrollNow() {
-  const [showBookingForm, setShowBookingForm] = useState(false);
   return (
-    <>
-      <button
-        onClick={() => setShowBookingForm(true)}
-        className="bg-[#EADAFF] text-[#AC6CFF] font-semibold mb-24 lg:mb-4 py-2.5 lg:py-3 px-3 lg:px-10 rounded-full transition-transform hover:scale-105 flex items-center space-x-2 mx-auto"
-      >
-        <span>Enroll Now</span>
-      </button>
+  // onClick={() => {
+  //   if (typeof window !== "undefined" && window.openWhatsappChatWidget) {
+  //     window.openWhatsappChatWidget();
+  //   } else {
+  //     // fallback: redirect directly to WhatsApp number
+  //     window.location.href = "https://wa.me/919892398976";
+  //   }// ye bas redirect karega user ko wati pe 
+  <a
+  href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+  target="_blank"
+  rel="noopener noreferrer"
+  // }}
+  className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-600"
+>
+  Enroll Now
+</a>
 
-      {showBookingForm && (
-        <BookingForm onClose={() => setShowBookingForm(false)} />
-      )}
-    </>
   );
 }

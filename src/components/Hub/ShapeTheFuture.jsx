@@ -99,7 +99,11 @@ const ShapeTheFuture = () => {
           />
 
           {/* Centered Button */}
-          <motion.button
+          <motion.a
+            href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+            target="_blank"
+            rel="noopener noreferrer"
+          
             className="bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
             variants={buttonVariants}
             initial="hidden"
@@ -108,7 +112,7 @@ const ShapeTheFuture = () => {
             whileTap={{ scale: 0.95 }}
           >
             Get Started <ChevronRight />
-          </motion.button>
+          </motion.a>
         </div>
       </motion.div>
     </div>

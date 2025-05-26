@@ -32,25 +32,6 @@ const cardData = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
 const headingVariants = {
   hidden: { opacity: 0, y: -30 },
   visible: {
@@ -62,7 +43,7 @@ const headingVariants = {
 
 const KickStart = () => {
   const scrollContainerRef = useRef(null);
-  const autoScrollInterval = useRef(null); // Added missing useRef
+  const autoScrollInterval = useRef(null);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -71,68 +52,80 @@ const KickStart = () => {
       return;
     }
 
-    // Initialize scrolling after DOM is ready
-    const initScroll = setTimeout(() => {
-      const scrollWidth = container.scrollWidth - container.clientWidth;
-      const cardElement = container.querySelector(".card");
-      const cardWidth = cardElement ? cardElement.offsetWidth + 32 : 322; // 290px + 32px gap
+    const cardElement = container.querySelector(".card");
+    const cardWidth = cardElement ? cardElement.offsetWidth + 32 : 322; // 290px + 32px gap
+    const scrollWidth = container.scrollWidth - container.clientWidth;
 
-      // Auto-scroll function
-      const scroll = () => {
-        const currentScroll = container.scrollLeft;
-        if (currentScroll + 1 >= scrollWidth) {
-          container.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          container.scrollBy({ left: cardWidth, behavior: "smooth" });
-        }
-      };
+    // Auto-scroll function
+    const scroll = () => {
+      const currentScroll = container.scrollLeft;
+      if (currentScroll >= scrollWidth) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    };
 
-      // Start auto-scroll
-      autoScrollInterval.current = setInterval(scroll, 3000); // Use ref to store interval
+    // Start auto-scroll with 5-second interval
+    autoScrollInterval.current = setInterval(scroll, 900);
 
-      // Pause on interaction
-      const handleInteraction = () => {
-        clearInterval(autoScrollInterval.current);
-      };
+    // Pause on touch interaction (mobile)
+    const handleTouchStart = () => {
+      clearInterval(autoScrollInterval.current);
+    };
 
-      // Resume after interaction
-      let resumeTimeout;
-      const resumeScroll = () => {
-        clearInterval(autoScrollInterval.current);
-        resumeTimeout = setTimeout(() => {
-          autoScrollInterval.current = setInterval(scroll, 3000);
-        }, 5000);
-      };
+    // Resume after touch interaction
+    const handleTouchEnd = () => {
+      clearInterval(autoScrollInterval.current);
+      autoScrollInterval.current = setInterval(scroll, 5000);
+    };
 
-      container.addEventListener("mouseenter", handleInteraction);
-      container.addEventListener("touchstart", handleInteraction);
-      container.addEventListener("scroll", handleInteraction);
-      container.addEventListener("mouseleave", resumeScroll);
-      container.addEventListener("touchend", resumeScroll);
+    // Add touch event listeners to container
+    container.addEventListener("touchstart", handleTouchStart);
+    container.addEventListener("touchend", handleTouchEnd);
 
-      // Cleanup
-      return () => {
-        clearInterval(autoScrollInterval.current);
-        clearTimeout(resumeTimeout);
-        container.removeEventListener("mouseenter", handleInteraction);
-        container.removeEventListener("touchstart", handleInteraction);
-        container.removeEventListener("scroll", handleInteraction);
-        container.removeEventListener("mouseleave", resumeScroll);
-        container.removeEventListener("touchend", resumeScroll);
-      };
-    }, 500); // 500ms delay for DOM readiness
-
-    return () => clearTimeout(initScroll);
+    // Cleanup
+    return () => {
+      clearInterval(autoScrollInterval.current);
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchend", handleTouchEnd);
+    };
   }, []);
 
+  // Pause auto-scroll on card hover
+  const handleMouseEnter = () => {
+    clearInterval(autoScrollInterval.current);
+  };
+
+  // Resume auto-scroll when cursor leaves card
+  const handleMouseLeave = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const cardElement = container.querySelector(".card");
+    const cardWidth = cardElement ? cardElement.offsetWidth + 32 : 322;
+    const scrollWidth = container.scrollWidth - container.clientWidth;
+
+    const scroll = () => {
+      const currentScroll = container.scrollLeft;
+      if (currentScroll >= scrollWidth) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    };
+
+    autoScrollInterval.current = setInterval(scroll, 5000);
+  };
+
   return (
-    <div className="bg-[#EADAFF] p-3 lg:p-8">
+    <div className="bg-[#EADAFF] p-3 lg:p-8 pointer-events-none">
       {/* Mobile Head */}
       <motion.h1
         variants={headingVariants}
         initial="hidden"
         animate="visible"
-        className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight"
+        className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight pointer-events-auto"
       >
         Kickstart <br /> Your Career
       </motion.h1>
@@ -142,25 +135,23 @@ const KickStart = () => {
         variants={headingVariants}
         initial="hidden"
         animate="visible"
-        className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight"
+        className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight pointer-events-auto"
       >
         Kickstart Your Career
       </motion.h1>
 
-      <div className="carousel-container">
-        <motion.div
+      <div className="carousel-container pointer-events-none">
+        <div
           ref={scrollContainerRef}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="scrollbar-hidden"
+          className="scrollbar-hidden flex overflow-x-auto snap-x snap-mandatory"
         >
           <div className="flex gap-8 w-max pr-8">
             {cardData.map((card) => (
-              <motion.div
+              <div
                 key={card.id}
-                variants={cardVariants}
-                className="card w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14"
+                className="card w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 snap-center pointer-events-auto"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
                   <Image
@@ -174,10 +165,10 @@ const KickStart = () => {
                 <h3 className="text-white font-bold text-center text-xl lg:text-2xl mt-4 uppercase leading-snug whitespace-pre-line">
                   {card.title}
                 </h3>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

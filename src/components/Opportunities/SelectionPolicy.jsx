@@ -3,7 +3,7 @@
 // import { useState, useEffect } from 'react';
 // import Image from 'next/image';
 
-// export default function SelectionPolicy() {
+// export default function /SelectionPolicy/SelectionPolicy() {
 //   const [loaded, setLoaded] = useState(false);
 //   const [windowSize, setWindowSize] = useState({
 //     width: typeof window !== 'undefined' ? window.innerWidth : 0,
@@ -72,7 +72,7 @@ const SelectionPolicy = () => {
       id: 1,
       heading: "1. Objective",
       image:
-        "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy1.png",
       description:
         "To establish a transparent, fair, and merit-based internal selection process for admitting students into the B.Voc in AI and ML program, ensuring compliance with academic and government regulations.",
     },
@@ -80,7 +80,7 @@ const SelectionPolicy = () => {
       id: 2,
       heading: "2. Application Submission",
       image:
-        "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy2.png",
       description:
         "Candidates must submit a duly filled application form along with all required documents by the specified deadline.Incomplete applications or those without valid documents will not be considered.",
     },
@@ -88,7 +88,7 @@ const SelectionPolicy = () => {
       id: 3,
       heading: "3. Verification of Eligibility",
       image:
-        "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy3.png",
       description:
         "All applications will be screened for minimum eligibility criteria (educational qualification, minimum marks, age, etc.) as per the Admission Eligibility Criteria. Applications not meeting eligibility standards will be rejected outright",
     },
@@ -96,7 +96,7 @@ const SelectionPolicy = () => {
       id: 4,
       heading: "4. Evaluation Criteria",
       image:
-        "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy4.png",
       description:
         "Candidates who meet eligibility will be evaluated based on the following: Academic Performance: 10+2 marks percentage or equivalent (weightage 70%). Entrance Test (if applicable): A written or online test assessing basic knowledge related to Mathematics, Logical Reasoning, and English (weightage 20%). Personal Interview: To evaluate candidate's motivation, communication skills, and interest in AI & ML (weightage 10%). Note: The entrance test and interview may be waived off based on the merit of 10+2 scores or as per policy.",
     },
@@ -104,7 +104,7 @@ const SelectionPolicy = () => {
       id: 5,
       heading: "5. Merit List Preparation",
       image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy5.png",
       description:
         "A consolidated score will be calculated based on the evaluation criteria. Candidates will be ranked according to their total scores. Separate merit lists will be prepared for General and Reserved category candidates.",
     },
@@ -112,7 +112,7 @@ const SelectionPolicy = () => {
       id: 6,
       heading: "6. Selection and Admission Offer",
       image:
-        "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "/SelectionPolicy/SelectionPolicy6.png",
       description:
         "To establish a transparent, fair, and merit-based internal selection process for admitting students into the B.Voc in AI and ML program, ensuring compliance with academic and government regulations.",
     },
@@ -120,7 +120,7 @@ const SelectionPolicy = () => {
       id: 7,
       heading: "7. Waitlist and Vacancies",
       image:
-        "https://media.istockphoto.com/id/1158827448/photo/im-getting-bored-waiting-for-them.jpg?s=612x612&w=0&k=20&c=vazMON5ETkiG977YWIzm2Owj9lMPqeAPon4U75Z_B08=",
+        "/SelectionPolicy/SelectionPolicy7.png",
       description:
         "Candidates not initially selected may be placed on a waitlist. Waitlisted candidates will be offered admission if seats become available. The waitlist will be valid for the duration of the admission cycle only.",
     },
@@ -128,7 +128,7 @@ const SelectionPolicy = () => {
       id: 8,
       heading: "8. Object Reservation and Relaxationtive",
       image:
-        "https://media.istockphoto.com/id/613241502/photo/young-woman-shopping-on-line.jpg?s=612x612&w=0&k=20&c=qy-3emzsEiQkDd-L8aHz9KTdm0aYFnUkeTfpLHIESvs=",
+        "/SelectionPolicy/SelectionPolicy8.png",
       description:
         "Reservation for SC, ST, OBC, and PwD candidates will be implemented as per government norms. Relaxation in eligibility criteria and selection process will be applied accordingly.",
     },
@@ -136,7 +136,7 @@ const SelectionPolicy = () => {
       id: 9,
       heading: "9. Final Authority",
       image:
-        "https://media.istockphoto.com/id/1492359326/photo/portrait-digital-tablet-and-black-man-in-office-happy-smile-and-empowered-ambition-and.jpg?s=612x612&w=0&k=20&c=Dqa_dBHQ6aeuHfuAurw5g5biUqt-IHJXjE5ppNHRcGM=",
+        "/SelectionPolicy/SelectionPolicy9.png",
       description:
         "The Admissions Committee reserves the right to modify, relax, or waive any clause of the selection policy in exceptional cases. All decisions of the Admissions Committee shall be final and binding.",
     },

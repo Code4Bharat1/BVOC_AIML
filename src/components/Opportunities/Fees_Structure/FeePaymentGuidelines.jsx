@@ -124,9 +124,7 @@ export default function FeePaymentGuidelines() {
               <div
                 key={index}
                 className={`group relative bg-gradient-to-br from-[#6B009D] to-[#3b0055] rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center min-h-[150px] transform transition-all duration-500 ease-out animate-fadeIn ${
-                  isLast && isOdd
-                    ? "md:col-span-2 md:mx-auto max-w-md"
-                    : ""
+                  isLast && isOdd ? "md:col-span-2 md:mx-auto max-w-md" : ""
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >

@@ -62,39 +62,43 @@ const AboutUs = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {/* Desktop heading only */}
-        <motion.h2 
+        <motion.h2
           className="hidden lg:block text-5xl font-extrabold mb-4"
           variants={fadeInVariants}
         >
           About Us
         </motion.h2>
 
-        <motion.h3 
+        <motion.h3
           className="text-2xl lg:text-4xl font-bold text-white mb-2"
           variants={fadeInVariants}
         >
           Our Vision
         </motion.h3>
-        
-        <motion.p 
+
+        <motion.p
           className="text-lg lg:text-3xl text-white mb-4"
           variants={fadeInVariants}
         >
           Empowering You for the Future
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           className="text-base lg:text-lg text-white leading-6 lg:leading-8"
           variants={fadeInVariants}
         >
           At{" "}
-          <span className="text-[#2F1C48] font-bold">Nexcore Alliance LLP</span>, we're dedicated to
-          shaping India's next generation of digital leaders by offering cutting-edge programs
-          designed for the real world. In partnership with{" "}
-          <span className="text-[#2F1C48] font-bold">Guru Kashi University (GKU)</span>, we bring
-          you a{" "}
-          <span className="text-[#2F1C48] font-bold">B.Voc AI & ML</span> program that's built to
-          make you industry-ready and globally competitive.
+          <span className="text-[#2F1C48] font-bold">Nexcore Alliance LLP</span>
+          , we're dedicated to shaping India's next generation of digital
+          leaders by offering cutting-edge programs designed for the real world.
+          In partnership with{" "}
+          <span className="text-[#2F1C48] font-bold">
+            Guru Kashi University (GKU)
+          </span>
+          , we bring you a{" "}
+          <span className="text-[#2F1C48] font-bold">B.Voc AI & ML</span>{" "}
+          program that's built to make you industry-ready and globally
+          competitive.
         </motion.p>
       </motion.div>
     </motion.div>

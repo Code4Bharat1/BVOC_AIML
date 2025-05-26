@@ -108,7 +108,7 @@ const SelectionAndPerformanceCards = () => {
       </div>
 
       {/* ================ Performance Review & Continuation ================ */}
-      
+
       <div className="w-full py-10">
         {/* Heading with skewed border */}
         <div className="mx-auto lg:w-max w-72 relative mb-14">

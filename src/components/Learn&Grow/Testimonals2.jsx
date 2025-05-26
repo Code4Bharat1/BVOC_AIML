@@ -80,13 +80,37 @@ const Testimonials = () => {
       case "center":
         return { scale: 1, opacity: 1, zIndex: 30, x: 0, rotateY: 0 };
       case "left1":
-        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "-55%", rotateY: 15 };
+        return {
+          scale: 0.85,
+          opacity: 0.6,
+          zIndex: 20,
+          x: "-55%",
+          rotateY: 15,
+        };
       case "left2":
-        return { scale: 0.7, opacity: 0.4, zIndex: 10, x: "-100%", rotateY: 25 };
+        return {
+          scale: 0.7,
+          opacity: 0.4,
+          zIndex: 10,
+          x: "-100%",
+          rotateY: 25,
+        };
       case "right1":
-        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "55%", rotateY: -15 };
+        return {
+          scale: 0.85,
+          opacity: 0.6,
+          zIndex: 20,
+          x: "55%",
+          rotateY: -15,
+        };
       case "right2":
-        return { scale: 0.7, opacity: 0.4, zIndex: 10, x: "100%", rotateY: -25 };
+        return {
+          scale: 0.7,
+          opacity: 0.4,
+          zIndex: 10,
+          x: "100%",
+          rotateY: -25,
+        };
       default:
         return { scale: 0.5, opacity: 0, zIndex: 0, x: 0, rotateY: 0 };
     }

@@ -5,14 +5,17 @@ const ObjectiveStipendStructure = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-10 space-y-20">
       {/* ===== HEADING ===== */}
       <h2 className="text-3xl md:text-5xl font-bold text-center text-white">
-        Paid <span className="text-[#AC6CFF]">Internship</span> Policy (From <span className="text-[#AC6CFF]">2nd Year</span> Onwards)
+        Paid <span className="text-[#AC6CFF]">Internship</span> Policy (From{" "}
+        <span className="text-[#AC6CFF]">2nd Year</span> Onwards)
       </h2>
 
       {/* ===== OBJECTIVE SECTION ===== */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         {/* OBJECTIVE Circle */}
         <div className="w-40 h-40 md:w-64 md:h-64 rounded-full border-[3px] shadow-sm shadow-white border-white bg-[#AC6CFF] flex items-center justify-center">
-          <span className="text-white text-xl md:text-3xl font-bold">OBJECTIVE</span>
+          <span className="text-white text-xl md:text-3xl font-bold">
+            OBJECTIVE
+          </span>
         </div>
 
         {/* OBJECTIVE Details */}
@@ -33,7 +36,8 @@ const ObjectiveStipendStructure = () => {
               2
             </div>
             <div className="rounded-3xl border-[2px] border-[#AC6CFF] shadow-sm shadow-[#AC6CFF] bg-gradient-to-b from-[#6B009D] to-[#2B2038] text-white p-4 md:p-6 w-[300px] md:w-[400px] text-center font-bold text-base md:text-lg">
-              To bridge the gap between academic learning and industry requirements.
+              To bridge the gap between academic learning and industry
+              requirements.
             </div>
           </div>
 
@@ -43,7 +47,8 @@ const ObjectiveStipendStructure = () => {
               3
             </div>
             <div className="rounded-3xl border-[2px] border-[#AC6CFF] shadow-sm shadow-[#AC6CFF] bg-gradient-to-b from-[#6B009D] to-[#2B2038] text-white p-4 md:p-6 w-[300px] md:w-[400px] text-center font-bold text-base md:text-lg">
-              To help students contribute partially towards their own educational expenses.
+              To help students contribute partially towards their own
+              educational expenses.
             </div>
           </div>
         </div>
@@ -59,10 +64,12 @@ const ObjectiveStipendStructure = () => {
         {/* Right Text Cards */}
         <div className="flex flex-col gap-6">
           <div className="bg-gradient-to-r from-[#6B009D] to-[#2B2038] text-white p-4 md:p-6 rounded-2xl border-2 border-[#AC6CFF] w-[300px] md:w-[500px] text-center font-semibold text-sm md:text-base shadow-sm shadow-[#AC6CFF]">
-            Paid internships will be performance-based, with stipends ranging between ₹3,000 to ₹10,000 per month.
+            Paid internships will be performance-based, with stipends ranging
+            between ₹3,000 to ₹10,000 per month.
           </div>
           <div className="bg-gradient-to-r from-[#6B009D] to-[#2B2038] text-white p-4 md:p-6 rounded-2xl border-2 border-[#AC6CFF] w-[300px] md:w-[500px] text-center font-semibold text-sm md:text-base shadow-sm shadow-[#AC6CFF]">
-            Stipend amounts are determined based on the student’s skills, project involvement, work discipline, and mentor evaluations.
+            Stipend amounts are determined based on the student’s skills,
+            project involvement, work discipline, and mentor evaluations.
           </div>
         </div>
       </div>

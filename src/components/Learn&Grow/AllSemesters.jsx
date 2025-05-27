@@ -86,7 +86,7 @@ const DesktopAllSemesters = () => {
   const lineVariants = {
     hidden: { height: 0 },
     visible: {
-      height: `${semesters.length * 120 + 40}px`,
+      height: `${semesters.length * 140 + 40}px`,
       transition: { duration: 1.5, ease: "easeOut" },
     },
   };
@@ -150,7 +150,7 @@ const DesktopAllSemesters = () => {
         {/* Vertical Timeline Line */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700"
-          style={{ top: "40px" }}
+          style={{ top: "100px" }}
           variants={lineVariants}
           initial="hidden"
           animate="visible"

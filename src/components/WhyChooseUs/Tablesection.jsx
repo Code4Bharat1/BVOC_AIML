@@ -23,63 +23,6 @@ const DegreeComparisonTable = () => {
     };
   }, []);
 
-  const tableData = [
-    {
-      feature: "Focus",
-      bvoc: "Get job-ready today",
-      btech: "Theory overload",
-      bsc: "Science geeks only",
-    },
-    {
-      feature: "Curriculum",
-      bvoc: "Hands-on, real-world",
-      btech: "Rigid & outdated",
-      bsc: "Mostly books",
-    },
-    {
-      feature: "Job Readiness",
-      bvoc: "High—ready on Day 1",
-      btech: "More courses needed",
-      bsc: "Extra steps required",
-    },
-    {
-      feature: "Exit Options",
-      bvoc: "Flexible exits",
-      btech: "All or nothing",
-      bsc: "Locked for 3 years",
-    },
-    {
-      feature: "Duration",
-      bvoc: "1-3 years",
-      btech: "4 years",
-      bsc: "3 years",
-    },
-    {
-      feature: "Best For",
-      bvoc: "Quick career launchers",
-      btech: "Hardcore engineers",
-      bsc: "Future researchers",
-    },
-    {
-      feature: "Industry Relevance",
-      bvoc: "Job-Ready",
-      btech: "Outdated",
-      bsc: "Limited Use",
-    },
-    {
-      feature: "Internships & Exposure",
-      bvoc: "Industry Exposure",
-      btech: "Limited Practice",
-      bsc: "Limited Use",
-    },
-    {
-      feature: "Career Outcome",
-      bvoc: "job-ready skills",
-      btech: "Needs Specialization",
-      bsc: "Additional Training",
-    },
-  ];
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
   const controls = useAnimation();
@@ -106,7 +49,7 @@ const DegreeComparisonTable = () => {
     },
   };
 
-  const tableVariants = {
+  const videoContainerVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -152,98 +95,37 @@ const DegreeComparisonTable = () => {
         stands out:
       </motion.p>
 
-      {isMobile ? (
-        // Mobile — Centered feature column text & taller columns
-        <div className="mt-6 relative border-2 border-white/40 rounded-md">
-          <div className="flex">
-            <div className="relative z-10">
-              <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                Feature
-              </div>
-              {tableData.map((row, i) => (
-                <div
-                  key={`feature-${i}`}
-                  className="bg-[#AC6CFF] text-black px-3 py-5 font-semibold text-center border border-white flex items-center justify-center"
-                  style={{ height: "80px" }} // <- Increased height
-                >
-                  {row.feature}
-                </div>
-              ))}
-            </div>
-            <div className="overflow-x-auto">
-              <div className="flex min-w-max">
-                {["bvoc", "btech", "bsc"].map((degreeKey) => (
-                  <div key={degreeKey}>
-                    <div className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white min-w-32">
-                      {degreeKey === "bvoc"
-                        ? "B.Voc"
-                        : degreeKey === "btech"
-                        ? "B.Tech"
-                        : "B.Sc"}
-                    </div>
-                    {tableData.map((row, i) => (
-                      <div
-                        key={`${degreeKey}-${i}`}
-                        className={`px-3 py-5 font-medium text-center border border-white min-w-32 flex items-center justify-center ${
-                          degreeKey === "bvoc" ? "bg-[#2F1C48]" : "bg-[#232529]"
-                        } text-white`}
-                        style={{ height: "80px" }} // <- Increased height
-                      >
-                        {row[degreeKey]}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* 🎥 Replaced table with video and AI-themed borders */}
+      <motion.div
+        className="relative mt-8 border-4 border-white/30 rounded-xl overflow-hidden shadow-lg bg-[#1a1a1a]"
+        variants={videoContainerVariants}
+        initial="hidden"
+        animate={controls}
+      >
+        {/* AI-themed SVGs in corners */}
+        <div className="absolute top-2 left-2 w-8 h-8 opacity-60">
+          <svg viewBox="0 0 24 24" fill="#AC6CFF">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18.5c-4.7 0-8.5-3.8-8.5-8.5S7.3 3.5 12 3.5 20.5 7.3 20.5 12 16.7 20.5 12 20.5z" />
+          </svg>
         </div>
-      ) : (
-        // Desktop — Animate table when in view
-        <motion.div
-          className="overflow-x-auto mt-6 border-2 border-white/30 rounded-md"
-          variants={tableVariants}
-          initial="hidden"
-          animate={controls}
+        <div className="absolute bottom-2 right-2 w-8 h-8 opacity-60">
+          <svg viewBox="0 0 24 24" fill="#AC6CFF">
+            <path d="M12 4.5C8.4 4.5 5.5 7.4 5.5 11s2.9 6.5 6.5 6.5 6.5-2.9 6.5-6.5S15.6 4.5 12 4.5zm0 11c-2.5 0-4.5-2-4.5-4.5S9.5 6.5 12 6.5 16.5 8.5 16.5 11 14.5 15.5 12 15.5z" />
+          </svg>
+        </div>
+
+        <video
+          className="w-full h-auto rounded-xl"
+          controls
+          autoPlay
+          loop
+          muted
+          playsInline
         >
-          <table className="w-full border-collapse rounded-lg overflow-hidden">
-            <thead>
-              <tr>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  Feature
-                </th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Voc (Bachelor of Vocation)
-                </th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Tech (Bachelor of Technology)
-                </th>
-                <th className="bg-[#AC6CFF] text-black p-3 font-bold text-center border border-white">
-                  B.Sc (Bachelor of Science)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableData.map((row, index) => (
-                <tr key={index}>
-                  <td className="bg-[#AC6CFF] text-black p-3 font-semibold text-center border border-white">
-                    {row.feature}
-                  </td>
-                  <td className="bg-[#2F1C48] text-white p-3 font-medium text-center border border-white">
-                    {row.bvoc}
-                  </td>
-                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                    {row.btech}
-                  </td>
-                  <td className="bg-[#232529] text-white p-3 font-medium text-center border border-white">
-                    {row.bsc}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-      )}
+          <source src="/video/ai-comparison.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </motion.div>
     </div>
   );
 };

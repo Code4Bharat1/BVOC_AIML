@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
@@ -62,7 +62,99 @@ const headingVariants = {
 
 const KickStart = () => {
   const ref = useRef(null);
+  const scrollContainerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    // Start auto-scroll after animations complete
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 2000); // Adjust timing based on your animation duration
+
+    return () => clearTimeout(timer);
+  }, [isInView]);
+
+  useEffect(() => {
+    if (!animationComplete || !scrollContainerRef.current) return;
+
+    // Check if device is mobile (not lg)
+    const isMobile = () => window.innerWidth < 1024;
+
+    if (!isMobile()) return;
+
+    const scrollContainer = scrollContainerRef.current;
+    let animationId;
+
+    const autoScroll = () => {
+      if (!scrollContainer) return;
+
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const currentScroll = scrollContainer.scrollLeft;
+      const scrollSpeed = 1; // Adjust speed as needed
+
+      // Change direction when reaching edges
+      if (currentScroll >= maxScrollLeft) {
+        setScrollDirection(-1);
+      } else if (currentScroll <= 0) {
+        setScrollDirection(1);
+      }
+
+      // Scroll in current direction
+      scrollContainer.scrollLeft += scrollDirection * scrollSpeed;
+
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    // Start auto-scroll
+    setIsScrolling(true);
+    animationId = requestAnimationFrame(autoScroll);
+
+    // Pause on hover/touch
+    const pauseScroll = () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        setIsScrolling(false);
+      }
+    };
+
+    const resumeScroll = () => {
+      if (isMobile()) {
+        setIsScrolling(true);
+        animationId = requestAnimationFrame(autoScroll);
+      }
+    };
+
+    scrollContainer.addEventListener('mouseenter', pauseScroll);
+    scrollContainer.addEventListener('mouseleave', resumeScroll);
+    scrollContainer.addEventListener('touchstart', pauseScroll);
+    scrollContainer.addEventListener('touchend', resumeScroll);
+
+    // Handle window resize
+    const handleResize = () => {
+      if (!isMobile() && animationId) {
+        cancelAnimationFrame(animationId);
+        setIsScrolling(false);
+      } else if (isMobile() && !isScrolling) {
+        resumeScroll();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+      scrollContainer.removeEventListener('mouseenter', pauseScroll);
+      scrollContainer.removeEventListener('mouseleave', resumeScroll);
+      scrollContainer.removeEventListener('touchstart', pauseScroll);
+      scrollContainer.removeEventListener('touchend', resumeScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [animationComplete, scrollDirection, isScrolling]);
 
   return (
     <div className="bg-[#EADAFF] p-3 lg:p-8 ">
@@ -87,13 +179,17 @@ const KickStart = () => {
       </motion.h1>
 
       <motion.div
-        ref={ref}
+        ref={scrollContainerRef}
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="overflow-x-auto scrollbar-hidden"
+        style={{ scrollBehavior: 'auto' }}
       >
-        <div className="flex gap-8 w-max pr-8">
+        <div 
+          ref={ref}
+          className="flex gap-8 w-max pr-8"
+        >
           {cardData.map((card) => (
             <motion.div
               key={card.id}

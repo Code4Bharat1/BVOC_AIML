@@ -65,21 +65,16 @@ const infraData = [
         src: "/infrastructure/conference3/conference3_1.jpeg",
         alt: "Conference Room",
       },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_2.jpeg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_3.jpeg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_4.jpeg",
-        alt: "Conference Room",
-      },
+      // {
+      //   type: "image",
+      //   src: "/infrastructure/conference3/conference3_3.jpeg",
+      //   alt: "Conference Room",
+      // },
+      // {
+      //   type: "image",
+      //   src: "/infrastructure/conference3/conference3_4.jpeg",
+      //   alt: "Conference Room",
+      // },
 
       {
         type: "image",
@@ -133,22 +128,12 @@ const infraData = [
       },
       {
         type: "image",
-        src: "/infrastructure/work_space_4/work_space_4_1.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
         src: "/infrastructure/work_space_4/workspace_3.png",
         alt: "Workspace 1",
       },
       {
         type: "image",
         src: "/infrastructure/work_space_4/workspace_4.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/work_space_4_2.jpeg",
         alt: "Workspace 1",
       },
       {

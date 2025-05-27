@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MdFileDownload } from "react-icons/md";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const semesters = [
   {
@@ -49,6 +49,8 @@ const semesters = [
 const DesktopAllSemesters = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   const openModal = (semester) => {
     setSelectedSemester(semester);
@@ -70,14 +72,14 @@ const DesktopAllSemesters = () => {
     closeModal();
   };
 
-  // Animation variants (unchanged)
+  // Animation variants
   const timelineVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-        delayChildren: 0.5,
+        delayChildren: 0.2,
       },
     },
   };
@@ -112,11 +114,11 @@ const DesktopAllSemesters = () => {
   };
 
   const cardVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -141,19 +143,19 @@ const DesktopAllSemesters = () => {
           All <span className="text-purple-500">Semester</span>
         </motion.h2>
       </div>
-      <div className="container mx-auto max-w-4xl relative pt-20">
+      <div ref={containerRef} className="container mx-auto max-w-4xl relative pt-20">
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700"
           style={{ top: "100px" }}
           variants={lineVariants}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
         ></motion.div>
 
         <motion.div
           variants={timelineVariants}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
         >
           {semesters.map((semester, index) => (
             <motion.div
@@ -283,15 +285,6 @@ const MobileAllSemesters = () => {
   const [filename, setFilename] = useState("");
   const [pdfError, setPdfError] = useState(false);
 
-  useEffect(() => {
-    import("aos").then((AOS) => {
-      AOS.init({
-        duration: 800,
-        once: true,
-      });
-    });
-  }, []);
-
   const handlePreview = (path, name) => {
     setPdfPath(path);
     setFilename(name);
@@ -320,40 +313,112 @@ const MobileAllSemesters = () => {
     setPdfError(true);
   };
 
+  // Animation variants for mobile
+  const leftSlideVariants = {
+    hidden: { 
+      x: -100, 
+      opacity: 0 
+    },
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut" 
+      }
+    }
+  };
+
+  const rightSlideVariants = {
+    hidden: { 
+      x: 100, 
+      opacity: 0 
+    },
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut" 
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Mobile View */}
-      <div className="block md:hidden overflow-x-hidden">
-        <div className="relative w-full max-w-6xl mx-auto h-[1400px] px-4 py-8 overflow-x-hidden">
+      <div className="block md:hidden">
+        <motion.div 
+          className="relative w-full max-w-6xl mx-auto h-[1400px] px-4 py-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {/* Heading */}
-          <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
+          <motion.div 
+            className="absolute top-10 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="bg-[#D8BCFD] border-2 border-white rounded-2xl p-6 text-[#903BFF] w-fit font-extrabold">
               <p>All Semesters</p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Semester 1 */}
-          <div
-            data-aos="fade-right"
-            className="absolute top-[160px] left-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem1.pdf", "semester-1.pdf")}
+          {/* Semester 1 - Left */}
+          <motion.div
+            className="absolute top-[160px] left-1/7"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 1</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem1.pdf", "semester-1.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 1</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-right" className="absolute top-[200px] left-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[200px] left-4"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterLeft.svg"
               alt="Left Top"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-right"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[210px] left-18 text-white"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               You will learn how to <br />
@@ -361,30 +426,48 @@ const MobileAllSemesters = () => {
               and efficient interfaces <br />
               for large System
             </p>
-          </div>
+          </motion.div>
 
-          {/* Semester 2 */}
-          <div
-            data-aos="fade-left"
-            className="absolute top-[360px] right-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem2.pdf", "semester-2.pdf")}
+          {/* Semester 2 - Right */}
+          <motion.div
+            className="absolute top-[360px] right-1/7"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 2</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem2.pdf", "semester-2.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 2</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-left" className="absolute top-[400px] right-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[400px] right-4"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterRight.svg"
               alt="Right Mid"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-left"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[410px] right-20 text-white"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               Fundamental <br />
@@ -392,30 +475,48 @@ const MobileAllSemesters = () => {
               of digital security <br />
               for beginners
             </p>
-          </div>
+          </motion.div>
 
-          {/* Semester 3 */}
-          <div
-            data-aos="fade-right"
-            className="absolute top-[560px] left-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem3.pdf", "semester-3.pdf")}
+          {/* Semester 3 - Left */}
+          <motion.div
+            className="absolute top-[560px] left-1/7"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 3</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem3.pdf", "semester-3.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 3</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-right" className="absolute top-[600px] left-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[600px] left-4"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterLeft.svg"
               alt="Left Lower"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-right"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[610px] left-20 text-white"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               A deep dive into <br />
@@ -423,165 +524,231 @@ const MobileAllSemesters = () => {
               systems and <br />
               architectures
             </p>
-          </div>
+          </motion.div>
 
-          {/* Semester 4 */}
-          <div
-            data-aos="fade-left"
-            className="absolute top-[760px] right-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem4.pdf", "semester-4.pdf")}
+          {/* Semester 4 - Right */}
+          <motion.div
+            className="absolute top-[760px] right-1/7"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 4</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem4.pdf", "semester-4.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 4</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-left" className="absolute top-[800px] right-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[800px] right-4"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterRight.svg"
               alt="Right Lower"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-left"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[825px] right-20 text-white"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               You will Learn <br />
               Level: Middle <br />
               level
             </p>
-          </div>
+          </motion.div>
 
-          {/* Semester 5 */}
-          <div
-            data-aos="fade-right"
-            className="absolute top-[960px] left-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem5.pdf", "semester-5.pdf")}
+          {/* Semester 5 - Left */}
+          <motion.div
+            className="absolute top-[960px] left-1/7"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 5</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem5.pdf", "semester-5.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 5</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-right" className="absolute top-[1000px] left-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[1000px] left-4"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterLeft.svg"
               alt="Left Lower"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-right"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[1025px] left-20 text-white"
+            variants={leftSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               You will Learn <br />
               Level: beginner <br />
               level
             </p>
-          </div>
+          </motion.div>
 
-          {/* Semester 6 */}
-          <div
-            data-aos="fade-left"
-            className="absolute top-[1160px] right-1/7 text-2xl text-white cursor-pointer"
-            onClick={() => handlePreview("/docs/sem6.pdf", "semester-6.pdf")}
+          {/* Semester 6 - Right */}
+          <motion.div
+            className="absolute top-[1160px] right-1/7"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
-              <MdFileDownload size={20} />
-              <h1>Semester 6</h1>
+            <div
+              className="text-2xl text-white cursor-pointer"
+              onClick={() => handlePreview("/docs/sem6.pdf", "semester-6.pdf")}
+            >
+              <div className="flex items-center gap-2 hover:text-[#D8BCFD] transition-colors duration-200">
+                <MdFileDownload size={20} />
+                <h1>Semester 6</h1>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-left" className="absolute top-[1200px] right-4">
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-[1200px] right-4"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <Image
               src="/elements/SemesterRight.svg"
               alt="Right Lower"
               width={250}
               height={200}
             />
-          </div>
-          <div
-            data-aos="fade-left"
+          </motion.div>
+          
+          <motion.div
             className="absolute top-[1220px] right-20 text-white"
+            variants={rightSlideVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <p>
               You will Learn <br />
               Level: Advanced <br />
               level
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Modal for PDF Preview */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          role="dialog"
-          aria-labelledby="modal-title"
-          aria-modal="true"
-        >
-          <div className="bg-white rounded-lg p-6 w-full max-w-[90vw] sm:max-w-3xl max-h-[80vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 id="modal-title" className="text-xl font-bold">
-                PDF Preview: {filename}
-              </h2>
-              <button
-                onClick={closeModal}
-                className="text-gray-600 hover:text-gray-800 text-2xl"
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="flex justify-center mb-4">
-              {pdfError ? (
-                <div className="text-red-600 text-center">
-                  <p>Unable to load PDF preview.</p>
-                  <p>
-                    Please{" "}
-                    <button
-                      onClick={handleDownload}
-                      className="underline text-[#903BFF] hover:text-[#7A32D9]"
-                    >
-                      download
-                    </button>{" "}
-                    the file directly.
-                  </p>
-                </div>
-              ) : (
-                <iframe
-                  src={`${pdfPath}#toolbar=0&navpanes=0`}
-                  className="w-full h-[50vh] sm:h-[60vh]"
-                  title={`PDF Preview: ${filename}`}
-                  onError={handleIframeError}
-                />
-              )}
-            </div>
-            <div className="flex justify-end gap-4">
-              <button
-                onClick={closeModal}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-                aria-label="Close"
-              >
-                Close
-              </button>
-              <button
-                onClick={handleDownload}
-                className="px-4 py-2 bg-[#903BFF] text-white rounded hover:bg-[#7A32D9] flex items-center gap-2"
-                aria-label={`Download ${filename}`}
-              >
-                <MdFileDownload size={20} />
-                Download
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            role="dialog"
+            aria-labelledby="modal-title"
+            aria-modal="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div 
+              className="bg-white rounded-lg p-6 w-full max-w-[90vw] sm:max-w-3xl max-h-[80vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h2 id="modal-title" className="text-xl font-bold">
+                  PDF Preview: {filename}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-600 hover:text-gray-800 text-2xl"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="flex justify-center mb-4">
+                {pdfError ? (
+                  <div className="text-red-600 text-center">
+                    <p>Unable to load PDF preview.</p>
+                    <p>
+                      Please{" "}
+                      <button
+                        onClick={handleDownload}
+                        className="underline text-[#903BFF] hover:text-[#7A32D9]"
+                      >
+                        download
+                      </button>{" "}
+                      the file directly.
+                    </p>
+                  </div>
+                ) : (
+                  <iframe
+                    src={`${pdfPath}#toolbar=0&navpanes=0`}
+                    className="w-full h-[50vh] sm:h-[60vh]"
+                    title={`PDF Preview: ${filename}`}
+                    onError={handleIframeError}
+                  />
+                )}
+              </div>
+              <div className="flex justify-end gap-4">
+                <button
+                  onClick={closeModal}
+                  className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                  aria-label="Close"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={handleDownload}
+                  className="px-4 py-2 bg-[#903BFF] text-white rounded hover:bg-[#7A32D9] flex items-center gap-2"
+                  aria-label={`Download ${filename}`}
+                >
+                  <MdFileDownload size={20} />
+                  Download
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

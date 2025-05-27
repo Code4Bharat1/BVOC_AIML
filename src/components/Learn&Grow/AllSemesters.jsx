@@ -1,21 +1,294 @@
 "use client";
 
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { MdFileDownload } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
-const AllSemesters = () => {
+const semesters = [
+  {
+    id: 1,
+    name: "Semester 1",
+    pdfUrl: "/docs/sem1.pdf",
+    description:
+      "You will learn how to create user-friendly and efficient interfaces",
+  },
+  {
+    id: 2,
+    name: "Semester 2",
+    pdfUrl: "/docs/sem2.pdf",
+    description: "Fundamental knowledge of digital security for beginners"
+  },
+  {
+    id: 3,
+    name: "Semester 3",
+    pdfUrl: "/docs/sem3.pdf",
+    description:
+      "A deep dive into protecting complex systems and architectures.",
+  },
+  {
+    id: 4,
+    name: "Semester 4",
+    pdfUrl: "/docs/sem4.pdf",
+    description: "You will learn: Middle level.",
+  },
+  {
+    id: 5,
+    name: "Semester 5",
+    pdfUrl: "/docs/sem5.pdf",
+    description: "You will learn: Beginner level.",
+  },
+  {
+    id: 6,
+    name: "Semester 6",
+    pdfUrl: "/docs/sem6.pdf",
+    description: "You will learn: Advanced level.",
+  },
+];
+
+const DesktopAllSemesters = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSemester, setSelectedSemester] = useState(null);
+
+  const openModal = (semester) => {
+    setSelectedSemester(semester);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedSemester(null);
+  };
+
+  const handleDownload = (semester) => {
+    const link = document.createElement("a");
+    link.href = semester.pdfUrl;
+    link.download = `${semester.name}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    closeModal();
+  };
+
+  // Animation variants for the timeline container
+  const timelineVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.5,
+      },
+    },
+  };
+
+  // Animation variants for the timeline line
+  const lineVariants = {
+    hidden: { height: 0 },
+    visible: {
+      height: `${semesters.length * 120 + 40}px`,
+      transition: { duration: 1.5, ease: "easeOut" },
+    },
+  };
+
+  // Animation variants for the dot
+  const dotVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  // Animation variants for the connector
+  const connectorVariants = {
+    hidden: (isEven) => ({
+      x: isEven ? -20 : 20,
+      opacity: 0,
+    }),
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  // Animation variants for the card
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  // Animation variants for the description
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  return (
+    <div className="hidden sm:block py-12 px-4 from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="hidden lg:flex items-start justify-center py-3 mt-14 text-center w-3xl mx-auto rounded-4xl bg-[#D8BCFD]">
+        <motion.h2
+          className="text-5xl font-extrabold py-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          All <span className="text-purple-500">Semester</span>
+        </motion.h2>
+      </div>
+      <div className="container mx-auto max-w-4xl relative pt-20">
+        {/* Vertical Timeline Line */}
+        <motion.div
+          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700"
+          style={{ top: "40px" }}
+          variants={lineVariants}
+          initial="hidden"
+          animate="visible"
+        ></motion.div>
+
+        <motion.div
+          variants={timelineVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {semesters.map((semester, index) => (
+            <motion.div
+              key={semester.id}
+              className={`relative flex items-center mb-10 ${
+                index % 2 !== 0
+                  ? "justify-start text-center"
+                  : "justify-end text-center"
+              }`}
+            >
+              {/* Card */}
+              <motion.div
+                className={`w-5/12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-200 dark:border-purple-700 cursor-pointer group relative z-10 ${
+                  index % 2 !== 0 ? "mr-12" : "ml-12"
+                }`}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 20px rgba(109, 40, 217, 0.3)",
+                }}
+                onClick={() => openModal(semester)}
+                variants={cardVariants}
+              >
+                <h2 className="text-xl font-bold text-purple-900 dark:text-purple-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                  {semester.name}
+                </h2>
+                <AnimatePresence>
+                  <motion.p
+                    className="text-sm text-gray-600 dark:text-gray-300 mt-2 group-hover:block"
+                    variants={descriptionVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
+                    {semester.description}
+                  </motion.p>
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-200/20 to-transparent dark:from-purple-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+              </motion.div>
+
+              {/* Timeline Dot */}
+              <motion.div
+                className={`absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-purple-600 dark:bg-purple-400 rounded-full z-20 border-2 border-white dark:border-gray-800 shadow-md top-1/2 -translate-y-1/2`}
+                variants={dotVariants}
+              ></motion.div>
+              {/* Connector Line */}
+              <motion.div
+                className={`absolute w-12 h-1.5 bg-purple-400 dark:bg-purple-500 rounded-full z-10 transition-all duration-300 group-hover:bg-purple-600 dark:group-hover:bg-purple-400 top-1/2 -translate-y-1/2 ${
+                  index % 2 === 0
+                    ? "left-1/2 translate-x-2"
+                    : "left-1/2 -translate-x-12"
+                }`}
+                variants={connectorVariants}
+                custom={index % 2 === 0}
+              ></motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isModalOpen && selectedSemester && (
+          <motion.div
+            className="fixed inset-0 bg-purple-900 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-80 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={closeModal}
+          >
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-purple-300 dark:border-purple-600"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-300">
+                  {selectedSemester.name}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-purple-500 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-2xl"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+              </div>
+              <iframe
+                src={`${selectedSemester.pdfUrl}#toolbar=0&navpanes=0`}
+                className="w-full h-[60vh] sm:h-[70vh] rounded-lg border border-purple-200 dark:border-purple-600"
+                title={`${selectedSemester.name} Preview`}
+              />
+              <div className="flex justify-end gap-4 mt-6">
+                <button
+                  onClick={closeModal}
+                  className="px-6 py-2 bg-purple-100 dark:bg-gray-700 text-purple-700 dark:text-purple-300 rounded-lg hover:bg-purple-200 dark:hover:bg-gray-600 transition-colors duration-300"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => handleDownload(selectedSemester)}
+                  className="px-6 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg hover:bg-purple-700 dark:hover:bg-purple-400 transition-colors duration-300 flex items-center gap-2"
+                >
+                  <MdFileDownload size={20} />
+                  Download
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const MobileAllSemesters = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [pdfPath, setPdfPath] = useState("");
   const [filename, setFilename] = useState("");
   const [pdfError, setPdfError] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
+    import("aos").then((AOS) => {
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
     });
   }, []);
 
@@ -310,6 +583,15 @@ const AllSemesters = () => {
         </div>
       )}
     </div>
+  );
+};
+
+export const AllSemesters = () => {
+  return (
+    <>
+      <DesktopAllSemesters />
+      <MobileAllSemesters />
+    </>
   );
 };
 

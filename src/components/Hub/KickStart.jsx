@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -42,81 +42,100 @@ const headingVariants = {
 };
 
 const KickStart = () => {
+  const ref = useRef(null);
   const scrollContainerRef = useRef(null);
-  const autoScrollInterval = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) {
-      console.error("Scroll container not found");
-      return;
-    }
+    // Start auto-scroll after animations complete
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 2000); // Adjust timing based on your animation duration
 
-    const cardElement = container.querySelector(".card");
-    const cardWidth = cardElement ? cardElement.offsetWidth + 32 : 322; // 290px + 32px gap
-    const scrollWidth = container.scrollWidth - container.clientWidth;
+    return () => clearTimeout(timer);
+  }, [isInView]);
 
-    // Auto-scroll function
-    const scroll = () => {
-      const currentScroll = container.scrollLeft;
-      if (currentScroll >= scrollWidth) {
-        container.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+  useEffect(() => {
+    if (!animationComplete || !scrollContainerRef.current) return;
+
+    // Check if device is mobile (not lg)
+    const isMobile = () => window.innerWidth < 1024;
+
+    if (!isMobile()) return;
+
+    const scrollContainer = scrollContainerRef.current;
+    let animationId;
+
+    const autoScroll = () => {
+      if (!scrollContainer) return;
+
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const currentScroll = scrollContainer.scrollLeft;
+      const scrollSpeed = 1; // Adjust speed as needed
+
+      // Change direction when reaching edges
+      if (currentScroll >= maxScrollLeft) {
+        setScrollDirection(-1);
+      } else if (currentScroll <= 0) {
+        setScrollDirection(1);
+      }
+
+      // Scroll in current direction
+      scrollContainer.scrollLeft += scrollDirection * scrollSpeed;
+
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    // Start auto-scroll
+    setIsScrolling(true);
+    animationId = requestAnimationFrame(autoScroll);
+
+    // Pause on hover/touch
+    const pauseScroll = () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        setIsScrolling(false);
       }
     };
 
-    // Start auto-scroll with 5-second interval
-    autoScrollInterval.current = setInterval(scroll, 900);
-
-    // Pause on touch interaction (mobile)
-    const handleTouchStart = () => {
-      clearInterval(autoScrollInterval.current);
+    const resumeScroll = () => {
+      if (isMobile()) {
+        setIsScrolling(true);
+        animationId = requestAnimationFrame(autoScroll);
+      }
     };
 
-    // Resume after touch interaction
-    const handleTouchEnd = () => {
-      clearInterval(autoScrollInterval.current);
-      autoScrollInterval.current = setInterval(scroll, 5000);
+    scrollContainer.addEventListener('mouseenter', pauseScroll);
+    scrollContainer.addEventListener('mouseleave', resumeScroll);
+    scrollContainer.addEventListener('touchstart', pauseScroll);
+    scrollContainer.addEventListener('touchend', resumeScroll);
+
+    // Handle window resize
+    const handleResize = () => {
+      if (!isMobile() && animationId) {
+        cancelAnimationFrame(animationId);
+        setIsScrolling(false);
+      } else if (isMobile() && !isScrolling) {
+        resumeScroll();
+      }
     };
 
-    // Add touch event listeners to container
-    container.addEventListener("touchstart", handleTouchStart);
-    container.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
-      clearInterval(autoScrollInterval.current);
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
-
-  // Pause auto-scroll on card hover
-  const handleMouseEnter = () => {
-    clearInterval(autoScrollInterval.current);
-  };
-
-  // Resume auto-scroll when cursor leaves card
-  const handleMouseLeave = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const cardElement = container.querySelector(".card");
-    const cardWidth = cardElement ? cardElement.offsetWidth + 32 : 322;
-    const scrollWidth = container.scrollWidth - container.clientWidth;
-
-    const scroll = () => {
-      const currentScroll = container.scrollLeft;
-      if (currentScroll >= scrollWidth) {
-        container.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+      if (animationId) {
+        cancelAnimationFrame(animationId);
       }
+      scrollContainer.removeEventListener('mouseenter', pauseScroll);
+      scrollContainer.removeEventListener('mouseleave', resumeScroll);
+      scrollContainer.removeEventListener('touchstart', pauseScroll);
+      scrollContainer.removeEventListener('touchend', resumeScroll);
+      window.removeEventListener('resize', handleResize);
     };
-
-    autoScrollInterval.current = setInterval(scroll, 5000);
-  };
+  }, [animationComplete, scrollDirection, isScrolling]);
 
   return (
     <div className="bg-[#EADAFF] p-3 lg:p-8 pointer-events-none">
@@ -140,34 +159,38 @@ const KickStart = () => {
         Kickstart Your Career
       </motion.h1>
 
-      <div className="carousel-container pointer-events-none">
-        <div
-          ref={scrollContainerRef}
-          className="scrollbar-hidden flex overflow-x-auto snap-x snap-mandatory"
+      <motion.div
+        ref={scrollContainerRef}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="overflow-x-auto scrollbar-hidden"
+        style={{ scrollBehavior: 'auto' }}
+      >
+        <div 
+          ref={ref}
+          className="flex gap-8 w-max pr-8"
         >
-          <div className="flex gap-8 w-max pr-8">
-            {cardData.map((card) => (
-              <div
-                key={card.id}
-                className="card w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 snap-center pointer-events-auto"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    width={350}
-                    height={220}
-                    className="object-cover w-full h-full rounded-2xl"
-                  />
-                </div>
-                <h3 className="text-white font-bold text-center text-xl lg:text-2xl mt-4 uppercase leading-snug whitespace-pre-line">
-                  {card.title}
-                </h3>
+          {cardData.map((card) => (
+            <motion.div
+              key={card.id}
+              variants={cardVariants}
+              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 "
+            >
+              <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={350}
+                  height={220}
+                  className="object-cover w-full h-full rounded-2xl"
+                />
               </div>
-            ))}
-          </div>
+              <h3 className="text-white font-bold text-center text-xl lg:text-2xl mt-4 uppercase leading-snug whitespace-pre-line">
+                {card.title}
+              </h3>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

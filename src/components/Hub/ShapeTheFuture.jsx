@@ -75,8 +75,12 @@ const ShapeTheFuture = () => {
           starts now— and we’re here to guide you every step of the way.
         </motion.p>
 
-        <motion.button
-          className="hidden lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap"
+        <motion.a
+          href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+            target="_blank"
+            rel="noopener noreferrer"
+          
+          className="hidden w-44 lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap"
           variants={buttonVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -84,7 +88,7 @@ const ShapeTheFuture = () => {
           whileTap={{ scale: 0.95 }}
         >
           Get Started <ChevronRight />
-        </motion.button>
+        </motion.a>
 
         <div className="lg:hidden flex flex-row items-end justify-between gap-0.5 w-full ml-[-63px]">
           {/* Image touching left edge */}
@@ -100,11 +104,11 @@ const ShapeTheFuture = () => {
 
           {/* Centered Button */}
           <motion.a
-            href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+             href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
             target="_blank"
             rel="noopener noreferrer"
-          
-            className="bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
+
+            className="w-44 bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
             variants={buttonVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

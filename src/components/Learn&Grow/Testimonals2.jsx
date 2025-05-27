@@ -7,35 +7,35 @@ const testimonials = [
       "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
     name: "Basim Thakur",
     role: "Frontend Developer",
-    src: "https://images.unsplash.com/photo-1480429370139-e0132c086e2a?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://media.istockphoto.com/id/1488919302/photo/portrait-of-a-software-developer-at-his-home-in-los-angeles.jpg?s=612x612&w=0&k=20&c=tBZ1_C_T8XDjnHo5GqdjnKrF0gKWzPV9uMK46K3cRHs=",
   },
   {
     quote:
       "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
     name: "Yogesh Rane",
     role: "Python Developer",
-    src: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
+    src: "https://media.istockphoto.com/id/1540766473/photo/young-adult-male-design-professional-smiles-for-camera.jpg?s=612x612&w=0&k=20&c=BbwgfMOtFOIJn1Km-ASix_EBbF9SHW5h0FtWbna5nFk=",
   },
   {
     quote:
       "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
-    name: "Prashant Parsane",
+    name: "Sakshi Gupta",
     role: "Frontend Developer",
-    src: "https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    src: "https://media.istockphoto.com/id/1029797636/photo/school-girl-stock-image.jpg?s=612x612&w=0&k=20&c=vTO9wMeghrSTzTrKNvv_vBmjF7yJMMPA-coFg3bab2w=",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
     name: "Nouman Khan",
     role: "Backend Developer",
-    src: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    src: "https://media.istockphoto.com/id/1136413215/photo/young-man-at-street-market.jpg?s=612x612&w=0&k=20&c=obnaR5III0jRxHKd4ZPl3LRC2pI792KbHYR2eBzKKe8=",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
-    name: "Aquib Hingwala",
+    name: "Aditi Sharma",
     role: "MERN Developer",
-    src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    src: "https://media.istockphoto.com/id/578811140/photo/smiling-female-young-college-student-of-indian-ethnicity.jpg?s=612x612&w=0&k=20&c=mKt7yQEkKJWSvT87-6q64_LhSSICnZ1Isq6nJMx_ceg=",
   },
 ];
 

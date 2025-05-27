@@ -17,7 +17,7 @@ const semesters = [
     id: 2,
     name: "Semester 2",
     pdfUrl: "/docs/sem2.pdf",
-    description: "Fundamental knowledge of digital security for beginners"
+    description: "Fundamental knowledge of digital security for beginners",
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const DesktopAllSemesters = () => {
     closeModal();
   };
 
-  // Animation variants for the timeline container
+  // Animation variants (unchanged)
   const timelineVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -82,16 +82,14 @@ const DesktopAllSemesters = () => {
     },
   };
 
-  // Animation variants for the timeline line
   const lineVariants = {
     hidden: { height: 0 },
     visible: {
-      height: `${semesters.length * 140 + 40}px`,
+      height: `${semesters.length * 200 + 40}px`,
       transition: { duration: 1.5, ease: "easeOut" },
     },
   };
 
-  // Animation variants for the dot
   const dotVariants = {
     hidden: { scale: 0, opacity: 0 },
     visible: {
@@ -101,7 +99,6 @@ const DesktopAllSemesters = () => {
     },
   };
 
-  // Animation variants for the connector
   const connectorVariants = {
     hidden: (isEven) => ({
       x: isEven ? -20 : 20,
@@ -114,7 +111,6 @@ const DesktopAllSemesters = () => {
     },
   };
 
-  // Animation variants for the card
   const cardVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -124,7 +120,6 @@ const DesktopAllSemesters = () => {
     },
   };
 
-  // Animation variants for the description
   const descriptionVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: {
@@ -147,7 +142,6 @@ const DesktopAllSemesters = () => {
         </motion.h2>
       </div>
       <div className="container mx-auto max-w-4xl relative pt-20">
-        {/* Vertical Timeline Line */}
         <motion.div
           className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700"
           style={{ top: "100px" }}
@@ -170,7 +164,6 @@ const DesktopAllSemesters = () => {
                   : "justify-end text-center"
               }`}
             >
-              {/* Card */}
               <motion.div
                 className={`w-5/12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-200 dark:border-purple-700 cursor-pointer group relative z-10 ${
                   index % 2 !== 0 ? "mr-12" : "ml-12"
@@ -185,26 +178,33 @@ const DesktopAllSemesters = () => {
                 <h2 className="text-xl font-bold text-purple-900 dark:text-purple-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
                   {semester.name}
                 </h2>
-                <AnimatePresence>
-                  <motion.p
-                    className="text-sm text-gray-600 dark:text-gray-300 mt-2 group-hover:block"
-                    variants={descriptionVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                  >
-                    {semester.description}
-                  </motion.p>
-                </AnimatePresence>
+                <motion.p
+                  key={`description-${semester.id}`}
+                  className="text-sm text-gray-600 dark:text-gray-300 mt-2 group-hover:block"
+                  variants={descriptionVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {semester.description}
+                </motion.p>
+                <motion.div
+                  key={`button-${semester.id}`}
+                  className="mt-4 flex justify-center"
+                  variants={descriptionVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <button className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg hover:bg-purple-700 dark:hover:bg-purple-400 transition-colors duration-300 flex items-center gap-2">
+                    Preview
+                  </button>
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-200/20 to-transparent dark:from-purple-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               </motion.div>
 
-              {/* Timeline Dot */}
               <motion.div
                 className={`absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-purple-600 dark:bg-purple-400 rounded-full z-20 border-2 border-white dark:border-gray-800 shadow-md top-1/2 -translate-y-1/2`}
                 variants={dotVariants}
               ></motion.div>
-              {/* Connector Line */}
               <motion.div
                 className={`absolute w-12 h-1.5 bg-purple-400 dark:bg-purple-500 rounded-full z-10 transition-all duration-300 group-hover:bg-purple-600 dark:group-hover:bg-purple-400 top-1/2 -translate-y-1/2 ${
                   index % 2 === 0
@@ -222,7 +222,7 @@ const DesktopAllSemesters = () => {
       <AnimatePresence>
         {isModalOpen && selectedSemester && (
           <motion.div
-            className="fixed inset-0 bg-purple-900 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-80 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-#2C2E33 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-80 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -230,7 +230,7 @@ const DesktopAllSemesters = () => {
             onClick={closeModal}
           >
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-purple-300 dark:border-purple-600"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-4xl w-full max-h-[100vh] overflow-y-auto border border-purple-300 dark:border-purple-600"
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}

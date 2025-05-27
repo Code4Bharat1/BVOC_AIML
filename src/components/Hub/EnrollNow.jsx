@@ -4,7 +4,7 @@ export default function EnrollNow() {
   return (
     <>
       <div
-        className="flex justify-center items-center bg-[#EADAFF] text-[#AC6CFF] font-semibold mb-24 lg:mb-4 py-2.5 lg:py-3 px-3 lg:px-10 rounded-full transition-transform hover:scale-105  space-x-2 mx-auto w-44
+        className="flex justify-center items-center bg-[#cfaefa] lg:bg-[#EADAFF] text-[#AC6CFF] font-semibold mb-24 lg:mb-4 py-2.5 lg:py-3 px-3 lg:px-10 rounded-full transition-transform hover:scale-105  space-x-2 mx-auto w-44
       "
       >
         <a

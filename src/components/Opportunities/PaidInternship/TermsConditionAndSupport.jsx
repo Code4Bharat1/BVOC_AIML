@@ -76,14 +76,14 @@ function TermsConditionAndSupport() {
             <div key={term.id} className="relative flex items-center">
               {/* Diamond-shaped image box */}
               <div className="absolute left-0 z-10">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#A33DFF] rotate-45 rounded-lg border-2 border-white flex items-center justify-center shadow-md shadow-white">
+                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-[#A33DFF] rotate-45 rounded-lg border-2 border-white flex items-center justify-center shadow-md shadow-white">
                   <div className="-rotate-45">
                     <Image
                       src={`/paid-internship/${term.image}`}
                       alt={`icon-${term.id}`}
                       width={40}
                       height={40}
-                      className="w-10 h-10"
+                      className="w-10 lg:w-24 h-10 lg:h-24"
                     />
                   </div>
                 </div>
@@ -92,7 +92,7 @@ function TermsConditionAndSupport() {
               {/* Card content */}
               <div className="ml-8 md:ml-10 w-full">
                 <div className="bg-gradient-to-l from-[#6B009D] to-[#2B2038] pl-12 pr-6 py-10 rounded-2xl shadow-md border border-purple-500/30">
-                  <p className="text-white text-lg lg:text-4xl pl-8 font-bold">
+                  <p className="text-white text-lg lg:text-4xl pl-8 lg:pl-12 font-bold">
                     {term.content}
                   </p>
                 </div>

@@ -1,12 +1,29 @@
 @import "tailwindcss";
 
-
 body {
-  background: #2C2E33;
+  background: #2c2e33;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+img,
+svg,
+canvas,
+video {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
 
 @media (max-width: 899px) {
   .modern-desktop {
@@ -26,7 +43,6 @@ body {
   }
 }
 
-
 @media (max-width: 440px) {
   .right-arrow {
     right: 60px !important;
@@ -35,38 +51,37 @@ body {
     right: 40px !important;
   }
   .circle-1 {
-    left : 20px !important;
+    left: 20px !important;
   }
   .circle-2-440 {
-    right : 0px !important;
+    right: 0px !important;
   }
 }
 
 @media (max-width: 390) {
-  
   .circle-1 {
     top: 0px !important;
-    left : 0px !important;
+    left: 0px !important;
   }
   .circle-2 {
-    top : 300px !important;
+    top: 300px !important;
   }
   .circle-3 {
-    top : 470px !important;
+    top: 470px !important;
   }
   .arrow-size {
     width: 70px !important;
     height: 70px !important;
   }
   .arrow-1 {
-    top : 80px !important;
+    top: 80px !important;
     left: 120px !important;
   }
   .circle-2-size {
     width: 110px !important;
     height: 110px !important;
   }
-  .arrow-2{
+  .arrow-2 {
     top: 280px !important;
     left: 120px !important;
   }
@@ -79,15 +94,15 @@ body {
   }
 }
 .arrow-banner {
-  background: linear-gradient(to right, #1a001f, #6B009D);
+  background: linear-gradient(to right, #1a001f, #6b009d);
   border: 2px solid white;
   padding: 1rem 2rem;
   clip-path: polygon(
-    20px 0%, 
-    calc(100% - 20px) 0%, 
-    100% 50%, 
-    calc(100% - 20px) 100%, 
-    20px 100%, 
+    20px 0%,
+    calc(100% - 20px) 0%,
+    100% 50%,
+    calc(100% - 20px) 100%,
+    20px 100%,
     0% 50%
   );
 }

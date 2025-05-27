@@ -67,8 +67,7 @@ const DegreeComparisonTable = () => {
         animate={controls}
       >
         <span className="text-[#AC6CFF]">B.Voc</span> vs{" "}
-        <span className="text-[#AC6CFF]">B.Tech</span> vs{" "}
-        <span className="text-[#AC6CFF]">B.Sc</span>:{" "}
+        <span className="text-[#AC6CFF]">Traditional Degrees </span> <br />
         <span className="text-white">The Clear Choice for Your Future</span>
       </motion.h2>
 

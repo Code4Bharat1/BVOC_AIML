@@ -343,7 +343,7 @@ const AdmissionCard = () => {
   };
 
   return (
-    <div className="flex w-full  justify-center items-center -mt-10 lg:py-10 px-4">
+    <div className="flex w-full  justify-center items-center -mt-10 lg:py-10 mb-10 lg:mb-0 px-4">
       <div className="relative lg:py-16 border border-white bg-[#2F1C48] text-white text-center rounded-2xl p-8 lg:p-10 w-[90%]">
         {/* Decorative SVGs */}
         <Image

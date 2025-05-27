@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const cardData = [
   {
@@ -31,25 +31,6 @@ const cardData = [
     title: "Speech Recognition\nEngineer",
   },
 ];
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.5, // delay so heading shows first
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
 
 const headingVariants = {
   hidden: { opacity: 0, y: -30 },
@@ -157,13 +138,13 @@ const KickStart = () => {
   }, [animationComplete, scrollDirection, isScrolling]);
 
   return (
-    <div className="bg-[#EADAFF] p-3 lg:p-8 ">
+    <div className="bg-[#EADAFF] p-3 lg:p-8 pointer-events-none">
       {/* Mobile Head */}
       <motion.h1
         variants={headingVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight"
+        animate="visible"
+        className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight pointer-events-auto"
       >
         Kickstart <br /> Your Career
       </motion.h1>
@@ -172,8 +153,8 @@ const KickStart = () => {
       <motion.h1
         variants={headingVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight"
+        animate="visible"
+        className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight pointer-events-auto"
       >
         Kickstart Your Career
       </motion.h1>
@@ -211,7 +192,7 @@ const KickStart = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

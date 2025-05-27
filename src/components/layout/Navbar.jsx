@@ -181,8 +181,9 @@ const Navbar = () => {
                 }}
               >
                 <a
-                  href="/docs/BVoc_Program_Brochure.pdf"
-                  download
+                  href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block py-2 px-3 transition-colors hover:text-gray-300"
                 >
                   Brochure
@@ -248,8 +249,9 @@ const Navbar = () => {
                     exit="closed"
                   >
                     <a
-                      href="/docs/BVoc_Program_Brochure.pdf"
-                      download
+                      href="https://wa.me/919892398976?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="block py-3 px-6 transition-colors hover:bg-gray-700"
                       onClick={() => setMenuOpen(false)}
                     >

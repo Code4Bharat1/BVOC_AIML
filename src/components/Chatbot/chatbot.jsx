@@ -168,10 +168,10 @@ export default function ChatbotWidget() {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
             className="fixed z-50 border border-gray-100 overflow-hidden bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50 animate-gradient shadow-xl flex flex-col
-           bottom-[7rem] right-4 w-11/12 h-4/5 rounded-2xl
-           sm:bottom-[6rem] sm:right-6 sm:w-80 sm:h-96 sm:max-h-[32rem]
-           md:bottom-[7rem] md:w-96 md:h-[28rem]
-           lg:bottom-[8rem] lg:w-[32rem]"
+    bottom-[7rem] left-4 w-11/12 h-4/5 rounded-2xl
+    sm:bottom-[6rem] sm:left-6 sm:w-80 sm:h-96 sm:max-h-[32rem]
+    md:bottom-[7rem] md:w-96 md:h-[28rem]
+    lg:bottom-[8rem] lg:w-[32rem]"
             onClick={recordUserActivity}
           >
             {/* Content container with padding */}

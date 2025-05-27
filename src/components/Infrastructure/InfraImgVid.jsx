@@ -7,58 +7,58 @@ const CARD_SIZE = "w-72 h-80 lg:w-96 lg:h-96"; // Card size images aur videos k 
 //Yaha data add kr skte h jaise conference room ya Workspace ek araray object hoga
 // Yaha pe humne data ko ek array me rakha h jisme heading aur items hote h
 const infraData = [
+  // {
+  //   heading: "Office No . 2",
+  //   items: [
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_1.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_2.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_3.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_4.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_5.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/office_no_2/office_no_2_6.jpeg",
+  //       alt: "Workspace 1",
+  //     },
+  //   ],
+  // },
+  // {
+  //   heading: "Head Of Growth",
+  //   items: [
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/head_of_growth/head_of_growth_1.jpeg",
+  //       alt: "Conference Room",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/infrastructure/head_of_growth/head_of_growth_2.jpeg",
+  //       alt: "Conference Room",
+  //     },
+  //   ],
+  // },
   {
-    heading: "Office No . 2",
-    items: [
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_1.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_2.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_3.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_4.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_5.jpeg",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/office_no_2/office_no_2_6.jpeg",
-        alt: "Workspace 1",
-      },
-    ],
-  },
-  {
-    heading: "Head Of Growth",
-    items: [
-      {
-        type: "image",
-        src: "/infrastructure/head_of_growth/head_of_growth_1.jpeg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/head_of_growth/head_of_growth_2.jpeg",
-        alt: "Conference Room",
-      },
-    ],
-  },
-  {
-    heading: "Conference No . 3",
+    heading: "Conference",
     items: [
       {
         type: "image",
@@ -80,16 +80,57 @@ const infraData = [
         src: "/infrastructure/conference3/conference3_4.jpeg",
         alt: "Conference Room",
       },
+
       {
         type: "image",
-        src: "/infrastructure/conference3/conference3_5.png",
+        src: "/infrastructure/conference3/conference3_6.png",
         alt: "Conference Room",
-      }
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_7.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_8.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_10.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_11.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_12.png",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_13.png",
+        alt: "Conference Room",
+      },
     ],
   },
   {
-    heading: "Work Space 4",
+    heading: "Work Spaces",
     items: [
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_1.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_2.png",
+        alt: "Workspace 1",
+      },
       {
         type: "image",
         src: "/infrastructure/work_space_4/work_space_4_1.jpeg",
@@ -97,7 +138,47 @@ const infraData = [
       },
       {
         type: "image",
+        src: "/infrastructure/work_space_4/workspace_3.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_4.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
         src: "/infrastructure/work_space_4/work_space_4_2.jpeg",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_5.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_6.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_7.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_8.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_9.png",
+        alt: "Workspace 1",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/work_space_4/workspace_10.png",
         alt: "Workspace 1",
       },
     ],
@@ -152,125 +233,59 @@ function Modal({ item, onClose }) {
   );
 }
 
-  // Main Component yaha ki functional component hai jo sab kuch render karegi
+// Main Component yaha ki functional component hai jo sab kuch render karegi
 // yaha pe humne useState hook ka use kiya h jo selectedItem ko track karega
 function InfraImgVid() {
   const [selectedItem, setSelectedItem] = useState(null);
   const scrollContainerRefs = useRef([]);
-  
+
   // Store scroll positions and animation states persistently
-  const scrollStatesRef = useRef(Array(infraData.length).fill(null).map(() => ({
-    scrollPosition: 0,
-    scrollDirection: 1,
-    atEnd: false,
-    isPaused: false,
-    manualScroll: false // Track if manual scroll is active
-  })));
-
-  // Manual scroll functions
-  const scrollLeft = (index) => {
-    const container = scrollContainerRefs.current[index];
-    if (!container) return;
-    
-    // Pause auto-scroll temporarily
-    const scrollState = scrollStatesRef.current[index];
-    scrollState.manualScroll = true;
-    scrollState.isPaused = true;
-    
-    // Calculate scroll amount (one card width + gap)
-    const cardWidth = 288 + 16; // w-72 (288px) + gap (16px)
-    const newPosition = Math.max(0, container.scrollLeft - cardWidth);
-    
-    // Smooth scroll
-    container.scrollTo({
-      left: newPosition,
-      behavior: 'smooth'
-    });
-    
-    // Update scroll state
-    scrollState.scrollPosition = newPosition;
-    
-    // Resume auto-scroll after delay
-    setTimeout(() => {
-      scrollState.manualScroll = false;
-      scrollState.isPaused = false;
-    }, 3000); // Resume after 3 seconds
-  };
-
-  const scrollRight = (index) => {
-    const container = scrollContainerRefs.current[index];
-    if (!container) return;
-    
-    // Pause auto-scroll temporarily
-    const scrollState = scrollStatesRef.current[index];
-    scrollState.manualScroll = true;
-    scrollState.isPaused = true;
-    
-    // Calculate scroll amount (one card width + gap)
-    const cardWidth = 288 + 16; // w-72 (288px) + gap (16px)
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    const newPosition = Math.min(maxScroll, container.scrollLeft + cardWidth);
-    
-    // Smooth scroll
-    container.scrollTo({
-      left: newPosition,
-      behavior: 'smooth'
-    });
-    
-    // Update scroll state
-    scrollState.scrollPosition = newPosition;
-    
-    // Resume auto-scroll after delay
-    setTimeout(() => {
-      scrollState.manualScroll = false;
-      scrollState.isPaused = false;
-    }, 3000); // Resume after 3 seconds
-  };
-
-  // Check if scroll buttons should be shown
-  const canScrollLeft = (index) => {
-    const container = scrollContainerRefs.current[index];
-    return container && container.scrollLeft > 0;
-  };
-
-  const canScrollRight = (index) => {
-    const container = scrollContainerRefs.current[index];
-    return container && container.scrollLeft < (container.scrollWidth - container.clientWidth);
-  };
-  
+  const scrollStatesRef = useRef(
+    Array(infraData.length)
+      .fill(null)
+      .map(() => ({
+        scrollPosition: 0,
+        scrollDirection: 1,
+        atEnd: false,
+        isPaused: false,
+      }))
+  );
   useEffect(() => {
     const animationFrames = [];
-    
+
     // Setup animation for each gallery section
     scrollContainerRefs.current.forEach((container, index) => {
       if (!container) return;
-      
+
       // Only apply auto-scrolling if the content exceeds container width
       if (container.scrollWidth > container.clientWidth) {
         const scrollState = scrollStatesRef.current[index];
-        
+
         // Animation function
         const animate = () => {
-          // Skip if paused or manual scroll is active
-          if (scrollState.isPaused || scrollState.manualScroll) {
+          // Skip if paused
+          if (scrollState.isPaused) {
             animationFrames[index] = requestAnimationFrame(animate);
             return;
           }
-          
+
           // Get current scroll state
           let { scrollPosition, scrollDirection, atEnd } = scrollState;
-          
+
           // Scroll speed - adjust for smoother scrolling
           const scrollSpeed = 0.7;
-          
+
           if (scrollDirection === 1) {
             // Scrolling right
             scrollPosition += scrollSpeed;
-            
+
             // Check if reached the end
-            if (scrollPosition >= container.scrollWidth - container.clientWidth) {
+            if (
+              scrollPosition >=
+              container.scrollWidth - container.clientWidth
+            ) {
               scrollPosition = container.scrollWidth - container.clientWidth;
-              
+
               // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
@@ -283,11 +298,11 @@ function InfraImgVid() {
           } else {
             // Scrolling left
             scrollPosition -= scrollSpeed;
-            
+
             // Check if reached the beginning
             if (scrollPosition <= 0) {
               scrollPosition = 0;
-              
+
               // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
@@ -298,24 +313,24 @@ function InfraImgVid() {
               }
             }
           }
-          
+
           // Update position in DOM and state
           container.scrollLeft = scrollPosition;
           scrollState.scrollPosition = scrollPosition;
           scrollState.atEnd = atEnd;
-          
+
           // Continue animation
           animationFrames[index] = requestAnimationFrame(animate);
         };
-        
+
         // Start animation
         animationFrames[index] = requestAnimationFrame(animate);
       }
     });
-    
+
     // Cleanup animation frames on unmount
     return () => {
-      animationFrames.forEach(frameId => {
+      animationFrames.forEach((frameId) => {
         if (frameId) cancelAnimationFrame(frameId);
       });
     };
@@ -341,60 +356,19 @@ function InfraImgVid() {
           <h2 className="text-4xl lg:text-5xl text-white font-bold my-12">
             {section.heading}
           </h2>
-          
-          {/* Navigation buttons */}
-          <div className="flex justify-between items-center mb-4">
-            <button
-              onClick={() => scrollLeft(index)}
-              disabled={!canScrollLeft(index)}
-              className={`p-2 rounded-full transition-all duration-200 ${
-                canScrollLeft(index)
-                  ? 'bg-white text-black hover:bg-gray-200 shadow-lg'
-                  : 'bg-gray-400 text-gray-600 cursor-not-allowed'
-              }`}
-              aria-label="Scroll left"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            
-            <button
-              onClick={() => scrollRight(index)}
-              disabled={!canScrollRight(index)}
-              className={`p-2 rounded-full transition-all duration-200 ${
-                canScrollRight(index)
-                  ? 'bg-white text-black hover:bg-gray-200 shadow-lg'
-                  : 'bg-gray-400 text-gray-600 cursor-not-allowed'
-              }`}
-              aria-label="Scroll right"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-          
+
+          {/* No navigation buttons */}
+
           {/* Scrolling container */}
-          <div 
+          <div
             className="flex space-x-4 overflow-x-auto scrollbar-hide"
-            ref={el => scrollContainerRefs.current[index] = el}
+            ref={(el) => (scrollContainerRefs.current[index] = el)}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {section.items.map((item, idx) => (
               <InfraCard key={idx} item={item} onClick={setSelectedItem} />
-            ))}
-          </div>
-          
-          {/* Scroll indicator dots */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {section.items.map((_, idx) => (
-              <div
-                key={idx}
-                className="w-2 h-2 rounded-full bg-gray-400 opacity-50"
-              />
             ))}
           </div>
         </div>

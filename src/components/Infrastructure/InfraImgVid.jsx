@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 
 // Constants
-const CARD_SIZE = "w-72 h-80 lg:w-96 lg:h-96"; // Card size images aur videos k liye
+const CARD_SIZE = "w-72 h-80 lg:w-[25rem] lg:h-96"; // Card size images aur videos k liye
 
 //Yaha data add kr skte h jaise conference room ya Workspace ek araray object hoga
 // Yaha pe humne data ko ek array me rakha h jisme heading aur items hote h
@@ -93,12 +93,17 @@ const infraData = [
       },
       {
         type: "image",
-        src: "/infrastructure/conference3/conference3_10.png",
+        src: "/infrastructure/conference3/conference3_10.jpg",
         alt: "Conference Room",
       },
       {
         type: "image",
-        src: "/infrastructure/conference3/conference3_11.png",
+        src: "/infrastructure/conference3/conference3_11.jpg",
+        alt: "Conference Room",
+      },
+      {
+        type: "image",
+        src: "/infrastructure/conference3/conference3_12.jpg",
         alt: "Conference Room",
       },
       {

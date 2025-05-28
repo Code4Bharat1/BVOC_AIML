@@ -14,7 +14,7 @@ const HubHero = () => {
       >
         <div className="relative w-full h-72 bg-[url('/Hub_Hero-mob-bg.svg')] bg-center bg-no-repeat">
           <h1 className="absolute top-8 text-xl md:text-4xl font-bold text-center max-w-md mx-auto text-black">
-            Bachelor of Vocation in{" "}
+            Bachelor's of "(BVOC)" in{" "}
             <span className="text-[#AC6CFF]">Machine Learning</span> and{" "}
             <span className="text-[#AC6CFF]">Artificial Intelligence</span>
           </h1>
@@ -33,7 +33,7 @@ const HubHero = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-black font-bold text-center mb-64 max-w-6xl">
-          Bachelor of Vocation in{" "}
+          Bachelor's of (BVOC) in{" "}
           <span className="text-[#AC6CFF]">Machine Learning</span> and{" "}
           <span className="text-[#AC6CFF]">Artificial Intelligence</span>
         </h1>

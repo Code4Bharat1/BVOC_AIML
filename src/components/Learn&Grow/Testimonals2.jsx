@@ -7,35 +7,35 @@ const testimonials = [
       "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
     name: "Basim Thakur",
     role: "Frontend Developer",
-    src: "https://media.istockphoto.com/id/1488919302/photo/portrait-of-a-software-developer-at-his-home-in-los-angeles.jpg?s=612x612&w=0&k=20&c=tBZ1_C_T8XDjnHo5GqdjnKrF0gKWzPV9uMK46K3cRHs=",
+    src: "/Testimonials/testimonial5.png",
   },
   {
     quote:
       "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
     name: "Yogesh Rane",
     role: "Python Developer",
-    src: "https://media.istockphoto.com/id/1540766473/photo/young-adult-male-design-professional-smiles-for-camera.jpg?s=612x612&w=0&k=20&c=BbwgfMOtFOIJn1Km-ASix_EBbF9SHW5h0FtWbna5nFk=",
+    src: "/Testimonials/testimonial4.png",
   },
   {
     quote:
       "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
     name: "Sakshi Gupta",
     role: "Frontend Developer",
-    src: "https://media.istockphoto.com/id/1029797636/photo/school-girl-stock-image.jpg?s=612x612&w=0&k=20&c=vTO9wMeghrSTzTrKNvv_vBmjF7yJMMPA-coFg3bab2w=",
+    src: "/Testimonials/testimonial1.png",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
     name: "Nouman Khan",
     role: "Backend Developer",
-    src: "https://media.istockphoto.com/id/1136413215/photo/young-man-at-street-market.jpg?s=612x612&w=0&k=20&c=obnaR5III0jRxHKd4ZPl3LRC2pI792KbHYR2eBzKKe8=",
+    src: "/Testimonials/testimonial3.png",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
     name: "Aditi Sharma",
     role: "MERN Developer",
-    src: "https://media.istockphoto.com/id/578811140/photo/smiling-female-young-college-student-of-indian-ethnicity.jpg?s=612x612&w=0&k=20&c=mKt7yQEkKJWSvT87-6q64_LhSSICnZ1Isq6nJMx_ceg=",
+    src: "/Testimonials/testimonial2.png",
   },
 ];
 

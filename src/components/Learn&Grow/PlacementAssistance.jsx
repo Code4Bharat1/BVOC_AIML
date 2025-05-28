@@ -20,7 +20,7 @@ const PlacementAssistance = () => {
           className="w-full lg:w-1/2"
         >
           <Image
-            src="/placement-card.svg"
+            src="/placement-card.png"
             alt="Placement Assistance"
             width={500}
             height={200}

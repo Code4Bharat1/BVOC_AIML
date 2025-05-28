@@ -17,8 +17,8 @@ const OurSyllabus = () => {
         transition={{ duration: 0.6 }}
         className="hidden lg:flex items-start justify-center py-3 mt-14 text-center w-3xl mx-auto rounded-4xl bg-[#D8BCFD]"
       >
-        <h2 className="text-5xl font-extrabold py-6">
-          About Our <span className="text-purple-500">Syllabus</span>
+        <h2 className="text-4xl font-extrabold py-6">
+          Level Up <span className="text-purple-500">Map</span>
         </h2>
       </motion.div>
 

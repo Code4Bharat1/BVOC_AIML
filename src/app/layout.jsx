@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://bvoc.nexcorealliance.com/"),
   title: "BVOC in AI & ML | Nexcore x Code4Bharat",
+  icons: {
+    icon: "/favicon.svg", 
+  },
   description:
     "Build your future in Artificial Intelligence & Machine Learning. Join our hands-on BVOC program powered by Nexcore and Code4Bharat. Industry projects, expert mentors, and real-world skills – all in one course!",
   openGraph: {

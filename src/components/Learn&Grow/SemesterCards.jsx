@@ -116,7 +116,7 @@ const MobileSemesterCards = () => {
 // Desktop view component
 const DesktopSemesterCards = () => {
   return (
-    <div className="hidden lg:block relative min-h-screen bg-[#E8D7FF] py-20 px-4 overflow-hidden">
+    <div className="hidden lg:block relative min-h-screen bg-gradient-to-t from-[#8E1DBA] to-[#33135B]  py-20 px-4 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}

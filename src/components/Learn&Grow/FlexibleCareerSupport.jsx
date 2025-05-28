@@ -14,7 +14,7 @@ const FlexibleCareerSupport = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative bg-[#E8D7FF] p-10 overflow-hidden my-10"
+          className="relative bg-gradient-to-b from-[#8E1DBA] to-[#33135B]  p-10 overflow-hidden my-10"
         >
           {/* Left Image */}
           <motion.div
@@ -26,7 +26,7 @@ const FlexibleCareerSupport = () => {
           >
             <div className="w-full lg:w-[60%] flex justify-center lg:justify-start">
               <Image
-                src="/path-to-left-image.svg"
+                src="/path-to-left-image2.svg"
                 alt="Left Icon"
                 width={740}
                 height={440}

@@ -1,235 +1,95 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-// Constants
-const CARD_SIZE = "w-72 h-80 lg:w-[25rem] lg:h-96"; // Card size images aur videos k liye
+const CARD_SIZE = "w-72 h-80 lg:w-[25rem] lg:h-96";
 
-//Yaha data add kr skte h jaise conference room ya Workspace ek araray object hoga
-// Yaha pe humne data ko ek array me rakha h jisme heading aur items hote h
+// Infrastructure data (unchanged)
 const infraData = [
-  // {
-  //   heading: "Office No . 2",
-  //   items: [
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_1.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_2.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_3.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_4.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_5.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/office_no_2/office_no_2_6.jpeg",
-  //       alt: "Workspace 1",
-  //     },
-  //   ],
-  // },
-  // {
-  //   heading: "Head Of Growth",
-  //   items: [
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/head_of_growth/head_of_growth_1.jpeg",
-  //       alt: "Conference Room",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/infrastructure/head_of_growth/head_of_growth_2.jpeg",
-  //       alt: "Conference Room",
-  //     },
-  //   ],
-  // },
   {
     heading: "Conference",
     items: [
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_1.jpeg",
-        alt: "Conference Room",
-      },
-      // {
-      //   type: "image",
-      //   src: "/infrastructure/conference3/conference3_3.jpeg",
-      //   alt: "Conference Room",
-      // },
-      // {
-      //   type: "image",
-      //   src: "/infrastructure/conference3/conference3_4.jpeg",
-      //   alt: "Conference Room",
-      // },
-
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_6.png",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_7.png",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_8.png",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_10.jpg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_11.jpg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_12.jpg",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_12.png",
-        alt: "Conference Room",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/conference3/conference3_13.png",
-        alt: "Conference Room",
-      },
+      { type: "image", src: "/infrastructure/conference3/conference3_1.jpeg", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_6.png", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_7.png", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_8.png", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_10.jpg", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_11.jpg", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_12.jpg", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_12.png", alt: "Conference Room" },
+      { type: "image", src: "/infrastructure/conference3/conference3_13.png", alt: "Conference Room" },
     ],
   },
   {
     heading: "Work Spaces",
     items: [
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_1.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_2.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_3.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_4.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_5.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_6.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_7.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_8.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_9.png",
-        alt: "Workspace 1",
-      },
-      {
-        type: "image",
-        src: "/infrastructure/work_space_4/workspace_10.png",
-        alt: "Workspace 1",
-      },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_1.png", alt: "Workspace 1" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_2.png", alt: "Workspace 2" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_3.png", alt: "Workspace 3" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_4.png", alt: "Workspace 4" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_5.png", alt: "Workspace 5" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_6.png", alt: "Workspace 6" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_7.png", alt: "Workspace 7" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_8.png", alt: "Workspace 8" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_9.png", alt: "Workspace 9" },
+      { type: "image", src: "/infrastructure/work_space_4/workspace_10.png", alt: "Workspace 10" },
     ],
   },
 ];
 
-// Card Component yaha pe humne ek card banaya h jo image ya video ko dikhata h
-// Yaha pe humne onClick function pass kiya h jo item ko select karega jab user click karega
+// ========== CARD COMPONENT ==========
 function InfraCard({ item, onClick }) {
   return (
     <div
-      className={`bg-white cursor-pointer ${CARD_SIZE} flex justify-center items-center flex-shrink-0`}
+      className={`relative overflow-hidden rounded-2xl cursor-pointer shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(172,108,255,0.5)] bg-gradient-to-b from-[#1E0C44] to-[#2C1763] ${CARD_SIZE} flex justify-center items-center flex-shrink-0`}
       onClick={() => onClick(item)}
     >
+      {/* Glow overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#AC6CFF]/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+
       {item.type === "image" ? (
-        <img
-          src={item.src}
-          alt={item.alt}
-          className="object-top w-full h-full "
-        />
+        <img src={item.src} alt={item.alt} className="object-cover w-full h-full rounded-2xl" />
       ) : (
-        <video className="w-full h-full" muted>
+        <video className="w-full h-full rounded-2xl" muted>
           <source src={item.src} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
       )}
     </div>
   );
 }
 
-// Modal Component isme humne ek modal banaya h jo image ya video ko full screen me dikhata h
-// Yaha pe humne onClose function pass kiya h jo modal ko band karega jab user click karega
+// ========== MODAL COMPONENT ==========
 function Modal({ item, onClose }) {
   if (!item) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center"
+      className="fixed inset-0 z-50 bg-black/80 flex justify-center items-center backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl max-w-4xl w-full"
+        className="relative bg-[#1A0B3C] border border-[#AC6CFF]/40 rounded-2xl p-4 max-w-5xl w-[95%] shadow-[0_0_50px_rgba(172,108,255,0.4)]"
         onClick={(e) => e.stopPropagation()}
       >
         {item.type === "image" ? (
-          <img src={item.src} alt={item.alt} className="w-full h-auto " />
+          <img src={item.src} alt={item.alt} className="w-full h-auto rounded-xl" />
         ) : (
-          <video src={item.src} controls autoPlay className="w-full rounded" />
+          <video src={item.src} controls autoPlay className="w-full rounded-xl" />
         )}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-4 text-white text-3xl font-bold hover:text-[#AC6CFF] transition-colors"
+        >
+          ×
+        </button>
       </div>
     </div>
   );
 }
 
-// Main Component yaha ki functional component hai jo sab kuch render karegi
-// yaha pe humne useState hook ka use kiya h jo selectedItem ko track karega
+// ========== MAIN COMPONENT ==========
 function InfraImgVid() {
   const [selectedItem, setSelectedItem] = useState(null);
   const scrollContainerRefs = useRef([]);
-
-  // Store scroll positions and animation states persistently
   const scrollStatesRef = useRef(
     Array(infraData.length)
       .fill(null)
@@ -240,118 +100,87 @@ function InfraImgVid() {
         isPaused: false,
       }))
   );
+
+  // Auto scroll animation
   useEffect(() => {
     const animationFrames = [];
-
-    // Setup animation for each gallery section
     scrollContainerRefs.current.forEach((container, index) => {
       if (!container) return;
 
-      // Only apply auto-scrolling if the content exceeds container width
       if (container.scrollWidth > container.clientWidth) {
         const scrollState = scrollStatesRef.current[index];
-
-        // Animation function
         const animate = () => {
-          // Skip if paused
           if (scrollState.isPaused) {
             animationFrames[index] = requestAnimationFrame(animate);
             return;
           }
 
-          // Get current scroll state
           let { scrollPosition, scrollDirection, atEnd } = scrollState;
-
-          // Scroll speed - adjust for smoother scrolling
           const scrollSpeed = 0.7;
 
           if (scrollDirection === 1) {
-            // Scrolling right
             scrollPosition += scrollSpeed;
-
-            // Check if reached the end
-            if (
-              scrollPosition >=
-              container.scrollWidth - container.clientWidth
-            ) {
+            if (scrollPosition >= container.scrollWidth - container.clientWidth) {
               scrollPosition = container.scrollWidth - container.clientWidth;
-
-              // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
                 setTimeout(() => {
                   scrollState.scrollDirection = -1;
                   scrollState.atEnd = false;
-                }, 2000); // 2 second pause at end
+                }, 2000);
               }
             }
           } else {
-            // Scrolling left
             scrollPosition -= scrollSpeed;
-
-            // Check if reached the beginning
             if (scrollPosition <= 0) {
               scrollPosition = 0;
-
-              // Change direction after pause
               if (!atEnd) {
                 atEnd = true;
                 setTimeout(() => {
                   scrollState.scrollDirection = 1;
                   scrollState.atEnd = false;
-                }, 2000); // 2 second pause at beginning
+                }, 2000);
               }
             }
           }
 
-          // Update position in DOM and state
           container.scrollLeft = scrollPosition;
           scrollState.scrollPosition = scrollPosition;
           scrollState.atEnd = atEnd;
 
-          // Continue animation
           animationFrames[index] = requestAnimationFrame(animate);
         };
-
-        // Start animation
         animationFrames[index] = requestAnimationFrame(animate);
       }
     });
 
-    // Cleanup animation frames on unmount
     return () => {
-      animationFrames.forEach((frameId) => {
-        if (frameId) cancelAnimationFrame(frameId);
-      });
+      animationFrames.forEach((frameId) => frameId && cancelAnimationFrame(frameId));
     };
   }, []);
 
-  // Pause/resume scrolling handlers
   const handleMouseEnter = (index) => {
-    if (scrollStatesRef.current[index]) {
-      scrollStatesRef.current[index].isPaused = true;
-    }
+    if (scrollStatesRef.current[index]) scrollStatesRef.current[index].isPaused = true;
   };
 
   const handleMouseLeave = (index) => {
-    if (scrollStatesRef.current[index]) {
-      scrollStatesRef.current[index].isPaused = false;
-    }
+    if (scrollStatesRef.current[index]) scrollStatesRef.current[index].isPaused = false;
   };
 
   return (
-    <div className="space-y-8">
+    <div className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-16 bg-gradient-to-b from-[#3A0B57] via-[#3D0B67] to-[#160E6E] overflow-hidden">
+      {/* Glowing Background Orbs */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#AC6CFF]/20 blur-[160px] rounded-full animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#3D0B67]/25 blur-[200px] rounded-full animate-pulse"></div>
+
       {infraData.map((section, index) => (
-        <div className="p-5 relative" key={index}>
-          <h2 className="text-4xl lg:text-5xl text-white font-bold my-12">
+        <div className="relative z-10 p-5" key={index}>
+          <h2 className="text-4xl lg:text-5xl font-extrabold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#AC6CFF] via-[#CBA0FF] to-white drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]">
             {section.heading}
           </h2>
 
-          {/* No navigation buttons */}
-
-          {/* Scrolling container */}
           <div
-            className="flex space-x-4 overflow-x-auto scrollbar-hide"
+            className="flex space-x-4 overflow-x-auto scrollbar-hide justify-center"
             ref={(el) => (scrollContainerRefs.current[index] = el)}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
@@ -363,6 +192,7 @@ function InfraImgVid() {
           </div>
         </div>
       ))}
+
       <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </div>
   );

@@ -7,7 +7,7 @@ const cardData = [
   {
     title: "Strategic \nPartnerships \nwith Industry \nGiants",
     content:
-      "We’ve joined forces with world-renowned tech companies like Microsoft, Google, and Amazon, offering co-branded certifications upon completion of your course. This means you’re not just gaining a degree—you’re earning credentials that are recognized globally.",
+      "We've joined forces with world-renowned tech companies like Microsoft, Google, and Amazon, offering co-branded certifications upon completion of your course. This means you're not just gaining a degree—you're earning credentials that are recognized globally.",
   },
   {
     title: "Hands-on \nLearning \nwith Real-\nWorld Impact",
@@ -25,9 +25,9 @@ const cardData = [
       "Achieving NAAC A++ accreditation showcases our unwavering commitment to academic excellence and continuous improvement.",
   },
   {
-    title: "Empowering \nIndia’s Digital \nFuture",
+    title: "Empowering \nIndia's Digital \nFuture",
     content:
-      "Our curriculum is built to equip students with digital-first skills, driving innovation and transformation across India’s tech ecosystem.",
+      "Our curriculum is built to equip students with digital-first skills, driving innovation and transformation across India's tech ecosystem.",
   },
 ];
 
@@ -67,7 +67,7 @@ const FiveCards = () => {
   return (
     <motion.div
       ref={containerRef}
-      className="bg-[#2F1C48] text-white p-6 lg:p-12 shadow-sm shadow-white m-10 rounded-3xl"
+      className="bg-gradient-to-br from-[#2d1b4e] to-[#4a1f6b] text-white p-6 lg:p-12 shadow-sm shadow-[#00d4ff]/30 m-10 rounded-3xl border border-[#00d4ff]/20"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -81,8 +81,8 @@ const FiveCards = () => {
             variants={cardVariants}
           >
             {/* Card Box */}
-            <div className="bg-[#AC6CFF] rounded-3xl p-4 w-[250px] lg:w-full shadow-md h-full">
-              <h3 className="text-lg font-semibold whitespace-pre-line">
+            <div className="bg-gradient-to-br from-[#00d4ff] to-[#0ea5e9] rounded-3xl p-4 w-[250px] lg:w-full shadow-md h-full">
+              <h3 className="text-lg font-semibold whitespace-pre-line text-[#06071B]">
                 {card.title}
               </h3>
 
@@ -105,7 +105,7 @@ const FiveCards = () => {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="text-base">{card.content}</p>
+                <p className="text-base text-[#06071B]">{card.content}</p>
               </div>
             </div>
           </motion.div>

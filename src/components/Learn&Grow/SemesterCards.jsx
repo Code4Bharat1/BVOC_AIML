@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,7 +11,7 @@ const cardsData = [
     duration: "(6 Semesters)",
     description:
       "Gain in-depth knowledge and industry-ready skills with a full 3-year vocational degree.",
-    bg: "bg-[#933FFF]",
+    bg: "bg-[#460E73]/90",
     text: "text-white",
   },
   {
@@ -17,7 +19,7 @@ const cardsData = [
     duration: "(4 Semesters)",
     description:
       "Build strong practical expertise and step confidently into specialized career roles.",
-    bg: "bg-[#A45EFF]",
+    bg: "bg-[#6929B6]/90",
     text: "text-white",
   },
   {
@@ -25,30 +27,26 @@ const cardsData = [
     duration: "(2 Semesters)",
     description:
       "Kickstart your professional journey with core skills in just one year.",
-    bg: "bg-[#C89DFF]",
-    text: "text-black",
+    bg: "bg-[#AC6CFF]/90",
+    text: "text-white",
   },
   {
     title: "Certificate",
     duration: "(1 Semester)",
     description:
       "Get a quick, focused introduction to essential vocational skills in just six months.",
-    bg: "bg-[#D8BCFD]",
+    bg: "bg-[#D8BCFD]/90",
     text: "text-black",
   },
 ];
 
-// Mobile view component
+// ✅ Mobile View
 const MobileSemesterCards = () => {
   return (
     <div className="lg:hidden relative mt-44">
-      {/* Logo completely above the purple card - FIXED POSITIONING */}
-      <div
-        className="absolute w-full flex justify-center"
-        style={{ top: "-150px" }}
-      >
+      {/* Nexcore logo section */}
+      <div className="absolute w-full flex justify-center" style={{ top: "-150px" }}>
         <div className="relative w-full h-[300px]">
-          {/* Background Image Behind Nexcore */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -65,7 +63,6 @@ const MobileSemesterCards = () => {
             />
           </motion.div>
 
-          {/* Foreground Nexcore Logo */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,9 +81,12 @@ const MobileSemesterCards = () => {
         </div>
       </div>
 
-      {/* Purple Card Container */}
-      <div className="min-h-screen bg-[#B379FF] py-10 mt-24 px-4 m-8 rounded-4xl text-center overflow-hidden">
-        {/* Cards */}
+      {/* Background gradient & cards */}
+      <div className="min-h-screen bg-gradient-to-t from-[#AC6CFF] via-[#6929B6] to-[#460E73] py-10 mt-24 px-4 m-8 rounded-4xl text-center shadow-2xl overflow-hidden">
+        <h2 className="text-3xl font-bold text-white mb-10">
+          Our <span className="text-[#AC6CFF]">Programs</span>
+        </h2>
+
         <div className="flex flex-col gap-6 max-w-md mx-auto pt-8">
           {cardsData
             .slice()
@@ -98,12 +98,12 @@ const MobileSemesterCards = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`${card.bg} ${card.text} rounded-[2rem] p-6 transform transition-all duration-300 ease-in-out min-h-[180px] hover:min-h-[240px] hover:shadow-xl flex items-center`}
+                className={`${card.bg} ${card.text} rounded-[2rem] p-6 backdrop-blur-sm border border-white/10 hover:scale-105 transition-all duration-300 ease-in-out shadow-md`}
               >
                 <div className="space-y-2">
                   <h2 className="text-xl font-bold">{card.title}</h2>
-                  <p className="text-base font-bold">{card.duration}</p>
-                  <p className="text-base font-bold">{card.description}</p>
+                  <p className="text-base font-semibold">{card.duration}</p>
+                  <p className="text-base font-medium">{card.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -113,10 +113,10 @@ const MobileSemesterCards = () => {
   );
 };
 
-// Desktop view component
+// ✅ Desktop View
 const DesktopSemesterCards = () => {
   return (
-    <div className="hidden lg:block relative min-h-screen bg-gradient-to-t from-[#8E1DBA] to-[#33135B]  py-20 px-4 overflow-hidden">
+    <div className="hidden lg:block relative min-h-screen bg-gradient-to-t from-[#33135B] via-[#460E73] to-[#8E1DBA] py-20 px-4 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -134,6 +134,10 @@ const DesktopSemesterCards = () => {
         />
       </motion.div>
 
+      <h2 className="text-5xl font-bold text-center text-white mb-20">
+        Our <span className="text-[#AC6CFF]">Programs</span>
+      </h2>
+
       <div className="grid grid-cols-2 gap-x-32 gap-y-20 max-w-7xl mx-auto">
         {cardsData.map((card, index) => (
           <motion.div
@@ -143,11 +147,11 @@ const DesktopSemesterCards = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             className={`
-              ${card.bg} ${card.text} rounded-[2rem] p-8
-              transform transition-all duration-300 ease-in-out
-              hover:bg-[#AC6CFF] hover:shadow-lg
+              ${card.bg} ${card.text} rounded-[2rem] p-8 
+              transform transition-all duration-300 ease-in-out 
+              hover:bg-[#AC6CFF]/90 hover:shadow-lg hover:scale-105 
+              backdrop-blur-sm border border-white/10 flex items-center
               ${index % 2 === 0 ? "hover:pr-16" : "hover:pl-16"}
-              min-h-[200px] hover:min-h-[280px] flex items-center
             `}
           >
             <div className="max-w-sm mx-auto space-y-3">
@@ -162,7 +166,7 @@ const DesktopSemesterCards = () => {
   );
 };
 
-// Combined
+// ✅ Combined Component
 const SemesterCards = () => {
   return (
     <>

@@ -44,9 +44,15 @@ const CareerOpportunities = () => {
   return (
     <section
       ref={sectionRef}
-      className="z-10 bg-cover bg-center m-2 my-20 lg:m-0 py-10 max-w-7xl lg:max-w-full lg:w-full h-auto lg:h-[600px] bg-[url('/CareerOpp-bg_Home-mob.svg')] lg:bg-[url('/CareerOpp-bg_Home.svg')]"
+      className="z-10 relative overflow-hidden m-2 my-20 lg:m-0 py-10 max-w-7xl lg:max-w-full lg:w-full h-auto lg:h-[600px]
+      bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] text-white"
     >
-      <div className="container mx-auto p-8 text-start ">
+      {/* Decorative Orbs / Stars */}
+      <div className="absolute top-10 left-10 w-4 h-4 bg-[#00d4ff] rounded-full blur-md animate-pulse" />
+      <div className="absolute bottom-16 right-12 w-6 h-6 bg-[#ff6b35] rounded-full blur-lg animate-ping" />
+      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-[#AC6CFF] rounded-full blur-md opacity-80" />
+
+      <div className="container mx-auto p-8 text-start relative z-10">
         {/* Headings */}
         <motion.div
           variants={headingVariants}
@@ -54,10 +60,10 @@ const CareerOpportunities = () => {
           animate={isInView ? "visible" : "hidden"}
           className="mb-7 lg:mb-12 text-center lg:text-left lg:pl-20"
         >
-          <h1 className="text-3xl lg:text-5xl font-bold text-[#2B2038] whitespace-pre-line">
+          <h1 className="text-3xl lg:text-5xl font-bold text-white whitespace-pre-line">
             Career & Opportunities:{"\n"}The Future of Tech Starts Here
           </h1>
-          <h2 className="text-2xl lg:text-4xl font-bold text-[#AC6CFF] pt-4 lg:pt-8 whitespace-pre-line">
+          <h2 className="text-2xl lg:text-4xl font-bold bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent pt-4 lg:pt-8 whitespace-pre-line">
             Step Into High-Demand Careers
           </h2>
         </motion.div>
@@ -75,7 +81,12 @@ const CareerOpportunities = () => {
               variants={itemVariants}
               className="group flex flex-col justify-center items-center transition-transform hover:scale-110 w-full max-w-[140px] mx-auto"
             >
-              <div className="w-24 h-24 flex justify-center items-center">
+              <div
+                className="w-24 h-24 flex justify-center items-center 
+                bg-gradient-to-br from-[#00d4ff]/10 via-[#AC6CFF]/10 to-[#ff6b35]/10 
+                rounded-2xl shadow-[0_0_20px_rgba(172,108,255,0.3)] 
+                hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] transition-all"
+              >
                 <Image
                   src={career.img}
                   alt={career.alt}
@@ -85,14 +96,9 @@ const CareerOpportunities = () => {
                 />
               </div>
               <p
-                className={`mt-4 text-sm lg:text-2xl font-bold ${
-                  index === 0
-                    ? "text-black"
-                    : index >= 3
-                    ? "text-white"
-                    : "text-white lg:text-black"
-                }`}
-                // className={`mt-4 text-sm lg:text-2xl font-bold text-[#AC6CFF]`}
+                className="mt-4 text-sm lg:text-2xl font-bold 
+                bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] 
+                bg-clip-text text-transparent"
               >
                 {career.label}
               </p>
@@ -100,6 +106,9 @@ const CareerOpportunities = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Decorative Cyan Curve */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35]" />
     </section>
   );
 };

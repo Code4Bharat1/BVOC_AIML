@@ -71,7 +71,8 @@ const InDemandCareer = () => {
 
       <section
         ref={sectionRef}
-        className="hidden md:block relative bg-white bg-[url('/CareerDemand_Home-bg.svg')] bg-cover bg-center py-16 px-4"
+        className="hidden md:block relative bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] bg-[url('/CareerDemand_Home-bg.svg')] bg-cover bg-center py-16 px-4"
+        style={{ backgroundBlendMode: 'overlay' }}
       >
         <div className="text-center">
           <motion.div
@@ -83,8 +84,8 @@ const InDemandCareer = () => {
             <Image
               src="/Career-demand-imgs.svg"
               alt="In-Demand Careers"
-              width={600} // Adjust width as needed
-              height={400} // Adjust height as needed
+              width={600}
+              height={400}
               className="mx-auto w-7xl"
             />
           </motion.div>

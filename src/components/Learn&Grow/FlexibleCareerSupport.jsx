@@ -8,13 +8,13 @@ const FlexibleCareerSupport = () => {
     <>
       {/* Desktop View (visible on lg and up) */}
       <div className="hidden lg:block overflow-x-hidden overflow-y-hidden">
-        {/* Animate Background First */}
+        {/* Animated Background */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative bg-gradient-to-b from-[#8E1DBA] to-[#33135B]  p-10 overflow-hidden my-10"
+          className="relative bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] p-10 overflow-hidden my-10"
         >
           {/* Left Image */}
           <motion.div
@@ -51,9 +51,18 @@ const FlexibleCareerSupport = () => {
               className="object-contain"
             />
           </motion.div>
+
+          {/* Stars & Orbs (Cyan / Orange / Purple theme) */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-10 left-10 w-3 h-3 bg-[#00d4ff] rounded-full blur-sm" />
+            <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-[#ff6b35] rounded-full blur-[2px]" />
+            <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-[#AC6CFF] rounded-full blur-sm" />
+            <div className="absolute bottom-10 right-16 w-5 h-5 bg-[#00d4ff] rounded-full blur-md opacity-70 animate-pulse" />
+            <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-[#ff6b35]/70 rounded-full blur-lg opacity-50" />
+          </div>
         </motion.div>
 
-        {/* Desktop Text Content (animate last) */}
+        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,18 +71,23 @@ const FlexibleCareerSupport = () => {
           className="mt-20 text-start pl-6 lg:pl-24"
         >
           <h1 className="text-white text-2xl lg:text-5xl font-bold">
-            NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path
-            Forward
+            <span className="text-[#00d4ff]">Nexcore</span> Alliance LLP –{" "}
+            <br className="lg:hidden" />A Clear Path Forward
           </h1>
           <p className="text-[#AC6CFF] text-xl lg:text-3xl pt-4 mb-10">
-            With exit points tailored to your goals, our NSQF-certified{" "}
-            <br className="hidden lg:block" />
+            With exit points tailored to your goals, our{" "}
+            <span className="text-[#ff6b35] font-semibold">NSQF-certified</span>{" "}
             program offers flexibility
           </p>
+
+          {/* Button (Orange gradient) */}
+          <button className="px-8 py-3 font-semibold rounded-full text-white bg-gradient-to-r from-[#ff6b35] via-[#ff9155] to-[#ff6b35] hover:opacity-90 transition">
+            Explore More
+          </button>
         </motion.div>
       </div>
 
-      {/* Mobile View (unchanged except animations already added) */}
+      {/* Mobile View */}
       <div className="block lg:hidden overflow-x-hidden">
         {/* Heading */}
         <div className="mt-20 text-start pl-6 lg:pl-24">
@@ -82,7 +96,7 @@ const FlexibleCareerSupport = () => {
           </h1>
         </div>
 
-        {/* Steps with animations already applied */}
+        {/* Steps */}
         <div className="w-full max-w-xs relative h-[600px] mx-auto overflow-x-hidden">
           {/* Step 1 */}
           <motion.div
@@ -96,7 +110,7 @@ const FlexibleCareerSupport = () => {
           </motion.div>
 
           <motion.div
-            className="absolute top-[95px] left-10 text-white text-20px font-bold"
+            className="absolute top-[95px] left-10 text-[#00d4ff] text-20px font-bold"
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -123,7 +137,7 @@ const FlexibleCareerSupport = () => {
           </motion.div>
 
           <motion.div
-            className="absolute top-[255px] right-11 text-white text-20px font-bold text-center"
+            className="absolute top-[255px] right-11 text-[#ff6b35] text-20px font-bold text-center"
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -150,7 +164,7 @@ const FlexibleCareerSupport = () => {
           </motion.div>
 
           <motion.div
-            className="absolute top-[460px] left-9 text-white text-20px font-bold text-center"
+            className="absolute top-[460px] left-9 text-[#AC6CFF] text-20px font-bold text-center"
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -165,12 +179,12 @@ const FlexibleCareerSupport = () => {
         {/* Mobile Text */}
         <div className="mt-10 text-start pl-6 lg:hidden">
           <h1 className="text-white text-3xl font-bold">
-            NexCore Alliance LLP– <br className="lg:hidden" />A Clear Path
-            Forward
+            <span className="text-[#00d4ff]">Nexcore</span> Alliance LLP –{" "}
+            <br className="lg:hidden" />A Clear Path Forward
           </h1>
-          <p className="text-[#AC6CFF] text-xl lg:text-3xl pt-4 mb-10">
-            With exit points tailored to your goals, our NSQF-certified{" "}
-            <br className="hidden lg:block" />
+          <p className="text-[#AC6CFF] text-xl pt-4 mb-10">
+            With exit points tailored to your goals, our{" "}
+            <span className="text-[#ff6b35] font-semibold">NSQF-certified</span>{" "}
             program offers flexibility
           </p>
         </div>

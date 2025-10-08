@@ -37,7 +37,7 @@ const containerVariants = {
   visible: {
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.5, // delay so heading shows first
+      delayChildren: 0.5,
     },
   },
 };
@@ -65,14 +65,13 @@ const KickStart = () => {
   const scrollContainerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+  const [scrollDirection, setScrollDirection] = useState(1);
   const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
-    // Start auto-scroll after animations complete
     const timer = setTimeout(() => {
       setAnimationComplete(true);
-    }, 2000); // Adjust timing based on your animation duration
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [isInView]);
@@ -80,7 +79,6 @@ const KickStart = () => {
   useEffect(() => {
     if (!animationComplete || !scrollContainerRef.current) return;
 
-    // Check if device is mobile (not lg)
     const isMobile = () => window.innerWidth < 1024;
 
     if (!isMobile()) return;
@@ -93,26 +91,22 @@ const KickStart = () => {
 
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
       const currentScroll = scrollContainer.scrollLeft;
-      const scrollSpeed = 1; // Adjust speed as needed
+      const scrollSpeed = 1;
 
-      // Change direction when reaching edges
       if (currentScroll >= maxScrollLeft) {
         setScrollDirection(-1);
       } else if (currentScroll <= 0) {
         setScrollDirection(1);
       }
 
-      // Scroll in current direction
       scrollContainer.scrollLeft += scrollDirection * scrollSpeed;
 
       animationId = requestAnimationFrame(autoScroll);
     };
 
-    // Start auto-scroll
     setIsScrolling(true);
     animationId = requestAnimationFrame(autoScroll);
 
-    // Pause on hover/touch
     const pauseScroll = () => {
       if (animationId) {
         cancelAnimationFrame(animationId);
@@ -132,7 +126,6 @@ const KickStart = () => {
     scrollContainer.addEventListener('touchstart', pauseScroll);
     scrollContainer.addEventListener('touchend', resumeScroll);
 
-    // Handle window resize
     const handleResize = () => {
       if (!isMobile() && animationId) {
         cancelAnimationFrame(animationId);
@@ -157,13 +150,13 @@ const KickStart = () => {
   }, [animationComplete, scrollDirection, isScrolling]);
 
   return (
-    <div className="bg-[#EADAFF] p-3 lg:p-8 ">
+    <div className="bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] p-3 lg:p-8 ">
       {/* Mobile Head */}
       <motion.h1
         variants={headingVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="lg:hidden text-center text-[#2B2038] text-5xl font-extrabold pb-16 pt-9 leading-tight"
+        className="lg:hidden text-center text-white text-5xl font-extrabold pb-16 pt-9 leading-tight"
       >
         Kickstart <br /> Your Career
       </motion.h1>
@@ -173,7 +166,7 @@ const KickStart = () => {
         variants={headingVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="hidden lg:block text-center text-[#2B2038] text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight"
+        className="hidden lg:block text-center text-white text-3xl lg:text-6xl font-extrabold lg:pb-16 pt-9 leading-tight"
       >
         Kickstart Your Career
       </motion.h1>
@@ -194,7 +187,7 @@ const KickStart = () => {
             <motion.div
               key={card.id}
               variants={cardVariants}
-              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#2B2038] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 "
+              className="w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-gradient-to-br from-[#2d1b4e] to-[#4a1f6b] rounded-4xl overflow-hidden shadow-lg flex-shrink-0 flex flex-col items-center justify-start p-6 mb-14 border border-[#00d4ff]/20"
             >
               <div className="relative w-full h-[300px] rounded-4xl overflow-hidden">
                 <Image

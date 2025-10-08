@@ -35,11 +35,11 @@ const ShapeTheFuture = () => {
   };
 
   return (
-    <div className="p-5 lg:p-0 bg-[#181234] lg:min-h-screen flex justify-center items-center">
+    <div className="p-5 lg:p-0 bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] lg:min-h-screen flex justify-center items-center">
       {/* Card with relative position */}
       <motion.div
         ref={ref}
-        className="relative bg-[#3F1F55] z-20 rounded-xl p-8 text-center max-w-7xl w-full shadow-lg"
+        className="relative bg-gradient-to-br from-[#2d1b4e] to-[#4a1f6b] z-20 rounded-xl p-8 text-center max-w-7xl w-full shadow-lg border border-[#00d4ff]/20"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -55,7 +55,7 @@ const ShapeTheFuture = () => {
         />
 
         <motion.h2
-          className="text-3xl lg:text-5xl font-bold text-[#fff] mb-4 py-6"
+          className="text-3xl lg:text-5xl font-bold text-white mb-4 py-6"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -64,7 +64,7 @@ const ShapeTheFuture = () => {
         </motion.h2>
 
         <motion.p
-          className="text-lg lg:text-3xl text-[#fff] mb-6 lg:px-28"
+          className="text-lg lg:text-3xl text-white mb-6 lg:px-28"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -72,15 +72,15 @@ const ShapeTheFuture = () => {
           The world needs innovators, problem-solvers, and tech leaders. Our
           program is designed to equip you with the skills and experience to
           jump right into the heart of the AI & ML revolution. Your future
-          starts now— and we’re here to guide you every step of the way.
+          starts now— and we're here to guide you every step of the way.
         </motion.p>
 
         <motion.a
-          href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+          href="https://wa.me/919892398976?text=Hi, I'm interested in enrolling in your course!"
             target="_blank"
             rel="noopener noreferrer"
           
-          className="hidden w-44 lg:flex bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap"
+          className="hidden w-44 lg:flex bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap shadow-lg"
           variants={buttonVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -104,11 +104,11 @@ const ShapeTheFuture = () => {
 
           {/* Centered Button */}
           <motion.a
-             href="https://wa.me/919892398976?text=Hi, I’m interested in enrolling in your course!"
+             href="https://wa.me/919892398976?text=Hi, I'm interested in enrolling in your course!"
             target="_blank"
             rel="noopener noreferrer"
 
-            className="w-44 bg-[#EADAFF] text-[#AC6CFF] mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap"
+            className="w-44 bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white mt-5 mb-40 ml-[-90px] rounded-full px-8 py-3 flex items-center justify-center gap-2 mx-auto whitespace-nowrap shadow-lg"
             variants={buttonVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

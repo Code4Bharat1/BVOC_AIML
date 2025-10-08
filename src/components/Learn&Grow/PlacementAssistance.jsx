@@ -2,30 +2,31 @@
 
 import React from "react";
 import Image from "next/image";
-import { IoMdPlay } from "react-icons/io";
 import { motion } from "framer-motion";
 import EnrollNow from "../Hub/EnrollNow";
 
 const PlacementAssistance = () => {
   return (
-    // Wrapper to prevent horizontal scrollbar during animation
-    <section className="overflow-x-hidden w-7xl max-w-full mx-auto px-6 py-20 bg-[url('/placement-Assist-bg-mob.svg')] bg-no-repeat bg-cover lg:bg-none mb-8">
-      <div className="flex flex-col lg:flex-row items-center gap-10">
+    <section className="w-full overflow-x-hidden px-6 py-20 bg-gradient-to-r from-[#EADAFF] to-[#D6B3FF] rounded-none shadow-lg mb-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Left Side Image */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-1/2 flex justify-center"
         >
-          <Image
-            src="/placement-card.png "
-            alt="Placement Assistance"
-            width={500}
-            height={200}
-            className="rounded-2xl lg:w-full lg:h-96 object-cover"
-          />
+          <div className="relative w-full max-w-md lg:max-w-none">
+            <Image
+              src="/placement-card.png"
+              alt="Placement Assistance"
+              width={500}
+              height={300}
+              className="rounded-3xl w-full object-cover shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#A33DFF]/10 to-transparent rounded-3xl"></div>
+          </div>
         </motion.div>
 
         {/* Right Side Text */}
@@ -36,32 +37,54 @@ const PlacementAssistance = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/2 text-center lg:text-start"
         >
-          {/* For desktop */}
-          <h1 className="hidden lg:block text-5xl font-bold text-white leading-tight mb-10">
-            Placement Assistance: <br className="hidden lg:block" />
-            <span className="text-[#AC6CFF]">Your Path to Success!</span>
+          {/* Desktop Header */}
+          <h1 className="hidden lg:block text-5xl font-extrabold text-[#A33DFF] leading-tight mb-8">
+            Placement Assistance:
+            <br />
+            <span className="text-black">Your Path to Success!</span>
           </h1>
-          <p className="hidden lg:block text-2xl text-white my-14 pr-20">
-            At <span className="text-[#AC6CFF]"> Nexcore Alliance LLP</span>, we
-            don't just teach—you <span className="text-[#AC6CFF]"> intern</span>{" "}
-            and <span className="text-[#AC6CFF]">work</span>. Our{" "}
-            <span className="text-[#AC6CFF]">100% placement assistance</span>{" "}
-            ensures you're job-ready.
+
+          {/* Desktop Text */}
+          <p className="hidden lg:block text-xl text-black font-medium leading-relaxed pr-10">
+            At{" "}
+            <span className="font-bold text-[#A33DFF]">
+              Nexcore Alliance LLP
+            </span>
+            , we don’t just teach—you{" "}
+            <span className="text-[#A33DFF] font-bold">intern</span> and{" "}
+            <span className="text-[#A33DFF] font-bold">work</span>. Our{" "}
+            <span className="font-bold text-[#A33DFF]">
+              100% placement assistance
+            </span>{" "}
+            ensures you’re job-ready for the real world.
           </p>
 
-          {/* For Mobile */}
-          <h1 className="lg:hidden text-3xl font-bold text-black text-center leading-tight mb-4">
-            Placement Assistance: <br />
-            <span className="text-[#460E73]">Your Path to Success!</span>
+          {/* Mobile Header */}
+          <h1 className="lg:hidden text-3xl font-extrabold text-[#A33DFF] leading-tight mb-4 text-center">
+            Placement Assistance:
+            <br />
+            <span className="text-black">Your Path to Success!</span>
           </h1>
-          <p className="lg:hidden text-lg text-balck font-bold px-6 mb-6 text-center">
-            At <span className="text-[#460E73]"> Nexcore Alliance LLP</span>, we
-            don't just teach—you <span className="text-[#460E73]"> intern</span>{" "}
-            and <span className="text-[#460E73]">work</span>. Our{" "}
-            <span className="text-[#460E73]">100% placement assistance</span>{" "}
-            ensures you're job-ready.
+
+          {/* Mobile Text */}
+          <p className="lg:hidden text-base text-black font-medium px-4 mb-6 text-center">
+            At{" "}
+            <span className="font-bold text-[#A33DFF]">
+              Nexcore Alliance LLP
+            </span>
+            , we don’t just teach—you{" "}
+            <span className="font-bold text-[#A33DFF]">intern</span> and{" "}
+            <span className="font-bold text-[#A33DFF]">work</span>. Our{" "}
+            <span className="font-bold text-[#A33DFF]">
+              100% placement assistance
+            </span>{" "}
+            ensures you’re job-ready.
           </p>
-          <EnrollNow />
+
+          {/* CTA Button */}
+          <div className="mt-6">
+            <EnrollNow />
+          </div>
         </motion.div>
       </div>
     </section>

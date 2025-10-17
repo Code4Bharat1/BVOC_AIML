@@ -1,267 +1,226 @@
 "use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { HiSparkles } from "react-icons/hi";
+import { FaUsers, FaCode, FaComments, FaChartLine } from "react-icons/fa";
 
-// Star component to create individual stars with glow animation
-const Star = ({ top, left, size, opacity, delay }) => {
+const Star = ({ top, left, size, delay }) => {
   return (
     <div
-      className="absolute"
+      className="absolute animate-pulse"
       style={{
         top: `${top}%`,
         left: `${left}%`,
-        opacity: opacity,
-        animation: `glow 3s infinite ${delay}s`,
+        animationDelay: `${delay}s`,
+        animationDuration: "3s"
       }}
     >
-      <div
-        className="relative"
-        style={{
-          width: `${size * 20}px`,
-          height: `${size * 20}px`,
-        }}
-      >
-        <Image
-          src="/star.png"
-          alt="Star"
-          fill
-          className="animate-pulse"
-          style={{
-            filter: "drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))",
-            animationDuration: "3s",
-            animationDelay: `${delay}s`,
-          }}
-        />
-      </div>
+      <HiSparkles 
+        className="text-cyan-300" 
+        style={{ fontSize: `${size * 20}px` }}
+      />
     </div>
   );
 };
 
 const PeerToPeerLearning = () => {
   return (
-    <div className="text-white py-10 text-center md:space-y-16 space-y-0">
-      <style jsx global>{`
-        @keyframes glow {
-          0% {
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-          }
-          50% {
-            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
-          }
-          100% {
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-          }
-        }
-      `}</style>
-
-      {/* Header */}
-      <div className="text-3xl md:text-4xl font-semibold space-y-2 px-4 pb-8 md:pb-0 relative">
-        <div className="text-white flex items-center justify-center">
-          <div className="relative w-6 h-6 mr-2">
-            <Image
-              src="/star.png"
-              alt="Star"
-              fill
-              className="animate-pulse"
-              style={{
-                filter: "drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))",
-                animationDuration: "3s",
-              }}
-            />
-          </div>
-          Peer-to-Peer Learning:
-        </div>
-        <div className="text-purple-700 font-bold flex items-center justify-center">
-          Learn, Collaborate, Grow Together
-          <div className="relative w-6 h-6 ml-2">
-            <Image
-              src="/star.png"
-              alt="Star"
-              fill
-              className="animate-pulse"
-              style={{
-                filter: "drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))",
-                animationDuration: "3s",
-                animationDelay: "1.5s",
-              }}
-            />
-          </div>
-        </div>
+    <div className="relative bg-gradient-to-br from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] text-white py-16 overflow-hidden">
+      {/* Background Stars */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <HiSparkles className="absolute top-10 left-10 text-cyan-400 text-3xl animate-pulse" />
+        <HiSparkles className="absolute top-32 right-20 text-orange-400 text-2xl animate-pulse delay-300" />
+        <HiSparkles className="absolute bottom-32 left-1/4 text-purple-400 text-4xl animate-pulse delay-700" />
+        <HiSparkles className="absolute bottom-20 right-1/3 text-yellow-400 text-2xl animate-pulse delay-1000" />
       </div>
 
-      {/* Sections */}
-      <Section
-        bgColor="#D1A8EB"
-        textColor="text-black"
-        leftCircle={"/elements/CircleElement_Home.svg"}
-        title="Collaborative Learning Environment"
-        desc="At Nexcore, we believe in the power of learning "
-        boldPhrases={["together", "peer-to-peer learning platform"]}
-        tailText=" connects you with like-minded students, fostering collaboration, innovation, and deeper learning."
-        image="/peertopeer/image1.png"
-        reverseOnDesktop={false}
-        boldColor="text-[#6B009D]"
-        stars={[
-          { top: 15, left: 10, size: 1.2, opacity: 0.7, delay: 0 },
-          { top: 75, left: 85, size: 1.0, opacity: 0.8, delay: 1.5 },
-          { top: 25, left: 90, size: 1.4, opacity: 0.6, delay: 0.8 },
-        ]}
-      />
+      {/* Gradient Orbs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
 
-      <Section
-        bgColor="#9E52C3"
-        textColor="text-black"
-        rightCircle={"/elements/CircleElementRight.svg"}
-        title="Group Projects & Hackathons"
-        desc="Work alongside your peers on "
-        boldPhrases={["real-world projects", "hackathons", "doing"]}
-        tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
-        image="/peertopeer/image2.png"
-        boldColor="text-white"
-        reverseOnDesktop={true}
-        stars={[
-          { top: 20, left: 15, size: 1.1, opacity: 0.7, delay: 0.5 },
-          { top: 70, left: 80, size: 1.3, opacity: 0.6, delay: 1.8 },
-        ]}
-      />
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <HiSparkles className="text-cyan-400 text-3xl animate-pulse" />
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              Peer-to-Peer Learning:
+            </h1>
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              Learn, Collaborate, Grow Together
+            </h2>
+            <HiSparkles className="text-orange-400 text-3xl animate-pulse delay-500" />
+          </div>
+        </div>
 
-      <Section
-        bgColor="#6A1A89"
-        textColor="text-white"
-        leftCircle={"/elements/CircleElement_Home.svg"}
-        title="Discussion Boards & Networking"
-        desc="Engage in "
-        boldPhrases={["discussions", "industry-driven topics"]}
-        tailText=" through our interactive discussion boards. Learn from diverse perspectives and build your professional network."
-        image="/peertopeer/image3.png"
-        reverseOnDesktop={false}
-        boldColor="text-[#AC6CFF]"
-        stars={[
-          { top: 15, left: 85, size: 1.2, opacity: 0.8, delay: 0.3 },
-          { top: 65, left: 8, size: 1.0, opacity: 0.9, delay: 1.2 },
-          { top: 30, left: 50, size: 1.3, opacity: 0.7, delay: 2.1 },
-        ]}
-      />
+        {/* Sections */}
+        <div className="space-y-0">
+          <Section
+            bgGradient="from-cyan-400/20 to-purple-400/20"
+            borderColor="border-cyan-400/30"
+            icon={<FaUsers className="text-4xl text-cyan-400" />}
+            title="Collaborative Learning Environment"
+            desc="At Nexcore, we believe in the power of learning "
+            boldPhrases={["together", "peer-to-peer learning platform"]}
+            tailText=" connects you with like-minded students, fostering collaboration, innovation, and deeper learning."
+            image="/peertopeer/image1.png"
+            reverseOnDesktop={false}
+            highlightColor="text-cyan-300"
+            stars={[
+              { top: 15, left: 10, size: 1.2, delay: 0 },
+              { top: 75, left: 85, size: 1.0, delay: 1.5 },
+            ]}
+          />
 
-      <Section
-        bgColor="#3A0B57"
-        textColor="text-white"
-        rightCircle={"/elements/CircleElementRight.svg"}
-        title="Build Skills for Success"
-        desc="Through collaboration, you'll sharpen essential "
-        boldPhrases={["problem-solving", "communication skills"]}
-        tailText=", key assets for success in any career."
-        image="/peertopeer/image4.svg"
-        reverseOnDesktop={true}
-        boldColor="text-[#AC6CFF]"
-        stars={[
-          { top: 20, left: 20, size: 1.2, opacity: 0.8, delay: 0.7 },
-          { top: 75, left: 75, size: 1.4, opacity: 0.7, delay: 1.5 },
-        ]}
-      />
+          <Section
+            bgGradient="from-purple-500/20 to-pink-500/20"
+            borderColor="border-purple-400/30"
+            icon={<FaCode className="text-4xl text-purple-400" />}
+            title="Group Projects & Hackathons"
+            desc="Work alongside your peers on "
+            boldPhrases={["real-world projects", "hackathons"]}
+            tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
+            boldPhrases2={["doing"]}
+            image="/peertopeer/image2.png"
+            highlightColor="text-orange-300"
+            reverseOnDesktop={true}
+            stars={[
+              { top: 20, left: 15, size: 1.1, delay: 0.5 },
+              { top: 70, left: 80, size: 1.3, delay: 1.8 },
+            ]}
+          />
+
+          <Section
+            bgGradient="from-blue-600/20 to-indigo-600/20"
+            borderColor="border-blue-400/30"
+            icon={<FaComments className="text-4xl text-blue-400" />}
+            title="Discussion Boards & Networking"
+            desc="Engage in "
+            boldPhrases={["discussions", "industry-driven topics"]}
+            tailText=" through our interactive discussion boards. Learn from diverse perspectives and build your professional network."
+            image="/peertopeer/image3.png"
+            reverseOnDesktop={false}
+            highlightColor="text-cyan-300"
+            stars={[
+              { top: 15, left: 85, size: 1.2, delay: 0.3 },
+              { top: 65, left: 8, size: 1.0, delay: 1.2 },
+            ]}
+          />
+
+          <Section
+            bgGradient="from-indigo-700/20 to-purple-700/20"
+            borderColor="border-indigo-400/30"
+            icon={<FaChartLine className="text-4xl text-indigo-400" />}
+            title="Build Skills for Success"
+            desc="Through collaboration, you'll sharpen essential "
+            boldPhrases={["problem-solving", "communication skills"]}
+            tailText=", key assets for success in any career."
+            image="/peertopeer/image4.svg"
+            reverseOnDesktop={true}
+            highlightColor="text-purple-300"
+            stars={[
+              { top: 20, left: 20, size: 1.2, delay: 0.7 },
+              { top: 75, left: 75, size: 1.4, delay: 1.5 },
+            ]}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
 const Section = ({
-  bgColor,
-  textColor,
+  bgGradient,
+  borderColor,
+  icon,
   title,
   desc,
-  boldPhrases,
+  boldPhrases = [],
+  boldPhrases2 = [],
   tailText,
   image,
   reverseOnDesktop,
-  boldColor = "text-purple-700",
+  highlightColor,
   stars = [],
-  leftCircle,
-  rightCircle,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className={`${textColor} py-14 px-4 md:px-12 flex flex-col items-center gap-8 shadow-lg relative overflow-hidden`}
-      style={{ backgroundColor: bgColor }}
+      className={`relative py-16 px-6 md:px-12 my-8 rounded-3xl border-2 ${borderColor} bg-gradient-to-br ${bgGradient} backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-[1.02]`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop Title */}
-      <div className="hidden md:block w-full text-center mt-4">
-        <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
-      </div>
-
-      {/* Decorative Circles */}
-      {leftCircle && (
-        <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-0 opacity-50">
-          <Image
-            src={leftCircle}
-            alt="Left Circle"
-            width={100}
-            height={100}
-            className="object-contain"
-          />
-        </div>
-      )}
-      {rightCircle && (
-        <div className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 translate-x-1/2 z-0 opacity-50">
-          <Image
-            src={rightCircle}
-            alt="Right Circle"
-            width={100}
-            height={100}
-            className="object-contain"
-          />
-        </div>
-      )}
-
       {/* Animated Stars */}
       {stars.map((star, index) => (
         <Star key={index} {...star} />
       ))}
 
-      {/* Main Content */}
+      {/* Glow Effect on Hover */}
+      {isHovered && (
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 blur-xl transition-opacity duration-500" />
+      )}
+
+      {/* Content */}
       <div
         className={`flex flex-col ${
           reverseOnDesktop ? "md:flex-row-reverse" : "md:flex-row"
-        } items-center gap-6 md:gap-10 w-full relative z-10`}
+        } items-center gap-8 md:gap-12 relative z-10`}
       >
-        {/* Image */}
-        <motion.div
-          className="flex-1 flex justify-center w-full relative z-10"
-          initial={{ opacity: 0, x: reverseOnDesktop ? 100 : -100, y: -50 }}
-          whileInView={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <Image
-            src={image}
-            alt={title}
-            width={320}
-            height={240}
-            className="shadow-md w-full max-w-[350px] object-contain"
-          />
-        </motion.div>
+        {/* Image Side */}
+        <div className="flex-1 flex justify-center">
+          <div className="relative group">
+            {/* Glow behind image */}
+            <div className={`absolute -inset-2 bg-gradient-to-r ${bgGradient} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500`} />
+            
+            <div className="relative rounded-2xl overflow-hidden border-2 border-white/10 bg-white/5 backdrop-blur-sm p-4">
+              <img
+                src={image}
+                alt={title}
+                className="w-full max-w-[350px] object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
 
-        {/* Text Content */}
-        <motion.div
-          className="flex-1 flex flex-col items-center md:items-start space-y-4 text-lg md:text-2xl leading-relaxed text-center md:text-left relative z-10"
-          initial={{ opacity: 0, x: reverseOnDesktop ? -100 : 100, y: 50 }}
-          whileInView={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h1 className="block md:hidden text-2xl font-bold leading-snug max-w-4xl">
-            {title}
-          </h1>
-          <p>
+        {/* Text Side */}
+        <div className="flex-1 space-y-6">
+          {/* Icon & Title */}
+          <div className="flex items-center gap-4 mb-4">
+            <div className={`p-3 rounded-xl bg-gradient-to-br ${bgGradient} border ${borderColor}`}>
+              {icon}
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              {title}
+            </h2>
+          </div>
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
             {desc}
             {boldPhrases.map((phrase, i) => (
-              <span key={i} className={`font-bold ${boldColor}`}>
+              <span key={i} className={`font-bold ${highlightColor}`}>
                 {phrase}
                 {i < boldPhrases.length - 1 && ", "}
               </span>
             ))}
             {tailText}
+            {boldPhrases2 && boldPhrases2.map((phrase, i) => (
+              <span key={`b2-${i}`} className={`font-bold ${highlightColor}`}>
+                {phrase}
+              </span>
+            ))}
           </p>
-        </motion.div>
+
+          {/* Decorative line */}
+          <div className={`h-1 w-24 bg-gradient-to-r ${bgGradient} rounded-full`} />
+        </div>
       </div>
+
+      {/* Corner Decorations */}
+      <div className={`absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 ${borderColor} rounded-tl-3xl opacity-50`} />
+      <div className={`absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 ${borderColor} rounded-br-3xl opacity-50`} />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 const ShapeTheFuture = () => {
   const ref = useRef(null);
@@ -75,20 +76,20 @@ const ShapeTheFuture = () => {
           starts now— and we're here to guide you every step of the way.
         </motion.p>
 
-        <motion.a
-          href="https://wa.me/919892398976?text=Hi, I'm interested in enrolling in your course!"
-            target="_blank"
-            rel="noopener noreferrer"
-          
-          className="hidden w-44 lg:flex bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap shadow-lg"
-          variants={buttonVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get Started <ChevronRight />
-        </motion.a>
+        <motion.div
+  variants={buttonVariants}
+  initial="hidden"
+  animate={isInView ? "visible" : "hidden"}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Link
+    href="/contact"
+    className="hidden w-44 lg:flex bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap shadow-lg"
+  >
+    Get Started <ChevronRight />
+  </Link>
+</motion.div>
 
         <div className="lg:hidden flex flex-row items-end justify-between gap-0.5 w-full ml-[-63px]">
           {/* Image touching left edge */}

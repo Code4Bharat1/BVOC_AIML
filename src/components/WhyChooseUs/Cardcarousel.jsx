@@ -1,115 +1,67 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { HiSparkles } from "react-icons/hi";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-// Card data
 const cards = [
   {
     title: "Personalized Learning Path",
-    description: (
-      <>
-        Our AI-driven tools create a{" "}
-        <span className="text-white font-medium">
-          customized learning journey
-        </span>
-        ,{" "}
-        <span className="text-purple-400">
-          recommending relevant courses, projects, and resources
-        </span>{" "}
-        based on your goals and progress.
-      </>
-    ),
+    description: "Our AI-driven tools create a customized learning journey, recommending relevant courses, projects, and resources based on your goals and progress.",
     image: "/chat-ai.png",
+    tag: "ADAPTIVE AI",
+    color: "cyan"
   },
   {
     title: "Real-Time Content Recommendations",
-    description: (
-      <>
-        Get <span className="text-white font-medium">smart suggestions</span>{" "}
-        <span className="text-purple-400">tailored to your interests</span>,
-        keeping you on track and ensuring you always have the best resources at
-        your fingertips.
-      </>
-    ),
+    description: "Get smart suggestions tailored to your interests, keeping you on track and ensuring you always have the best resources at your fingertips.",
     image: "/recommendation.png",
+    tag: "SMART FEED",
+    color: "orange"
   },
   {
     title: "Track Progress with Insights",
-    description: (
-      <>
-        Stay motivated with{" "}
-        <span className="text-white font-medium">data-driven insights</span>{" "}
-        that show your growth and guide your next steps,{" "}
-        <span className="text-purple-400">
-          making your learning experience more efficient
-        </span>
-        .
-      </>
-    ),
+    description: "Stay motivated with data-driven insights that show your growth and guide your next steps, making your learning experience more efficient.",
     image: "/insights.png",
+    tag: "ANALYTICS",
+    color: "purple"
   },
   {
     title: "Industry-Ready Tools",
-    description: (
-      <>
-        Access the latest{" "}
-        <span className="text-white font-medium">AI-powered tools</span>,{" "}
-        <span className="text-purple-400">equipping you with the skills</span>{" "}
-        that are shaping the future of work.
-      </>
-    ),
+    description: "Access the latest AI-powered tools, equipping you with the skills that are shaping the future of work.",
     image: "/tools.png",
+    tag: "FUTURE READY",
+    color: "blue"
   },
 ];
 
-export default function AIToolsManagement() {
+export default function EnhancedAITools() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
   const touchStartX = useRef(0);
-  const [loaded, setLoaded] = useState(false); // NEW
-  useEffect(() => {
-    setLoaded(true); // trigger fade-in on mount
-  }, []);
 
-  // Auto-rotate cards
   useEffect(() => {
     if (!isPaused) {
       timerRef.current = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
-      }, 5000); // Change card every 5 seconds
+        setActiveIndex((prev) => (prev + 1) % cards.length);
+      }, 5000);
     }
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
+    return () => clearInterval(timerRef.current);
   }, [isPaused]);
 
-  const nextCard = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % cards.length);
     setIsPaused(true);
-    // Resume auto-rotation after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
+    setTimeout(() => setIsPaused(false), 8000);
   };
 
-  const prevCard = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length
-    );
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
     setIsPaused(true);
-    // Resume auto-rotation after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
+    setTimeout(() => setIsPaused(false), 8000);
   };
 
-  // Touch event handlers for swipe functionality
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
     setIsPaused(true);
@@ -118,317 +70,268 @@ export default function AIToolsManagement() {
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
-
-    // Swipe threshold of 50px
     if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        // Swipe left to go to next card
-        nextCard();
-      } else {
-        // Swipe right to go to previous card
-        prevCard();
-      }
+      diff > 0 ? handleNext() : handlePrev();
     }
-
-    // Resume auto-rotation after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
+    setTimeout(() => setIsPaused(false), 8000);
   };
 
   return (
-    <div
-      className={`bg-[#232529] min-h-screen py-16 px-4 transition-opacity duration-1000 ${
-        loaded ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      <div className="bg-[#232529] min-h-screen py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-16 relative">
-            <h1 className="text-4xl font-bold text-white mb-2 mt-6">
-              AI Tools Management{" "}
-              <span className="absolute text-purple-300 text-sm top-0 right-1/3">
-                ++
-              </span>
-            </h1>
-            <p className="text-4xl text-purple-400 font-semibold relative">
-              <span className="absolute text-purple-300 text-sm -left-4 top-1">
-                ++
-              </span>
-              A Smarter Way to Learn <span className="text-purple-500">!</span>
-            </p>
+    <div className="relative min-h-screen bg-gradient-to-br from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] py-24 px-4 overflow-hidden">
+      {/* Background Stars */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <HiSparkles className="absolute top-10 left-10 text-cyan-400 text-3xl animate-pulse" />
+        <HiSparkles className="absolute top-32 right-20 text-orange-400 text-2xl animate-pulse delay-300" />
+        <HiSparkles className="absolute bottom-32 left-1/4 text-purple-400 text-4xl animate-pulse delay-700" />
+        <HiSparkles className="absolute bottom-20 right-1/3 text-yellow-400 text-2xl animate-pulse delay-1000" />
+        <div className="absolute top-20 right-1/4 w-1 h-1 bg-cyan-400 rounded-full animate-ping" />
+        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-orange-400 rounded-full animate-ping delay-500" />
+      </div>
+
+      {/* Gradient Orbs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-24">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <HiSparkles className="text-cyan-400 text-3xl animate-pulse" />
+            <div className="inline-block px-6 py-2 bg-cyan-500/10 border-2 border-cyan-500/30 rounded-full">
+              <span className="text-cyan-400 text-sm font-bold tracking-widest">AI-POWERED LEARNING</span>
+            </div>
+            <HiSparkles className="text-orange-400 text-3xl animate-pulse delay-500" />
           </div>
 
-          {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {cards.map((card, index) => (
-              <div key={index} className="relative group">
-                {/* Card Container */}
-                <div className="relative">
-                  {/* Card Content */}
-                  <div
-                    className="bg-[#1a1a2e] relative z-10 h-[480px] overflow-hidden border-2 border-purple-500 rounded-t-lg
-                  [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)] transition-all duration-300"
-                  >
-                    {/* Image Section */}
-                    <div className="h-[45%] overflow-hidden">
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            AI Tools Management
+          </h1>
+          <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            A Smarter Way to Learn!
+          </p>
 
-                    {/* Content Section */}
-                    <div className="p-5 h-[55%] flex flex-col border-2 border-purple-500">
-                      {card.highlight && (
-                        <div className="text-purple-400 text-sm font-semibold mb-2">
-                          {card.highlight}
-                        </div>
-                      )}
-                      <h3 className="text-white text-xl font-bold mb-3 text-center">
-                        {card.title}
-                      </h3>
-                      <div className="text-sm text-gray-300 leading-relaxed text-center">
-                        {card.description}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Improved Purple Slanted Bottom Border */}
-                  <div className="absolute bottom-0 left-0 w-full h-10 bg-transparent">
-                    <svg
-                      className="w-full h-full"
-                      preserveAspectRatio="none"
-                      viewBox="0 0 100 50"
-                    >
-                      <polygon
-                        points="0,0 100,0 100,50 0,10" // Increased Y value at left-bottom for deeper right slant
-                        className="fill-purple-500"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Shadow */}
-                  <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
-                    <svg
-                      className="w-full h-full"
-                      preserveAspectRatio="none"
-                      viewBox="0 0 100 50"
-                    >
-                      <polygon
-                        points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
-                        className="fill-purple-500"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
+            <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
           </div>
+        </div>
 
-          {/* Enhanced Mobile Carousel */}
-          <div className="md:hidden">
-            <div
-              className="relative"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Card Content */}
-              <div
-                className="bg-[#1a1a2e] relative z-10 h-[550px] overflow-hidden border-2 border-purple-500 rounded-t-lg
-                            [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)]"
-              >
-                {/* Image Section */}
-                <div className="h-[45%] overflow-hidden">
+        {/* Desktop: Split View Design */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-2 gap-8 mb-12">
+            {/* Left: Large Active Card */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-purple-600 to-orange-600 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition duration-1000 animate-pulse" />
+              
+              <div className="relative h-[600px] rounded-3xl overflow-hidden bg-[#1a2847] border-2 border-cyan-500/50">
+                {/* Image with Overlay */}
+                <div className="relative h-72 overflow-hidden">
                   <img
                     src={cards[activeIndex].image}
                     alt={cards[activeIndex].title}
-                    className="w-full h-full object-cover transition-all duration-500"
+                    className="w-full h-full object-cover"
                   />
-
-                  {/* Highlight Badge */}
-                  {cards[activeIndex].highlight && (
-                    <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-                      {cards[activeIndex].highlight}
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Section */}
-                <div className="p-6 flex flex-col">
-                  <h3 className="text-white text-2xl font-bold mb-4 text-center">
-                    {cards[activeIndex].title}
-                  </h3>
-                  <div className="text-gray-300 leading-relaxed text-center">
-                    {cards[activeIndex].description}
-                  </div>
-
-                  {/* Swipe Indicator */}
-                  <div className="absolute bottom-20 left-0 w-full flex justify-center items-center mt-4">
-                    <div className="text-gray-400 text-xs flex items-center py-1 px-3 bg-gray-800/40 rounded-full animate-pulse">
-                      <span className="mr-1">◀</span>
-                      Swipe to navigate
-                      <span className="ml-1">▶</span>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a2847]/50 to-[#1a2847]" />
+                  
+                  {/* Floating Tag */}
+                  <div className="absolute top-6 right-6">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-cyan-500/20 backdrop-blur-md border-2 border-cyan-500/40 rounded-full">
+                      <HiSparkles className="text-cyan-400" />
+                      <span className="text-xs font-bold text-white tracking-wider">
+                        {cards[activeIndex].tag}
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="absolute bottom-26 left-0 w-full h-10 bg-transparent rotate-[2deg]">
-                <svg
-                  className="w-full h-full"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 100 100"
-                >
-                  <polygon
-                    points="0,0 100,0 100,100 0,5"
-                    className="fill-purple-500"
-                  />
-                </svg>
-              </div>
-              {/* Shadow */}
-              <div className="absolute w-full h-full bottom-0 left-0 -z-10 transform translate-y-2">
-                <svg
-                  className="w-full h-full"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 100 50"
-                >
-                  <polygon
-                    points="0,0 100,0 100,50 0,9.5" // Match the shape, but slightly shallower for shadow effect
-                    className="fill-purple-500"
-                  />
-                </svg>
-              </div>
 
-              {/* Card Shadow with Slant */}
-              <div
-                className="absolute w-full h-full bottom-0 left-0
-                          [clip-path:polygon(0_0,100%_0,100%_100%,0_92%)]
-                          bg-white -z-10 transform translate-y-2"
-              ></div>
+                {/* Content */}
+                <div className="p-8">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-cyan-500/50">
+                      {activeIndex + 1}
+                    </div>
+                    <div>
+                      <h2 className="text-3xl font-bold text-white mb-3 leading-tight">
+                        {cards[activeIndex].title}
+                      </h2>
+                      <p className="text-gray-300 text-lg leading-relaxed">
+                        {cards[activeIndex].description}
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Clear spacer to ensure proper layout */}
-              <div className="h-6"></div>
+                  {/* Feature List */}
+                  <div className="space-y-3 mt-8">
+                    {['AI-Powered Analysis', 'Real-Time Updates', 'Personalized Experience'].map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3 text-cyan-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-              {/* Navigation Controls */}
-              <div className="mt-12 flex flex-col items-center">
-                {/* Progress Indicators */}
-                <div className="flex space-x-2 mb-6">
-                  {cards.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setActiveIndex(index);
-                        setIsPaused(true);
-                        setTimeout(() => setIsPaused(false), 10000);
-                      }}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeIndex
-                          ? "bg-purple-500 w-6"
-                          : "bg-gray-600"
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
+                  {/* CTA Button */}
+                  <button className="mt-8 w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/50">
+                    Explore Feature →
+                  </button>
                 </div>
+
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-3xl" />
+                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-purple-500/50 rounded-br-3xl" />
               </div>
             </div>
+
+            {/* Right: Vertical Stack of Other Cards */}
+            <div className="space-y-4">
+              {cards.map((card, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setIsPaused(true);
+                    setTimeout(() => setIsPaused(false), 8000);
+                  }}
+                  className={`w-full text-left transition-all duration-500 ${
+                    index === activeIndex ? 'opacity-50 pointer-events-none' : 'hover:scale-105'
+                  }`}
+                >
+                  <div className={`relative rounded-2xl overflow-hidden border-2 ${
+                    index === activeIndex 
+                      ? 'border-cyan-500/20 bg-[#1a2847]/50'
+                      : 'border-cyan-500/30 bg-[#1a2847] hover:border-cyan-500 hover:bg-[#1a2847]/80'
+                  }`}>
+                    <div className="flex items-center gap-4 p-5">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border-2 border-cyan-500/50">
+                        <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 to-transparent" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs text-cyan-400 font-semibold mb-1 tracking-wider">
+                          {card.tag}
+                        </div>
+                        <h3 className="text-white font-bold text-lg mb-1 truncate">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm line-clamp-2">
+                          {card.description}
+                        </p>
+                      </div>
+                      <FaChevronRight className="text-cyan-400 text-xl flex-shrink-0" />
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-3">
+            {cards.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setIsPaused(true);
+                  setTimeout(() => setIsPaused(false), 8000);
+                }}
+                className="group relative"
+              >
+                <div className={`transition-all duration-300 rounded-full ${
+                  index === activeIndex
+                    ? 'w-12 h-3 bg-gradient-to-r from-cyan-500 to-purple-500'
+                    : 'w-3 h-3 bg-gray-600 group-hover:bg-cyan-400'
+                }`} />
+                {index === activeIndex && (
+                  <div className="absolute inset-0 rounded-full bg-cyan-500/50 blur-md" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: Modern Swipeable Card */}
+        <div className="md:hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-purple-600 to-orange-600 rounded-3xl blur-xl opacity-60 animate-pulse" />
+            
+            <div className="relative rounded-3xl overflow-hidden bg-[#1a2847] border-2 border-cyan-500/50">
+              {/* Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={cards[activeIndex].image}
+                  alt={cards[activeIndex].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a2847]/50 to-[#1a2847]" />
+                
+                <div className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-cyan-500/20 backdrop-blur-md border-2 border-cyan-500/40 rounded-full">
+                  <HiSparkles className="text-cyan-400" />
+                  <span className="text-xs font-bold text-white tracking-wider">
+                    {cards[activeIndex].tag}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-xl font-black text-white shadow-lg shadow-cyan-500/50">
+                    {activeIndex + 1}
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-white mb-2">
+                      {cards[activeIndex].title}
+                    </h2>
+                    <p className="text-gray-300 leading-relaxed">
+                      {cards[activeIndex].description}
+                    </p>
+                  </div>
+                </div>
+
+                <button className="mt-6 w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/50">
+                  Learn More →
+                </button>
+              </div>
+
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-3xl" />
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-purple-500/50 rounded-br-3xl" />
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={handlePrev}
+              className="w-12 h-12 rounded-full bg-[#1a2847] border-2 border-cyan-500/50 flex items-center justify-center hover:bg-cyan-500/20 transition-all"
+            >
+              <FaChevronLeft className="text-white text-lg" />
+            </button>
+
+            <div className="flex gap-2">
+              {cards.map((_, index) => (
+                <div
+                  key={index}
+                  className={`transition-all duration-300 rounded-full ${
+                    index === activeIndex
+                      ? 'w-8 h-2 bg-gradient-to-r from-cyan-500 to-purple-500'
+                      : 'w-2 h-2 bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNext}
+              className="w-12 h-12 rounded-full bg-[#1a2847] border-2 border-cyan-500/50 flex items-center justify-center hover:bg-cyan-500/20 transition-all"
+            >
+              <FaChevronRight className="text-white text-lg" />
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-// export default function CardCarousel() {
-//   return (
-//     <div>
-//       <div className="mt-16">
-//         <div className="flex flex-wrap justify-center gap-5 pt-6 mt-10 mb-0 pb-0">
-//           <img
-//             src="/chat-ai.png"
-//             className="w-[280px] object-contain rounded-lg"
-//             alt="Card 1"
-//           />
-//           <img
-//             src="/recommendation.png"
-//             className="w-[280px] object-contain rounded-lg"
-//             alt="Card 2"
-//           />
-//           <img
-//             src="/insights.png"
-//             className="w-[280px] object-contain rounded-lg"
-//             alt="Card 3"
-//           />
-//           <img
-//             src="/tools.png"
-//             className="w-[280px] object-contain rounded-lg"
-//             alt="Card 4"
-//           />
-//         </div>
-
-//         <div className="flex flex-wrap justify-center gap-5">
-//           <div className="relative w-[280px] rounded-lg overflow-hidden">
-//             <img
-//               src="/bottom_of_card.svg"
-//               className="w-full object-contain rounded-lg"
-//               alt="Card 1"
-//             />
-//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
-//               Personalized Learning Path
-//             </h1>
-//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-bold  text-sm pointer-events-none text-center px-2">
-//               <span className="text-purple-400">Our Al-driven tools create a</span> customized learning journey,
-//               <span className="text-purple-400">
-//                 recommending relevant courses, projects, and resources based on
-//                 your goals and progress.
-//               </span>
-//             </p>
-//           </div>
-
-//           <div className="relative w-[280px] rounded-lg overflow-hidden">
-//             <img
-//               src="/bottom_of_card.svg"
-//               className="w-full object-contain rounded-lg"
-//               alt="Card 2"
-//             />
-//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
-//               Real-Time Content <br />
-//               Recommendations
-//             </h1>
-//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
-//               Get updated suggestions as you progress.
-//             </p>
-//           </div>
-
-//           <div className="relative w-[280px] rounded-lg overflow-hidden">
-//             <img
-//               src="/bottom_of_card.svg"
-//               className="w-full object-contain rounded-lg"
-//               alt="Card 3"
-//             />
-//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
-//               Track Progress with Insights
-//             </h1>
-//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
-//               Visualize your growth and stay motivated.
-//             </p>
-//           </div>
-
-//           <div className="relative w-[280px] rounded-lg overflow-hidden">
-//             <img
-//               src="/bottom_of_card.svg"
-//               className="w-full object-contain rounded-lg"
-//               alt="Card 4"
-//             />
-//             <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg pointer-events-none text-center">
-//               Industry-Ready Tools
-//             </h1>
-//             <p className="absolute top-20 left-1/2 transform -translate-x-1/2 text-white text-sm pointer-events-none text-center px-2">
-//               Equip yourself with the latest software and skills.
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

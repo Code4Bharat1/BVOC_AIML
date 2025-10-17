@@ -66,7 +66,7 @@ const ContactPage = () => {
     }
     setIsSubmitting(true);
     try {
-      const whatsappNumber = "919594430295";
+      const whatsappNumber = "919892398976"; // Replace with your WhatsApp number
       const message = `🔔 *New Contact Form Submission*
 👤 *Name:* ${formData.name}
 📧 *Email:* ${formData.email}
@@ -96,10 +96,10 @@ Sent from Nexcore Alliance Website`;
   };
 
   const contactInfo = [
-    { icon: Phone, title: "Phone", content: "+91 95944 30295", subContent: "Mon-Fri 9:00 AM - 6:00 PM", color: "from-[#00d4ff] to-[#AC6CFF]", href: "tel:+919594430295" },
-    { icon: Mail, title: "Email", content: "hello@nexcorealliance.com", subContent: "We'll respond within 24 hours", color: "from-[#AC6CFF] to-[#ff6b35]", href: "mailto:hello@nexcorealliance.com" },
+    { icon: Phone, title: "Phone", content: "+91 9892398976", subContent: "Mon-Fri 9:00 AM - 6:00 PM", color: "from-[#00d4ff] to-[#AC6CFF]", href: "tel:+919594430295" },
+    { icon: Mail, title: "Email", content: "bvoc@nexcorealliance.com", subContent: "We'll respond within 24 hours", color: "from-[#AC6CFF] to-[#ff6b35]", href: "mailto:hello@nexcorealliance.com" },
     { icon: MapPin, title: "Office", content: "Mumbai, Maharashtra", subContent: "India - 400001", color: "from-[#ff6b35] to-[#00d4ff]", href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6" },
-    { icon: Globe, title: "Website", content: "www.nexcorealliance.com", subContent: "Visit our main website", color: "from-[#00d4ff] to-[#AC6CFF]", href: "https://www.nexcorealliance.com" },
+    { icon: Globe, title: "Website", content: "www.bvoc@nexcorealliance.com", subContent: "Visit our main website", color: "from-[#00d4ff] to-[#AC6CFF]", href: "https://www.nexcorealliance.com" },
   ];
 
   const socialLinks = [

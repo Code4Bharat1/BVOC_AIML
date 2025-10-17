@@ -1,10 +1,30 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Award, GraduationCap, Heart } from "lucide-react";
 
 export default function Scholarship_Policy() {
-  const Scholarship_Policy = [
+  const [stars, setStars] = useState([]);
+
+  useEffect(() => {
+    const generateStars = () => {
+      return Array.from({ length: 25 }).map(() => ({
+        id: Math.random(),
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        color: ["#00d4ff", "#ff8c00", "#b847ff", "#ffd700"][
+          Math.floor(Math.random() * 4)
+        ],
+        delay: Math.random() * 2,
+        duration: 2 + Math.random() * 1,
+      }));
+    };
+    setStars(generateStars());
+  }, []);
+
+  const ScholarshipData = [
     {
       heading: "1. Meritorious Student Scholarship",
+      icon: Award,
       para: [
         "Objective :",
         [
@@ -31,10 +51,11 @@ export default function Scholarship_Policy() {
     },
     {
       heading: "2. Underprivileged & Rural Background Scholarship",
+      icon: Heart,
       para: [
         "Objective :",
         [
-          " To support students from economically disadvantaged or rural backgrounds in accessing future-ready education",
+          "To support students from economically disadvantaged or rural backgrounds in accessing future-ready education",
         ],
         "Eligibility Criteria:",
         [
@@ -65,8 +86,9 @@ export default function Scholarship_Policy() {
     },
     {
       heading: "3. Women in Tech Scholarship",
+      icon: GraduationCap,
       para: [
-        "Objective : ",
+        "Objective :",
         [
           "To encourage and empower female students to pursue careers in new-age technologies such as Artificial Intelligence and Machine Learning.",
         ],
@@ -76,30 +98,23 @@ export default function Scholarship_Policy() {
           "Enrolled in the B.Voc in AI and ML program.",
           "Priority given to first-generation learners or those from semi-urban/rural areas.",
         ],
-        "Eligibility Criteria:",
-
-        [
-          "- Female candidates who have passed Class 12.",
-          "- Enrolled in the B.Voc in AI and ML program.",
-          "- Priority given to first-generation learners or those from semi-urban/rural areas.",
-        ],
         "Benefits:",
         [
-          "- Up to 60% tuition fee waiver.",
-          "- Mentorship and skill-building workshops specifically designed for female students.",
-          "- Networking support for internships and placements.",
+          "Up to 60% tuition fee waiver.",
+          "Mentorship and skill-building workshops specifically designed for female students.",
+          "Networking support for internships and placements.",
         ],
         "Rules & Regulations:",
         [
-          "- Must maintain a 90% or above each semester.",
-          "- Active participation in academic and project-based activities is mandatory.",
-          "- Misuse of scholarship privileges may lead to revocation.",
+          "Must maintain a 90% or above each semester.",
+          "Active participation in academic and project-based activities is mandatory.",
+          "Misuse of scholarship privileges may lead to revocation.",
         ],
         "Required Documents:",
         [
-          "- Marksheet of Class 12.",
-          "- Aadhaar card or government ID as proof of gender.",
-          "- Short essay (150–200 words) on Why I want to build a career in AI & ML",
+          "Marksheet of Class 12.",
+          "Aadhaar card or government ID as proof of gender.",
+          "Short essay (150–200 words) on Why I want to build a career in AI & ML",
         ],
       ],
     },
@@ -107,180 +122,88 @@ export default function Scholarship_Policy() {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto mb-6 mt-10 px-6 text-center">
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-15">
-          <span className="text-[#AC6CFF]">Scholarship Policy</span> Document
-        </h1>
-        <p className="text-base sm:text-xl font-medium text-white mb-15">
-          This document outlines the{" "}
-          <span className="text-[#AC6CFF]">Scholarship policies</span> for
-          students enrolling in the{" "}
-          <span className="text-[#AC6CFF]">B.Voc</span> in{" "}
-          <span className="text-[#AC6CFF]">Artificial Intelligence</span> and{" "}
-          <span className="text-[#AC6CFF]">Machine Learning</span> program
-          offered by <span className="text-[#AC6CFF]">Nexcore Alliance</span> in
-          collaboration with{" "}
-          <span className="text-[#AC6CFF]">Recognized University.</span>
-        </p>
-      </div>
-
-      <style jsx>{`
-        /* Custom scrollbar styling */
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(234, 218, 255, 0.3);
-          border-radius: 10px;
-          margin: 10px 0;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: rgba(172, 108, 255, 0.6);
-          border-radius: 10px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background-color: rgba(172, 108, 255, 0.8);
-        }
-
-        /* Hide scrollbar for non-hover state */
-        .scroll-container {
-          scrollbar-width: thin;
-          scrollbar-color: transparent transparent;
-          transition: scrollbar-color 0.3s ease;
-        }
-
-        /* Show scrollbar on hover */
-        .scroll-container:hover {
-          scrollbar-color: rgba(172, 108, 255, 0.6) rgba(234, 218, 255, 0.3);
-        }
-
-        /* Keep normal content padding to ensure text doesn't get cut off */
-        .content-container {
-          padding-bottom: 20px;
-        }
-
-        /* Mobile styles */
-        @media (max-width: 640px) {
-          .desktop-view {
-            display: none;
-          }
-          .mobile-view {
-            display: block;
-          }
-        }
-
-        /* Desktop styles */
-        @media (min-width: 641px) {
-          .desktop-view {
-            display: block;
-          }
-          .mobile-view {
-            display: none;
-          }
-        }
-      `}</style>
-
-      {/* Desktop View - Original Layout */}
-      <div className="desktop-view">
-        {Scholarship_Policy.map((item, idx) => (
-          <div
-            key={idx}
-            className="w-full max-w-5xl mx-auto mb-20 relative h-[600px]"
-          >
-            {/* Purple boxes behind */}
-            <div className="absolute inset-0 flex justify-between items-center -z-10 px-4">
-              <div
-                className="w-[300px] h-[610px] bg-[#AC6CFF]"
-                style={{
-                  borderTopLeftRadius: "70px",
-                  borderBottomLeftRadius: "70px",
-                  borderTopRightRadius: "0px",
-                  borderBottomRightRadius: "0px",
-                }}
-              ></div>
-              <div
-                className="w-[300px] h-[610px] bg-[#AC6CFF]"
-                style={{
-                  borderTopRightRadius: "70px",
-                  borderBottomRightRadius: "70px",
-                  borderTopLeftRadius: "0px",
-                  borderBottomLeftRadius: "0px",
-                }}
-              ></div>
+      {/* Background */}
+      <div className="w-full bg-gradient-to-b from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] min-h-screen relative overflow-hidden py-12">
+        {/* Background Stars */}
+        <div className="absolute inset-0 pointer-events-none">
+          {stars.map((star) => (
+            <div
+              key={star.id}
+              className="absolute w-2 h-2 rounded-full animate-pulse"
+              style={{
+                top: `${star.top}%`,
+                left: `${star.left}%`,
+                backgroundColor: star.color,
+                opacity: 0.5,
+                animation: `twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
+              }}
+            >
+              <style>{`
+                @keyframes twinkle {
+                  0%, 100% { opacity: 0.3; transform: scale(0.5); }
+                  50% { opacity: 1; transform: scale(1); }
+                }
+              `}</style>
             </div>
+          ))}
+        </div>
 
-            {/* Center the light purple box */}
-            <div className="flex justify-center items-center h-full">
-              <div className="flex justify-center items-center h-full relative">
-                <div className="flex justify-center items-center h-full relative">
-                  <div className="bg-[#EADAFF] w-[800px] rounded-[70px] p-6 text-black shadow-lg relative">
-                    <div className="h-[500px] overflow-y-auto pr-3 relative custom-scrollbar scroll-container">
-                      <div className="content-container">
-                        <h3 className="text-3xl font-extrabold mb-4 mx-10 text-left">
-                          {item.heading}
-                        </h3>
+        {/* Header Section */}
+        <div className="relative z-10 max-w-6xl mx-auto mb-12 px-6 text-center">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Scholarship Policy
+            </span>{" "}
+            Document
+          </h1>
+          <p className="text-base sm:text-lg font-semibold text-cyan-100 leading-relaxed">
+            This document outlines the{" "}
+            <span className="text-cyan-300 font-bold">Scholarship policies</span>{" "}
+            for students enrolling in the{" "}
+            <span className="text-orange-300 font-bold">B.Voc</span> in{" "}
+            <span className="text-orange-300 font-bold">
+              Artificial Intelligence
+            </span>{" "}
+            and{" "}
+            <span className="text-orange-300 font-bold">Machine Learning</span>{" "}
+            program offered by{" "}
+            <span className="text-cyan-300 font-bold">Nexcore Alliance</span> in
+            collaboration with{" "}
+            <span className="text-cyan-300 font-bold">Recognized University.</span>
+          </p>
+        </div>
 
-                        {item.para.map((point, i) => {
-                          if (typeof point === "string") {
-                            return (
-                              <p
-                                key={i}
-                                className="text-base font-medium mb-2 mx-10 leading-tight"
-                              >
-                                {point}
-                              </p>
-                            );
-                          } else if (Array.isArray(point)) {
-                            return (
-                              <ul
-                                key={i}
-                                className="list-disc list-inside text-base pl-5 space-y-1 mb-3 mx-10"
-                              >
-                                {point.map((line, j) => (
-                                  <li key={j} className="leading-tight">
-                                    {line}
-                                  </li>
-                                ))}
-                              </ul>
-                            );
-                          }
-                          return null;
-                        })}
-                      </div>
-                    </div>
+        {/* Scholarship Cards */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 space-y-12">
+          {ScholarshipData.map((item, idx) => (
+            <div
+              key={idx}
+              className="group relative"
+            >
+              {/* Animated background glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-orange-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              {/* Main Card */}
+              <div className="relative rounded-3xl bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/60 backdrop-blur-sm overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300">
+                {/* Header with icon */}
+                <div className="bg-gradient-to-r from-cyan-600/30 to-purple-700/30 border-b-2 border-cyan-400/40 p-6 lg:p-8 flex items-center gap-4">
+                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/50">
+                    <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                   </div>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+                    {item.heading}
+                  </h3>
                 </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
-      {/* Mobile View - New Layout */}
-      <div className="mobile-view">
-        {Scholarship_Policy.map((item, idx) => (
-          <div key={idx} className="w-full mx-auto mb-10 relative">
-            {/* Combined purple background box that adapts to content height */}
-            <div className="absolute inset-0 bg-[#AC6CFF] mx-4 rounded-[40px]"></div>
-
-            {/* Center the light purple box */}
-            <div className="relative py-6 px-4 flex justify-center">
-              <div className="bg-[#EADAFF] w-full rounded-[40px] p-4 text-black shadow-lg">
-                <div className="h-[400px] overflow-y-auto pr-2 relative custom-scrollbar scroll-container">
-                  <div className="content-container">
-                    <h3 className="text-2xl font-extrabold mb-3 mx-4 text-left">
-                      {item.heading}
-                    </h3>
-
+                {/* Content */}
+                <div className="p-6 lg:p-8 max-h-[600px] overflow-y-auto custom-scrollbar">
+                  <div className="space-y-4">
                     {item.para.map((point, i) => {
                       if (typeof point === "string") {
                         return (
                           <p
                             key={i}
-                            className="text-sm font-medium mb-2 mx-4 leading-tight"
+                            className="text-base lg:text-lg font-bold text-cyan-300"
                           >
                             {point}
                           </p>
@@ -289,10 +212,13 @@ export default function Scholarship_Policy() {
                         return (
                           <ul
                             key={i}
-                            className="list-disc list-inside text-sm pl-3 space-y-1 mb-3 mx-4"
+                            className="list-disc list-inside space-y-2 ml-2"
                           >
                             {point.map((line, j) => (
-                              <li key={j} className="leading-tight">
+                              <li
+                                key={j}
+                                className="text-base lg:text-lg text-white leading-relaxed font-semibold"
+                              >
                                 {line}
                               </li>
                             ))}
@@ -305,9 +231,43 @@ export default function Scholarship_Policy() {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(0, 212, 255, 0.1);
+          border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 212, 255, 0.6),
+            rgba(255, 140, 0, 0.6)
+          );
+          border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 212, 255, 0.9),
+            rgba(255, 140, 0, 0.9)
+          );
+        }
+
+        /* Firefox scrollbar */
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 212, 255, 0.6) rgba(0, 212, 255, 0.1);
+        }
+      `}</style>
     </>
   );
 }

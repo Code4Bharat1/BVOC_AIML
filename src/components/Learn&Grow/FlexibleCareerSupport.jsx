@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 const FlexibleCareerSupport = () => {
   return (
     <>
@@ -81,9 +81,12 @@ const FlexibleCareerSupport = () => {
           </p>
 
           {/* Button (Orange gradient) */}
-          <button className="px-8 py-3 font-semibold rounded-full text-white bg-gradient-to-r from-[#ff6b35] via-[#ff9155] to-[#ff6b35] hover:opacity-90 transition">
-            Explore More
-          </button>
+          <Link
+  href="/contact"
+  className="inline-block px-8 py-3  font-semibold rounded-full text-white bg-gradient-to-r from-[#ff6b35] via-[#ff9155] to-[#ff6b35] hover:opacity-90 transition"
+>
+  Explore More
+</Link>
         </motion.div>
       </div>
 

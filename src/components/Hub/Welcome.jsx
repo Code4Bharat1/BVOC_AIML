@@ -1,86 +1,52 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
+"use client";
+import React, { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { FileText, X } from "lucide-react";
+import Link from "next/link";
 const Welcome = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const [isPdfModalOpen, setPdfModalOpen] = useState(false);
+
+  const handleBrochureClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      window.open("/brochure/b.pdf", "_blank");
+    } else {
+      setPdfModalOpen(true);
+    }
+  };
 
   return (
     <section
       ref={ref}
       className="relative lg:mt-6 py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-12 overflow-hidden bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b]"
     >
-      {/* Animated Background Orbs */}
+      {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
           style={{
-            background: 'radial-gradient(circle, rgba(0, 212, 255, 0.6) 0%, transparent 70%)',
-            top: '10%',
-            left: '5%'
+            background:
+              "radial-gradient(circle, rgba(0,212,255,0.6) 0%, transparent 70%)",
+            top: "10%",
+            left: "5%",
           }}
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-80 h-80 rounded-full opacity-20 blur-3xl"
           style={{
-            background: 'radial-gradient(circle, rgba(255, 107, 53, 0.6) 0%, transparent 70%)',
-            bottom: '10%',
-            right: '10%'
+            background:
+              "radial-gradient(circle, rgba(255,107,53,0.6) 0%, transparent 70%)",
+            bottom: "10%",
+            right: "10%",
           }}
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 80, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          animate={{ x: [0, -80, 0], y: [0, 80, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
-
-      {/* Decorative Stars SVGs with neon glow */}
-      <motion.div
-        initial={{ scale: 0, rotate: -180 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-4 left-4"
-      >
-        <svg width="50" height="50" viewBox="0 0 50 50" className="w-8 h-8 lg:w-12 lg:h-12 drop-shadow-[0_0_15px_rgba(0,212,255,0.8)]">
-          <path d="M25 0 L27.5 22.5 L50 25 L27.5 27.5 L25 50 L22.5 27.5 L0 25 L22.5 22.5 Z" fill="#00d4ff"/>
-        </svg>
-      </motion.div>
-      
-      <motion.div
-        initial={{ scale: 0, rotate: 180 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="absolute bottom-28 right-20 lg:bottom-8 lg:right-52"
-      >
-        <svg width="50" height="50" viewBox="0 0 50 50" className="w-8 h-8 lg:w-12 lg:h-12 drop-shadow-[0_0_15px_rgba(255,107,53,0.8)]">
-          <path d="M25 0 L27.5 22.5 L50 25 L27.5 27.5 L25 50 L22.5 27.5 L0 25 L22.5 22.5 Z" fill="#ff6b35"/>
-        </svg>
-      </motion.div>
-      
-      <motion.div
-        initial={{ scale: 0, rotate: -180 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="hidden lg:block absolute bottom-28 left-20"
-      >
-        <svg width="50" height="50" viewBox="0 0 50 50" className="w-10 h-10 lg:w-12 lg:h-12 drop-shadow-[0_0_15px_rgba(172,108,255,0.8)]">
-          <path d="M25 0 L27.5 22.5 L50 25 L27.5 27.5 L25 50 L22.5 27.5 L0 25 L22.5 22.5 Z" fill="#AC6CFF"/>
-        </svg>
-      </motion.div>
 
       {/* Text Section */}
       <motion.div
@@ -90,36 +56,7 @@ const Welcome = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 mt-6 lg:mt-14 drop-shadow-2xl">
-          Welcome t
-          <span className="relative inline-block">
-            o
-            {/* Decorative Element */}
-            <motion.div
-              className="absolute z-10"
-              initial={{ scale: 0 }}
-              animate={isInView ? { scale: 1 } : {}}
-              transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-            >
-              <svg 
-                width="80" 
-                height="30" 
-                viewBox="0 0 80 30" 
-                className="absolute w-20 h-8 lg:w-24 lg:h-10 -top-4 -right-6 lg:-right-10 drop-shadow-[0_0_15px_rgba(0,212,255,0.8)]"
-              >
-                <path 
-                  d="M5 15 Q20 5, 40 15 T75 15" 
-                  stroke="#00d4ff" 
-                  strokeWidth="3" 
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <circle cx="10" cy="15" r="3" fill="#00d4ff"/>
-                <circle cx="40" cy="15" r="3" fill="#00d4ff"/>
-                <circle cx="70" cy="15" r="3" fill="#00d4ff"/>
-              </svg>
-            </motion.div>
-          </span>{" "}
-          <br />
+          Welcome to <br />
           the Future of <br />
           <span className="bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]">
             Learning!
@@ -127,7 +64,7 @@ const Welcome = () => {
         </h1>
 
         <motion.p
-          className="hidden lg:block text-[28px] text-gray-100 mb-8 leading-relaxed"
+          className="text-gray-100 mb-8 leading-relaxed text-lg lg:text-[28px]"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3, duration: 1 }}
@@ -140,33 +77,37 @@ const Welcome = () => {
           degree programs that fuse industry expertise with academic excellence.
         </motion.p>
 
-        <motion.p
-          className="lg:hidden text-lg text-gray-100 mb-8 leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          We're excited to introduce a game-changing partnership between{" "}
-          <span className="text-[#00d4ff] font-semibold">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#ff6b35] font-semibold">Guru Kashi University (GKU)</span>—an
-          alliance designed to bring you the{" "}
-          <span className="text-[#AC6CFF] font-semibold">B.Voc (Bachelor of Vocation)</span>{" "}
-          degree programs that fuse industry expertise with academic excellence.
-        </motion.p>
-        
-        <motion.button
-          className="bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
-          style={{
-            boxShadow: '0 10px 30px rgba(255, 107, 53, 0.5)'
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          whileHover={{ y: -2, boxShadow: '0 15px 40px rgba(255, 107, 53, 0.6)' }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Enroll Now ✨
-        </motion.button>
+        {/* Buttons */}
+        <div className="flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-start">
+          <Link href="/contact">
+  <motion.button
+    className="bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+    style={{ boxShadow: "0 10px 30px rgba(255, 107, 53, 0.5)" }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ delay: 0.5, duration: 0.8 }}
+    whileHover={{ y: -2, boxShadow: "0 15px 40px rgba(255, 107, 53, 0.6)" }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Enroll Now ✨
+  </motion.button>
+</Link>
+
+          {/* Brochure Button */}
+          <motion.button
+            onClick={handleBrochureClick}
+            className="group relative px-8 py-4 bg-white text-cyan-500 rounded-xl font-semibold overflow-hidden shadow-xl"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors">
+              <FileText size={20} />
+              Our Brochure
+            </span>
+          </motion.button>
+        </div>
       </motion.div>
 
       {/* Image Section - AI Robot Assistant */}
@@ -310,10 +251,39 @@ const Welcome = () => {
         </div>
       </motion.div>
 
-      {/* Theme Label */}
-      <div className="absolute top-8 right-8 bg-[#00d4ff]/20 backdrop-blur-md border border-[#00d4ff]/40 px-4 py-2 rounded-full z-20">
-        <p className="text-[#00d4ff] text-sm font-semibold">✨ Future Learning Theme</p>
-      </div>
+      {/* PDF Modal */}
+      <AnimatePresence>
+        {isPdfModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPdfModalOpen(false)}
+          >
+            <motion.div
+              className="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setPdfModalOpen(false)}
+                className="absolute -top-4 -right-4 bg-red-500 text-white p-3 rounded-full shadow-lg hover:bg-red-600 transition-colors z-10"
+              >
+                <X size={20} />
+              </button>
+              <iframe
+                src="/brochure/b.pdf"
+                className="w-full h-full"
+                style={{ border: "none" }}
+                title="PDF Viewer"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -3,7 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import EnrollNow from "../Hub/EnrollNow";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const PlacementAssistance = () => {
   return (
@@ -25,7 +26,7 @@ const PlacementAssistance = () => {
               height={300}
               className="rounded-3xl w-full object-cover shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#A33DFF]/10 to-transparent rounded-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#A33DFF]/10 to-transparent rounded-3xl" />
           </div>
         </motion.div>
 
@@ -50,7 +51,7 @@ const PlacementAssistance = () => {
             <span className="font-bold text-[#A33DFF]">
               Nexcore Alliance LLP
             </span>
-            , we don’t just teach—you{" "}
+            , we don’t just teach — you{" "}
             <span className="text-[#A33DFF] font-bold">intern</span> and{" "}
             <span className="text-[#A33DFF] font-bold">work</span>. Our{" "}
             <span className="font-bold text-[#A33DFF]">
@@ -72,7 +73,7 @@ const PlacementAssistance = () => {
             <span className="font-bold text-[#A33DFF]">
               Nexcore Alliance LLP
             </span>
-            , we don’t just teach—you{" "}
+            , we don’t just teach — you{" "}
             <span className="font-bold text-[#A33DFF]">intern</span> and{" "}
             <span className="font-bold text-[#A33DFF]">work</span>. Our{" "}
             <span className="font-bold text-[#A33DFF]">
@@ -81,9 +82,15 @@ const PlacementAssistance = () => {
             ensures you’re job-ready.
           </p>
 
-          {/* CTA Button */}
+          {/* CTA Button → /contact */}
           <div className="mt-6">
-            <EnrollNow />
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_rgba(255,107,53,0.5)]"
+            >
+              Enroll Now ✨
+              <ChevronRight className="ml-2 w-5 h-5" />
+            </Link>
           </div>
         </motion.div>
       </div>

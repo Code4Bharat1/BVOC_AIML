@@ -1,51 +1,96 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { CheckCheck, TrendingUp, Users } from "lucide-react";
 
 const SelectionAndPerformanceCards = () => {
+  const [stars, setStars] = useState([]);
+
+  useEffect(() => {
+    const generateStars = () => {
+      return Array.from({ length: 15 }).map(() => ({
+        id: Math.random(),
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        color: ["#00d4ff", "#ff8c00", "#b847ff", "#ffd700"][
+          Math.floor(Math.random() * 4)
+        ],
+        delay: Math.random() * 2,
+        duration: 2 + Math.random() * 1,
+      }));
+    };
+    setStars(generateStars());
+  }, []);
+
   const selectionCards = [
     {
       title: "1. Selection Process",
       description:
         "Evaluated by faculty mentors based on academic performance, participation in labs, and behavioral feedback.",
+      icon: Users,
     },
     {
       title: "2. Skill Assessment",
       description:
         "Candidates are evaluated through coding tasks, problem-solving ability, and domain knowledge.",
+      icon: CheckCheck,
     },
     {
       title: "3. Interview & Project Mapping",
       description:
         "Shortlisted candidates will be matched with available internships based on their interest, skill sets, and project requirements.",
+      icon: TrendingUp,
     },
   ];
 
   const performanceCards = [
     {
+      title: "Monthly Review",
       description:
-        "Interns will be\n reviewed monthly\n by mentors or\n industry\n supervisors.",
+        "Interns will be reviewed monthly by mentors or industry supervisors.",
     },
     {
+      title: "Continuation Criteria",
       description:
-        "Continuation and\n stipend increase are subject to:\n1. Timely completion of tasks.\n2. Quality of work and initiative.",
+        "Continuation and stipend increase are subject to: 1. Timely completion of tasks. 2. Quality of work and initiative.",
     },
     {
+      title: "Soft Skills",
       description:
-        "Soft skills such as\n communication,\n punctuality, and\n collaboration.",
+        "Soft skills such as communication, punctuality, and collaboration.",
     },
   ];
 
-  const getMarginLeft = (index) => {
-    if (index === 1) return "lg:ml-40";
-    if (index === 2) return "lg:ml-80";
-    return "ml-0";
-  };
-
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] relative overflow-hidden">
+      {/* Background Stars */}
+      <div className="absolute inset-0 pointer-events-none">
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="absolute w-2 h-2 rounded-full animate-pulse"
+            style={{
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              backgroundColor: star.color,
+              opacity: 0.5,
+              animation: `twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
+            }}
+          >
+            <style>{`
+              @keyframes twinkle {
+                0%, 100% { opacity: 0.3; transform: scale(0.5); }
+                50% { opacity: 1; transform: scale(1); }
+              }
+            `}</style>
+          </div>
+        ))}
+      </div>
+
       {/* ================ Selection Process ================ */}
-      <div className="w-full py-10 mt-10">
-        <div className="mx-auto w-max rounded-2xl bg-gradient-to-l from-[#6B009D] to-[#2B2038] px-6 md:px-12 py-4 md:py-6 border-[3px] border-[#AC6CFF] shadow-sm shadow-[#AC6CFF] mb-10 ">
-          <h2 className="text-white text-xl md:text-2xl lg:text-4xl font-bold text-center ">
+      <div className="w-full py-10 mt-10 relative z-10">
+        <div className="mx-auto w-max rounded-2xl bg-gradient-to-r from-cyan-600 to-purple-700 px-6 md:px-12 py-4 md:py-6 border-2 border-cyan-400/80 shadow-lg shadow-cyan-500/50 mb-10">
+          <h2 className="text-white text-xl md:text-2xl lg:text-4xl font-bold text-center flex items-center gap-3">
+            <CheckCheck className="w-8 h-8" />
             Selection Process
           </h2>
         </div>
@@ -55,22 +100,23 @@ const SelectionAndPerformanceCards = () => {
           {selectionCards.map((card, index) => (
             <div
               key={`mobile-selection-${index}`}
-              className="relative w-full max-w-[480px] aspect-[3/1] mb-4"
+              className="group w-full max-w-[480px]"
             >
-              <div className="absolute inset-0 w-full h-full">
-                <img
-                  src="/paid-internship/SelectionProcessImgMob.svg"
-                  alt={`Mobile Card ${index + 1}`}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-white text-center">
-                <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-xs md:text-sm font-semibold px-2 md:px-4">
-                  {card.description}
-                </p>
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/60 backdrop-blur-sm p-6 hover:shadow-lg hover:shadow-cyan-500/40 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/50">
+                    <card.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-base md:text-lg font-bold text-white mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm md:text-base font-semibold text-cyan-100">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -78,28 +124,27 @@ const SelectionAndPerformanceCards = () => {
 
         {/* Desktop View */}
         <div className="hidden lg:block">
-          <div className="flex flex-col gap-6 items-center lg:ml-0">
+          <div className="flex flex-col gap-8 items-center">
             {selectionCards.map((card, index) => (
               <div
                 key={`desktop-selection-${index}`}
-                className={`relative w-[900px] min-h-48 aspect-[5.6/1] ${getMarginLeft(
-                  index
-                )}`}
+                className="group w-full max-w-4xl"
               >
-                <div className="absolute inset-0 w-full h-full">
-                  <img
-                    src="/paid-internship/SelectionProcessImg.svg"
-                    alt={`Card ${index + 1}`}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="absolute inset-0 flex flex-col justify-center px-6 text-white text-left">
-                  <h3 className="text-xl lg:text-2xl font-bold mb-1 lg:mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-base lg:text-xl font-bold">
-                    {card.description}
-                  </p>
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/60 backdrop-blur-sm p-8 hover:shadow-lg hover:shadow-cyan-500/40 transition-all">
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/50">
+                      <card.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-base lg:text-lg font-semibold text-cyan-100 leading-relaxed">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -108,27 +153,36 @@ const SelectionAndPerformanceCards = () => {
       </div>
 
       {/* ================ Performance Review & Continuation ================ */}
-
-      <div className="w-full py-10">
-        {/* Heading with skewed border */}
-        <div className="mx-auto lg:w-max w-72 relative mb-14">
-          <div className="relative lg:my-10 rounded-lg bg-gradient-to-l from-[#6B009D] to-[#2B2038] px-6 md:px-12 py-4 md:py-6 border-[3px] border-[#AC6CFF] shadow-sm shadow-[#AC6CFF] -skew-x-12">
-            <h2 className="text-white text-xl md:text-2xl lg:text-4xl font-extrabold text-center skew-x-12">
+      <div className="w-full py-10 relative z-10">
+        {/* Heading */}
+        <div className="mx-auto w-max mb-12">
+          <div className="rounded-2xl bg-gradient-to-r from-purple-700 to-cyan-600 px-6 md:px-12 py-4 md:py-6 border-2 border-cyan-400/80 shadow-lg shadow-cyan-500/50">
+            <h2 className="text-white text-xl md:text-2xl lg:text-4xl font-bold text-center flex items-center gap-3">
+              <TrendingUp className="w-8 h-8" />
               Performance Review & Continuation
             </h2>
           </div>
         </div>
 
         {/* Mobile View */}
-        <div className="flex flex-col gap-8 items-center lg:hidden px-4">
+        <div className="flex flex-col gap-6 items-center lg:hidden px-4">
           {performanceCards.map((card, index) => (
             <div
               key={`mobile-performance-${index}`}
-              className="relative w-full max-w-[280px] aspect-[4/3] mb-4"
+              className="group w-full max-w-[300px]"
             >
-              <div className="relative rounded-2xl w-full h-full bg-gradient-to-b from-[#6B009D] to-[#2B2038] border-[3px] border-white shadow-sm shadow-white flex items-center justify-center p-6 -skew-x-12">
-                <div className="text-white text-lg md:text-xl font-bold text-center skew-x-12 whitespace-pre-line">
-                  {card.description}
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-orange-400/70 backdrop-blur-sm p-6 hover:shadow-lg hover:shadow-orange-500/40 transition-all min-h-[280px] flex flex-col justify-center">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center mb-4 shadow-lg shadow-orange-500/50">
+                    <span className="text-white font-bold text-lg">{index + 1}</span>
+                  </div>
+                  <h4 className="text-base md:text-lg font-bold text-white mb-3">
+                    {card.title}
+                  </h4>
+                  <p className="text-sm md:text-base font-semibold text-cyan-100 leading-relaxed">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -140,12 +194,21 @@ const SelectionAndPerformanceCards = () => {
           {performanceCards.map((card, index) => (
             <div
               key={`desktop-performance-${index}`}
-              className="relative h-64 w-full max-w-[320px] aspect-[1/1.2]"
+              className="group w-full max-w-[320px]"
             >
-              <div className="relative w-full h-full rounded-xl bg-gradient-to-b from-[#6B009D] to-[#2B2038] border-[3px] border-white shadow-sm shadow-white flex items-center justify-center p-6 -skew-x-12">
-                <div className="text-white text-base md:text-2xl font-bold text-center skew-x-12 whitespace-pre-line">
-                  {card.description}
-                </div>{" "}
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-orange-400/70 backdrop-blur-sm p-6 hover:shadow-lg hover:shadow-orange-500/40 transition-all h-full flex flex-col justify-center min-h-[300px]">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center mb-4 shadow-lg shadow-orange-500/50">
+                    <span className="text-white font-bold text-xl">{index + 1}</span>
+                  </div>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-3">
+                    {card.title}
+                  </h4>
+                  <p className="text-base font-semibold text-cyan-100 leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

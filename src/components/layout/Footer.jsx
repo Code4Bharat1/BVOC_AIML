@@ -1,162 +1,120 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaHeart } from "react-icons/fa";
+import { HiSparkles } from "react-icons/hi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] text-white relative overflow-hidden">
-      <div className="mx-auto w-full lg:px-20 px-7">
-        {/* Decorative glowing stars (cyan, orange, purple) */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 left-10 w-2 h-2 bg-[#00d4ff] rounded-full blur-sm animate-pulse" />
-          <div className="absolute top-16 right-20 w-3 h-3 bg-[#ff6b35] rounded-full blur-sm animate-ping" />
-          <div className="absolute bottom-10 left-1/3 w-2 h-2 bg-[#AC6CFF] rounded-full blur-sm animate-pulse" />
-          <div className="absolute bottom-16 right-1/4 w-4 h-4 bg-[#00d4ff] rounded-full blur-sm animate-ping" />
-        </div>
+    <footer className="relativebg-gradient-to-br from-[#1A0B3C] via-[#301C73] to-[#5D1E9E] text-white overflow-hidden">
+      {/* Background effects removed */}
 
-        <hr className="my-6 border-[#00d4ff]/50" />
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 relative z-10">
+        {/* Top Divider */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full my-8" />
 
-        {/* Main layout: description left, links right */}
-        <div className="flex flex-col md:flex-row justify-between gap-8 relative z-10">
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row justify-between gap-12 py-8">
           {/* Left - Description */}
-          <div className="md:w-1/3 mb-8 md:mb-0">
-            <p className="text-base md:text-lg leading-relaxed text-white">
-              <strong className="text-xl">
-                <span className="text-[#AC6CFF]">B.</span>Voc in{" "}
-                <span className="text-[#00d4ff]">AI</span> &{" "}
-                <span className="text-[#ff6b35]">ML</span>
-              </strong>{" "}
-              is a next-gen undergraduate program designed to equip students
-              with real-world AI skills. Co-developed with industry leaders, it
-              blends theory with hands-on training to launch tech-driven
-              careers.
+          <div className="md:w-1/3">
+            <div className="mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                <span className="text-cyan-400">B.Voc</span> in{" "}
+                <span className="text-cyan-400">AI</span> &{" "}
+                <span className="text-orange-400">ML</span>
+              </h3>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-gray-300">
+              A next-gen undergraduate program designed to equip students with real-world AI skills. Co-developed with industry leaders, it blends theory with hands-on training to launch tech-driven careers.
             </p>
+
+            {/* Decorative Element */}
+            <div className="flex items-center gap-3 mt-6">
+              <div className="h-1 w-16 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
+              <div className="w-2 h-2 rounded-full bg-orange-500" />
+              <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full" />
+            </div>
           </div>
 
-          {/* Right - Links section */}
-          <div className="md:w-2/3 lg:ml-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Right - Links Section */}
+          <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Explore More */}
             <div>
-              <h2 className="mb-4 text-lg font-semibold bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">
+              <h2 className="mb-6 text-lg font-bold text-cyan-400">
                 Explore More
               </h2>
-              <ul className="space-y-3 text-white text-base">
+              <ul className="space-y-3 text-gray-300">
                 <li>
-                  <Link
+                  <a
                     href="/infrastructure"
-                    className="hover:text-[#00d4ff] transition-colors duration-300"
+                    className="hover:text-cyan-400 transition-all duration-300 flex items-center gap-2 group"
                   >
                     Infrastructure
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
+                  <a
                     href="/learn-grow"
-                    className="hover:text-[#ff6b35] transition-colors duration-300"
+                    className="hover:text-orange-400 transition-all duration-300 flex items-center gap-2 group"
                   >
                     Learn and Grow
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
+                  <a
                     href="/whychooseus"
-                    className="hover:text-[#AC6CFF] transition-colors duration-300"
+                    className="hover:text-purple-400 transition-all duration-300 flex items-center gap-2 group"
                   >
                     Why We're Different
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
 
             {/* Policies */}
             <div>
-              <h2 className="mb-4 text-lg font-semibold bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">
+              <h2 className="mb-6 text-lg font-bold text-purple-400">
                 Policies
               </h2>
-              <ul className="space-y-3 text-white text-base">
-                <li>
-                  <Link
-                    href="/selection-policy"
-                    className="hover:text-[#00d4ff] transition-colors duration-300"
-                  >
-                    Selection Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/eligibility-criteria"
-                    className="hover:text-[#AC6CFF] transition-colors duration-300"
-                  >
-                    Eligibility Criteria
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/placement-policy"
-                    className="hover:text-[#ff6b35] transition-colors duration-300"
-                  >
-                    Placement Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/internship-policy"
-                    className="hover:text-[#00d4ff] transition-colors duration-300"
-                  >
-                    Paid Internship Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/scholarship-policy"
-                    className="hover:text-[#AC6CFF] transition-colors duration-300"
-                  >
-                    Scholarship Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fees-policy"
-                    className="hover:text-[#ff6b35] transition-colors duration-300"
-                  >
-                    Fees Policy
-                  </Link>
-                </li>
+              <ul className="space-y-3 text-gray-300">
+                <li><a href="/selection-policy" className="hover:text-cyan-400 transition-all duration-300">Selection Policy</a></li>
+                <li><a href="/eligibility-criteria" className="hover:text-purple-400 transition-all duration-300">Eligibility Criteria</a></li>
+                <li><a href="/placement-policy" className="hover:text-orange-400 transition-all duration-300">Placement Policy</a></li>
+                <li><a href="/internship-policy" className="hover:text-cyan-400 transition-all duration-300">Paid Internship Policy</a></li>
+                <li><a href="/scholarship-policy" className="hover:text-purple-400 transition-all duration-300">Scholarship Policy</a></li>
+                <li><a href="/fees-policy" className="hover:text-orange-400 transition-all duration-300">Fees Policy</a></li>
               </ul>
             </div>
 
             {/* Contact Us */}
             <div>
-              <h2 className="mb-4 text-lg font-semibold bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">
+              <h2 className="mb-6 text-lg font-bold text-orange-400">
                 Contact Us
               </h2>
-              <ul className="space-y-3 text-white text-base">
-                <li className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#00d4ff]" />
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex items-start gap-3 group">
+                  <FaMapMarkerAlt className="w-5 h-5 mt-0.5 flex-shrink-0 text-cyan-400" />
                   <a
-                    href="https://www.google.com/maps/place/Nexcore+Alliance+LLP"
+                    href="https://maps.app.goo.gl/prUqufdGwFhtm6DFA"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#ff6b35] transition-colors duration-300"
+                    className="hover:text-cyan-400 transition-all duration-300"
                   >
                     Kurla West, Mumbai, Maharashtra 400070
                   </a>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#AC6CFF]" />
+                <li className="flex items-start gap-3 group">
+                  <FaPhone className="w-5 h-5 mt-0.5 flex-shrink-0 text-purple-400" />
                   <a
                     href="tel:+919892398976"
-                    className="hover:text-[#00d4ff] transition-colors duration-300"
+                    className="hover:text-purple-400 transition-all duration-300"
                   >
                     +91 9892398976
                   </a>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#ff6b35]" />
+                <li className="flex items-start gap-3 group">
+                  <FaEnvelope className="w-5 h-5 mt-0.5 flex-shrink-0 text-orange-400" />
                   <a
                     href="mailto:bvoc@nexcorealliance.com"
-                    className="hover:text-[#AC6CFF] transition-colors duration-300"
+                    className="hover:text-orange-400 transition-all duration-300"
                   >
                     bvoc@nexcorealliance.com
                   </a>
@@ -166,28 +124,32 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-8 border-[#00d4ff]/50" />
+        {/* Bottom Divider */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full my-8" />
 
-        <div className="text-center mb-2 text-sm sm:text-base text-gray-300">
-          Built with ❤️ and passion by{" "}
-          <a
-            href="https://code4bharat.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#00d4ff] hover:text-[#ff6b35] transition-colors duration-300"
-          >
-            Code4Bharat
-          </a>
-        </div>
-        <div className="text-center text-gray-400 pb-5 text-sm">
-          © 2025{" "}
-          <Link
-            href="#"
-            className="hover:text-[#AC6CFF] transition-colors duration-300"
-          >
-            BVOC™
-          </Link>
-          . All Rights Reserved.
+        {/* Footer Bottom */}
+        <div className="pb-8 space-y-3">
+          <div className="text-center text-sm md:text-base text-gray-300">
+            Built with <FaHeart className="inline text-orange-500 animate-pulse" /> and passion by{" "}
+            <a
+              href="https://code4bharat.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-orange-400 font-semibold transition-all duration-300"
+            >
+              Code4Bharat
+            </a>
+          </div>
+          <div className="text-center text-gray-400 text-sm">
+            © 2025{" "}
+            <a
+              href="#"
+              className="text-purple-400 hover:text-cyan-400 font-semibold transition-all duration-300"
+            >
+              BVOC™
+            </a>
+            . All Rights Reserved.
+          </div>
         </div>
       </div>
     </footer>

@@ -52,7 +52,7 @@ function CareerPath() {
           className="z-10"
         >
           <h2 className="text-white text-4xl lg:text-5xl font-extrabold my-6 lg:my-12">
-            Career Path
+            Professional Journey
           </h2>
 
           <div className="relative z-10">
@@ -91,7 +91,7 @@ function CareerPath() {
               The best part? You're not limited. <br />
               Whether you're just starting or you're <br />
               aiming for an advanced role, the <br />
-              B.Voc AI & ML degree offers a clear path to <br />
+              Bachelor's in AI & ML degree offers a clear path to <br />
               exciting opportunities at every stage of <br />
               your career.
             </p>
@@ -102,7 +102,7 @@ function CareerPath() {
             </h3>
             <p className="lg:hidden text-white text-xl text-center leading-8">
               The best part? You're not limited. Whether you're just starting or
-              you're aiming for an advanced role, the B.Voc AI & ML degree
+              you're aiming for an advanced role, the Bachelor's in AI & ML degree
               offers a clear path to exciting opportunities at every stage of
               your career.
             </p>

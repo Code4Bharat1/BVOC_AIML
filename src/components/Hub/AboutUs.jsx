@@ -44,7 +44,7 @@ const AboutUs = () => {
         variants={fadeInVariants}
         transition={{ duration: 0.6 }}
       >
-        About Us
+        Our Story
       </motion.h2>
 
       {/* Left (Image) */}
@@ -76,7 +76,7 @@ const AboutUs = () => {
           className="hidden lg:block text-5xl font-extrabold mb-4 bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] text-transparent bg-clip-text"
           variants={fadeInVariants}
         >
-          About Us
+          Our Story
         </motion.h2>
 
         <motion.h3
@@ -101,12 +101,12 @@ const AboutUs = () => {
           <span className="font-bold text-[#00d4ff]">Nexcore Alliance LLP</span>
           , we're dedicated to shaping India's next generation of digital
           leaders by offering cutting-edge programs designed for the real world.
-          In partnership with{" "}
+          {/* In partnership with{" "}
           <span className="font-bold text-[#ff6b35]">
             Guru Kashi University (GKU)
-          </span>
-          , we bring you a{" "}
-          <span className="font-bold text-[#AC6CFF]">B.Voc AI & ML</span>{" "}
+          </span> */}
+          We bring you a{" "}
+          <span className="font-bold text-[#AC6CFF]">Bachelor's in AI & ML</span>{" "}
           program that's built to make you industry-ready and globally
           competitive.
         </motion.p>

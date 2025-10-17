@@ -20,9 +20,9 @@ const cardData = [
       "Our experienced mentors and career advisors guide you through your academic and professional journey, providing personalized support and growth strategies.",
   },
   {
-    title: "NAAC A++ \nAccreditation – \nExcellence \nRecognized",
+    title: "NAAC A+ \nAccreditation – \nExcellence \nRecognized",
     content:
-      "Achieving NAAC A++ accreditation showcases our unwavering commitment to academic excellence and continuous improvement.",
+      "Achieving NAAC A+ accreditation showcases our unwavering commitment to academic excellence and continuous improvement.",
   },
   {
     title: "Empowering \nIndia's Digital \nFuture",
@@ -117,7 +117,7 @@ const FiveCards = () => {
         {cardData.map((_, index) => (
           <button key={index} onClick={() => toggleCard(index)}>
             <div
-              className={`transition-transform duration-300 ${
+              className={`transition-transform cursor-pointer duration-300 ${
                 openCard === index ? "rotate-180" : ""
               }`}
             >

@@ -172,9 +172,9 @@ export default function EnhancedAITools() {
                   </div>
 
                   {/* CTA Button */}
-                  <button className="mt-8 w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/50">
+                  {/* <button className="mt-8 w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/50">
                     Explore Feature →
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* Corner Accents */}

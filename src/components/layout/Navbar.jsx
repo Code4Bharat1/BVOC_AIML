@@ -1,31 +1,47 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { HiSparkles, HiMenu, HiX } from "react-icons/hi";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
+// ✅ Added Brochure to navItems for same design
 const navItems = [
   { name: "Hub", href: "/" },
   { name: "Infrastructure", href: "/infrastructure" },
   { name: "Learn & Grow", href: "/learn-grow" },
   { name: "Why We're Different", href: "/whychooseus" },
+  {
+    name: "Brochure",
+    href: "https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program.",
+    external: true,
+  },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const pathname = usePathname();
+
+  // Detect active page for underline
+  const activeIndex = navItems.findIndex(
+    (item) => !item.external && item.href === pathname
+  );
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target)
+        (menuRef.current && !menuRef.current.contains(event.target)) &&
+        (buttonRef.current && !buttonRef.current.contains(event.target)) &&
+        (dropdownRef.current && !dropdownRef.current.contains(event.target))
       ) {
         setMenuOpen(false);
+        setDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -59,7 +75,8 @@ const Navbar = () => {
               <li key={item.name} className="relative group">
                 <a
                   href={item.href}
-                  onClick={() => setActiveIndex(index)}
+                  target={item.external ? "_blank" : "_self"}
+                  rel={item.external ? "noopener noreferrer" : ""}
                   className={`block py-2 px-3 transition-all duration-300 ${
                     activeIndex === index
                       ? "text-cyan-400 font-bold drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]"
@@ -75,16 +92,41 @@ const Navbar = () => {
                 )}
               </li>
             ))}
-            <li>
-              
-              <a
-                  href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block py-2 px-3 transition-colors hover:text-gray-300"
-                >
-                Brochure
-                </a>
+
+            {/* Student Panel Dropdown */}
+            <li className="relative" ref={dropdownRef}>
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center gap-1 py-2 px-3 text-white hover:text-cyan-400 transition-all duration-300"
+              >
+                Student Panel
+                <MdKeyboardArrowDown
+                  className={`transition-transform duration-300 ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-44 bg-[#1a3a5c]/95 border border-cyan-500/30 rounded-lg shadow-lg backdrop-blur-md">
+                  <a
+                    href="https://nexcore.classpro.in/users/sign_in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+                  >
+                    Admin Panel
+                  </a>
+                  <a
+                    href="https://nexcore.classpro.in/people/sign_in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+                  >
+                    Student Panel
+                  </a>
+                </div>
+              )}
             </li>
           </ul>
         </div>
@@ -95,11 +137,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-cyan-400 rounded-lg hover:bg-cyan-500/10 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 transition-all"
         >
-          {menuOpen ? (
-            <HiX className="w-6 h-6" />
-          ) : (
-            <HiMenu className="w-6 h-6" />
-          )}
+          {menuOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -114,10 +152,9 @@ const Navbar = () => {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  onClick={() => {
-                    setActiveIndex(index);
-                    setMenuOpen(false);
-                  }}
+                  target={item.external ? "_blank" : "_self"}
+                  rel={item.external ? "noopener noreferrer" : ""}
+                  onClick={() => setMenuOpen(false)}
                   className={`block py-3 px-6 transition-all duration-300 ${
                     activeIndex === index
                       ? "bg-cyan-500/20 text-cyan-400 font-bold"
@@ -128,15 +165,40 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+
+            {/* Student Panel Dropdown in Mobile */}
             <li className="px-6 py-3">
-              <a
-                  href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block py-2 px-3 transition-colors hover:text-gray-300"
-                >
-                Brochure
-              </a>
+              <button
+                onClick={toggleDropdown}
+                className="w-full flex items-center justify-center gap-1 py-2 px-3 text-white hover:text-cyan-400 transition-all duration-300"
+              >
+                Student Panel
+                <MdKeyboardArrowDown
+                  className={`transition-transform duration-300 ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {dropdownOpen && (
+                <div className="mt-2 bg-[#1a3a5c]/95 border border-cyan-500/30 rounded-lg shadow-lg backdrop-blur-md">
+                  <a
+                    href="https://nexcore.classpro.in/users/sign_in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+                  >
+                    Admin Panel
+                  </a>
+                  <a
+                    href="https://nexcore.classpro.in/people/sign_in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+                  >
+                    Student Panel
+                  </a>
+                </div>
+              )}
             </li>
           </ul>
         </div>

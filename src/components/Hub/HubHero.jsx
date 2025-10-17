@@ -28,8 +28,8 @@ const HubHero = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
-              <span className="text-white">Bachelor's of </span>
-              <span className="text-cyan-400">(BVOC)</span>
+              <span className="text-white">Bachelor's </span>
+              {/* <span className="text-cyan-400">(BVOC)</span> */}
               <span className="text-white"> in</span>
               <br />
               <span className="text-cyan-400 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">Machine Learning</span>
@@ -65,8 +65,8 @@ const HubHero = () => {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-            <span className="text-white">Bachelor's of </span>
-            <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,212,255,0.6)]">(BVOC)</span>
+            <span className="text-white">Bachelor's </span>
+            {/* <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,212,255,0.6)]">(BVOC)</span> */}
             <span className="text-white"> in</span>
             <br />
             <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,212,255,0.6)]">Machine Learning</span>
@@ -110,14 +110,14 @@ const HubHero = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300" />
                 <div className="relative bg-[#1a2847] border-2 border-purple-500/50 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
                   <img
-                    src="/naac-logo.png"
-                    alt="NAAC A++ Grade"
+                    src="/naac-logo-1.png"
+                    alt="NAAC A+ Grade"
                     className="w-48 h-auto object-contain"
                   />
                 </div>
               </div>
 
-              <div className="relative group">
+              {/* <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-r from-orange-600 to-orange-400 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300" />
                 <div className="relative bg-[#1a2847] border-2 border-orange-500/50 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
                   <img
@@ -126,7 +126,7 @@ const HubHero = () => {
                     className="w-48 h-auto object-contain"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -147,7 +147,7 @@ const HubHero = () => {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6 mt-8">
               {[
-                { icon: <FaAward />, text: "NAAC A++ Accredited", color: "cyan" },
+                { icon: <FaAward />, text: "NAAC A+ Accredited", color: "cyan" },
                 { icon: <FaCertificate />, text: "UGC Recognized", color: "purple" },
                 { icon: <FaGraduationCap />, text: "Industry-Ready", color: "orange" }
               ].map((stat, index) => (

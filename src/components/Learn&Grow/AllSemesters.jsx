@@ -82,7 +82,7 @@ const DesktopAllSemesters = () => {
                   index % 2 !== 0 ? "mr-12" : "ml-12"
                 }`}
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,140,66,0.5)" }}
-                onClick={() => openModal(semester)}
+                // onClick={() => openModal(semester)}
                 variants={cardVariants}
               >
                 <h2 className="text-2xl font-bold text-[#ffb86c] group-hover:text-[#ff6b35] transition-colors">

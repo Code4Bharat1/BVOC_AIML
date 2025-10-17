@@ -27,7 +27,7 @@ const CenteredBoxWithCards = () => {
       image: "/TopBenifits/topbenefits5.png",
       icon: <FaDollarSign />,
       heading: "Earn While You Learn",
-      description: "Enjoy the opportunity to earn through internships, gaining practical experience and financial support along the way.",
+      description: "Leverage valuable internship opportunities to gain hands-on experience while earning, building both your skills and financial independence.",
     },
     {
       image: "/TopBenifits/topbenefits4.svg",
@@ -35,12 +35,12 @@ const CenteredBoxWithCards = () => {
       heading: "Recognized by UGC & NSQF",
       description: "Your qualifications are UGC-approved and NSQF-certified, opening doors to global opportunities.",
     },
-    {
-      image: "/TopBenifits/topbenefits6.png",
-      icon: <FaRoute />,
-      heading: "Flexible Exits",
-      description: "Exit with a diploma, advanced diploma, or degree—tailor your education to your career goals and timeline.",
-    },
+    // {
+    //   image: "/TopBenifits/topbenefits6.png",
+    //   icon: <FaRoute />,
+    //   heading: "Flexible Exits",
+    //   description: "Exit with a diploma, advanced diploma, or degree—tailor your education to your career goals and timeline.",
+    // },
   ];
 
   const [isClient, setIsClient] = useState(false);

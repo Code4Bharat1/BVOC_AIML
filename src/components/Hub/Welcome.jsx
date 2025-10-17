@@ -9,13 +9,13 @@ const Welcome = () => {
 
   const [isPdfModalOpen, setPdfModalOpen] = useState(false);
 
-  const handleBrochureClick = () => {
-    if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      window.open("/brochure/b.pdf", "_blank");
-    } else {
-      setPdfModalOpen(true);
-    }
-  };
+  // const handleBrochureClick = () => {
+  //   if (typeof window !== "undefined" && window.innerWidth <= 768) {
+  //     window.open("/brochure/b.pdf", "_blank");
+  //   } else {
+  //     setPdfModalOpen(true);
+  //   }
+  // };
 
   return (
     <section
@@ -69,32 +69,31 @@ const Welcome = () => {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3, duration: 1 }}
         >
-          We're excited to introduce a game-changing partnership between{" "}
-          <span className="text-[#00d4ff] font-semibold">Nexcore Alliance LLP</span> and{" "}
-          <span className="text-[#ff6b35] font-semibold">Guru Kashi University (GKU)</span>—an
-          alliance designed to bring you the{" "}
+          We’re excited to announce a strategic partnership with{" "}
+          <span className="text-[#00d4ff] font-semibold">Nexcore Alliance LLP</span>,{" "}
+          empowering the launch of{" "}
           <span className="text-[#AC6CFF] font-semibold">B.Voc (Bachelor of Vocation)</span>{" "}
-          degree programs that fuse industry expertise with academic excellence.
+          degree programs that seamlessly integrate industry expertise with academic excellence.
         </motion.p>
 
         {/* Buttons */}
         <div className="flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-start">
           <Link href="/contact">
-  <motion.button
-    className="bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
-    style={{ boxShadow: "0 10px 30px rgba(255, 107, 53, 0.5)" }}
-    initial={{ opacity: 0, y: 20 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
-    transition={{ delay: 0.5, duration: 0.8 }}
-    whileHover={{ y: -2, boxShadow: "0 15px 40px rgba(255, 107, 53, 0.6)" }}
-    whileTap={{ scale: 0.95 }}
-  >
-    Enroll Now ✨
-  </motion.button>
-</Link>
+            <motion.button
+              className="bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+              style={{ boxShadow: "0 10px 30px rgba(255, 107, 53, 0.5)" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              whileHover={{ y: -2, boxShadow: "0 15px 40px rgba(255, 107, 53, 0.6)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Enroll Now ✨
+            </motion.button>
+          </Link>
 
           {/* Brochure Button */}
-          <motion.button
+          {/* <motion.button
             onClick={handleBrochureClick}
             className="group relative px-8 py-4 bg-white text-cyan-500 rounded-xl font-semibold overflow-hidden shadow-xl"
             whileHover={{ scale: 1.05, y: -2 }}
@@ -106,7 +105,7 @@ const Welcome = () => {
               <FileText size={20} />
               Our Brochure
             </span>
-          </motion.button>
+          </motion.button> */}
         </div>
       </motion.div>
 

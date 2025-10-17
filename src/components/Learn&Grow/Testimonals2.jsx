@@ -8,35 +8,35 @@ const testimonials = [
     quote:
       "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
     name: "Basim Thakur",
-    role: "Frontend Developer",
+    role: "BVOC AI & ML(2025-2028)",
     src: "/Testimonials/testimonial5.png",
   },
   {
     quote:
       "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
     name: "Yogesh Rane",
-    role: "Python Developer",
+    role: "BVOC AI & ML(2025-2028)",
     src: "/Testimonials/testimonial4.png",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
     name: "Sakshi Gupta",
-    role: "Frontend Developer",
+    role: "BVOC AI & ML(2025-2028)",
     src: "/Testimonials/testimonial1.png",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
     name: "Nouman Khan",
-    role: "Backend Developer",
+    role: "BVOC AI & ML(2025-2028)",
     src: "/Testimonials/testimonial3.png",
   },
   {
     quote:
       "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
     name: "Aditi Sharma",
-    role: "MERN Developer",
+    role: "BVOC AI & ML(2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
 ];

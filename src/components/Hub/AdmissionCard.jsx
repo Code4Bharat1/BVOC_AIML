@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const AdmissionCard = () => {
   return (
-    <div className="flex w-full justify-center items-center -mt-10 lg:py-10 mb-10 lg:mb-0 px-4">
+    <div className="flex w-full justify-center items-center -mt-10 lg:py-10 mb-10 lg:mb-0 px-4 mt-10">
       <div className="relative lg:py-16 border border-[#AC6CFF]/30 bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] text-white text-center rounded-2xl p-8 lg:p-10 w-[90%] shadow-[0_0_40px_rgba(172,108,255,0.3)]">
         {/* Decorative orbs */}
         <div className="absolute top-10 left-10 w-5 h-5 bg-[#00d4ff] rounded-full blur-md animate-pulse" />
@@ -39,12 +39,19 @@ const AdmissionCard = () => {
         <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-[#00d4ff]">
           Admissions Now Open!
         </h2>
-        <p className="text-base lg:text-2xl font-light mb-8 text-white/90">
+        {/* <p className="text-base lg:text-2xl font-light mb-8 text-white/90">
           Step into the future with a{" "}
-          <span className="text-[#AC6CFF] font-medium">NAAC A++</span> Accredited
+          <span className="text-[#AC6CFF] font-medium">NAAC A+</span> Accredited
           program and gain the edge with a{" "}
           <span className="text-[#ff6b35] font-medium">UGC-approved B.Voc</span>{" "}
           course in AI & ML — crafted to prepare you for the real world.
+        </p> */}
+        <p className="text-base lg:text-2xl font-light mb-8 text-white/90">
+          Step into the future with a{" "}
+          <span className="text-[#AC6CFF] font-medium">NAAC A+</span> Accredited
+          program and gain the edge with a{" "}
+          <span className="text-[#ff6b35] font-medium">UGC-approved Bachelor's</span>{" "}
+          in AI & ML — crafted to prepare you for the real world.
         </p>
         <h3 className="text-xl lg:text-3xl font-semibold mb-4 text-[#AC6CFF]">
           A Unique Blend of Industry & Academia

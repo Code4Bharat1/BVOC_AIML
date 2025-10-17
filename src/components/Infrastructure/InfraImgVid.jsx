@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 const CARD_SIZE = "w-72 h-80 lg:w-[25rem] lg:h-96";
 
-// Infrastructure data (unchanged)
+// Infrastructure data
 const infraData = [
   {
     heading: "Conference",
@@ -58,7 +58,7 @@ function InfraCard({ item, onClick }) {
 }
 
 // ========== MODAL COMPONENT ==========
-function Modal({ item, onClose }) {
+function Modal({ item, onClose, onNext, onPrev, hasNext, hasPrev }) {
   if (!item) return null;
 
   return (
@@ -67,20 +67,48 @@ function Modal({ item, onClose }) {
       onClick={onClose}
     >
       <div
-        className="relative bg-[#1A0B3C] border border-[#AC6CFF]/40 rounded-2xl p-4 max-w-5xl w-[95%] shadow-[0_0_50px_rgba(172,108,255,0.4)]"
+        className="relative bg-[#1A0B3C] border border-[#AC6CFF]/40 rounded-2xl p-4 max-w-5xl w-[95%] max-h-[90vh] shadow-[0_0_50px_rgba(172,108,255,0.4)] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         {item.type === "image" ? (
-          <img src={item.src} alt={item.alt} className="w-full h-auto rounded-xl" />
+          <img src={item.src} alt={item.alt} className="max-w-full max-h-[85vh] w-auto h-auto rounded-xl object-contain" />
         ) : (
-          <video src={item.src} controls autoPlay className="w-full rounded-xl" />
+          <video src={item.src} controls autoPlay className="max-w-full max-h-[85vh] w-auto h-auto rounded-xl" />
         )}
+        
+        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-4 text-white text-3xl font-bold hover:text-[#AC6CFF] transition-colors"
         >
           ×
         </button>
+
+        {/* Left Arrow */}
+        {hasPrev && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onPrev();
+            }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#AC6CFF]/80 hover:bg-[#AC6CFF] text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-[0_0_20px_rgba(172,108,255,0.6)]"
+          >
+            ‹
+          </button>
+        )}
+
+        {/* Right Arrow */}
+        {hasNext && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onNext();
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#AC6CFF]/80 hover:bg-[#AC6CFF] text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-[0_0_20px_rgba(172,108,255,0.6)]"
+          >
+            ›
+          </button>
+        )}
       </div>
     </div>
   );
@@ -89,6 +117,8 @@ function Modal({ item, onClose }) {
 // ========== MAIN COMPONENT ==========
 function InfraImgVid() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState({ sectionIndex: 0, itemIndex: 0 });
+  const [activeFilter, setActiveFilter] = useState("All");
   const scrollContainerRefs = useRef([]);
   const scrollStatesRef = useRef(
     Array(infraData.length)
@@ -100,6 +130,65 @@ function InfraImgVid() {
         isPaused: false,
       }))
   );
+
+  // Filter the data based on active filter
+  const filteredData = activeFilter === "All" 
+    ? infraData 
+    : infraData.filter(section => section.heading === activeFilter);
+
+  // Handle card click
+  const handleCardClick = (item, sectionIndex, itemIndex) => {
+    setSelectedItem(item);
+    setSelectedIndex({ sectionIndex, itemIndex });
+  };
+
+  // Navigate to next item
+  const handleNext = () => {
+    const { sectionIndex, itemIndex } = selectedIndex;
+    const currentSection = filteredData[sectionIndex];
+    
+    if (itemIndex < currentSection.items.length - 1) {
+      // Next item in same section
+      const newIndex = { sectionIndex, itemIndex: itemIndex + 1 };
+      setSelectedIndex(newIndex);
+      setSelectedItem(currentSection.items[itemIndex + 1]);
+    } else if (sectionIndex < filteredData.length - 1) {
+      // First item of next section
+      const newIndex = { sectionIndex: sectionIndex + 1, itemIndex: 0 };
+      setSelectedIndex(newIndex);
+      setSelectedItem(filteredData[sectionIndex + 1].items[0]);
+    }
+  };
+
+  // Navigate to previous item
+  const handlePrev = () => {
+    const { sectionIndex, itemIndex } = selectedIndex;
+    
+    if (itemIndex > 0) {
+      // Previous item in same section
+      const newIndex = { sectionIndex, itemIndex: itemIndex - 1 };
+      setSelectedIndex(newIndex);
+      setSelectedItem(filteredData[sectionIndex].items[itemIndex - 1]);
+    } else if (sectionIndex > 0) {
+      // Last item of previous section
+      const prevSection = filteredData[sectionIndex - 1];
+      const newIndex = { sectionIndex: sectionIndex - 1, itemIndex: prevSection.items.length - 1 };
+      setSelectedIndex(newIndex);
+      setSelectedItem(prevSection.items[prevSection.items.length - 1]);
+    }
+  };
+
+  // Check if navigation is possible
+  const hasNext = () => {
+    const { sectionIndex, itemIndex } = selectedIndex;
+    const currentSection = filteredData[sectionIndex];
+    return itemIndex < currentSection.items.length - 1 || sectionIndex < filteredData.length - 1;
+  };
+
+  const hasPrev = () => {
+    const { sectionIndex, itemIndex } = selectedIndex;
+    return itemIndex > 0 || sectionIndex > 0;
+  };
 
   // Auto scroll animation
   useEffect(() => {
@@ -157,7 +246,7 @@ function InfraImgVid() {
     return () => {
       animationFrames.forEach((frameId) => frameId && cancelAnimationFrame(frameId));
     };
-  }, []);
+  }, [filteredData]);
 
   const handleMouseEnter = (index) => {
     if (scrollStatesRef.current[index]) scrollStatesRef.current[index].isPaused = true;
@@ -173,7 +262,24 @@ function InfraImgVid() {
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#AC6CFF]/20 blur-[160px] rounded-full animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#3D0B67]/25 blur-[200px] rounded-full animate-pulse"></div>
 
-      {infraData.map((section, index) => (
+      {/* Filter Buttons */}
+      <div className="relative z-10 flex justify-center gap-4 mb-12">
+        {["All", "Conference", "Work Spaces"].map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 ${
+              activeFilter === filter
+                ? "bg-gradient-to-r from-[#AC6CFF] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(172,108,255,0.6)] scale-105"
+                : "bg-[#1E0C44]/60 text-[#CBA0FF] hover:bg-[#2C1763] hover:shadow-[0_0_15px_rgba(172,108,255,0.3)]"
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      {filteredData.map((section, index) => (
         <div className="relative z-10 p-5" key={index}>
           <h2 className="text-4xl lg:text-5xl font-extrabold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#AC6CFF] via-[#CBA0FF] to-white drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]">
             {section.heading}
@@ -187,13 +293,20 @@ function InfraImgVid() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {section.items.map((item, idx) => (
-              <InfraCard key={idx} item={item} onClick={setSelectedItem} />
+              <InfraCard key={idx} item={item} onClick={(item) => handleCardClick(item, index, idx)} />
             ))}
           </div>
         </div>
       ))}
 
-      <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
+      <Modal 
+        item={selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        onNext={handleNext}
+        onPrev={handlePrev}
+        hasNext={hasNext()}
+        hasPrev={hasPrev()}
+      />
     </div>
   );
 }

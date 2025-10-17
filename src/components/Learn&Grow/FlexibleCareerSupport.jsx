@@ -167,7 +167,7 @@ const FlexibleCareerSupport = () => {
           </motion.div>
 
           <motion.div
-            className="absolute top-[460px] left-9 text-[#AC6CFF] text-20px font-bold text-center"
+            className="absolute top-[460px] left-9 text-white text-20px font-bold text-center"
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}

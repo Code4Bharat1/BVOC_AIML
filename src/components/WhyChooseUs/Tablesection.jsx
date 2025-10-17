@@ -112,7 +112,7 @@ const DegreeComparisonTable = () => {
             </div>
 
             {/* Video */}
-            <div className="relative aspect-video">
+            {/* <div className="relative aspect-video">
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover"
@@ -140,10 +140,10 @@ const DegreeComparisonTable = () => {
                   )}
                 </div>
               </div>
-            </div>
+            {/* </div> */} 
 
             {/* Bottom Info Bar */}
-            <div className="relative bg-gradient-to-r from-cyan-900/40 to-purple-900/40 backdrop-blur-sm border-t-2 border-cyan-500/30 px-6 py-4">
+            {/* <div className="relative bg-gradient-to-r from-cyan-900/40 to-purple-900/40 backdrop-blur-sm border-t-2 border-cyan-500/30 px-6 py-4">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center shadow-lg shadow-cyan-500/50">
@@ -170,7 +170,7 @@ const DegreeComparisonTable = () => {
                   )} Video
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

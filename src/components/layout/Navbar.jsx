@@ -76,12 +76,15 @@ const Navbar = () => {
               </li>
             ))}
             <li>
+              
               <a
-                href="/contact"
-                className="px-5 py-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/50"
-              >
+                  href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 px-3 transition-colors hover:text-gray-300"
+                >
                 Brochure
-              </a>
+                </a>
             </li>
           </ul>
         </div>
@@ -127,10 +130,11 @@ const Navbar = () => {
             ))}
             <li className="px-6 py-3">
               <a
-                href="/contact"
-                className="block px-5 py-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/50"
-                onClick={() => setMenuOpen(false)}
-              >
+                  href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 px-3 transition-colors hover:text-gray-300"
+                >
                 Brochure
               </a>
             </li>

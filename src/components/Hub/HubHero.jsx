@@ -117,7 +117,7 @@ const HubHero = () => {
                 </div>
               </div>
 
-              {/* <div className="relative group">
+              <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-r from-orange-600 to-orange-400 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300" />
                 <div className="relative bg-[#1a2847] border-2 border-orange-500/50 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
                   <img
@@ -126,7 +126,7 @@ const HubHero = () => {
                     className="w-48 h-auto object-contain"
                   />
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
 

@@ -20,7 +20,7 @@ const infraData = [
     ],
   },
   {
-    heading: "Work Spaces",
+    heading: "Workspace",
     items: [
       { type: "image", src: "/infrastructure/work_space_4/workspace_1.png", alt: "Workspace 1" },
       { type: "image", src: "/infrastructure/work_space_4/workspace_2.png", alt: "Workspace 2" },

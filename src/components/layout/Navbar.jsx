@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiSparkles, HiMenu, HiX } from "react-icons/hi";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -60,12 +61,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="text-white text-2xl md:text-3xl font-extrabold tracking-wide">
-          <a href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <HiSparkles className="text-cyan-400 text-xl group-hover:rotate-180 transition-transform duration-500" />
             <span className="hover:text-cyan-400 transition-all duration-300">
               <span className="text-cyan-400 drop-shadow-[0_0_8px_rgba(0,212,255,0.6)]">B</span>VOC
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -73,18 +74,27 @@ const Navbar = () => {
           <ul className="flex items-center gap-8">
             {navItems.map((item, index) => (
               <li key={item.name} className="relative group">
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : "_self"}
-                  rel={item.external ? "noopener noreferrer" : ""}
-                  className={`block py-2 px-3 transition-all duration-300 ${
-                    activeIndex === index
-                      ? "text-cyan-400 font-bold drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]"
-                      : "text-white hover:text-cyan-400 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.6)]"
-                  }`}
-                >
-                  {item.name}
-                </a>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-2 px-3 transition-all duration-300 text-white hover:text-cyan-400 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.6)]"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`block py-2 px-3 transition-all duration-300 ${
+                      activeIndex === index
+                        ? "text-cyan-400 font-bold drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]"
+                        : "text-white hover:text-cyan-400 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.6)]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
                 {activeIndex === index && (
                   <div className="absolute left-1/2 -bottom-1 transform -translate-x-1/2">
                     <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full block shadow-[0_0_8px_rgba(0,212,255,0.8)] animate-pulse" />
@@ -150,19 +160,29 @@ const Navbar = () => {
           <ul className="flex flex-col text-white text-center py-4">
             {navItems.map((item, index) => (
               <li key={item.name}>
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : "_self"}
-                  rel={item.external ? "noopener noreferrer" : ""}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block py-3 px-6 transition-all duration-300 ${
-                    activeIndex === index
-                      ? "bg-cyan-500/20 text-cyan-400 font-bold"
-                      : "hover:bg-cyan-500/10 hover:text-cyan-400"
-                  }`}
-                >
-                  {item.name}
-                </a>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-3 px-6 transition-all duration-300 hover:bg-cyan-500/10 hover:text-cyan-400"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block py-3 px-6 transition-all duration-300 ${
+                      activeIndex === index
+                        ? "bg-cyan-500/20 text-cyan-400 font-bold"
+                        : "hover:bg-cyan-500/10 hover:text-cyan-400"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
               </li>
             ))}
 

@@ -1,10 +1,20 @@
 "use client";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaHeart } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   return (
-    <footer className="relativebg-gradient-to-br from-[#1A0B3C] via-[#301C73] to-[#5D1E9E] text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-[#1A0B3C] via-[#301C73] to-[#5D1E9E] text-white overflow-hidden">
       {/* Background effects removed */}
 
       <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 relative z-10">
@@ -43,28 +53,40 @@ const Footer = () => {
               </h2>
               <ul className="space-y-3 text-gray-300">
                 <li>
-                  <a
+                  <Link
                     href="/infrastructure"
-                    className="hover:text-cyan-400 transition-all duration-300 flex items-center gap-2 group"
+                    className={`transition-all duration-300 flex items-center gap-2 group ${
+                      mounted && pathname === "/infrastructure" 
+                        ? "text-cyan-400 font-semibold underline decoration-cyan-400 decoration-2 underline-offset-4" 
+                        : "hover:text-cyan-400"
+                    }`}
                   >
                     Infrastructure
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/learn-grow"
-                    className="hover:text-orange-400 transition-all duration-300 flex items-center gap-2 group"
+                    className={`transition-all duration-300 flex items-center gap-2 group ${
+                      mounted && pathname === "/learn-grow" 
+                        ? "text-orange-400 font-semibold underline decoration-orange-400 decoration-2 underline-offset-4" 
+                        : "hover:text-orange-400"
+                    }`}
                   >
                     Learn and Grow
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/whychooseus"
-                    className="hover:text-purple-400 transition-all duration-300 flex items-center gap-2 group"
+                    className={`transition-all duration-300 flex items-center gap-2 group ${
+                      mounted && pathname === "/whychooseus" 
+                        ? "text-purple-400 font-semibold underline decoration-purple-400 decoration-2 underline-offset-4" 
+                        : "hover:text-purple-400"
+                    }`}
                   >
                     Why We're Different
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -75,12 +97,66 @@ const Footer = () => {
                 Policies
               </h2>
               <ul className="space-y-3 text-gray-300">
-                <li><a href="/selection-policy" className="hover:text-cyan-400 transition-all duration-300">Selection Policy</a></li>
-                <li><a href="/eligibility-criteria" className="hover:text-purple-400 transition-all duration-300">Eligibility Criteria</a></li>
-                <li><a href="/placement-policy" className="hover:text-orange-400 transition-all duration-300">Placement Policy</a></li>
-                {/* <li><a href="/internship-policy" className="hover:text-cyan-400 transition-all duration-300">Paid Internship Policy</a></li> */}
-                <li><a href="/scholarship-policy" className="hover:text-purple-400 transition-all duration-300">Scholarship Policy</a></li>
-                <li><a href="/fees-policy" className="hover:text-orange-400 transition-all duration-300">Fees Policy</a></li>
+                <li>
+                  <Link
+                    href="/selection-policy"
+                    className={`transition-all duration-300 ${
+                      mounted && pathname === "/selection-policy" 
+                        ? "text-cyan-400 font-semibold underline decoration-cyan-400 decoration-2 underline-offset-4" 
+                        : "hover:text-cyan-400"
+                    }`}
+                  >
+                    Selection Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/eligibility-criteria"
+                    className={`transition-all duration-300 ${
+                      mounted && pathname === "/eligibility-criteria" 
+                        ? "text-purple-400 font-semibold underline decoration-purple-400 decoration-2 underline-offset-4" 
+                        : "hover:text-purple-400"
+                    }`}
+                  >
+                    Eligibility Criteria
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/placement-policy"
+                    className={`transition-all duration-300 ${
+                      mounted && pathname === "/placement-policy" 
+                        ? "text-orange-400 font-semibold underline decoration-orange-400 decoration-2 underline-offset-4" 
+                        : "hover:text-orange-400"
+                    }`}
+                  >
+                    Placement Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/scholarship-policy"
+                    className={`transition-all duration-300 ${
+                      mounted && pathname === "/scholarship-policy" 
+                        ? "text-purple-400 font-semibold underline decoration-purple-400 decoration-2 underline-offset-4" 
+                        : "hover:text-purple-400"
+                    }`}
+                  >
+                    Scholarship Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fees-policy"
+                    className={`transition-all duration-300 ${
+                      mounted && pathname === "/fees-policy" 
+                        ? "text-orange-400 font-semibold underline decoration-orange-400 decoration-2 underline-offset-4" 
+                        : "hover:text-orange-400"
+                    }`}
+                  >
+                    Fees Policy
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -142,12 +218,12 @@ const Footer = () => {
           </div>
           <div className="text-center text-gray-400 text-sm">
             © 2025{" "}
-            <a
-              href="#"
+            <Link
+              href="/"
               className="text-purple-400 hover:text-cyan-400 font-semibold transition-all duration-300"
             >
               BVOC™
-            </a>
+            </Link>
             . All Rights Reserved.
           </div>
         </div>

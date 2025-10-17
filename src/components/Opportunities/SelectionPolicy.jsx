@@ -47,15 +47,15 @@ const SelectionPolicy = () => {
       image: "/SelectionPolicy/SelectionPolicy7.png",
       description: "Candidates not initially selected may be placed on a waitlist. Waitlisted candidates will be offered admission if seats become available. The waitlist will be valid for the duration of the admission cycle only.",
     },
+    // {
+    //   id: 8,
+    //   heading: "8. Object Reservation and Relaxation",
+    //   image: "/SelectionPolicy/SelectionPolicy8.png",
+    //   description: "Reservation for SC, ST, OBC, and PwD candidates will be implemented as per government norms. Relaxation in eligibility criteria and selection process will be applied accordingly.",
+    // },
     {
       id: 8,
-      heading: "8. Object Reservation and Relaxation",
-      image: "/SelectionPolicy/SelectionPolicy8.png",
-      description: "Reservation for SC, ST, OBC, and PwD candidates will be implemented as per government norms. Relaxation in eligibility criteria and selection process will be applied accordingly.",
-    },
-    {
-      id: 9,
-      heading: "9. Final Authority",
+      heading: "8. Final Authority",
       image: "/SelectionPolicy/SelectionPolicy9.png",
       description: "The Admissions Committee reserves the right to modify, relax, or waive any clause of the selection policy in exceptional cases. All decisions of the Admissions Committee shall be final and binding.",
     },
@@ -89,7 +89,7 @@ const SelectionPolicy = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Internal Selection Process Policy
             <br />
-            <span className="text-cyan-400">B.Voc</span> in{" "}
+            <span className="text-cyan-400">{"Bachelor's"}</span> in{" "}
             <span className="text-cyan-400">Artificial Intelligence</span>
             <br />
             and <span className="text-cyan-400">Machine Learning</span>

@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function FeePaymentGuidelines() {
   const guidelines = [
     {
-      description: "Fees can be paid via bank transfer, UPI, net banking, or at the university finance counter.",
+      description: "Fees can be paid via bank transfer, UPI, net banking, or at the growth head cabin.",
       icon: <FaCreditCard />,
     },
     {
-      description: "A late fee of ₹500/week is applicable after the due date.",
+      description: "A late fee of ₹500/per Day is applicable after the due date.",
       icon: <FaClock />,
     },
     {
@@ -17,11 +17,11 @@ export default function FeePaymentGuidelines() {
       icon: <FaFileInvoice />,
     },
     {
-      description: "Students availing scholarships or paid internships must notify the accounts department for adjustments.",
+      description: "Students receiving scholarships are required to inform the accounts department for fee adjustments.",
       icon: <FaBell />,
     },
     {
-      description: "No refunds after 15 days of admission, unless approved under exceptional cases.",
+      description: "No refunds after 15 days of admission.",
       icon: <FaChartLine />,
     },
   ];

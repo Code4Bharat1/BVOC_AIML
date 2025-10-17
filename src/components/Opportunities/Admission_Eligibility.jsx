@@ -17,7 +17,7 @@ export default function Admission_Eligibility() {
       heading: "Minimum Marks :",
       description: [
         "General category candidates should have at least 50% aggregate marks in 10+2.",
-        "Reserved category candidates (SC/ST/OBC/PwD) are eligible with a minimum of 45% aggregate marks.",
+        "Reserved category candidates (SC/ST/OBC/PwD) are eligible with a minimum of 40% aggregate marks.",
       ],
       image: "/eligibility_criteria/Criteria2.svg",
       icon: <FaPercentage />,
@@ -28,24 +28,24 @@ export default function Admission_Eligibility() {
       image: "/eligibility_criteria/Criteria3.svg",
       icon: <FaCalendarAlt />,
     },
-    {
-      heading: "Additional Criteria (If applicable) :",
-      description: [
-        "Some institutes may require candidates to clear an entrance exam or interview for final admission.",
-        "Candidates must meet any additional guidelines issued by affiliating university or government bodies.",
-      ],
-      image: "/eligibility_criteria/Criteria4.svg",
-      icon: <FaClipboardCheck />,
-    },
-    {
-      heading: "Reservation:",
-      description: [
-        "Reservation as per applicable government rules (SC 15%, ST 7.5%, OBC 27%, PwD 3%).",
-        "Valid certificates must be submitted for claiming reservations.",
-      ],
-      image: "/eligibility_criteria/Criteria5.svg",
-      icon: <FaUsers />,
-    },
+    // {
+    //   heading: "Additional Criteria (If applicable) :",
+    //   description: [
+    //     "Some institutes may require candidates to clear an entrance exam or interview for final admission.",
+    //     "Candidates must meet any additional guidelines issued by affiliating university or government bodies.",
+    //   ],
+    //   image: "/eligibility_criteria/Criteria4.svg",
+    //   icon: <FaClipboardCheck />,
+    // },
+    // {
+    //   heading: "Reservation:",
+    //   description: [
+    //     "Reservation as per applicable government rules (SC 15%, ST 7.5%, OBC 27%, PwD 3%).",
+    //     "Valid certificates must be submitted for claiming reservations.",
+    //   ],
+    //   image: "/eligibility_criteria/Criteria5.svg",
+    //   icon: <FaUsers />,
+    // },
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function Admission_Eligibility() {
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Admission Eligibility Criteria for{" "}
-            <span className="text-cyan-400">B.Voc</span> in
+            <span className="text-cyan-400">{"Bachelor's"}</span> in
             <br />
             <span className="text-cyan-400">Artificial Intelligence</span> and{" "}
             <br />

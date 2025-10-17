@@ -41,7 +41,7 @@ export default function Placement_Policy() {
       heading: "Student Responsibilities",
       description: [
         "Apply to all relevant job opportunities shared by the placement cell.",
-        "Attend interviews and drives arranged by Nexcore or GKU.",
+        "Attend interviews and drives arranged by Nexcore.",
         "Accept job offers that meet or exceed the ₹3 LPA minimum.",
         "Students can decline only up to 2 job offers; declining more than 2 forfeits the placement guarantee.",
       ],
@@ -60,7 +60,7 @@ export default function Placement_Policy() {
       icon: <FaFileContract />,
       heading: "Policy Terms",
       description: [
-        "This policy is applicable only to the B.Voc in AI & ML program.",
+        "This policy is applicable only to the Bachelor's in AI & ML program.",
         "Changes to the policy may be made by Nexcore Alliance based on industry or academic developments.",
         "At admission, students and guardians will sign a Placement Policy Agreement acknowledging these terms.",
       ],
@@ -100,7 +100,7 @@ export default function Placement_Policy() {
 
           <p className="text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Nexcore Alliance guarantees placement support for every student enrolled
-            in the B.Voc in Artificial Intelligence and Machine Learning program.
+            in the Bachelor's in Artificial Intelligence and Machine Learning program.
             This policy outlines the terms, responsibilities, and eligibility
             criteria for students to qualify for the guaranteed placement offer.
           </p>

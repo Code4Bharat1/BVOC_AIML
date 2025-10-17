@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         <ClientProtection />
         <Navbar />
         {children}
-        <ChatbotWidget />
+        {/* <ChatbotWidget /> */}
         <Footer />
       </body>
     </html>

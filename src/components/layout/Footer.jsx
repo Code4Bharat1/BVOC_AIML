@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="md:w-1/3">
             <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                <span className="text-cyan-400">B.Voc</span> in{" "}
+                <span className="text-cyan-400">Bachelor's</span> in{" "}
                 <span className="text-cyan-400">AI</span> &{" "}
                 <span className="text-orange-400">ML</span>
               </h3>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <li><a href="/selection-policy" className="hover:text-cyan-400 transition-all duration-300">Selection Policy</a></li>
                 <li><a href="/eligibility-criteria" className="hover:text-purple-400 transition-all duration-300">Eligibility Criteria</a></li>
                 <li><a href="/placement-policy" className="hover:text-orange-400 transition-all duration-300">Placement Policy</a></li>
-                <li><a href="/internship-policy" className="hover:text-cyan-400 transition-all duration-300">Paid Internship Policy</a></li>
+                {/* <li><a href="/internship-policy" className="hover:text-cyan-400 transition-all duration-300">Paid Internship Policy</a></li> */}
                 <li><a href="/scholarship-policy" className="hover:text-purple-400 transition-all duration-300">Scholarship Policy</a></li>
                 <li><a href="/fees-policy" className="hover:text-orange-400 transition-all duration-300">Fees Policy</a></li>
               </ul>

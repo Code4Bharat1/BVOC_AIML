@@ -34,11 +34,11 @@ export default function Scholarship_Policy() {
         [
           "Minimum 85% aggregate marks in Class 12 (Any recognized board).",
           "Scholarship applicable only in the first academic year (can be extended based on academic performance).",
-          "Must have enrolled in the B.Voc in AI and ML program.",
+          "Must have enrolled in the Bachelor's in AI and ML program.",
         ],
         "Benefits:",
         [
-          "50% waiver on tuition fees for the first year.",
+          "25000/- waiver on tuition fees for the first year.",
           "Scholarship amount will be adjusted against the tuition fees.",
         ],
         "Application Requirements:",
@@ -62,11 +62,11 @@ export default function Scholarship_Policy() {
           "Annual family income less than ₹2.5 Lakhs (Income Certificate required).",
           "Must belong to a rural area (verified via residential proof).",
           "Must have passed Class 12 from a recognized board.",
-          "Enrolled in the B.Voc in AI and ML program.",
+          "Enrolled in the Bachelor's in AI and ML program.",
         ],
         "Benefits:",
         [
-          "Up to 75% tuition fee waiver.",
+          "Up to 25000/- tuition fee waiver.",
           "Additional support for hostel or transportation, subject to availability and need.",
         ],
         "Rules & Regulations:",
@@ -95,12 +95,12 @@ export default function Scholarship_Policy() {
         "Eligibility Criteria:",
         [
           "Female candidates who have passed Class 12.",
-          "Enrolled in the B.Voc in AI and ML program.",
+          "Enrolled in the Bachelor's in AI and ML program.",
           "Priority given to first-generation learners or those from semi-urban/rural areas.",
         ],
         "Benefits:",
         [
-          "Up to 60% tuition fee waiver.",
+          "Up to 25000/- tuition fee waiver.",
           "Mentorship and skill-building workshops specifically designed for female students.",
           "Networking support for internships and placements.",
         ],
@@ -160,7 +160,7 @@ export default function Scholarship_Policy() {
             This document outlines the{" "}
             <span className="text-cyan-300 font-bold">Scholarship policies</span>{" "}
             for students enrolling in the{" "}
-            <span className="text-orange-300 font-bold">B.Voc</span> in{" "}
+            <span className="text-orange-300 font-bold">Bachelor's</span> in{" "}
             <span className="text-orange-300 font-bold">
               Artificial Intelligence
             </span>{" "}

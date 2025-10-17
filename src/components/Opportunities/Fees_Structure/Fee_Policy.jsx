@@ -1,6 +1,8 @@
-import { FaRupeeSign, FaCalendarAlt, FaFileInvoice } from "react-icons/fa";
+import { FaRupeeSign, FaCalendarAlt, FaFileInvoice ,FaCreditCard} from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import Link from "next/link";
+
+
 
 export default function Fee_Policy() {
   return (
@@ -31,7 +33,7 @@ export default function Fee_Policy() {
           </h1>
 
           <h2 className="text-xl md:text-2xl font-semibold text-cyan-400">
-            Course: B.Voc in Artificial Intelligence and Machine Learning
+            Course: Bachelor's in Artificial Intelligence and Machine Learning
           </h2>
 
           <div className="flex items-center justify-center gap-3 mt-6">
@@ -145,7 +147,7 @@ export default function Fee_Policy() {
             Payment Schedule & Options
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Option A */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
@@ -175,17 +177,19 @@ export default function Fee_Policy() {
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
                       2
                     </span>
-                    <p className="text-lg">2nd Year: ₹1,12,000 at the start of 4th Semester</p>
+                    <p className="text-lg">2nd Year: ₹1,12,000 at the start of 3th Semester</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
                       3
                     </span>
-                    <p className="text-lg">3rd Year: ₹1,12,000 at the start of 6th Semester</p>
+                    <p className="text-lg">3rd Year: ₹1,12,000 at the start of 5th Semester</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             {/* Option B */}
             <div className="relative group">
@@ -217,6 +221,74 @@ export default function Fee_Policy() {
                 </div>
               </div>
             </div>
+             {/* Option C */}
+                  <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+
+                <div className="relative h-full bg-[#1a2847] rounded-3xl p-8 border-2 border-cyan-500/50">
+                  {/* Corner Decorations */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-500/70 rounded-tl-3xl" />
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-purple-500/70 rounded-br-3xl" />
+
+                  <div className="flex flex-col items-center mb-6">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-cyan-500/50">
+                      <FaCreditCard />
+                    </div>
+                    <h3 className="text-2xl font-bold text-cyan-400">
+                      Option C: Monthly EMI Plan
+                    </h3>
+                  </div>
+
+                  <div className="space-y-4 text-gray-300">
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        1
+                      </span>
+                      <p className="text-lg">Admission Fees: ₹5,000 (one-time)</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        2
+                      </span>
+                      <p className="text-lg">Exam Fees: ₹6,000 (one-time)</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        3
+                      </span>
+                      <p className="text-lg">Student Development Fees: ₹6,000 (one-time)</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        4
+                      </span>
+                      <p className="text-lg">Balance Amount: ₹95,000</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        5
+                      </span>
+                      <p className="text-lg">
+                        EMI via <span className="text-cyan-400 font-semibold">Credit Card Only</span> (No Cost EMI)
+                      </p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50">
+                        💳
+                      </span>
+                      <p className="text-lg font-semibold text-purple-400">
+                        Monthly EMI: ₹10,555 / month
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
           </div>
         </div>
 

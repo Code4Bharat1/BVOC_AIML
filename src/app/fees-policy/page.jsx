@@ -9,8 +9,8 @@ export default function page() {
       <main className="flex-grow py-16">
         <Fee_Policy />
         <FeePaymentGuidelines />
-        <FinancialAssistance />
-        <LastComponenet />
+        {/* <FinancialAssistance />
+        <LastComponenet /> */}
       </main>
     </div>
   );

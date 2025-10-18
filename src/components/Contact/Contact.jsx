@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Globe } from "lucide-react";
+import toast from "react-hot-toast";
 
 // Custom Social Media Icons with Brand Colors
 const LinkedInIcon = () => (
@@ -61,12 +62,12 @@ const ContactPage = () => {
 
   const handleSubmit = () => {
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      alert("कृपया सभी आवश्यक फील्ड भरें (Please fill all required fields)");
+      toast.error("कृपया सभी आवश्यक फील्ड भरें (Please fill all required fields)");
       return;
     }
     setIsSubmitting(true);
     try {
-      const whatsappNumber = "919892398976"; // Replace with your WhatsApp number
+      const whatsappNumber = "919594402822"; // Replace with your WhatsApp number
       const message = `🔔 *New Contact Form Submission*
 👤 *Name:* ${formData.name}
 📧 *Email:* ${formData.email}
@@ -83,20 +84,20 @@ Sent from Nexcore Alliance Website`;
         if (newWindow) {
           setTimeout(() => {
             setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-            alert("Message sent successfully! WhatsApp should open now.");
+            toast.success("Message sent successfully! WhatsApp should open now.");
           }, 1000);
         } else {
-          alert("Please allow pop-ups for this site to send WhatsApp messages.");
+          toast.error("Please allow pop-ups for this site to send WhatsApp messages.");
         }
       }
     } catch (error) {
-      alert("कुछ गलत हो गया। कृपया फिर से कोशिश करें। (Something went wrong. Please try again.)");
+      toast.error("कुछ गलत हो गया। कृपया फिर से कोशिश करें। (Something went wrong. Please try again.)");
     }
     setIsSubmitting(false);
   };
 
   const contactInfo = [
-    { icon: Phone, title: "Phone", content: "+91 9892398976", subContent: "Mon-Fri 9:00 AM - 6:00 PM", color: "from-[#00d4ff] to-[#AC6CFF]", href: "tel:+919594430295" },
+    { icon: Phone, title: "Phone", content: "+91 9594402822", subContent: "Mon-Fri 9:00 AM - 6:00 PM", color: "from-[#00d4ff] to-[#AC6CFF]", href: "tel:+919594430295" },
     { icon: Mail, title: "Email", content: "bvoc@nexcorealliance.com", subContent: "We'll respond within 24 hours", color: "from-[#AC6CFF] to-[#ff6b35]", href: "mailto:hello@nexcorealliance.com" },
     { icon: MapPin, title: "Office", content: "Mumbai, Maharashtra", subContent: "India - 400001", color: "from-[#ff6b35] to-[#00d4ff]", href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6" },
     { icon: Globe, title: "Website", content: "www.bvoc@nexcorealliance.com", subContent: "Visit our main website", color: "from-[#00d4ff] to-[#AC6CFF]", href: "https://www.nexcorealliance.com" },

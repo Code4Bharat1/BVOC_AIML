@@ -8,8 +8,8 @@ import { ChevronRight } from "lucide-react";
 
 const PlacementAssistance = () => {
   return (
-    <section className="w-full overflow-x-hidden px-6 py-20 bg-gradient-to-r from-[#EADAFF] to-[#D6B3FF] rounded-none shadow-lg mb-10">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+    <section className="w-full overflow-x-hidden px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4c1d95] rounded-none shadow-lg mb-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
         {/* Left Side Image */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
@@ -24,9 +24,9 @@ const PlacementAssistance = () => {
               alt="Placement Assistance"
               width={500}
               height={300}
-              className="rounded-3xl w-full object-cover shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
+              className="rounded-2xl sm:rounded-3xl w-full object-cover shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#A33DFF]/10 to-transparent rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#6366f1]/30 to-transparent rounded-2xl sm:rounded-3xl" />
           </div>
         </motion.div>
 
@@ -39,57 +39,57 @@ const PlacementAssistance = () => {
           className="w-full lg:w-1/2 text-center lg:text-start"
         >
           {/* Desktop Header */}
-          <h1 className="hidden lg:block text-5xl font-extrabold text-[#A33DFF] leading-tight mb-8">
+          <h1 className="hidden lg:block text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-6 lg:mb-8 drop-shadow-lg">
             Placement Assistance:
             <br />
-            <span className="text-black">Your Path to Success!</span>
+            <span className="text-[#a78bfa]">Your Path to Success!</span>
           </h1>
 
           {/* Desktop Text */}
-          <p className="hidden lg:block text-xl text-black font-medium leading-relaxed pr-10">
+          <p className="hidden lg:block text-lg xl:text-xl text-gray-200 font-medium leading-relaxed pr-0 lg:pr-10">
             At{" "}
-            <span className="font-bold text-[#A33DFF]">
+            <span className="font-bold text-[#c4b5fd]">
               Nexcore Alliance LLP
             </span>
-            , we don’t just teach — you{" "}
-            <span className="text-[#A33DFF] font-bold">intern</span> and{" "}
-            <span className="text-[#A33DFF] font-bold">work</span>. Our{" "}
-            <span className="font-bold text-[#A33DFF]">
+            , we don't just teach — you{" "}
+            <span className="text-[#c4b5fd] font-bold">intern</span> and{" "}
+            <span className="text-[#c4b5fd] font-bold">work</span>. Our{" "}
+            <span className="font-bold text-[#c4b5fd]">
               100% placement assistance
             </span>{" "}
-            ensures you’re job-ready for the real world.
+            ensures you're job-ready for the real world.
           </p>
 
           {/* Mobile Header */}
-          <h1 className="lg:hidden text-3xl font-extrabold text-[#A33DFF] leading-tight mb-4 text-center">
+          <h1 className="lg:hidden text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4 text-center drop-shadow-lg">
             Placement Assistance:
             <br />
-            <span className="text-black">Your Path to Success!</span>
+            <span className="text-[#a78bfa]">Your Path to Success!</span>
           </h1>
 
           {/* Mobile Text */}
-          <p className="lg:hidden text-base text-black font-medium px-4 mb-6 text-center">
+          <p className="lg:hidden text-sm sm:text-base text-gray-200 font-medium px-2 sm:px-4 mb-6 text-center">
             At{" "}
-            <span className="font-bold text-[#A33DFF]">
+            <span className="font-bold text-[#c4b5fd]">
               Nexcore Alliance LLP
             </span>
-            , we don’t just teach — you{" "}
-            <span className="font-bold text-[#A33DFF]">intern</span> and{" "}
-            <span className="font-bold text-[#A33DFF]">work</span>. Our{" "}
-            <span className="font-bold text-[#A33DFF]">
+            , we don't just teach — you{" "}
+            <span className="font-bold text-[#c4b5fd]">intern</span> and{" "}
+            <span className="font-bold text-[#c4b5fd]">work</span>. Our{" "}
+            <span className="font-bold text-[#c4b5fd]">
               100% placement assistance
             </span>{" "}
-            ensures you’re job-ready.
+            ensures you're job-ready.
           </p>
 
           {/* CTA Button → /contact */}
-          <div className="mt-6">
+          <div className="mt-6 flex justify-center lg:justify-start">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] hover:from-[#ff5722] hover:to-[#ff6b35] text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_rgba(255,107,53,0.5)]"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-[#8b5cf6] to-[#a78bfa] hover:from-[#7c3aed] hover:to-[#8b5cf6] text-white font-bold py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_rgba(139,92,246,0.5)]"
             >
               Enroll Now ✨
-              <ChevronRight className="ml-2 w-5 h-5" />
+              <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
         </motion.div>

@@ -20,7 +20,7 @@ const infraData = [
     ],
   },
   {
-    heading: "Workspace",
+    heading: "Workspaces",
     items: [
       { type: "image", src: "/infrastructure/work_space_4/workspace_1.png", alt: "Workspace 1" },
       { type: "image", src: "/infrastructure/work_space_4/workspace_2.png", alt: "Workspace 2" },
@@ -263,21 +263,27 @@ function InfraImgVid() {
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#3D0B67]/25 blur-[200px] rounded-full animate-pulse"></div>
 
       {/* Filter Buttons */}
-      <div className="relative z-10 flex justify-center gap-4 mb-12">
-        {["All", "Conference", "Work Spaces"].map((filter) => (
-          <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
-            className={`px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 ${
-              activeFilter === filter
-                ? "bg-gradient-to-r from-[#AC6CFF] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(172,108,255,0.6)] scale-105"
-                : "bg-[#1E0C44]/60 text-[#CBA0FF] hover:bg-[#2C1763] hover:shadow-[0_0_15px_rgba(172,108,255,0.3)]"
-            }`}
+      <div className="relative z-10 mb-12 w-full flex justify-center">
+          <div
+            className="flex gap-4 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-0 py-2 max-w-full justify-start md:justify-center"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {filter}
-          </button>
-        ))}
-      </div>
+            {["All", "Conference", "Workspaces"].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`flex-shrink-0 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 ${
+                  activeFilter === filter
+                    ? "bg-gradient-to-r from-[#AC6CFF] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(172,108,255,0.6)] scale-105"
+                    : "bg-[#1E0C44]/60 text-[#CBA0FF] hover:bg-[#2C1763] hover:shadow-[0_0_15px_rgba(172,108,255,0.3)]"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
+
 
       {filteredData.map((section, index) => (
         <div className="relative z-10 p-5" key={index}>

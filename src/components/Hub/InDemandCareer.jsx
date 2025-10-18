@@ -64,14 +64,14 @@ const InDemandCareer = () => {
         variants={headingVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="hidden md:block text-white text-center font-bold text-5xl my-16"
+        className="hidden md:block text-white bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b]  text-center font-bold text-5xl mt-10 pt-8 pb-4"
       >
         In-Demand Careers in AI & Emerging Tech
       </motion.h2>
 
       <section
         ref={sectionRef}
-        className="hidden md:block relative bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] bg-[url('/CareerDemand_Home-bg.svg')] bg-cover bg-center py-16 px-4"
+        className="hidden md:block relative bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] py-16 px-4"
         style={{ backgroundBlendMode: 'overlay' }}
       >
         <div className="text-center">

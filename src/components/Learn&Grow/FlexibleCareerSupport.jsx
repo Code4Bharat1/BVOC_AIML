@@ -68,9 +68,9 @@ const FlexibleCareerSupport = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-20 text-start pl-6 lg:pl-24"
+          className="text-start pl-6 lg:pl-24 bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] pb-8"
         >
-          <h1 className="text-white text-2xl lg:text-5xl font-bold">
+          <h1 className="text-white text-2xl lg:text-5xl font-bold pt-8">
             <span className="text-[#00d4ff]">Nexcore</span> Alliance LLP –{" "}
             <br className="lg:hidden" />A Clear Path Forward
           </h1>

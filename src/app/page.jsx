@@ -44,7 +44,7 @@ const Page = () => {
             ctaText: "Chat with us",
             borderRadius: "25",
             autoShow: false,
-            phoneNumber: "919892398976",
+            phoneNumber: "919594402822",
           },
         });
       }

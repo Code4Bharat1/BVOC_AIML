@@ -7,38 +7,252 @@ const testimonials = [
   {
     quote:
       "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-    name: "Basim Thakur",
-    role: "BVOC AI & ML(2025-2028)",
-    src: "/Testimonials/testimonial5.png",
-  },
-  {
-    quote:
-      "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
-    name: "Yogesh Rane",
-    role: "BVOC AI & ML(2025-2028)",
-    src: "/Testimonials/testimonial4.png",
+    name: "Uzer Sayed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Uzer Sayed.jpg",
   },
   {
     quote:
       "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
-    name: "Sakshi Gupta",
-    role: "BVOC AI & ML(2025-2028)",
-    src: "/Testimonials/testimonial1.png",
+    name: "Pravin Mohana Sundaram Chettiar",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/PRAVIN.jpg",
   },
   {
     quote:
-      "This platform has brought so much value to our team. We love how intuitive and powerful it is.",
-    name: "Nouman Khan",
-    role: "BVOC AI & ML(2025-2028)",
-    src: "/Testimonials/testimonial3.png",
+      "I love how the program focuses not just on coding but on critical thinking, teamwork, and solving real-world problems.",
+    name: "Farhan Faiyaz Tolkar",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Farhan Tolkar.jpg",
+  },
+  {
+    quote:
+      "The exposure we get to cloud computing and machine learning tools here is something most colleges only promise.",
+    name: "Mohd Irfan Mohd Noor Alam Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Mohd Irfan.jpg",
+  },
+  {
+    quote:
+      "The faculty’s commitment to student success is outstanding. They make complex AI topics simple and fun.",
+    name: "Mohd Ahmed Waseem Khan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Ahmed khan.jpg",
+  },
+  {
+    quote:
+      "The real-time projects gave me the confidence to handle data pipelines and APIs just like in the industry.",
+    name: "Mohammed Taha Mohd Yusuf Choudhary",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Taha Choudhary.jpg",
+  },
+  {
+    quote:
+      "The project-based learning structure ensures we apply everything we learn immediately — it’s the best part.",
+    name: "Affan Rizwan Khan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Affan khan.jpg",
+  },
+  {
+    quote:
+      "Being part of this program made me realize how AI can transform industries and communities alike.",
+    name: "Khan Shahid Ali Asgar Ali",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Khan Shahid.jpg",
+  },
+  {
+    quote:
+      "The mentorship and guidance from faculty helped me turn my curiosity for AI into real-world projects that I can proudly showcase.",
+    name: "Shaikh Iqfat Nasir",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Shaikh Iqfat Nasir.jpg",
+  },
+  {
+    quote:
+      "Every module feels practical and industry-relevant. The labs are well-equipped and designed to make us job-ready.",
+    name: "Khan Umera Mohd Salim",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Umera Khan.jpg",
+  },
+  {
+    quote:
+      "From day one, we’re encouraged to think like innovators. It’s not just about marks but about building real impact.",
+    name: "Ansari Sahil Seraj Ahmad",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Sahil Ansari.jpg",
   },
   {
     quote:
       "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-    name: "Aditi Sharma",
-    role: "BVOC AI & ML(2025-2028)",
+    name: "Sayyed Mohammed Asif Abdul Rehman",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Sayyed Asif.jpg",
+  },
+  {
+    quote:
+      "I really appreciate how accessible our mentors are. No question ever goes unanswered here.",
+    name: "Faiz Ahmed Moiz Ahmed Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Faiz Ahmed Shaikh.jpg",
+  },
+  {
+    quote:
+      "I’ve developed technical and soft skills both — presentation, teamwork, and communication matter here.",
+    name: "Khan Ramzan Shamshad",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Ramzan Khan.jpg",
+  },
+  {
+    quote:
+      "Joining BVOC AI & ML has been the best decision of my academic journey. The blend of theory and hands-on learning keeps us ahead of trends.",
+    name: "Khan Mohd Zaid Riyaz Ahmed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Khan Mohammed Zaid.jpg",
+  },
+  {
+    quote:
+      "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
+    name: "Piyush Jayprakash Patwa",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial4.png",
+  },
+  {
+    quote:
+      "This program has turned my curiosity for technology into a clear career path. The experience is priceless.",
+    name: "Das Sudeep Prashant",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial3.png",
+  },
+  {
+    quote:
+      "Every week brings something new to learn — from AI ethics to real-time deployment. It’s exciting and challenging.",
+    name: "Sanskar Sunil Ashan",
+    role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
+  {
+    quote:
+      "I never thought I’d be able to train models and deploy them before graduation. BVOC AI & ML made that possible!",
+    name: "Ayan Yusuf Khan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "The curriculum is so well structured — each semester feels like a step closer to becoming a professional.",
+    name: "Obaidullah Mohd Zahiruddin Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "Learning with Nexcore Alliance and Code4Bharat has opened doors to internships and collaborations I never expected.",
+    name: "Vishesh Shivlal Jaiswar",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "Every assignment feels like a mini startup challenge. It pushes me to think like an engineer and entrepreneur.",
+    name: "Mohd Yasin Baban Sayyed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "I’ve grown immensely not just as a student but as a problem-solver. This course builds confidence and creativity.",
+    name: "Khan Nafisa Ali Ahmed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "The labs are state-of-the-art, and access to real cloud resources makes the experience feel world-class.",
+    name: "Tamanna Ansari",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "I like how learning is never theoretical. We build models, test, and improve them like real data scientists.",
+    name: "Kailash Ganesh Mahto",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "Our mentors constantly encourage innovation and experimentation. That’s what makes this program special.",
+    name: "Sajiya Badruduja Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "The practical exposure here bridges the gap between what’s taught in class and what’s needed in the industry.",
+    name: "Kazim Shahid Raza Salmani",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  // {
+  //   quote:
+  //     "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
+  //   name: "Farhan Shaikh",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "This course is a perfect mix of coding, creativity, and career preparation. Every week feels productive.",
+  //   name: "Sanjana Reddy",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "It’s amazing how the instructors make complex algorithms so easy to understand with real-life examples.",
+  //   name: "Kartik Joshi",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "From Python basics to deploying deep learning models — I’ve learned the complete journey of AI development.",
+  //   name: "Tanya D’Souza",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "Every semester brings new excitement — the hands-on labs are the highlight of this entire program.",
+  //   name: "Vishal Rajput",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "I’ve built projects that I can showcase to recruiters — something that makes me confident about placements.",
+  //   name: "Manisha Pawar",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "The faculty’s mentorship and one-on-one sessions really help me understand where I stand and how to improve.",
+  //   name: "Rehan Ali",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "Learning AI here isn’t about rote memorization; it’s about experimenting, failing, and building better each time.",
+  //   name: "Bhavika Jain",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "I love the community vibe. Everyone helps each other grow — it feels like a family pushing toward success.",
+  //   name: "Aditya Chauhan",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
+  // {
+  //   quote:
+  //     "With every workshop, I feel more confident about tackling real-world data and solving meaningful problems.",
+  //   name: "Sofia Shaikh",
+  //   role: "BVOC AI & ML (2025-2028)",
+  // },
 ];
 
 export default function Testimonials() {
@@ -55,21 +269,22 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [isPaused]);
 
+  const getRating = (index) => {
+    const seed = (index * 9301 + 49297) % 233280;
+    const rand = seed / 233280;
+    return Math.round((3 + rand * 1.5) * 2) / 2;
+  };
+
   const getPosition = (index) => {
     const total = testimonials.length;
     const diff = (index - currentIndex + total) % total;
-
     switch (diff) {
       case 0:
         return "center";
       case 1:
         return "right1";
-      case 2:
-        return "right2";
       case total - 1:
         return "left1";
-      case total - 2:
-        return "left2";
       default:
         return "hidden";
     }
@@ -80,13 +295,9 @@ export default function Testimonials() {
       case "center":
         return { scale: 1, opacity: 1, zIndex: 30, x: 0, rotateY: 0 };
       case "left1":
-        return { scale: 0.85, opacity: 0.5, zIndex: 20, x: "-60%", rotateY: 20 };
-      case "left2":
-        return { scale: 0.7, opacity: 0.3, zIndex: 10, x: "-110%", rotateY: 30 };
+        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "-80%", rotateY: 15 };
       case "right1":
-        return { scale: 0.85, opacity: 0.5, zIndex: 20, x: "60%", rotateY: -20 };
-      case "right2":
-        return { scale: 0.7, opacity: 0.3, zIndex: 10, x: "110%", rotateY: -30 };
+        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "80%", rotateY: -15 };
       default:
         return { scale: 0.5, opacity: 0, zIndex: 0, x: 0, rotateY: 0 };
     }
@@ -116,29 +327,8 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-gradient-to-t from-[#33135B] via-[#460E73] to-[#8E1DBA] py-24 px-6 lg:px-12 rounded-t-[3rem] text-white"
+      className="relative overflow-hidden bg-gradient-to-t from-[#33135B] via-[#460E73] to-[#8E1DBA] py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-12 rounded-t-[2.5rem] text-white"
     >
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#AC6CFF]/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#8E1DBA]/15 rounded-full blur-3xl"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,rgba(172,108,255,0.03)_50%,transparent_100%)]" />
-      </div>
-
       {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -186,9 +376,8 @@ export default function Testimonials() {
         </p>
       </motion.div>
 
-      {/* Modern Carousel */}
       <div
-        className="relative flex justify-center items-center h-[35rem] perspective-1000"
+        className="relative flex justify-center items-center h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[38rem] xl:h-[40rem] perspective-1000"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -197,89 +386,85 @@ export default function Testimonials() {
             const position = getPosition(index);
             const motionStyle = getMotionStyle(position);
             const isCenter = position === "center";
+            const rating = getRating(index);
 
             return (
               <motion.div
                 key={index}
                 animate={motionStyle}
                 transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-                className={`absolute backdrop-blur-xl bg-gradient-to-br from-white/15 to-white/5 border border-white/20 rounded-3xl shadow-2xl text-white w-full max-w-5xl ${
+                className={`absolute backdrop-blur-xl bg-gradient-to-br from-white/15 to-white/5 border border-white/20 rounded-3xl shadow-2xl text-white w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[65%] max-w-6xl ${
                   position === "hidden" ? "pointer-events-none" : ""
                 } transform preserve-3d overflow-hidden`}
-                style={{
-                  boxShadow: isCenter 
-                    ? "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(172, 108, 255, 0.3)"
-                    : "0 10px 30px -10px rgba(0, 0, 0, 0.3)"
-                }}
               >
-                {/* Gradient overlay on card */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#AC6CFF]/10 via-transparent to-[#8E1DBA]/10 pointer-events-none" />
-                
-                <div className="relative flex flex-col lg:flex-row h-full">
-                  {/* Image Section with modern overlay */}
-                  <div className="relative w-full h-72 lg:w-96 lg:h-auto shrink-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#33135B]/90 via-[#33135B]/40 to-transparent z-10" />
+                <div className="flex flex-col lg:flex-row h-full">
+                  {/* Image Section */}
+                  <div className="relative w-full h-60 sm:h-72 md:h-80 lg:w-96 lg:h-[500px] shrink-0 overflow-hidden">
                     <img
                       src={t.src}
                       alt={t.name}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-center"
                     />
-                    {/* Decorative shape */}
-                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#33135B] to-transparent z-10" />
-                    <svg className="absolute bottom-0 left-0 w-full h-24 z-10" viewBox="0 0 500 100" preserveAspectRatio="none">
-                      <path d="M0,100 L0,40 Q250,100 500,40 L500,100 Z" fill="#33135B" />
-                    </svg>
                   </div>
 
                   {/* Content Section */}
-                  <div className="flex-1 p-8 lg:p-12 flex flex-col justify-between relative z-10">
+                  <div className="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between">
                     {/* Stars */}
-                    <div className="flex gap-1 mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <motion.svg
-                          key={i}
-                          className="w-5 h-5 text-[#AC6CFF]"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={isCenter ? { opacity: 1, scale: 1 } : { opacity: 0.5, scale: 0.8 }}
-                          transition={{ delay: i * 0.1 + 0.3 }}
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </motion.svg>
-                      ))}
+                    <div className="flex gap-1 mb-4 sm:mb-6 flex-wrap">
+                      {[...Array(5)].map((_, i) => {
+                        const isFull = i + 1 <= rating;
+                        const isHalf = !isFull && i + 0.5 === rating;
+                        return (
+                          <motion.svg
+                            key={i}
+                            className={`w-4 h-4 sm:w-5 sm:h-5 ${
+                              isCenter ? "opacity-100" : "opacity-70"
+                            }`}
+                            fill={isHalf ? "url(#halfGradient)" : isFull ? "#FFD700" : "none"}
+                            stroke="#FFD700"
+                            viewBox="0 0 20 20"
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={
+                              isCenter
+                                ? { opacity: 1, scale: 1 }
+                                : { opacity: 0.6, scale: 0.9 }
+                            }
+                            transition={{ delay: i * 0.1 + 0.3 }}
+                          >
+                            <defs>
+                              <linearGradient id="halfGradient">
+                                <stop offset="50%" stopColor="#FFD700" />
+                                <stop offset="50%" stopColor="transparent" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </motion.svg>
+                        );
+                      })}
                     </div>
 
                     {/* Quote */}
-                    <div className="mb-8 relative">
-                      <div className="absolute -left-2 -top-2 text-7xl text-[#AC6CFF]/20 font-serif leading-none">"</div>
-                      <p className="text-lg lg:text-xl text-white/95 leading-relaxed pl-8 relative z-10">
+                    <div className="mb-6 sm:mb-8">
+                      <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                         {t.quote}
                       </p>
                     </div>
 
-                    {/* Author Section */}
-                    <div className="flex items-center gap-5 pt-6 border-t border-white/10">
+                    {/* Author */}
+                    <div className="flex items-center gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-white/10">
                       <motion.div
-                        className="relative w-16 h-16"
+                        className="relative w-12 h-12 sm:w-14 sm:h-14"
                         whileHover={{ scale: 1.05 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#AC6CFF] to-[#8E1DBA] rounded-2xl rotate-6" />
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#AC6CFF] to-[#8E1DBA] rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#AC6CFF] to-[#8E1DBA] rounded-2xl flex items-center justify-center text-lg sm:text-xl font-bold">
                           {t.name.charAt(0)}
                         </div>
                       </motion.div>
                       <div>
-                        <p className="font-bold text-xl text-white mb-1">{t.name}</p>
-                        <p className="text-[#AC6CFF] text-sm font-medium">{t.role}</p>
-                      </div>
-                      {/* Verified badge */}
-                      <div className="ml-auto">
-                        <div className="w-8 h-8 rounded-full bg-[#AC6CFF]/20 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[#AC6CFF]" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                        </div>
+                        <p className="font-bold text-base sm:text-lg md:text-xl">{t.name}</p>
+                        <p className="text-[#AC6CFF] text-xs sm:text-sm font-medium">
+                          {t.role}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -289,38 +474,48 @@ export default function Testimonials() {
           })}
         </div>
 
-        {/* Stylish Navigation Arrows */}
+        {/* Arrows */}
         <motion.button
           onClick={handlePrev}
           whileHover={{ scale: 1.1, x: -3 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute left-6 lg:left-12 z-40 group"
+          className="absolute left-3 sm:left-6 md:left-10 z-40 group"
           aria-label="Previous"
         >
-          <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#AC6CFF]/30 group-hover:border-[#AC6CFF]/50 shadow-lg">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-lg border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#AC6CFF]/30 group-hover:border-[#AC6CFF]/50 shadow-lg">
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </div>
         </motion.button>
-        
+
         <motion.button
           onClick={handleNext}
           whileHover={{ scale: 1.1, x: 3 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute right-6 lg:right-12 z-40 group"
+          className="absolute right-3 sm:right-6 md:right-10 z-40 group"
           aria-label="Next"
         >
-          <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#AC6CFF]/30 group-hover:border-[#AC6CFF]/50 shadow-lg">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-lg border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#AC6CFF]/30 group-hover:border-[#AC6CFF]/50 shadow-lg">
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </div>
         </motion.button>
       </div>
 
-      {/* Modern Dot Navigation */}
-      <div className="flex justify-center items-center gap-3 mt-16 relative z-10">
+      {/* Dots */}
+      <div className="flex justify-center items-center gap-2 sm:gap-3 mt-12 sm:mt-14 md:mt-16">
         {testimonials.map((_, index) => (
           <motion.button
             key={index}
@@ -330,11 +525,13 @@ export default function Testimonials() {
             className="relative"
             aria-label={`Testimonial ${index + 1}`}
           >
-            <div className={`rounded-full transition-all duration-500 ${
-              index === currentIndex
-                ? "w-10 h-3 bg-gradient-to-r from-[#AC6CFF] to-[#8E1DBA]"
-                : "w-3 h-3 bg-white/30 hover:bg-white/50"
-            }`} />
+            <div
+              className={`rounded-full transition-all duration-500 ${
+                index === currentIndex
+                  ? "w-8 sm:w-10 h-2 sm:h-3 bg-gradient-to-r from-[#AC6CFF] to-[#8E1DBA]"
+                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white/30 hover:bg-white/50"
+              }`}
+            />
             {index === currentIndex && (
               <motion.div
                 layoutId="activeDot"
@@ -346,7 +543,7 @@ export default function Testimonials() {
       </div>
 
       {/* Progress Bar */}
-      <div className="max-w-xl mx-auto mt-10 relative z-10">
+      <div className="max-w-md sm:max-w-lg md:max-w-xl mx-auto mt-8 sm:mt-10">
         <div className="h-1 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
           <motion.div
             className="h-full bg-gradient-to-r from-[#AC6CFF] to-[#8E1DBA]"

@@ -13,7 +13,7 @@ const navItems = [
   { name: "Why We're Different", href: "/whychooseus" },
   {
     name: "Brochure",
-    href: "https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program.",
+    href: "https://wa.me/919594402822?text=Hi%2C%20I'm%20interested%20in%20viewing%20the%20brochure%20for%20the%20B.Voc%20Program.",
     external: true,
   },
 ];

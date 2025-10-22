@@ -84,7 +84,8 @@ const ShapeTheFuture = () => {
   whileTap={{ scale: 0.95 }}
 >
   <Link
-    href="/contact"
+    href="https://wa.me/919594402822?text=Hi, I'm interested in enrolling in your course!"
+    target="_blank"
     className="hidden w-44 lg:flex bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white mt-5 mb-30 rounded-full px-8 py-3 items-center justify-center gap-2 mx-auto whitespace-nowrap shadow-lg"
   >
     Get Started <ChevronRight />
@@ -105,7 +106,7 @@ const ShapeTheFuture = () => {
 
           {/* Centered Button */}
           <motion.a
-             href="https://wa.me/919892398976?text=Hi, I'm interested in enrolling in your course!"
+            href="https://wa.me/919594402822?text=Hi, I'm interested in enrolling in your course!"
             target="_blank"
             rel="noopener noreferrer"
 

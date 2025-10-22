@@ -290,9 +290,9 @@ export default function EnhancedAITools() {
                   </div>
                 </div>
 
-                <button className="mt-6 w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/50">
+                {/* <button className="mt-6 w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/50">
                   Learn More →
-                </button>
+                </button> */}
               </div>
 
               {/* Corner Accents */}

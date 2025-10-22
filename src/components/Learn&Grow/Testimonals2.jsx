@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     quote:
-      "The faculty’s commitment to student success is outstanding. They make complex AI topics simple and fun.",
+      "The faculty's commitment to student success is outstanding. They make complex AI topics simple and fun.",
     name: "Mohd Ahmed Waseem Khan",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Ahmed khan.jpg",
@@ -48,7 +48,7 @@ const testimonials = [
   },
   {
     quote:
-      "The project-based learning structure ensures we apply everything we learn immediately — it’s the best part.",
+      "The project-based learning structure ensures we apply everything we learn immediately — it's the best part.",
     name: "Affan Rizwan Khan",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Affan khan.jpg",
@@ -76,7 +76,7 @@ const testimonials = [
   },
   {
     quote:
-      "From day one, we’re encouraged to think like innovators. It’s not just about marks but about building real impact.",
+      "From day one, we're encouraged to think like innovators. It's not just about marks but about building real impact.",
     name: "Ansari Sahil Seraj Ahmad",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Sahil Ansari.jpg",
@@ -97,7 +97,7 @@ const testimonials = [
   },
   {
     quote:
-      "I’ve developed technical and soft skills both — presentation, teamwork, and communication matter here.",
+      "I've developed technical and soft skills both — presentation, teamwork, and communication matter here.",
     name: "Khan Ramzan Shamshad",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Ramzan Khan.jpg",
@@ -108,6 +108,41 @@ const testimonials = [
     name: "Khan Mohd Zaid Riyaz Ahmed",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Khan Mohammed Zaid.jpg",
+  },
+  {
+    quote:
+      "The labs are state-of-the-art, and access to real cloud resources makes the experience feel world-class.",
+    name: "Tamanna Ansari",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Tamanna Ansari.jpg",
+  },
+  {
+    quote:
+      "I like how learning is never theoretical. We build models, test, and improve them like real data scientists.",
+    name: "Kailash Ganesh Mahto",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Kailash Mahto.jpg",
+  },
+  {
+    quote:
+      "Our mentors constantly encourage innovation and experimentation. That's what makes this program special.",
+    name: "Sajiya Badruduja Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/sajiya shaikh.jpg",
+  },
+  {
+    quote:
+      "The curriculum is so well structured — each semester feels like a step closer to becoming a professional.",
+    name: "Obaidullah Mohd Zahiruddin Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Shaikh Obaidullah.jpg",
+  },
+  {
+    quote:
+      "Learning with Nexcore Alliance and Code4Bharat has opened doors to internships and collaborations I never expected.",
+    name: "Vishesh Shivlal Jaiswar",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Vishesh jaiswar.jpg",
   },
   {
     quote:
@@ -125,29 +160,15 @@ const testimonials = [
   },
   {
     quote:
-      "Every week brings something new to learn — from AI ethics to real-time deployment. It’s exciting and challenging.",
+      "Every week brings something new to learn — from AI ethics to real-time deployment. It's exciting and challenging.",
     name: "Sanskar Sunil Ashan",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
   {
     quote:
-      "I never thought I’d be able to train models and deploy them before graduation. BVOC AI & ML made that possible!",
+      "I never thought I'd be able to train models and deploy them before graduation. BVOC AI & ML made that possible!",
     name: "Ayan Yusuf Khan",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "The curriculum is so well structured — each semester feels like a step closer to becoming a professional.",
-    name: "Obaidullah Mohd Zahiruddin Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "Learning with Nexcore Alliance and Code4Bharat has opened doors to internships and collaborations I never expected.",
-    name: "Vishesh Shivlal Jaiswar",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
@@ -160,104 +181,87 @@ const testimonials = [
   },
   {
     quote:
-      "I’ve grown immensely not just as a student but as a problem-solver. This course builds confidence and creativity.",
+      "I've grown immensely not just as a student but as a problem-solver. This course builds confidence and creativity.",
     name: "Khan Nafisa Ali Ahmed",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
   {
     quote:
-      "The labs are state-of-the-art, and access to real cloud resources makes the experience feel world-class.",
-    name: "Tamanna Ansari",
+      "The practical exposure here bridges the gap between what's taught in class and what's needed in the industry.",
+    name: "Kazim Shahid Raza Salmani",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
+  },
+  /*
+  {
+    quote:
+      "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
+    name: "Farhan Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
   },
   {
     quote:
-      "I like how learning is never theoretical. We build models, test, and improve them like real data scientists.",
-    name: "Kailash Ganesh Mahto",
+      "This course is a perfect mix of coding, creativity, and career preparation. Every week feels productive.",
+    name: "Sanjana Reddy",
     role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
   },
   {
     quote:
-      "Our mentors constantly encourage innovation and experimentation. That’s what makes this program special.",
-    name: "Sajiya Badruduja Shaikh",
+      "It’s amazing how the instructors make complex algorithms so easy to understand with real-life examples.",
+    name: "Kartik Joshi",
     role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
   },
   {
     quote:
-      "The practical exposure here bridges the gap between what’s taught in class and what’s needed in the industry.",
-    name: "Kazim Shahid Raza Salmani",
+      "From Python basics to deploying deep learning models — I’ve learned the complete journey of AI development.",
+    name: "Tanya D’Souza",
     role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
   },
-  // {
-  //   quote:
-  //     "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
-  //   name: "Farhan Shaikh",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "This course is a perfect mix of coding, creativity, and career preparation. Every week feels productive.",
-  //   name: "Sanjana Reddy",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "It’s amazing how the instructors make complex algorithms so easy to understand with real-life examples.",
-  //   name: "Kartik Joshi",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "From Python basics to deploying deep learning models — I’ve learned the complete journey of AI development.",
-  //   name: "Tanya D’Souza",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "Every semester brings new excitement — the hands-on labs are the highlight of this entire program.",
-  //   name: "Vishal Rajput",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "I’ve built projects that I can showcase to recruiters — something that makes me confident about placements.",
-  //   name: "Manisha Pawar",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "The faculty’s mentorship and one-on-one sessions really help me understand where I stand and how to improve.",
-  //   name: "Rehan Ali",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "Learning AI here isn’t about rote memorization; it’s about experimenting, failing, and building better each time.",
-  //   name: "Bhavika Jain",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "I love the community vibe. Everyone helps each other grow — it feels like a family pushing toward success.",
-  //   name: "Aditya Chauhan",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
-  // {
-  //   quote:
-  //     "With every workshop, I feel more confident about tackling real-world data and solving meaningful problems.",
-  //   name: "Sofia Shaikh",
-  //   role: "BVOC AI & ML (2025-2028)",
-  // },
+  {
+    quote:
+      "Every semester brings new excitement — the hands-on labs are the highlight of this entire program.",
+    name: "Vishal Rajput",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "I’ve built projects that I can showcase to recruiters — something that makes me confident about placements.",
+    name: "Manisha Pawar",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "The faculty’s mentorship and one-on-one sessions really help me understand where I stand and how to improve.",
+    name: "Rehan Ali",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "Learning AI here isn’t about rote memorization; it’s about experimenting, failing, and building better each time.",
+    name: "Bhavika Jain",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "I love the community vibe. Everyone helps each other grow — it feels like a family pushing toward success.",
+    name: "Aditya Chauhan",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "With every workshop, I feel more confident about tackling real-world data and solving meaningful problems.",
+    name: "Sofia Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  */
 ];
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
 
@@ -321,8 +325,39 @@ export default function Testimonials() {
     setTimeout(() => setIsPaused(false), 500);
   };
 
-  const handleTouchStart = () => setIsPaused(true);
-  const handleTouchEnd = () => setIsPaused(false);
+  // Swipe handlers
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) {
+      setIsPaused(false);
+      return;
+    }
+
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      // Swiped left - go to next
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      // Swiped right - go to previous
+      handlePrev();
+    } else {
+      setIsPaused(false);
+    }
+
+    // Reset values
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
 
   return (
     <section
@@ -352,7 +387,7 @@ export default function Testimonials() {
           <span className="relative inline-block text-[#AC6CFF]">
             Students & Clients
             <motion.svg
-              className="absolute -bottom-2 left-0 w-full"
+              className="absolute -bottom-2 left-0 w-full hidden sm:block"
               height="8"
               viewBox="0 0 300 8"
               initial={{ pathLength: 0 }}
@@ -379,6 +414,7 @@ export default function Testimonials() {
       <div
         className="relative flex justify-center items-center h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[38rem] xl:h-[40rem] perspective-1000"
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div className="relative w-full flex items-center justify-center">
@@ -403,7 +439,7 @@ export default function Testimonials() {
                     <img
                       src={t.src}
                       alt={t.name}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-contain sm:object-cover object-center"
                     />
                   </div>
 
@@ -515,32 +551,72 @@ export default function Testimonials() {
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center items-center gap-2 sm:gap-3 mt-12 sm:mt-14 md:mt-16">
-        {testimonials.map((_, index) => (
-          <motion.button
-            key={index}
-            onClick={() => handleDotClick(index)}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            className="relative"
-            aria-label={`Testimonial ${index + 1}`}
-          >
-            <div
-              className={`rounded-full transition-all duration-500 ${
-                index === currentIndex
-                  ? "w-8 sm:w-10 h-2 sm:h-3 bg-gradient-to-r from-[#AC6CFF] to-[#8E1DBA]"
-                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white/30 hover:bg-white/50"
-              }`}
-            />
-            {index === currentIndex && (
+      <motion.div
+        layout
+        className="flex justify-center items-center gap-2 sm:gap-3 mt-10 overflow-hidden px-4"
+        transition={{
+          layout: { type: "spring", stiffness: 120, damping: 20 },
+        }}
+      >
+        {testimonials.map((_, index) => {
+          const visibleRange = 5; // number of visible dots
+          const start = Math.max(0, currentIndex - Math.floor(visibleRange / 2));
+          const end = Math.min(testimonials.length, start + visibleRange);
+          const adjustedStart = Math.max(0, end - visibleRange);
+
+          if (index < adjustedStart || index >= end) return null;
+
+          return (
+            <motion.button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              layout
+              whileHover={{ scale: 1.25 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0.5, y: 5 }}
+              animate={{
+                opacity: index === currentIndex ? 1 : 0.6,
+                y: index === currentIndex ? 0 : 5,
+                scale: index === currentIndex ? 1.2 : 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 250,
+                damping: 18,
+                mass: 0.8,
+              }}
+              className="relative"
+              aria-label={`Testimonial ${index + 1}`}
+            >
               <motion.div
-                layoutId="activeDot"
-                className="absolute inset-0 rounded-full bg-[#AC6CFF]/30 blur-md"
+                layout
+                className={`rounded-full ${
+                  index === currentIndex
+                    ? "w-8 h-2 bg-gradient-to-r from-[#AC6CFF] to-[#8E1DBA]"
+                    : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
+                }`}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 25,
+                }}
               />
-            )}
-          </motion.button>
-        ))}
-      </div>
+              {index === currentIndex && (
+                <motion.div
+                  layoutId="activeDot"
+                  className="absolute inset-0 rounded-full bg-[#AC6CFF]/40 blur-md"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20,
+                  }}
+                />
+              )}
+            </motion.button>
+          );
+        })}
+      </motion.div>
+
 
       {/* Progress Bar */}
       <div className="max-w-md sm:max-w-lg md:max-w-xl mx-auto mt-8 sm:mt-10">

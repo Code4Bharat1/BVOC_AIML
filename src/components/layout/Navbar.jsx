@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiSparkles, HiMenu, HiX } from "react-icons/hi";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
-// ✅ Added Brochure to navItems for same design
 const navItems = [
   { name: "Hub", href: "/" },
   { name: "Infrastructure", href: "/infrastructure" },
@@ -26,7 +26,6 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const pathname = usePathname();
 
-  // Detect active page for underline
   const activeIndex = navItems.findIndex(
     (item) => !item.external && item.href === pathname
   );
@@ -50,179 +49,286 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed w-full top-0 z-50 backdrop-blur-md border-b border-cyan-500/20 bg-gradient-to-r from-[#0f2847]/90 via-[#1a3a5c]/90 to-[#2d1b69]/90 shadow-lg shadow-cyan-500/10">
-      {/* Decorative Stars */}
+    <nav className="fixed w-full top-0 z-50 backdrop-blur-xl border-b border-[#26C6DA]/20 bg-gradient-to-r from-[#1A287E]/90 via-[#2C3560]/90 to-[#212121]/90 shadow-lg shadow-[#26C6DA]/10">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
+        }}></div>
+      </div>
+
+      {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <HiSparkles className="absolute top-2 left-20 text-cyan-400 text-sm animate-pulse" />
-        <HiSparkles className="absolute top-3 right-32 text-orange-400 text-xs animate-pulse delay-300" />
-        <HiSparkles className="absolute bottom-2 left-1/3 text-purple-400 text-sm animate-pulse delay-700" />
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-0.5 h-0.5 bg-[#26C6DA] rounded-full"
+            style={{
+              left: `${20 + i * 20}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -10, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 1,
+              repeat: Infinity,
+              delay: i * 0.3,
+            }}
+          />
+        ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="text-white text-2xl md:text-3xl font-extrabold tracking-wide">
+        <motion.div 
+          className="text-white text-2xl md:text-3xl font-extrabold tracking-wide"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400 }}
+        >
           <Link href="/" className="flex items-center gap-2 group">
-            <HiSparkles className="text-cyan-400 text-xl group-hover:rotate-180 transition-transform duration-500" />
-            <span className="hover:text-cyan-400 transition-all duration-300">
-              <span className="text-cyan-400 drop-shadow-[0_0_8px_rgba(0,212,255,0.6)]">B</span>VOC
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              <HiSparkles className="text-[#26C6DA] text-xl" />
+            </motion.div>
+            <span className="hover:text-[#26C6DA] transition-all duration-300">
+              <span className="text-[#26C6DA]">B</span>VOC
             </span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-8">
             {navItems.map((item, index) => (
-              <li key={item.name} className="relative group">
+              <motion.li 
+                key={item.name} 
+                className="relative group"
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
                 {item.external ? (
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-2 px-3 transition-all duration-300 text-white hover:text-cyan-400 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.6)]"
+                    className="block py-2 px-3 transition-all duration-300 text-white hover:text-[#26C6DA] font-medium"
                   >
                     {item.name}
+                    <span className="absolute inset-0 bg-[#26C6DA]/10 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300"></span>
                   </a>
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block py-2 px-3 transition-all duration-300 ${
+                    className={`block py-2 px-3 transition-all duration-300 font-medium ${
                       activeIndex === index
-                        ? "text-cyan-400 font-bold drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]"
-                        : "text-white hover:text-cyan-400 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.6)]"
+                        ? "text-[#26C6DA]"
+                        : "text-white hover:text-[#26C6DA]"
                     }`}
                   >
                     {item.name}
                   </Link>
                 )}
                 {activeIndex === index && (
-                  <div className="absolute left-1/2 -bottom-1 transform -translate-x-1/2">
-                    <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full block shadow-[0_0_8px_rgba(0,212,255,0.8)] animate-pulse" />
-                  </div>
+                  <motion.div 
+                    className="absolute left-1/2 -bottom-1 transform -translate-x-1/2"
+                    layoutId="activeIndicator"
+                  >
+                    <motion.span 
+                      className="w-1.5 h-1.5 bg-[#26C6DA] rounded-full block shadow-[0_0_8px_rgba(38,198,218,0.8)]"
+                      animate={{ scale: [1, 1.3, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  </motion.div>
                 )}
-              </li>
+              </motion.li>
             ))}
 
             {/* Student Panel Dropdown */}
             <li className="relative" ref={dropdownRef}>
-              <button
+              <motion.button
                 onClick={toggleDropdown}
-                className="flex items-center gap-1 py-2 px-3 text-white hover:text-cyan-400 transition-all duration-300"
+                className="flex items-center gap-1 py-2 px-3 text-white hover:text-[#26C6DA] transition-all duration-300 font-medium"
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 Student Panel
-                <MdKeyboardArrowDown
-                  className={`transition-transform duration-300 ${
-                    dropdownOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+                <motion.div
+                  animate={{ rotate: dropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <MdKeyboardArrowDown />
+                </motion.div>
+              </motion.button>
 
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-44 bg-[#1a3a5c]/95 border border-cyan-500/30 rounded-lg shadow-lg backdrop-blur-md">
-                  <a
-                    href="https://nexcore.classpro.in/users/sign_in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div 
+                    className="absolute right-0 mt-2 w-44 bg-[#1A287E]/95 border border-[#26C6DA]/30 rounded-xl shadow-lg backdrop-blur-xl overflow-hidden"
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    Admin Panel
-                  </a>
-                  <a
-                    href="https://nexcore.classpro.in/people/sign_in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
-                  >
-                    Student Panel
-                  </a>
-                </div>
-              )}
+                    <a
+                      href="https://nexcore.classpro.in/users/sign_in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-3 text-white hover:bg-[#26C6DA]/20 hover:text-[#26C6DA] transition-colors"
+                    >
+                      Admin Panel
+                    </a>
+                    <div className="h-px bg-[#26C6DA]/20"></div>
+                    <a
+                      href="https://nexcore.classpro.in/people/sign_in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-3 text-white hover:bg-[#26C6DA]/20 hover:text-[#26C6DA] transition-colors"
+                    >
+                      Student Panel
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
           </ul>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
+        <motion.button
           ref={buttonRef}
           onClick={toggleMenu}
-          className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-cyan-400 rounded-lg hover:bg-cyan-500/10 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 transition-all"
+          className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-[#26C6DA] rounded-lg hover:bg-[#26C6DA]/10 focus:outline-none focus:ring-2 focus:ring-[#26C6DA]/40 transition-all"
+          whileTap={{ scale: 0.9 }}
         >
-          {menuOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
-        </button>
+          <AnimatePresence mode="wait">
+            {menuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <HiX className="w-6 h-6" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <HiMenu className="w-6 h-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          ref={menuRef}
-          className="md:hidden absolute top-full left-0 w-full bg-gradient-to-b from-[#0f2847]/98 via-[#1a3a5c]/96 to-[#2d1b69]/98 border-t border-cyan-500/20 shadow-lg shadow-cyan-500/10 backdrop-blur-md"
-        >
-          <ul className="flex flex-col text-white text-center py-4">
-            {navItems.map((item, index) => (
-              <li key={item.name}>
-                {item.external ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMenuOpen(false)}
-                    className="block py-3 px-6 transition-all duration-300 hover:bg-cyan-500/10 hover:text-cyan-400"
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`block py-3 px-6 transition-all duration-300 ${
-                      activeIndex === index
-                        ? "bg-cyan-500/20 text-cyan-400 font-bold"
-                        : "hover:bg-cyan-500/10 hover:text-cyan-400"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </li>
-            ))}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            ref={menuRef}
+            className="md:hidden absolute top-full left-0 w-full bg-gradient-to-b from-[#1A287E]/98 via-[#2C3560]/96 to-[#212121]/98 border-t border-[#26C6DA]/20 shadow-lg shadow-[#26C6DA]/10 backdrop-blur-xl"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="flex flex-col text-white text-center py-4">
+              {navItems.map((item, index) => (
+                <motion.li 
+                  key={item.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-3 px-6 transition-all duration-300 hover:bg-[#26C6DA]/10 hover:text-[#26C6DA]"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`block py-3 px-6 transition-all duration-300 ${
+                        activeIndex === index
+                          ? "bg-[#26C6DA]/20 text-[#26C6DA] font-bold"
+                          : "hover:bg-[#26C6DA]/10 hover:text-[#26C6DA]"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </motion.li>
+              ))}
 
-            {/* Student Panel Dropdown in Mobile */}
-            <li className="px-6 py-3">
-              <button
-                onClick={toggleDropdown}
-                className="w-full flex items-center justify-center gap-1 py-2 px-3 text-white hover:text-cyan-400 transition-all duration-300"
+              {/* Student Panel Dropdown in Mobile */}
+              <motion.li 
+                className="px-6 py-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
               >
-                Student Panel
-                <MdKeyboardArrowDown
-                  className={`transition-transform duration-300 ${
-                    dropdownOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {dropdownOpen && (
-                <div className="mt-2 bg-[#1a3a5c]/95 border border-cyan-500/30 rounded-lg shadow-lg backdrop-blur-md">
-                  <a
-                    href="https://nexcore.classpro.in/users/sign_in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
+                <button
+                  onClick={toggleDropdown}
+                  className="w-full flex items-center justify-center gap-1 py-2 px-3 text-white hover:text-[#26C6DA] transition-all duration-300"
+                >
+                  Student Panel
+                  <motion.div
+                    animate={{ rotate: dropdownOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    Admin Panel
-                  </a>
-                  <a
-                    href="https://nexcore.classpro.in/people/sign_in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-white hover:bg-cyan-500/20 hover:text-cyan-300 transition-colors"
-                  >
-                    Student Panel
-                  </a>
-                </div>
-              )}
-            </li>
-          </ul>
-        </div>
-      )}
+                    <MdKeyboardArrowDown />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div 
+                      className="mt-2 bg-[#1A287E]/95 border border-[#26C6DA]/30 rounded-xl shadow-lg backdrop-blur-xl overflow-hidden"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <a
+                        href="https://nexcore.classpro.in/users/sign_in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-3 text-white hover:bg-[#26C6DA]/20 hover:text-[#26C6DA] transition-colors"
+                      >
+                        Admin Panel
+                      </a>
+                      <div className="h-px bg-[#26C6DA]/20"></div>
+                      <a
+                        href="https://nexcore.classpro.in/people/sign_in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-3 text-white hover:bg-[#26C6DA]/20 hover:text-[#26C6DA] transition-colors"
+                      >
+                        Student Panel
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

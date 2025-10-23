@@ -31,6 +31,52 @@ function CareerPath() {
       ref={ref}
       className="relative overflow-hidden w-full py-16 px-6 bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b]"
     >
+      {/* Grid Overlay */}
+     <div className="absolute inset-0 pointer-events-none opacity-30">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "40px 40px",
+            }}
+          ></div>
+        </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{ y: [0, -30, 0], opacity: [0, 1, 0] }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Glowing Orbs */}
+      <motion.div
+        className="absolute top-10 left-10 w-64 h-64 rounded-full blur-[100px] bg-[#26C6DA]/20"
+        animate={{ scale: [1, 1.3, 1], x: [0, 30, 0], y: [0, -30, 0] }}
+        transition={{ duration: 15, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-10 right-10 w-80 h-80 rounded-full blur-[120px] bg-[#FF6F00]/20"
+        animate={{ scale: [1, 1.4, 1], x: [0, -30, 0], y: [0, 30, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
+      />
+
       {/* Background Circle Element */}
       <div className="absolute top-24 lg:top-[55%] left-0 -translate-y-1/2 z-0 opacity-70 blur-sm">
         <Image

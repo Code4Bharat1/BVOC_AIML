@@ -3,126 +3,175 @@ import { useState } from "react";
 import { HiSparkles } from "react-icons/hi";
 import { FaUsers, FaCode, FaComments, FaChartLine } from "react-icons/fa";
 
-const Star = ({ top, left, size, delay }) => {
-  return (
-    <div
-      className="absolute animate-pulse"
-      style={{
-        top: `${top}%`,
-        left: `${left}%`,
-        animationDelay: `${delay}s`,
-        animationDuration: "3s"
-      }}
-    >
-      <HiSparkles 
-        className="text-cyan-300" 
-        style={{ fontSize: `${size * 20}px` }}
-      />
-    </div>
-  );
-};
-
 const PeerToPeerLearning = () => {
   return (
-    <div className="relative bg-gradient-to-br from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] text-white py-16 overflow-hidden">
-      {/* Background Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <HiSparkles className="absolute top-10 left-10 text-cyan-400 text-3xl animate-pulse" />
-        <HiSparkles className="absolute top-32 right-20 text-orange-400 text-2xl animate-pulse delay-300" />
-        <HiSparkles className="absolute bottom-32 left-1/4 text-purple-400 text-4xl animate-pulse delay-700" />
-        <HiSparkles className="absolute bottom-20 right-1/3 text-yellow-400 text-2xl animate-pulse delay-1000" />
+    <div className="relative bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] text-white py-16 overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
+      {/* Floating Particles with Movement */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => {
+          const startY = Math.random() * 100;
+          return (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${startY}%`,
+                animation: `floatUp ${4 + Math.random() * 3}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 3}s`
+              }}
+            />
+          );
+        })}
+      </div>
+
+      {/* Glowing Orbs with Animation */}
+      <div 
+        className="absolute top-0 left-0 w-96 h-96 bg-[#26C6DA]/20 rounded-full blur-[150px]"
+        style={{
+          animation: 'moveOrb1 20s ease-in-out infinite'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF6F00]/20 rounded-full blur-[150px]"
+        style={{
+          animation: 'moveOrb2 25s ease-in-out infinite'
+        }}
+      />
+
+      <style jsx>{`
+        @keyframes floatUp {
+          0% {
+            transform: translateY(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes moveOrb1 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(50px, -50px) scale(1.3);
+          }
+          50% {
+            transform: translate(30px, 30px) scale(1);
+          }
+          75% {
+            transform: translate(-30px, -30px) scale(1.4);
+          }
+        }
+
+        @keyframes moveOrb2 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(-50px, 50px) scale(1.4);
+          }
+          50% {
+            transform: translate(-30px, -30px) scale(1);
+          }
+          75% {
+            transform: translate(30px, 30px) scale(1.5);
+          }
+        }
+      `}</style>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <HiSparkles className="text-cyan-400 text-3xl animate-pulse" />
+            <HiSparkles className="text-[#26C6DA] text-3xl animate-pulse" />
             <h1 className="text-4xl md:text-5xl font-bold text-white">
               Peer-to-Peer Learning:
             </h1>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#26C6DA] via-[#FF6F00] to-[#26C6DA] bg-clip-text text-transparent">
               Learn, Collaborate, Grow Together
             </h2>
-            <HiSparkles className="text-orange-400 text-3xl animate-pulse delay-500" />
+            <HiSparkles className="text-[#FF6F00] text-3xl animate-pulse" />
+          </div>
+          
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-[#26C6DA] animate-pulse" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
           </div>
         </div>
 
         {/* Sections */}
         <div className="space-y-0">
           <Section
-            bgGradient="from-cyan-400/20 to-purple-400/20"
-            borderColor="border-cyan-400/30"
-            icon={<FaUsers className="text-4xl text-cyan-400" />}
+            bgGradient="from-[#26C6DA]/20 to-[#FF6F00]/20"
+            borderColor="border-[#26C6DA]/30"
+            icon={<FaUsers className="text-4xl text-[#26C6DA]" />}
             title="Collaborative Learning Environment"
             desc="At Nexcore, we believe in the power of learning "
             boldPhrases={["together", "peer-to-peer learning platform"]}
             tailText=" connects you with like-minded students, fostering collaboration, innovation, and deeper learning."
             image="/peertopeer/image1.png"
             reverseOnDesktop={false}
-            highlightColor="text-cyan-300"
-            stars={[
-              { top: 15, left: 10, size: 1.2, delay: 0 },
-              { top: 75, left: 85, size: 1.0, delay: 1.5 },
-            ]}
+            highlightColor="text-[#26C6DA]"
           />
 
           <Section
-            bgGradient="from-purple-500/20 to-pink-500/20"
-            borderColor="border-purple-400/30"
-            icon={<FaCode className="text-4xl text-purple-400" />}
+            bgGradient="from-[#FF6F00]/20 to-[#26C6DA]/20"
+            borderColor="border-[#FF6F00]/30"
+            icon={<FaCode className="text-4xl text-[#FF6F00]" />}
             title="Group Projects & Hackathons"
             desc="Work alongside your peers on "
             boldPhrases={["real-world projects", "hackathons"]}
             tailText=" that challenge your skills and encourage creativity. This dynamic approach ensures you're not just learning—you're "
             boldPhrases2={["doing"]}
             image="/peertopeer/image2.png"
-            highlightColor="text-orange-300"
+            highlightColor="text-[#FF6F00]"
             reverseOnDesktop={true}
-            stars={[
-              { top: 20, left: 15, size: 1.1, delay: 0.5 },
-              { top: 70, left: 80, size: 1.3, delay: 1.8 },
-            ]}
           />
 
           <Section
-            bgGradient="from-blue-600/20 to-indigo-600/20"
-            borderColor="border-blue-400/30"
-            icon={<FaComments className="text-4xl text-blue-400" />}
+            bgGradient="from-[#26C6DA]/20 to-[#FF6F00]/20"
+            borderColor="border-[#26C6DA]/30"
+            icon={<FaComments className="text-4xl text-[#26C6DA]" />}
             title="Discussion Boards & Networking"
             desc="Engage in "
             boldPhrases={["discussions", "industry-driven topics"]}
             tailText=" through our interactive discussion boards. Learn from diverse perspectives and build your professional network."
             image="/peertopeer/image3.png"
             reverseOnDesktop={false}
-            highlightColor="text-cyan-300"
-            stars={[
-              { top: 15, left: 85, size: 1.2, delay: 0.3 },
-              { top: 65, left: 8, size: 1.0, delay: 1.2 },
-            ]}
+            highlightColor="text-[#26C6DA]"
           />
 
           <Section
-            bgGradient="from-indigo-700/20 to-purple-700/20"
-            borderColor="border-indigo-400/30"
-            icon={<FaChartLine className="text-4xl text-indigo-400" />}
+            bgGradient="from-[#FF6F00]/20 to-[#26C6DA]/20"
+            borderColor="border-[#FF6F00]/30"
+            icon={<FaChartLine className="text-4xl text-[#FF6F00]" />}
             title="Build Skills for Success"
             desc="Through collaboration, you'll sharpen essential "
             boldPhrases={["problem-solving", "communication skills"]}
             tailText=", key assets for success in any career."
             image="/peertopeer/image4.svg"
             reverseOnDesktop={true}
-            highlightColor="text-purple-300"
-            stars={[
-              { top: 20, left: 20, size: 1.2, delay: 0.7 },
-              { top: 75, left: 75, size: 1.4, delay: 1.5 },
-            ]}
+            highlightColor="text-[#FF6F00]"
           />
         </div>
       </div>
@@ -142,24 +191,18 @@ const Section = ({
   image,
   reverseOnDesktop,
   highlightColor,
-  stars = [],
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`relative py-16 px-6 md:px-12 my-8 rounded-3xl border-2 ${borderColor} bg-gradient-to-br ${bgGradient} backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-[1.02]`}
+      className={`relative py-16 px-6 md:px-12 my-8 rounded-3xl border-2 ${borderColor} bg-gradient-to-br ${bgGradient} backdrop-blur-xl overflow-hidden transition-all duration-500 hover:scale-[1.02]`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Animated Stars */}
-      {stars.map((star, index) => (
-        <Star key={index} {...star} />
-      ))}
-
       {/* Glow Effect on Hover */}
       {isHovered && (
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 blur-xl transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#26C6DA]/10 via-[#FF6F00]/10 to-[#26C6DA]/10 blur-xl transition-opacity duration-500" />
       )}
 
       {/* Content */}
@@ -188,7 +231,7 @@ const Section = ({
         <div className="flex-1 space-y-6">
           {/* Icon & Title */}
           <div className="flex items-center gap-4 mb-4">
-            <div className={`p-3 rounded-xl bg-gradient-to-br ${bgGradient} border ${borderColor}`}>
+            <div className={`p-3 rounded-xl bg-gradient-to-br ${bgGradient} border ${borderColor} backdrop-blur-xl`}>
               {icon}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white">

@@ -7,7 +7,7 @@ import InfraImgVid from "@/components/Infrastructure/InfraImgVid";
 const Page = () => {
   return (
     <div className="flex flex-col min-h-screen ">
-      <main className="flex-grow py-16">
+      <main className="flex-grow ">
         {" "}
         {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}

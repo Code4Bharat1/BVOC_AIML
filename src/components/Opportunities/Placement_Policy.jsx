@@ -1,6 +1,7 @@
+"use client";
 import { FaBriefcase, FaCheckCircle, FaUserCheck, FaExclamationTriangle, FaFileContract } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
-import Link from "next/link";
+
 export default function Placement_Policy() {
   const Placement_Policy = [
     {
@@ -68,30 +69,108 @@ export default function Placement_Policy() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] py-20 px-4 overflow-hidden">
-      {/* Background Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <HiSparkles className="absolute top-10 left-10 text-cyan-400 text-3xl animate-pulse" />
-        <HiSparkles className="absolute top-32 right-20 text-orange-400 text-2xl animate-pulse delay-300" />
-        <HiSparkles className="absolute bottom-32 left-1/4 text-purple-400 text-4xl animate-pulse delay-700" />
-        <HiSparkles className="absolute bottom-20 right-1/3 text-yellow-400 text-2xl animate-pulse delay-1000" />
+    <div className="relative min-h-screen bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] py-20 px-4 overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
+      {/* Floating Particles with Movement */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => {
+          const startY = Math.random() * 100;
+          return (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${startY}%`,
+                animation: `floatUp ${4 + Math.random() * 3}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 3}s`
+              }}
+            />
+          );
+        })}
+      </div>
+
+      {/* Glowing Orbs with Animation */}
+      <div 
+        className="absolute top-0 left-0 w-96 h-96 bg-[#26C6DA]/20 rounded-full blur-[150px]"
+        style={{
+          animation: 'moveOrb1 20s ease-in-out infinite'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF6F00]/20 rounded-full blur-[150px]"
+        style={{
+          animation: 'moveOrb2 25s ease-in-out infinite'
+        }}
+      />
+
+      <style jsx>{`
+        @keyframes floatUp {
+          0% {
+            transform: translateY(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes moveOrb1 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(50px, -50px) scale(1.3);
+          }
+          50% {
+            transform: translate(30px, 30px) scale(1);
+          }
+          75% {
+            transform: translate(-30px, -30px) scale(1.4);
+          }
+        }
+
+        @keyframes moveOrb2 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(-50px, 50px) scale(1.4);
+          }
+          50% {
+            transform: translate(-30px, -30px) scale(1);
+          }
+          75% {
+            transform: translate(30px, 30px) scale(1.5);
+          }
+        }
+      `}</style>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 mb-6 px-6 py-2 bg-cyan-500/10 border-2 border-cyan-500/30 rounded-full">
-            <HiSparkles className="text-cyan-400" />
-            <span className="text-cyan-400 text-sm font-bold tracking-widest">CAREER ASSURANCE</span>
-            <HiSparkles className="text-cyan-400" />
+          <div className="inline-flex items-center gap-2 mb-6 px-6 py-2 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl">
+            <HiSparkles className="text-[#26C6DA]" />
+            <span className="text-[#26C6DA] text-sm font-bold tracking-widest">CAREER ASSURANCE</span>
+            <HiSparkles className="text-[#26C6DA]" />
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            <span className="text-cyan-400">Guaranteed</span> Placement Policy
+            <span className="text-[#26C6DA]">Guaranteed</span> Placement Policy
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
@@ -106,9 +185,9 @@ export default function Placement_Policy() {
           </p>
 
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
-            <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-[#26C6DA] animate-pulse" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
           </div>
         </div>
 
@@ -139,32 +218,32 @@ export default function Placement_Policy() {
               >
                 {/* Glow Effect */}
                 <div className="relative h-[750px] md:h-[700px]">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#26C6DA] to-[#FF6F00] rounded-[2rem] blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
                   
-                  <div className="relative h-full rounded-[2rem] overflow-hidden border-2 border-cyan-500/50">
+                  <div className="relative h-full rounded-[2rem] overflow-hidden border-2 border-[#26C6DA]/50">
                     {/* Top Section - Image */}
-                    <div className="relative h-1/2 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-t-[2rem]">
+                    <div className="relative h-1/2 bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] rounded-t-[2rem]">
                       {/* Corner Decorations */}
                       <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-white/30 rounded-tl-[2rem] z-10" />
                       
                       {/* Icon Badge */}
-                      <div className="absolute top-4 right-4 w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-orange-500/50 z-10">
+                      <div className="absolute top-4 right-4 w-14 h-14 rounded-xl bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] flex items-center justify-center text-white text-2xl shadow-lg shadow-[#FF6F00]/50 z-10">
                         {item.icon}
                       </div>
 
                       {/* Image Container */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-[#1a2847] rounded-t-[2rem]" style={{ borderBottomLeftRadius: "1.5rem" }}>
+                      <div className="absolute inset-0 flex items-center justify-center bg-[#1A287E] rounded-t-[2rem]" style={{ borderBottomLeftRadius: "1.5rem" }}>
                         <img
                           src={item.image}
                           alt={item.heading}
                           className="w-full h-full object-cover rounded-bl-[1.5rem] group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-transparent rounded-bl-[1.5rem]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#26C6DA]/20 via-transparent to-transparent rounded-bl-[1.5rem]" />
                       </div>
                     </div>
 
                     {/* Bottom Section - Content */}
-                    <div className="relative h-1/2 bg-gradient-to-br from-cyan-600 to-purple-700 p-6 rounded-b-[2rem]">
+                    <div className="relative h-1/2 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] p-6 rounded-b-[2rem]">
                       {/* Corner Decoration */}
                       <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-white/30 rounded-br-[2rem]" />
 
@@ -202,13 +281,13 @@ export default function Placement_Policy() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <div className="relative inline-block">
-            <div className="absolute -inset-2 bg-gradient-to-r from-orange-600 to-orange-400 rounded-full blur-xl opacity-75" />
-            <Link
-  href="/contact"
-  className="relative inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-full text-lg shadow-2xl shadow-orange-500/50 transition-all duration-300 transform hover:scale-105"
->
-  View Full Placement Terms →
-</Link>
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#FF6F00] to-[#FF8A50] rounded-full blur-xl opacity-75" />
+            <a
+              href="/contact"
+              className="relative inline-block px-8 py-4 bg-gradient-to-r from-[#FF6F00] to-[#FF8A50] hover:from-[#FF8A50] hover:to-[#FF6F00] text-white font-bold rounded-full text-lg shadow-2xl shadow-[#FF6F00]/50 transition-all duration-300 transform hover:scale-105"
+            >
+              View Full Placement Terms →
+            </a>
           </div>
         </div>
       </div>

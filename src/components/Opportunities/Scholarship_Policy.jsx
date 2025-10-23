@@ -1,26 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Award, GraduationCap, Heart } from "lucide-react";
+import { motion } from "framer-motion";
+import { HiSparkles } from "react-icons/hi";
 
 export default function Scholarship_Policy() {
-  const [stars, setStars] = useState([]);
-
-  useEffect(() => {
-    const generateStars = () => {
-      return Array.from({ length: 25 }).map(() => ({
-        id: Math.random(),
-        top: Math.random() * 100,
-        left: Math.random() * 100,
-        color: ["#00d4ff", "#ff8c00", "#b847ff", "#ffd700"][
-          Math.floor(Math.random() * 4)
-        ],
-        delay: Math.random() * 2,
-        duration: 2 + Math.random() * 1,
-      }));
-    };
-    setStars(generateStars());
-  }, []);
-
   const ScholarshipData = [
     {
       heading: "1. Meritorious Student Scholarship",
@@ -121,118 +105,200 @@ export default function Scholarship_Policy() {
   ];
 
   return (
-    <>
-      {/* Background */}
-      <div className="w-full bg-gradient-to-b from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] min-h-screen relative overflow-hidden py-12">
-        {/* Background Stars */}
-        <div className="absolute inset-0 pointer-events-none">
-          {stars.map((star) => (
-            <div
-              key={star.id}
-              className="absolute w-2 h-2 rounded-full animate-pulse"
-              style={{
-                top: `${star.top}%`,
-                left: `${star.left}%`,
-                backgroundColor: star.color,
-                opacity: 0.5,
-                animation: `twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
-              }}
-            >
-              <style>{`
-                @keyframes twinkle {
-                  0%, 100% { opacity: 0.3; transform: scale(0.5); }
-                  50% { opacity: 1; transform: scale(1); }
-                }
-              `}</style>
-            </div>
-          ))}
-        </div>
+    <div className="w-full bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] min-h-screen relative overflow-hidden py-12">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
 
-        {/* Header Section */}
-        <div className="relative z-10 max-w-6xl mx-auto mb-12 px-6 text-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Scholarship Policy
-            </span>{" "}
-            Document
-          </h1>
-          <p className="text-base sm:text-lg font-semibold text-cyan-100 leading-relaxed">
-            This document outlines the{" "}
-            <span className="text-cyan-300 font-bold">Scholarship policies</span>{" "}
-            for students enrolling in the{" "}
-            <span className="text-orange-300 font-bold">Bachelor's</span> in{" "}
-            <span className="text-orange-300 font-bold">
-              Artificial Intelligence
-            </span>{" "}
-            and{" "}
-            <span className="text-orange-300 font-bold">Machine Learning</span>{" "}
-            program offered by{" "}
-            <span className="text-cyan-300 font-bold">Nexcore Alliance</span> in
-            collaboration with{" "}
-            <span className="text-cyan-300 font-bold">Recognized University.</span>
-          </p>
-        </div>
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -40, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+            }}
+          />
+        ))}
+      </div>
 
-        {/* Scholarship Cards */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 space-y-12">
-          {ScholarshipData.map((item, idx) => (
-            <div
-              key={idx}
-              className="group relative"
-            >
-              {/* Animated background glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-orange-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      {/* Glowing Orbs */}
+      <motion.div 
+        className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#26C6DA]/20 blur-[200px] rounded-full"
+        animate={{ 
+          scale: [1, 1.4, 1],
+          x: [0, 50, 0],
+          y: [0, -50, 0]
+        }}
+        transition={{ duration: 20, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#FF6F00]/20 blur-[250px] rounded-full"
+        animate={{ 
+          scale: [1, 1.5, 1],
+          x: [0, -50, 0],
+          y: [0, 50, 0]
+        }}
+        transition={{ duration: 25, repeat: Infinity }}
+      />
 
-              {/* Main Card */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/60 backdrop-blur-sm overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300">
-                {/* Header with icon */}
-                <div className="bg-gradient-to-r from-cyan-600/30 to-purple-700/30 border-b-2 border-cyan-400/40 p-6 lg:p-8 flex items-center gap-4">
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/50">
-                    <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
-                    {item.heading}
-                  </h3>
-                </div>
+      {/* Header Section */}
+      <div className="relative z-10 max-w-6xl mx-auto mb-12 px-6 text-center">
+        <motion.div 
+          className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl shadow-2xl shadow-[#26C6DA]/20"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <HiSparkles className="text-[#26C6DA] text-xl" />
+          </motion.div>
+          <span className="text-[#26C6DA] text-sm font-bold tracking-widest">SCHOLARSHIP OPPORTUNITIES</span>
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <HiSparkles className="text-[#26C6DA] text-xl" />
+          </motion.div>
+        </motion.div>
 
-                {/* Content */}
-                <div className="p-6 lg:p-8 max-h-[600px] overflow-y-auto custom-scrollbar">
-                  <div className="space-y-4">
-                    {item.para.map((point, i) => {
-                      if (typeof point === "string") {
-                        return (
-                          <p
-                            key={i}
-                            className="text-base lg:text-lg font-bold text-cyan-300"
-                          >
-                            {point}
-                          </p>
-                        );
-                      } else if (Array.isArray(point)) {
-                        return (
-                          <ul
-                            key={i}
-                            className="list-disc list-inside space-y-2 ml-2"
-                          >
-                            {point.map((line, j) => (
-                              <li
-                                key={j}
-                                className="text-base lg:text-lg text-white leading-relaxed font-semibold"
-                              >
-                                {line}
-                              </li>
-                            ))}
-                          </ul>
-                        );
-                      }
-                      return null;
-                    })}
-                  </div>
+        <motion.h1 
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <span className="text-[#26C6DA]">Scholarship Policy</span>{" "}
+          <span className="text-white">Document</span>
+        </motion.h1>
+
+        <motion.div 
+          className="flex items-center justify-center gap-3 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <motion.div 
+            className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <motion.div 
+            className="w-2 h-2 rounded-full bg-[#26C6DA]"
+            animate={{ scale: [1, 1.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <motion.div 
+            className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </motion.div>
+
+        <motion.p 
+          className="text-base sm:text-lg font-medium text-gray-300 leading-relaxed max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          This document outlines the{" "}
+          <span className="text-[#26C6DA] font-bold">Scholarship policies</span>{" "}
+          for students enrolling in the{" "}
+          <span className="text-[#FF6F00] font-bold">Bachelor's in Artificial Intelligence and Machine Learning</span>{" "}
+          program offered by{" "}
+          <span className="text-[#26C6DA] font-bold">Nexcore Alliance</span> in
+          collaboration with{" "}
+          <span className="text-[#26C6DA] font-bold">Recognized University.</span>
+        </motion.p>
+      </div>
+
+      {/* Scholarship Cards */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 space-y-8">
+        {ScholarshipData.map((item, idx) => (
+          <motion.div
+            key={idx}
+            className="group relative"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            viewport={{ once: true }}
+          >
+            {/* Glow Effect on Hover */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-[#26C6DA]/20 to-[#FF6F00]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            />
+
+            {/* Main Card */}
+            <div className="relative rounded-3xl bg-[#1A287E]/80 border-2 border-[#26C6DA]/50 backdrop-blur-xl overflow-hidden hover:shadow-2xl hover:shadow-[#26C6DA]/40 transition-all duration-300">
+              {/* Header with icon */}
+              <div className="bg-gradient-to-r from-[#26C6DA]/20 to-[#FF6F00]/20 border-b-2 border-[#26C6DA]/40 p-6 lg:p-8 flex items-center gap-4">
+                <motion.div 
+                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-[#FF6F00] to-[#FF8C00] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#FF6F00]/50"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                </motion.div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+                  {item.heading}
+                </h3>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 lg:p-8 max-h-[600px] overflow-y-auto custom-scrollbar">
+                <div className="space-y-4">
+                  {item.para.map((point, i) => {
+                    if (typeof point === "string") {
+                      return (
+                        <p
+                          key={i}
+                          className="text-base lg:text-lg font-bold text-[#26C6DA]"
+                        >
+                          {point}
+                        </p>
+                      );
+                    } else if (Array.isArray(point)) {
+                      return (
+                        <ul
+                          key={i}
+                          className="list-disc list-inside space-y-2 ml-2"
+                        >
+                          {point.map((line, j) => (
+                            <li
+                              key={j}
+                              className="text-base lg:text-lg text-gray-300 leading-relaxed font-medium"
+                            >
+                              {line}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
 
       <style jsx>{`
@@ -241,15 +307,15 @@ export default function Scholarship_Policy() {
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(0, 212, 255, 0.1);
+          background: rgba(38, 198, 218, 0.1);
           border-radius: 10px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
           background: linear-gradient(
             to bottom,
-            rgba(0, 212, 255, 0.6),
-            rgba(255, 140, 0, 0.6)
+            rgba(38, 198, 218, 0.6),
+            rgba(255, 111, 0, 0.6)
           );
           border-radius: 10px;
         }
@@ -257,17 +323,16 @@ export default function Scholarship_Policy() {
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: linear-gradient(
             to bottom,
-            rgba(0, 212, 255, 0.9),
-            rgba(255, 140, 0, 0.9)
+            rgba(38, 198, 218, 0.9),
+            rgba(255, 111, 0, 0.9)
           );
         }
 
-        /* Firefox scrollbar */
         .custom-scrollbar {
           scrollbar-width: thin;
-          scrollbar-color: rgba(0, 212, 255, 0.6) rgba(0, 212, 255, 0.1);
+          scrollbar-color: rgba(38, 198, 218, 0.6) rgba(38, 198, 218, 0.1);
         }
       `}</style>
-    </>
+    </div>
   );
 }

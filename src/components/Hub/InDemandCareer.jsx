@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -26,7 +25,6 @@ const InDemandCareer = () => {
     },
   };
 
-  // Star animations coming from different directions + fade
   const starVariants = {
     hiddenTopLeft: { opacity: 0, x: -50, y: -50 },
     visibleTopLeft: {
@@ -64,17 +62,63 @@ const InDemandCareer = () => {
         variants={headingVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="hidden md:block text-white bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b]  text-center font-bold text-5xl mt-10 pt-8 pb-4"
+        className="hidden md:block text-white text-center font-bold text-5xl  pt-8 pb-4 bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b]"
       >
         In-Demand Careers in AI & Emerging Tech
       </motion.h2>
 
       <section
         ref={sectionRef}
-        className="hidden md:block relative bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] py-16 px-4"
-        style={{ backgroundBlendMode: 'overlay' }}
+        className="hidden md:block relative py-16 px-4 bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] overflow-hidden text-white"
       >
-        <div className="text-center">
+        
+       {/* Grid overlay (darker lines) */}
+            <div className="absolute inset-0 pointer-events-none opacity-30">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+                  `,
+                  backgroundSize: "40px 40px",
+                }}
+              ></div>
+            </div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(30)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{ y: [0, -30, 0], opacity: [0, 1, 0] }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Glowing Orbs */}
+        <motion.div
+          className="absolute top-10 left-10 w-64 h-64 rounded-full blur-[100px] bg-[#26C6DA]/20"
+          animate={{ scale: [1, 1.3, 1], x: [0, 30, 0], y: [0, -30, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 w-80 h-80 rounded-full blur-[120px] bg-[#FF6F00]/20"
+          animate={{ scale: [1, 1.4, 1], x: [0, -30, 0], y: [0, 30, 0] }}
+          transition={{ duration: 18, repeat: Infinity }}
+        />
+
+        <div className="text-center relative z-10">
           <motion.div
             variants={imageVariants}
             initial="hidden"
@@ -92,7 +136,7 @@ const InDemandCareer = () => {
         </div>
 
         {/* Decorative Stars */}
-        <motion.div
+        {/* <motion.div
           variants={starVariants}
           initial="hiddenTopLeft"
           animate={isInView ? "visibleTopLeft" : "hiddenTopLeft"}
@@ -146,7 +190,7 @@ const InDemandCareer = () => {
             width={35}
             height={50}
           />
-        </motion.div>
+        </motion.div> */}
       </section>
     </>
   );

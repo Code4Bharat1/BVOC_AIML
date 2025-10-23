@@ -77,43 +77,57 @@ export default function EnhancedAITools() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] py-24 px-4 overflow-hidden">
-      {/* Background Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <HiSparkles className="absolute top-10 left-10 text-cyan-400 text-3xl animate-pulse" />
-        <HiSparkles className="absolute top-32 right-20 text-orange-400 text-2xl animate-pulse delay-300" />
-        <HiSparkles className="absolute bottom-32 left-1/4 text-purple-400 text-4xl animate-pulse delay-700" />
-        <HiSparkles className="absolute bottom-20 right-1/3 text-yellow-400 text-2xl animate-pulse delay-1000" />
-        <div className="absolute top-20 right-1/4 w-1 h-1 bg-cyan-400 rounded-full animate-ping" />
-        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-orange-400 rounded-full animate-ping delay-500" />
+    <div className="relative min-h-screen bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] py-24 px-4 overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: '3s'
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Glowing Orbs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#26C6DA]/20 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF6F00]/20 rounded-full blur-[150px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-24">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <HiSparkles className="text-cyan-400 text-3xl animate-pulse" />
-            <div className="inline-block px-6 py-2 bg-cyan-500/10 border-2 border-cyan-500/30 rounded-full">
-              <span className="text-cyan-400 text-sm font-bold tracking-widest">AI-POWERED LEARNING</span>
+            <HiSparkles className="text-[#26C6DA] text-3xl animate-pulse" />
+            <div className="inline-block px-6 py-2 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl">
+              <span className="text-[#26C6DA] text-sm font-bold tracking-widest">AI-POWERED LEARNING</span>
             </div>
-            <HiSparkles className="text-orange-400 text-3xl animate-pulse delay-500" />
+            <HiSparkles className="text-[#FF6F00] text-3xl animate-pulse" />
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
             AI Tools Management
           </h1>
-          <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+          <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#26C6DA] via-[#FF6F00] to-[#26C6DA] bg-clip-text text-transparent">
             A Smarter Way to Learn!
           </p>
 
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
-            <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-[#26C6DA] animate-pulse" />
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
           </div>
         </div>
 
@@ -122,9 +136,9 @@ export default function EnhancedAITools() {
           <div className="grid grid-cols-2 gap-8 mb-12">
             {/* Left: Large Active Card */}
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-purple-600 to-orange-600 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition duration-1000 animate-pulse" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#26C6DA] via-[#FF6F00] to-[#26C6DA] rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition duration-1000 animate-pulse" />
               
-              <div className="relative h-[600px] rounded-3xl overflow-hidden bg-[#1a2847] border-2 border-cyan-500/50">
+              <div className="relative h-[600px] rounded-3xl overflow-hidden bg-[#1A287E]/80 backdrop-blur-xl border-2 border-[#26C6DA]/50">
                 {/* Image with Overlay */}
                 <div className="relative h-72 overflow-hidden">
                   <img
@@ -132,12 +146,12 @@ export default function EnhancedAITools() {
                     alt={cards[activeIndex].title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a2847]/50 to-[#1a2847]" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1A287E]/50 to-[#1A287E]" />
                   
                   {/* Floating Tag */}
                   <div className="absolute top-6 right-6">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-cyan-500/20 backdrop-blur-md border-2 border-cyan-500/40 rounded-full">
-                      <HiSparkles className="text-cyan-400" />
+                    <div className="flex items-center gap-2 px-4 py-2 bg-[#26C6DA]/20 backdrop-blur-md border-2 border-[#26C6DA]/40 rounded-full">
+                      <HiSparkles className="text-[#26C6DA]" />
                       <span className="text-xs font-bold text-white tracking-wider">
                         {cards[activeIndex].tag}
                       </span>
@@ -148,7 +162,7 @@ export default function EnhancedAITools() {
                 {/* Content */}
                 <div className="p-8">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-cyan-500/50">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-[#26C6DA]/50">
                       {activeIndex + 1}
                     </div>
                     <div>
@@ -164,22 +178,17 @@ export default function EnhancedAITools() {
                   {/* Feature List */}
                   <div className="space-y-3 mt-8">
                     {['AI-Powered Analysis', 'Real-Time Updates', 'Personalized Experience'].map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3 text-cyan-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                      <div key={i} className="flex items-center gap-3 text-[#26C6DA]">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#26C6DA]" />
                         <span className="text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
-
-                  {/* CTA Button */}
-                  {/* <button className="mt-8 w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/50">
-                    Explore Feature →
-                  </button> */}
                 </div>
 
                 {/* Corner Accents */}
-                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-3xl" />
-                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-purple-500/50 rounded-br-3xl" />
+                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#26C6DA]/50 rounded-tl-3xl" />
+                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF6F00]/50 rounded-br-3xl" />
               </div>
             </div>
 
@@ -197,18 +206,18 @@ export default function EnhancedAITools() {
                     index === activeIndex ? 'opacity-50 pointer-events-none' : 'hover:scale-105'
                   }`}
                 >
-                  <div className={`relative rounded-2xl overflow-hidden border-2 ${
+                  <div className={`relative rounded-2xl overflow-hidden border-2 backdrop-blur-xl ${
                     index === activeIndex 
-                      ? 'border-cyan-500/20 bg-[#1a2847]/50'
-                      : 'border-cyan-500/30 bg-[#1a2847] hover:border-cyan-500 hover:bg-[#1a2847]/80'
+                      ? 'border-[#26C6DA]/20 bg-[#1A287E]/50'
+                      : 'border-[#26C6DA]/30 bg-[#1A287E]/80 hover:border-[#26C6DA] hover:bg-[#1A287E]'
                   }`}>
                     <div className="flex items-center gap-4 p-5">
-                      <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border-2 border-cyan-500/50">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border-2 border-[#26C6DA]/50">
                         <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#26C6DA]/20 to-transparent" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-xs text-cyan-400 font-semibold mb-1 tracking-wider">
+                        <div className="text-xs text-[#26C6DA] font-semibold mb-1 tracking-wider">
                           {card.tag}
                         </div>
                         <h3 className="text-white font-bold text-lg mb-1 truncate">
@@ -218,7 +227,7 @@ export default function EnhancedAITools() {
                           {card.description}
                         </p>
                       </div>
-                      <FaChevronRight className="text-cyan-400 text-xl flex-shrink-0" />
+                      <FaChevronRight className="text-[#26C6DA] text-xl flex-shrink-0" />
                     </div>
                   </div>
                 </button>
@@ -240,11 +249,11 @@ export default function EnhancedAITools() {
               >
                 <div className={`transition-all duration-300 rounded-full ${
                   index === activeIndex
-                    ? 'w-12 h-3 bg-gradient-to-r from-cyan-500 to-purple-500'
-                    : 'w-3 h-3 bg-gray-600 group-hover:bg-cyan-400'
+                    ? 'w-12 h-3 bg-gradient-to-r from-[#26C6DA] to-[#FF6F00]'
+                    : 'w-3 h-3 bg-gray-600 group-hover:bg-[#26C6DA]'
                 }`} />
                 {index === activeIndex && (
-                  <div className="absolute inset-0 rounded-full bg-cyan-500/50 blur-md" />
+                  <div className="absolute inset-0 rounded-full bg-[#26C6DA]/50 blur-md" />
                 )}
               </button>
             ))}
@@ -254,9 +263,9 @@ export default function EnhancedAITools() {
         {/* Mobile: Modern Swipeable Card */}
         <div className="md:hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-purple-600 to-orange-600 rounded-3xl blur-xl opacity-60 animate-pulse" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#26C6DA] via-[#FF6F00] to-[#26C6DA] rounded-3xl blur-xl opacity-60 animate-pulse" />
             
-            <div className="relative rounded-3xl overflow-hidden bg-[#1a2847] border-2 border-cyan-500/50">
+            <div className="relative rounded-3xl overflow-hidden bg-[#1A287E]/80 backdrop-blur-xl border-2 border-[#26C6DA]/50">
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -264,10 +273,10 @@ export default function EnhancedAITools() {
                   alt={cards[activeIndex].title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a2847]/50 to-[#1a2847]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1A287E]/50 to-[#1A287E]" />
                 
-                <div className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-cyan-500/20 backdrop-blur-md border-2 border-cyan-500/40 rounded-full">
-                  <HiSparkles className="text-cyan-400" />
+                <div className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-[#26C6DA]/20 backdrop-blur-md border-2 border-[#26C6DA]/40 rounded-full">
+                  <HiSparkles className="text-[#26C6DA]" />
                   <span className="text-xs font-bold text-white tracking-wider">
                     {cards[activeIndex].tag}
                   </span>
@@ -277,7 +286,7 @@ export default function EnhancedAITools() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start gap-3 mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-xl font-black text-white shadow-lg shadow-cyan-500/50">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-xl font-black text-white shadow-lg shadow-[#26C6DA]/50">
                     {activeIndex + 1}
                   </div>
                   <div>
@@ -289,15 +298,11 @@ export default function EnhancedAITools() {
                     </p>
                   </div>
                 </div>
-
-                {/* <button className="mt-6 w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/50">
-                  Learn More →
-                </button> */}
               </div>
 
               {/* Corner Accents */}
-              <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-3xl" />
-              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-purple-500/50 rounded-br-3xl" />
+              <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#26C6DA]/50 rounded-tl-3xl" />
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F00]/50 rounded-br-3xl" />
             </div>
           </div>
 
@@ -305,7 +310,7 @@ export default function EnhancedAITools() {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full bg-[#1a2847] border-2 border-cyan-500/50 flex items-center justify-center hover:bg-cyan-500/20 transition-all"
+              className="w-12 h-12 rounded-full bg-[#1A287E]/80 backdrop-blur-xl border-2 border-[#26C6DA]/50 flex items-center justify-center hover:bg-[#26C6DA]/20 transition-all"
             >
               <FaChevronLeft className="text-white text-lg" />
             </button>
@@ -316,7 +321,7 @@ export default function EnhancedAITools() {
                   key={index}
                   className={`transition-all duration-300 rounded-full ${
                     index === activeIndex
-                      ? 'w-8 h-2 bg-gradient-to-r from-cyan-500 to-purple-500'
+                      ? 'w-8 h-2 bg-gradient-to-r from-[#26C6DA] to-[#FF6F00]'
                       : 'w-2 h-2 bg-gray-600'
                   }`}
                 />
@@ -325,7 +330,7 @@ export default function EnhancedAITools() {
 
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-[#1a2847] border-2 border-cyan-500/50 flex items-center justify-center hover:bg-cyan-500/20 transition-all"
+              className="w-12 h-12 rounded-full bg-[#1A287E]/80 backdrop-blur-xl border-2 border-[#26C6DA]/50 flex items-center justify-center hover:bg-[#26C6DA]/20 transition-all"
             >
               <FaChevronRight className="text-white text-lg" />
             </button>

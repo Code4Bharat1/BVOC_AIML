@@ -1,143 +1,136 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { CircleChevronDown } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const cardData = [
   {
-    title: "Strategic \nPartnerships \nwith Industry \nGiants",
+    title: "Strategic Partnerships with Industry Giants",
     content:
-      "We've joined forces with world-renowned tech companies like Microsoft, Google, and Amazon, offering co-branded certifications upon completion of your course. This means you're not just gaining a degree—you're earning credentials that are recognized globally.",
+      "We've joined forces with Microsoft, Google, and Amazon, offering co-branded certifications recognized globally.",
   },
   {
-    title: "Hands-on \nLearning \nwith Real-\nWorld Impact",
+    title: "Hands-on Learning with Real-World Impact",
     content:
-      "Gain practical experience through projects, internships, and industry case studies. This helps students apply their knowledge to solve real-world challenges.",
+      "Gain practical experience through projects, internships, and industry case studies.",
   },
   {
-    title: "Career \nGuidance \nand \nMentorship",
+    title: "Career Guidance and Mentorship",
     content:
-      "Our experienced mentors and career advisors guide you through your academic and professional journey, providing personalized support and growth strategies.",
+      "Our mentors and career advisors provide personalized support for your growth journey.",
   },
   {
-    title: "NAAC A+ \nAccreditation – \nExcellence \nRecognized",
+    title: "NAAC A+ Accreditation – Excellence Recognized",
     content:
-      "Achieving NAAC A+ accreditation showcases our unwavering commitment to academic excellence and continuous improvement.",
+      "Achieving NAAC A+ accreditation showcases our commitment to academic excellence.",
   },
   {
-    title: "Empowering \nIndia's Digital \nFuture",
+    title: "Empowering India's Digital Future",
     content:
-      "Our curriculum is built to equip students with digital-first skills, driving innovation and transformation across India's tech ecosystem.",
+      "Our curriculum builds digital-first skills to drive innovation across India's tech ecosystem.",
   },
 ];
 
 const FiveCards = () => {
-  const [openCard, setOpenCard] = useState(null);
-
-  // Ref for the container to detect in-view
+  const [activeIndex, setActiveIndex] = useState(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   const toggleCard = (index) => {
-    setOpenCard(openCard === index ? null : index);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.15,
-        ease: "easeOut",
-        duration: 0.6,
-      },
-    },
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { ease: "easeOut", duration: 0.6 },
-    },
+      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+    }),
   };
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="bg-gradient-to-br from-[#2d1b4e] to-[#4a1f6b] text-white p-6 lg:p-12 shadow-sm shadow-[#00d4ff]/30 m-10 rounded-3xl border border-[#00d4ff]/20"
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-    >
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 text-center">
-        {cardData.map((card, index) => (
+    <div className="relative bg-white text-slate-900 py-20 px-6 lg:px-12  border-b-2 border-blue-300 overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(circle,#cbd5e1_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      {/* Soft glow effects */}
+      <motion.div
+        className="absolute top-0 left-0 w-72 h-72 bg-blue-100/10 rounded-full blur-[140px]"
+        animate={{ scale: [1, 1.2, 1], x: [0, 10, 0], y: [0, -15, 0] }}
+        transition={{ duration: 15, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-100/10 rounded-full blur-[150px]"
+        animate={{ scale: [1, 1.2, 1], x: [0, -10, 0], y: [0, 15, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
+      />
+
+      {/* Two-Line Grid */}
+      <motion.div
+        ref={containerRef}
+        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto justify-items-center"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        {cardData.map((card, i) => (
           <motion.div
-            key={index}
-            className="flex flex-col items-center h-full"
+            key={i}
+            custom={i}
             variants={cardVariants}
+            onClick={() => toggleCard(i)}
+            className={`cursor-pointer relative w-full sm:w-[280px] md:w-[300px] p-6 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-md transition-all duration-500 ${
+              activeIndex === i
+                ? "scale-105 border-blue-200 shadow-lg"
+                : "hover:scale-102"
+            }`}
           >
-            {/* Card Box */}
-            <div className="bg-gradient-to-br from-[#00d4ff] to-[#0ea5e9] rounded-3xl p-4 w-[250px] lg:w-full shadow-md h-full">
-              <h3 className="text-lg font-semibold whitespace-pre-line text-[#06071B]">
-                {card.title}
-              </h3>
+            <h3
+              className="text-lg font-semibold text-slate-800 mb-2 text-center"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {card.title}
+            </h3>
 
-              {/* Mobile Arrow */}
-              <button onClick={() => toggleCard(index)}>
-                <div
-                  className={`transition-transform duration-300 block lg:hidden mt-2 ${
-                    openCard === index ? "rotate-180" : ""
-                  }`}
-                >
-                  <CircleChevronDown size={32} />
-                </div>
-              </button>
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{
+                height: activeIndex === i ? "auto" : 0,
+                opacity: activeIndex === i ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <p className="text-slate-700 text-sm leading-relaxed text-center">
+                {card.content}
+              </p>
+            </motion.div>
 
-              {/* Mobile Content - toggle */}
-              <div
-                className={`lg:hidden mt-3 overflow-hidden transition-all duration-500 ease-in-out ${
-                  openCard === index
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <p className="text-base text-[#06071B]">{card.content}</p>
-              </div>
+            <div
+              className={`absolute bottom-4 right-4 transition-transform ${
+                activeIndex === i ? "rotate-180" : ""
+              }`}
+            >
+              <ChevronDown size={22} className="text-blue-600" />
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Large Screen Arrow Row */}
-      <div className="hidden lg:flex justify-around mt-4">
-        {cardData.map((_, index) => (
-          <button key={index} onClick={() => toggleCard(index)}>
-            <div
-              className={`transition-transform cursor-pointer duration-300 ${
-                openCard === index ? "rotate-180" : ""
-              }`}
-            >
-              <CircleChevronDown size={32} />
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {/* Large Screen Expanded Content */}
-      <div
-        className={`hidden lg:block mt-6 transition-all duration-500 ease-in-out overflow-hidden ${
-          openCard !== null ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <p className="text-xl text-center">
-          {openCard !== null && cardData[openCard].content}
-        </p>
-      </div>
-    </motion.div>
+      {/* Align last 2 cards to center in second row */}
+      <style>{`
+        @media (min-width: 1024px) {
+          .grid-cols-3 > :nth-child(4) {
+            grid-column: 1 / span 1;
+            justify-self: center;
+          }
+          .grid-cols-3 > :nth-child(5) {
+            grid-column: 3 / span 1;
+            justify-self: center;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 

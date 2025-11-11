@@ -41,17 +41,14 @@ const infraData = [
 function InfraCard({ item, onClick }) {
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-2xl cursor-pointer bg-white/5 backdrop-blur-sm border border-white/10 ${CARD_SIZE} flex justify-center items-center flex-shrink-0`}
+      className={`relative overflow-hidden rounded-2xl cursor-pointer bg-white shadow-md border-2 border-slate-100 ${CARD_SIZE} flex justify-center items-center flex-shrink-0`}
       onClick={() => onClick(item)}
       whileHover={{ 
         scale: 1.05,
-        boxShadow: "0 0 30px rgba(0, 212, 255, 0.4), 0 0 50px rgba(172, 108, 255, 0.3)"
+        boxShadow: "0 10px 40px rgba(74, 144, 226, 0.3)"
       }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 via-transparent to-[#AC6CFF]/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-
       {item.type === "image" ? (
         <img src={item.src} alt={item.alt} className="object-cover w-full h-full rounded-2xl" />
       ) : (
@@ -60,8 +57,8 @@ function InfraCard({ item, onClick }) {
         </video>
       )}
       
-      {/* Corner accent */}
-      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#00d4ff]/30 to-transparent blur-xl"></div>
+      {/* Subtle corner accent */}
+      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/40 to-transparent blur-xl"></div>
     </motion.div>
   );
 }
@@ -75,14 +72,14 @@ function Modal({ item, onClose, onNext, onPrev, hasNext, hasPrev }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/90 flex justify-center items-center backdrop-blur-md"
+      className="fixed inset-0 z-50 bg-black/80 flex justify-center items-center backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className="relative bg-gradient-to-br from-[#1a1f4d]/95 via-[#2d1b4e]/95 to-[#4a1f6b]/95 border border-[#00d4ff]/30 rounded-2xl p-4 max-w-5xl w-[95%] max-h-[90vh] shadow-[0_0_60px_rgba(0,212,255,0.3)] flex items-center justify-center backdrop-blur-xl"
+        className="relative bg-white border-2 border-slate-200 rounded-2xl p-4 max-w-5xl w-[95%] max-h-[90vh] shadow-2xl flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         {item.type === "image" ? (
@@ -94,7 +91,7 @@ function Modal({ item, onClose, onNext, onPrev, hasNext, hasPrev }) {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-4 text-white text-3xl font-bold hover:text-[#00d4ff] transition-colors hover:rotate-90 duration-300"
+          className="absolute top-3 right-4 text-slate-700 text-3xl font-bold hover:text-blue-600 transition-colors hover:rotate-90 duration-300"
         >
           ×
         </button>
@@ -108,7 +105,7 @@ function Modal({ item, onClose, onNext, onPrev, hasNext, hasPrev }) {
               e.stopPropagation();
               onPrev();
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#00d4ff] to-[#AC6CFF] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-[0_0_25px_rgba(0,212,255,0.5)] border border-white/20"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border-2 border-white"
           >
             <span className="text-2xl">‹</span>
           </motion.button>
@@ -123,7 +120,7 @@ function Modal({ item, onClose, onNext, onPrev, hasNext, hasPrev }) {
               e.stopPropagation();
               onNext();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#AC6CFF] to-[#ff6b35] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-[0_0_25px_rgba(255,107,53,0.5)] border border-white/20"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border-2 border-white"
           >
             <span className="text-2xl">›</span>
           </motion.button>
@@ -271,68 +268,7 @@ function InfraImgVid() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-16 bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] overflow-hidden">
-      {/* Grid Background - Hero Style */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(#00d4ff 1px, transparent 1px), linear-gradient(90deg, #00d4ff 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      {/* Floating Particles - Hero Style */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#00d4ff] rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Glowing Orbs - Hero Style */}
-      <motion.div
-        className="absolute top-20 left-16 w-96 h-96 bg-[#00d4ff]/20 blur-[150px] rounded-full"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 50, 0],
-          y: [0, -50, 0],
-        }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-24 w-[500px] h-[500px] bg-[#ff6b35]/20 blur-[180px] rounded-full"
-        animate={{
-          scale: [1, 1.4, 1],
-          x: [0, -50, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{ duration: 25, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 w-80 h-80 bg-[#AC6CFF]/20 blur-[140px] rounded-full"
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{ duration: 15, repeat: Infinity }}
-      />
-
+    <div className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-16 bg-gradient-to-b from-white via-slate-50 to-blue-50 overflow-hidden">
       {/* Filter Buttons */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
@@ -352,10 +288,10 @@ function InfraImgVid() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(filter)}
-              className={`flex-shrink-0 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 border ${
+              className={`flex-shrink-0 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 border-2 ${
                 activeFilter === filter
-                  ? "bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] text-white shadow-[0_0_25px_rgba(0,212,255,0.5)] border-white/20"
-                  : "bg-white/5 text-white/70 hover:bg-white/10 border-white/10 hover:border-[#00d4ff]/30 backdrop-blur-sm"
+                  ? "bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 text-white shadow-lg border-transparent"
+                  : "bg-white text-slate-700 hover:bg-slate-50 border-slate-200 hover:border-blue-400"
               }`}
             >
               {filter}
@@ -372,7 +308,7 @@ function InfraImgVid() {
           transition={{ duration: 0.6, delay: index * 0.2 }}
           className="relative z-10 p-5"
         >
-          <h2 className="text-4xl lg:text-5xl font-extrabold mb-10 text-center bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.3)]">
+          <h2 className="text-4xl lg:text-5xl font-semibold mb-10 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
             {section.heading}
           </h2>
 

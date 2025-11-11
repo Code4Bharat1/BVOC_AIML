@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import { Award, GraduationCap, Heart } from "lucide-react";
+import { Award, GraduationCap, Heart, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { HiSparkles } from "react-icons/hi";
 
 export default function Scholarship_Policy() {
   const ScholarshipData = [
@@ -105,33 +104,25 @@ export default function Scholarship_Policy() {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] min-h-screen relative overflow-hidden py-12">
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
-
+    <div className="w-full bg-white min-h-screen relative overflow-hidden py-12">
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -40, 0],
-              opacity: [0, 1, 0],
+              y: [0, -30, 0],
+              opacity: [0, 0.5, 0],
             }}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: 4 + Math.random() * 2,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 2,
             }}
           />
         ))}
@@ -139,20 +130,20 @@ export default function Scholarship_Policy() {
 
       {/* Glowing Orbs */}
       <motion.div 
-        className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#26C6DA]/20 blur-[200px] rounded-full"
+        className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/15 blur-[200px] rounded-full"
         animate={{ 
-          scale: [1, 1.4, 1],
-          x: [0, 50, 0],
-          y: [0, -50, 0]
+          scale: [1, 1.25, 1],
+          x: [0, 40, 0],
+          y: [0, -40, 0]
         }}
-        transition={{ duration: 20, repeat: Infinity }}
+        transition={{ duration: 22, repeat: Infinity }}
       />
       <motion.div 
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#FF6F00]/20 blur-[250px] rounded-full"
+        className="absolute bottom-0 right-0 w-[550px] h-[550px] bg-indigo-100/12 blur-[220px] rounded-full"
         animate={{ 
-          scale: [1, 1.5, 1],
-          x: [0, -50, 0],
-          y: [0, 50, 0]
+          scale: [1, 1.3, 1],
+          x: [0, -40, 0],
+          y: [0, 40, 0]
         }}
         transition={{ duration: 25, repeat: Infinity }}
       />
@@ -160,7 +151,7 @@ export default function Scholarship_Policy() {
       {/* Header Section */}
       <div className="relative z-10 max-w-6xl mx-auto mb-12 px-6 text-center">
         <motion.div 
-          className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl shadow-2xl shadow-[#26C6DA]/20"
+          className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-blue-50/80 border border-blue-200/50 rounded-full backdrop-blur-sm shadow-sm"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -169,25 +160,26 @@ export default function Scholarship_Policy() {
             animate={{ rotate: 360 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
-            <HiSparkles className="text-[#26C6DA] text-xl" />
+            <Sparkles className="text-blue-600 w-5 h-5" />
           </motion.div>
-          <span className="text-[#26C6DA] text-sm font-bold tracking-widest">SCHOLARSHIP OPPORTUNITIES</span>
+          <span className="text-blue-700 text-xs font-semibold tracking-[0.12em] uppercase">Scholarship Opportunities</span>
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
-            <HiSparkles className="text-[#26C6DA] text-xl" />
+            <Sparkles className="text-blue-600 w-5 h-5" />
           </motion.div>
         </motion.div>
 
         <motion.h1 
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
         >
-          <span className="text-[#26C6DA]">Scholarship Policy</span>{" "}
-          <span className="text-white">Document</span>
+          <span className="text-blue-600">Scholarship Policy</span>{" "}
+          <span className="text-slate-900">Document</span>
         </motion.h1>
 
         <motion.div 
@@ -197,36 +189,37 @@ export default function Scholarship_Policy() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <motion.div 
-            className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
+            className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div 
-            className="w-2 h-2 rounded-full bg-[#26C6DA]"
-            animate={{ scale: [1, 1.5, 1] }}
+            className="w-1.5 h-1.5 rounded-full bg-blue-600"
+            animate={{ scale: [1, 1.4, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div 
-            className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
+            className="h-0.5 w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
         </motion.div>
 
         <motion.p 
-          className="text-base sm:text-lg font-medium text-gray-300 leading-relaxed max-w-4xl mx-auto"
+          className="text-base sm:text-lg font-normal text-slate-600 leading-relaxed max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
+          style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
         >
           This document outlines the{" "}
-          <span className="text-[#26C6DA] font-bold">Scholarship policies</span>{" "}
+          <span className="text-blue-700 font-semibold">Scholarship policies</span>{" "}
           for students enrolling in the{" "}
-          <span className="text-[#FF6F00] font-bold">Bachelor's in Artificial Intelligence and Machine Learning</span>{" "}
+          <span className="text-indigo-700 font-semibold">Bachelor's in Artificial Intelligence and Machine Learning</span>{" "}
           program offered by{" "}
-          <span className="text-[#26C6DA] font-bold">Nexcore Alliance</span> in
+          <span className="text-blue-700 font-semibold">Nexcore Alliance</span> in
           collaboration with{" "}
-          <span className="text-[#26C6DA] font-bold">Recognized University.</span>
+          <span className="text-blue-700 font-semibold">Recognized University.</span>
         </motion.p>
       </div>
 
@@ -241,23 +234,18 @@ export default function Scholarship_Policy() {
             transition={{ duration: 0.6, delay: idx * 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Glow Effect on Hover */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-[#26C6DA]/20 to-[#FF6F00]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-
             {/* Main Card */}
-            <div className="relative rounded-3xl bg-[#1A287E]/80 border-2 border-[#26C6DA]/50 backdrop-blur-xl overflow-hidden hover:shadow-2xl hover:shadow-[#26C6DA]/40 transition-all duration-300">
+            <div className="relative rounded-3xl bg-white border border-slate-200 backdrop-blur-sm overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
               {/* Header with icon */}
-              <div className="bg-gradient-to-r from-[#26C6DA]/20 to-[#FF6F00]/20 border-b-2 border-[#26C6DA]/40 p-6 lg:p-8 flex items-center gap-4">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-slate-200 p-6 lg:p-8 flex items-center gap-4">
                 <motion.div 
-                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-[#FF6F00] to-[#FF8C00] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#FF6F00]/50"
+                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-md"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
                   <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                 </motion.div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 leading-tight" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>
                   {item.heading}
                 </h3>
               </div>
@@ -270,7 +258,8 @@ export default function Scholarship_Policy() {
                       return (
                         <p
                           key={i}
-                          className="text-base lg:text-lg font-bold text-[#26C6DA]"
+                          className="text-base lg:text-lg font-bold text-blue-600"
+                          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
                         >
                           {point}
                         </p>
@@ -284,7 +273,8 @@ export default function Scholarship_Policy() {
                           {point.map((line, j) => (
                             <li
                               key={j}
-                              className="text-base lg:text-lg text-gray-300 leading-relaxed font-medium"
+                              className="text-base lg:text-lg text-slate-600 leading-relaxed font-normal"
+                              style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
                             >
                               {line}
                             </li>
@@ -307,15 +297,15 @@ export default function Scholarship_Policy() {
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(38, 198, 218, 0.1);
+          background: rgba(226, 232, 240, 0.3);
           border-radius: 10px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
           background: linear-gradient(
             to bottom,
-            rgba(38, 198, 218, 0.6),
-            rgba(255, 111, 0, 0.6)
+            rgba(59, 130, 246, 0.5),
+            rgba(99, 102, 241, 0.5)
           );
           border-radius: 10px;
         }
@@ -323,14 +313,14 @@ export default function Scholarship_Policy() {
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: linear-gradient(
             to bottom,
-            rgba(38, 198, 218, 0.9),
-            rgba(255, 111, 0, 0.9)
+            rgba(59, 130, 246, 0.8),
+            rgba(99, 102, 241, 0.8)
           );
         }
 
         .custom-scrollbar {
           scrollbar-width: thin;
-          scrollbar-color: rgba(38, 198, 218, 0.6) rgba(38, 198, 218, 0.1);
+          scrollbar-color: rgba(59, 130, 246, 0.5) rgba(226, 232, 240, 0.3);
         }
       `}</style>
     </div>

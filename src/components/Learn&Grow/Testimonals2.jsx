@@ -192,68 +192,6 @@ const testimonials = [
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
-  /*
-  {
-    quote:
-      "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
-    name: "Farhan Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "This course is a perfect mix of coding, creativity, and career preparation. Every week feels productive.",
-    name: "Sanjana Reddy",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "It’s amazing how the instructors make complex algorithms so easy to understand with real-life examples.",
-    name: "Kartik Joshi",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "From Python basics to deploying deep learning models — I’ve learned the complete journey of AI development.",
-    name: "Tanya D’Souza",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "Every semester brings new excitement — the hands-on labs are the highlight of this entire program.",
-    name: "Vishal Rajput",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "I’ve built projects that I can showcase to recruiters — something that makes me confident about placements.",
-    name: "Manisha Pawar",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "The faculty’s mentorship and one-on-one sessions really help me understand where I stand and how to improve.",
-    name: "Rehan Ali",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "Learning AI here isn’t about rote memorization; it’s about experimenting, failing, and building better each time.",
-    name: "Bhavika Jain",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "I love the community vibe. Everyone helps each other grow — it feels like a family pushing toward success.",
-    name: "Aditya Chauhan",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  {
-    quote:
-      "With every workshop, I feel more confident about tackling real-world data and solving meaningful problems.",
-    name: "Sofia Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-  },
-  */
 ];
 
 export default function Testimonials() {
@@ -357,54 +295,8 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-12 rounded-t-[2.5rem] text-white"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-blue-50 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-12 "
     >
-      {/* Grid Background - Hero Style */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(#00d4ff 1px, transparent 1px), linear-gradient(90deg, #00d4ff 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#00d4ff] rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Glowing Orbs */}
-      <motion.div
-        className="absolute top-20 left-20 w-96 h-96 bg-[#00d4ff]/15 blur-[150px] rounded-full"
-        animate={{ scale: [1, 1.3, 1] }}
-        transition={{ duration: 18, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-[#AC6CFF]/15 blur-[180px] rounded-full"
-        animate={{ scale: [1, 1.4, 1] }}
-        transition={{ duration: 22, repeat: Infinity }}
-      />
-
       {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -418,14 +310,14 @@ export default function Testimonials() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="inline-block mb-6"
         >
-          <span className="px-5 py-2 bg-gradient-to-r from-[#00d4ff]/20 to-[#AC6CFF]/20 border border-[#00d4ff]/40 rounded-full text-sm font-semibold tracking-wider backdrop-blur-sm">
+          <span className="px-5 py-2 bg-blue-100 border-2 border-blue-300 rounded-full text-sm font-semibold tracking-wider text-blue-700">
             TESTIMONIALS
           </span>
         </motion.div>
         
-        <h2 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <h2 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-700">
           What Our{" "}
-          <span className="relative inline-block bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">
+          <span className="relative inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
             Students & Clients
             <motion.svg
               className="absolute -bottom-2 left-0 w-full hidden sm:block"
@@ -437,7 +329,7 @@ export default function Testimonials() {
             >
               <motion.path
                 d="M0 4 Q 150 8, 300 4"
-                stroke="#00d4ff"
+                stroke="#4A90E2"
                 strokeWidth="3"
                 fill="none"
                 strokeLinecap="round"
@@ -447,7 +339,7 @@ export default function Testimonials() {
           Say
         </h2>
         
-        <p className="text-xl text-white/80 max-w-2xl mx-auto">
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
           Real stories from people who transformed their careers with us
         </p>
       </motion.div>
@@ -470,13 +362,13 @@ export default function Testimonials() {
                 key={index}
                 animate={motionStyle}
                 transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-                className={`absolute backdrop-blur-xl bg-white/5 border border-white/20 rounded-3xl shadow-2xl text-white w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[65%] max-w-6xl ${
+                className={`absolute bg-white border-2 border-slate-200 rounded-3xl shadow-xl w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[65%] max-w-6xl ${
                   position === "hidden" ? "pointer-events-none" : ""
                 } transform preserve-3d overflow-hidden`}
               >
                 <div className="flex flex-col lg:flex-row h-full">
                   {/* Image Section */}
-                  <div className="relative w-full h-60 sm:h-72 md:h-80 lg:w-96 lg:h-[500px] shrink-0 overflow-hidden">
+                  <div className="relative w-full h-60 sm:h-72 md:h-80 lg:w-96 lg:h-[500px] shrink-0 overflow-hidden bg-slate-100">
                     <img
                       src={t.src}
                       alt={t.name}
@@ -497,8 +389,8 @@ export default function Testimonials() {
                             className={`w-4 h-4 sm:w-5 sm:h-5 ${
                               isCenter ? "opacity-100" : "opacity-70"
                             }`}
-                            fill={isHalf ? "url(#halfGradient)" : isFull ? "#00d4ff" : "none"}
-                            stroke="#00d4ff"
+                            fill={isHalf ? "url(#halfGradient)" : isFull ? "#4A90E2" : "none"}
+                            stroke="#4A90E2"
                             viewBox="0 0 20 20"
                             initial={{ opacity: 0, scale: 0 }}
                             animate={
@@ -510,7 +402,7 @@ export default function Testimonials() {
                           >
                             <defs>
                               <linearGradient id="halfGradient">
-                                <stop offset="50%" stopColor="#00d4ff" />
+                                <stop offset="50%" stopColor="#4A90E2" />
                                 <stop offset="50%" stopColor="transparent" />
                               </linearGradient>
                             </defs>
@@ -522,24 +414,24 @@ export default function Testimonials() {
 
                     {/* Quote */}
                     <div className="mb-6 sm:mb-8">
-                      <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+                      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700">
                         {t.quote}
                       </p>
                     </div>
 
                     {/* Author */}
-                    <div className="flex items-center gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-white/10">
+                    <div className="flex items-center gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-slate-200">
                       <motion.div
                         className="relative w-12 h-12 sm:w-14 sm:h-14"
                         whileHover={{ scale: 1.05 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff] to-[#AC6CFF] rounded-2xl flex items-center justify-center text-lg sm:text-xl font-bold">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-lg sm:text-xl font-bold text-white">
                           {t.name.charAt(0)}
                         </div>
                       </motion.div>
                       <div>
-                        <p className="font-bold text-base sm:text-lg md:text-xl">{t.name}</p>
-                        <p className="text-[#00d4ff] text-xs sm:text-sm font-medium">
+                        <p className="font-bold text-base sm:text-lg md:text-xl text-slate-700">{t.name}</p>
+                        <p className="text-blue-600 text-xs sm:text-sm font-medium">
                           {t.role}
                         </p>
                       </div>
@@ -559,9 +451,9 @@ export default function Testimonials() {
           className="absolute left-3 sm:left-6 md:left-10 z-40 group"
           aria-label="Previous"
         >
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-lg border border-[#00d4ff]/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#00d4ff]/30 group-hover:border-[#00d4ff]/50 shadow-lg">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:border-blue-400 shadow-lg">
             <svg
-              className="w-5 h-5 text-white"
+              className="w-5 h-5 text-blue-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -578,9 +470,9 @@ export default function Testimonials() {
           className="absolute right-3 sm:right-6 md:right-10 z-40 group"
           aria-label="Next"
         >
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-lg border border-[#00d4ff]/30 flex items-center justify-center transition-all duration-300 group-hover:bg-[#00d4ff]/30 group-hover:border-[#00d4ff]/50 shadow-lg">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:border-blue-400 shadow-lg">
             <svg
-              className="w-5 h-5 text-white"
+              className="w-5 h-5 text-blue-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -633,8 +525,8 @@ export default function Testimonials() {
                 layout
                 className={`rounded-full ${
                   index === currentIndex
-                    ? "w-8 h-2 bg-gradient-to-r from-[#00d4ff] to-[#AC6CFF]"
-                    : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
+                    ? "w-8 h-2 bg-gradient-to-r from-blue-500 to-purple-500"
+                    : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
                 }`}
                 transition={{
                   type: "spring",
@@ -645,7 +537,7 @@ export default function Testimonials() {
               {index === currentIndex && (
                 <motion.div
                   layoutId="activeDot"
-                  className="absolute inset-0 rounded-full bg-[#00d4ff]/40 blur-md"
+                  className="absolute inset-0 rounded-full bg-blue-300/40 blur-md"
                   transition={{
                     type: "spring",
                     stiffness: 200,
@@ -660,9 +552,9 @@ export default function Testimonials() {
 
       {/* Progress Bar */}
       <div className="max-w-md sm:max-w-lg md:max-w-xl mx-auto mt-8 sm:mt-10">
-        <div className="h-1 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
+        <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-[#00d4ff] to-[#AC6CFF]"
+            className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
             initial={{ width: "0%" }}
             animate={{ width: isPaused ? "0%" : "100%" }}
             transition={{ duration: 5, ease: "linear" }}

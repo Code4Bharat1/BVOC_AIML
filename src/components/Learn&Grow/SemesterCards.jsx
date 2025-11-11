@@ -11,101 +11,46 @@ const cardsData = [
     duration: "(6 Semesters)",
     description:
       "Gain in-depth knowledge and industry-ready skills with a full 3-year vocational degree.",
-    bg: "bg-gradient-to-br from-[#00d4ff]/20 to-[#00d4ff]/10",
-    border: "border-[#00d4ff]/40",
-    text: "text-white",
+    bg: "bg-gradient-to-br from-blue-50 to-blue-100",
+    border: "border-blue-300",
+    text: "text-slate-700",
+    titleColor: "text-blue-600",
   },
   {
     title: "Advanced Diploma",
     duration: "(4 Semesters)",
     description:
       "Build strong practical expertise and step confidently into specialized career roles.",
-    bg: "bg-gradient-to-br from-[#AC6CFF]/20 to-[#AC6CFF]/10",
-    border: "border-[#AC6CFF]/40",
-    text: "text-white",
+    bg: "bg-gradient-to-br from-purple-50 to-purple-100",
+    border: "border-purple-300",
+    text: "text-slate-700",
+    titleColor: "text-purple-600",
   },
   {
     title: "Diploma",
     duration: "(2 Semesters)",
     description:
       "Kickstart your professional journey with core skills in just one year.",
-    bg: "bg-gradient-to-br from-[#ff6b35]/20 to-[#ff6b35]/10",
-    border: "border-[#ff6b35]/40",
-    text: "text-white",
+    bg: "bg-gradient-to-br from-orange-50 to-orange-100",
+    border: "border-orange-300",
+    text: "text-slate-700",
+    titleColor: "text-orange-600",
   },
   {
     title: "Certificate",
     duration: "(1 Semester)",
     description:
       "Get a quick, focused introduction to essential vocational skills in just six months.",
-    bg: "bg-gradient-to-br from-[#00d4ff]/15 to-[#AC6CFF]/15",
-    border: "border-white/20",
-    text: "text-white",
+    bg: "bg-gradient-to-br from-teal-50 to-teal-100",
+    border: "border-teal-300",
+    text: "text-slate-700",
+    titleColor: "text-teal-600",
   },
 ];
 
 const SemesterCards = () => {
   return (
-    <div className="relative mt-1 w-full min-h-screen bg-gradient-to-b from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] py-12 md:py-20 px-4 md:px-8 overflow-hidden">
-      {/* Grid Background - Hero Style */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(#00d4ff 1px, transparent 1px), linear-gradient(90deg, #00d4ff 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      {/* Floating Particles - Hero Style */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#00d4ff] rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Glowing Orbs - Hero Style */}
-      <motion.div
-        className="absolute top-20 left-16 w-96 h-96 bg-[#00d4ff]/20 blur-[150px] rounded-full"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 50, 0],
-        }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-24 w-[500px] h-[500px] bg-[#ff6b35]/20 blur-[180px] rounded-full"
-        animate={{
-          scale: [1, 1.4, 1],
-          y: [0, -50, 0],
-        }}
-        transition={{ duration: 25, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 w-80 h-80 bg-[#AC6CFF]/20 blur-[140px] rounded-full"
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{ duration: 15, repeat: Infinity }}
-      />
-
+    <div className="relative mt-1 w-full min-h-screen bg-gradient-to-b from-white via-slate-50 to-blue-50 py-12 md:py-20 px-4 md:px-8 overflow-hidden">
       {/* Nexcore Alliance Logo - Centered */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
@@ -118,7 +63,7 @@ const SemesterCards = () => {
           src="/elements/Nexcore_Alliance.svg"
           alt="Nexcore Alliance"
           fill
-          className="object-contain drop-shadow-2xl"
+          className="object-contain"
           priority
         />
       </motion.div>
@@ -129,9 +74,9 @@ const SemesterCards = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-12 md:mb-16 lg:mb-20 relative z-10"
+        className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-700 mb-12 md:mb-16 lg:mb-20 relative z-10"
       >
-        Our <span className="bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">Programs</span>
+        Our <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">Programs</span>
       </motion.h2>
 
       {/* Cards Grid - Fully Responsive */}
@@ -155,33 +100,33 @@ const SemesterCards = () => {
             className={`
               ${card.bg} ${card.text}
               rounded-3xl p-6 md:p-7 lg:p-8
-              backdrop-blur-md border-2 ${card.border}
-              shadow-xl hover:shadow-2xl
+              border-2 ${card.border}
+              shadow-lg hover:shadow-xl
               transition-all duration-300 ease-out
               relative overflow-hidden
               group
             `}
           >
             {/* Hover gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
             
             {/* Content */}
             <div className="relative z-10 space-y-3 md:space-y-4">
               <div className="flex flex-col gap-1">
-                <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                <h3 className={`text-xl md:text-2xl font-bold leading-tight ${card.titleColor}`}>
                   {card.title}
                 </h3>
-                <p className="text-sm md:text-base font-semibold opacity-90">
+                <p className="text-sm md:text-base font-semibold text-slate-600">
                   {card.duration}
                 </p>
               </div>
-              <p className="text-sm md:text-base leading-relaxed opacity-95">
+              <p className="text-sm md:text-base leading-relaxed text-slate-600">
                 {card.description}
               </p>
             </div>
 
             {/* Decorative corner accent */}
-            <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-0 right-0 w-20 h-20 bg-white/30 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </motion.div>
         ))}
       </div>
@@ -192,7 +137,7 @@ const SemesterCards = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mt-12 md:mt-16 text-white/60 text-sm md:text-base relative z-10"
+        className="text-center mt-12 md:mt-16 text-slate-500 text-sm md:text-base relative z-10"
       >
         <p>Choose the path that fits your career goals</p>
       </motion.div>

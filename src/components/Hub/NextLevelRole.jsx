@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const NextLevelRole = () => {
@@ -48,67 +47,52 @@ const NextLevelRole = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-screen py-16 overflow-hidden bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121]"
+      className="relative w-full min-h-screen py-16 overflow-hidden bg-white"
     >
-      {/* Grid Lines Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        ></div>
-      </div>
-
-      {/* Glowing Orbs */}
+      {/* Soft Glowing Orbs */}
       <motion.div
-        className="absolute top-0 -left-20 w-72 h-72 bg-[#26C6DA]/20 blur-[120px] rounded-full"
-        animate={{ scale: [1, 1.3, 1], x: [0, 30, 0], y: [0, -30, 0] }}
-        transition={{ duration: 15, repeat: Infinity }}
+        className="absolute top-0 -left-20 w-72 h-72 bg-blue-100/15 blur-[140px] rounded-full"
+        animate={{ scale: [1, 1.2, 1], x: [0, 25, 0], y: [0, -25, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-0 -right-20 w-96 h-96 bg-[#FF6F00]/20 blur-[140px] rounded-full"
-        animate={{ scale: [1, 1.4, 1], x: [0, -30, 0], y: [0, 30, 0] }}
-        transition={{ duration: 18, repeat: Infinity }}
+        className="absolute bottom-0 -right-20 w-80 h-80 bg-indigo-100/12 blur-[150px] rounded-full"
+        animate={{ scale: [1, 1.25, 1], x: [0, -25, 0], y: [0, 25, 0] }}
+        transition={{ duration: 20, repeat: Infinity }}
       />
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{ y: [0, -40, 0], opacity: [0, 1, 0] }}
-            transition={{ duration: 4 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 3 }}
+            animate={{ y: [0, -30, 0], opacity: [0, 0.5, 0] }}
+            transition={{ duration: 4 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
           />
         ))}
       </div>
 
       {/* Floating Decorative Images */}
-      <Image
+      <img
         src="/elements/CareerStarElement_Home.svg"
         alt="Top Star"
-        width={100}
-        height={100}
-        className="absolute top-12 right-10 lg:top-9 lg:right-2/6 w-6 h-16 lg:w-10 lg:h-24 opacity-80"
+        className="absolute top-12 right-10 lg:top-9 lg:right-2/6 w-6 h-16 lg:w-10 lg:h-24 opacity-30"
       />
-      <Image
+      <img
         src="/elements/PlanetElement_Home.svg"
         alt="Planet Element"
-        width={100}
-        height={100}
-        className="absolute top-[420px] -left-14 lg:top-1/2 lg:-left-10 transform -translate-y-1/2 w-48 h-48 lg:w-56 lg:h-56 opacity-70"
+        className="absolute top-[420px] -left-14 lg:top-1/2 lg:-left-10 transform -translate-y-1/2 w-48 h-48 lg:w-56 lg:h-56 opacity-20"
       />
 
       {/* Title */}
       <motion.h2
-        className="text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-3xl md:text-5xl font-extrabold mb-16 tracking-wide drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+        className="text-center bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent text-3xl md:text-5xl font-bold mb-16 tracking-wide"
         variants={titleVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
+        style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
       >
         NEXT-LEVEL ROLES
       </motion.h2>
@@ -126,9 +110,9 @@ const NextLevelRole = () => {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/10 border border-cyan-400/30 shadow-[0_0_20px_rgba(0,255,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-lg hover:border-blue-300 transition-all duration-300"
               >
-                <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+                <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide text-sm" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -143,9 +127,9 @@ const NextLevelRole = () => {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/10 border border-purple-400/30 shadow-[0_0_20px_rgba(200,100,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-[0_0_30px_rgba(200,100,255,0.4)] transition-all duration-300"
+                className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-lg hover:border-indigo-300 transition-all duration-300"
               >
-                <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+                <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide text-sm" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -160,8 +144,9 @@ const NextLevelRole = () => {
         animate={isInView ? "visible" : "hidden"}
       >
         <motion.h3
-          className="text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-300 text-2xl font-bold mb-8"
+          className="text-center bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent text-2xl font-bold mb-8"
           variants={titleVariants}
+          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
         >
           GO BIG WITH IMPACT
         </motion.h3>
@@ -172,9 +157,9 @@ const NextLevelRole = () => {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/10 border border-cyan-400/30 shadow-[0_0_20px_rgba(0,255,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-lg hover:border-blue-300 transition-all duration-300"
               >
-                <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+                <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide text-sm" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -184,9 +169,9 @@ const NextLevelRole = () => {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/10 border border-purple-400/30 shadow-[0_0_20px_rgba(200,100,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-[0_0_30px_rgba(200,100,255,0.4)] transition-all duration-300"
+                className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center min-h-[100px] sm:min-h-[120px] text-center hover:shadow-lg hover:border-indigo-300 transition-all duration-300"
               >
-                <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+                <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide text-sm" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -200,14 +185,14 @@ const NextLevelRole = () => {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="bg-white/10 border border-cyan-400/30 shadow-[0_0_20px_rgba(0,255,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center text-center min-h-[120px] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300"
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center text-center min-h-[120px] hover:shadow-lg hover:border-blue-300 transition-all duration-300"
             >
-              <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+              <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
             </motion.div>
           ))}
         </motion.div>
 
-        <motion.h3 className="text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-3xl font-bold mb-12 pt-8" variants={titleVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+        <motion.h3 className="text-center bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent text-3xl font-bold mb-12 pt-8" variants={titleVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>
           GO BIG WITH IMPACT
         </motion.h3>
 
@@ -216,9 +201,9 @@ const NextLevelRole = () => {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="bg-white/10 border border-purple-400/30 shadow-[0_0_20px_rgba(200,100,255,0.15)] rounded-3xl px-4 py-6 backdrop-blur-xl flex items-center justify-center text-center min-h-[120px] hover:shadow-[0_0_30px_rgba(200,100,255,0.4)] transition-all duration-300"
+              className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 shadow-md rounded-2xl px-4 py-6 backdrop-blur-sm flex items-center justify-center text-center min-h-[120px] hover:shadow-lg hover:border-indigo-300 transition-all duration-300"
             >
-              <p className="text-white font-extrabold whitespace-pre-line leading-snug break-words tracking-wide">{role}</p>
+              <p className="text-slate-800 font-bold whitespace-pre-line leading-snug break-words tracking-wide" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>{role}</p>
             </motion.div>
           ))}
         </motion.div>

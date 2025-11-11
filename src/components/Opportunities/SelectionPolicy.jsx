@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp, FaCheckCircle } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { ChevronDown, ChevronUp, CheckCircle, Sparkles } from "lucide-react";
 
 const SelectionPolicy = () => {
   const policyItems = [
@@ -58,23 +57,15 @@ const SelectionPolicy = () => {
   const hasOddItems = policyItems.length % 2 !== 0;
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] py-20 px-4 overflow-hidden">
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
-
+    <div className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
       {/* Floating Particles with Movement */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => {
+        {[...Array(12)].map((_, i) => {
           const startY = Math.random() * 100;
           return (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+              className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${startY}%`,
@@ -88,13 +79,13 @@ const SelectionPolicy = () => {
 
       {/* Glowing Orbs with Animation */}
       <div 
-        className="absolute top-0 left-0 w-96 h-96 bg-[#26C6DA]/20 rounded-full blur-[150px]"
+        className="absolute top-0 left-0 w-96 h-96 bg-blue-100/15 rounded-full blur-[180px]"
         style={{
-          animation: 'moveOrb1 20s ease-in-out infinite'
+          animation: 'moveOrb1 22s ease-in-out infinite'
         }}
       />
       <div 
-        className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF6F00]/20 rounded-full blur-[150px]"
+        className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/12 rounded-full blur-[160px]"
         style={{
           animation: 'moveOrb2 25s ease-in-out infinite'
         }}
@@ -107,10 +98,10 @@ const SelectionPolicy = () => {
             opacity: 0;
           }
           10% {
-            opacity: 1;
+            opacity: 0.5;
           }
           90% {
-            opacity: 1;
+            opacity: 0.5;
           }
           100% {
             transform: translateY(-100px);
@@ -123,13 +114,13 @@ const SelectionPolicy = () => {
             transform: translate(0, 0) scale(1);
           }
           25% {
-            transform: translate(50px, -50px) scale(1.3);
+            transform: translate(50px, -50px) scale(1.2);
           }
           50% {
             transform: translate(30px, 30px) scale(1);
           }
           75% {
-            transform: translate(-30px, -30px) scale(1.4);
+            transform: translate(-30px, -30px) scale(1.25);
           }
         }
 
@@ -138,13 +129,13 @@ const SelectionPolicy = () => {
             transform: translate(0, 0) scale(1);
           }
           25% {
-            transform: translate(-50px, 50px) scale(1.4);
+            transform: translate(-50px, 50px) scale(1.25);
           }
           50% {
             transform: translate(-30px, -30px) scale(1);
           }
           75% {
-            transform: translate(30px, 30px) scale(1.5);
+            transform: translate(30px, 30px) scale(1.2);
           }
         }
       `}</style>
@@ -152,25 +143,25 @@ const SelectionPolicy = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-6 px-6 py-2 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl">
-            <HiSparkles className="text-[#26C6DA]" />
-            <span className="text-[#26C6DA] text-sm font-bold tracking-widest">ADMISSION POLICY</span>
-            <HiSparkles className="text-[#26C6DA]" />
+          <div className="inline-flex items-center gap-2 mb-6 px-6 py-2 bg-blue-50/80 border border-blue-200/50 rounded-full backdrop-blur-sm shadow-sm">
+            <Sparkles className="text-blue-600 w-4 h-4" />
+            <span className="text-blue-700 text-xs font-semibold tracking-[0.12em] uppercase">Admission Policy</span>
+            <Sparkles className="text-blue-600 w-4 h-4" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>
             Internal Selection Process Policy
             <br />
-            <span className="text-[#26C6DA]">{"Bachelor's"}</span> in{" "}
-            <span className="text-[#26C6DA]">Artificial Intelligence</span>
+            <span className="text-blue-600">{"Bachelor's"}</span> in{" "}
+            <span className="text-blue-600">Artificial Intelligence</span>
             <br />
-            and <span className="text-[#26C6DA]">Machine Learning</span>
+            and <span className="text-blue-600">Machine Learning</span>
           </h1>
 
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
-            <div className="w-2 h-2 rounded-full bg-[#26C6DA] animate-pulse" />
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full animate-pulse" />
+            <div className="h-0.5 w-20 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full" />
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <div className="h-0.5 w-20 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full" />
           </div>
         </div>
 
@@ -203,69 +194,67 @@ const PolicyCard = ({ item, index }) => {
 
   return (
     <div className="relative w-full max-w-md group">
-      {/* Glow Effect */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-[#26C6DA] to-[#FF6F00] rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
-      
       <div
-        className={`relative bg-[#1A287E]/80 backdrop-blur-xl rounded-3xl overflow-hidden border-2 border-[#26C6DA]/50 transition-all duration-300 ${
+        className={`relative bg-white backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-lg transition-all duration-300 ${
           expanded ? "h-auto" : "h-[490px]"
         }`}
       >
-        {/* Corner Decorations */}
-        <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#26C6DA]/70 rounded-tl-3xl z-10" />
-        <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F00]/70 rounded-br-3xl z-10" />
+        {/* Corner Decorations - Very Light */}
+        <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-blue-200/40 rounded-tl-3xl z-10" />
+        <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-indigo-200/40 rounded-br-3xl z-10" />
 
         <div className="p-6">
           {/* Header with Number Badge */}
           <div className="flex items-center gap-3 mb-3">
-            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white font-bold shadow-lg shadow-[#26C6DA]/50">
+            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-sm">
               {item.id}
             </div>
-            <h3 className="text-xl font-bold text-white">{item.heading}</h3>
+            <h3 className="text-lg font-bold text-slate-900" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>{item.heading}</h3>
           </div>
 
-          <div className="h-px bg-gradient-to-r from-[#26C6DA]/50 via-[#FF6F00]/50 to-transparent mb-4" />
+          <div className="h-px bg-gradient-to-r from-blue-200 via-indigo-200 to-transparent mb-4" />
 
           {/* Image */}
-          <div className="relative mb-4 rounded-2xl overflow-hidden border-2 border-[#26C6DA]/30">
+          <div className="relative mb-4 rounded-2xl overflow-hidden border border-slate-200">
             <img
               src={item.image}
               alt={item.heading}
               className="w-full h-56 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1A287E]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
             
             {/* Check Badge */}
-            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
-              <FaCheckCircle className="text-white text-lg" />
+            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+              <CheckCircle className="text-white w-5 h-5" />
             </div>
           </div>
 
           {/* Description */}
           <div className={`relative ${expanded ? "" : "max-h-28 overflow-hidden"}`}>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>
               {item.description}
             </p>
 
             {!expanded && (
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#1A287E] to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
             )}
           </div>
 
           {/* Read More Button */}
           <button
             onClick={toggleExpand}
-            className="mt-4 flex items-center gap-2 text-[#26C6DA] font-semibold hover:text-[#FF6F00] transition-colors group/btn"
+            className="mt-4 flex items-center gap-2 text-blue-600 font-semibold hover:text-indigo-600 transition-colors group/btn"
+            style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
           >
             {expanded ? (
               <>
                 Read less
-                <FaChevronUp className="text-sm group-hover/btn:-translate-y-0.5 transition-transform" />
+                <ChevronUp className="w-4 h-4 group-hover/btn:-translate-y-0.5 transition-transform" />
               </>
             ) : (
               <>
                 Read more
-                <FaChevronDown className="text-sm group-hover/btn:translate-y-0.5 transition-transform" />
+                <ChevronDown className="w-4 h-4 group-hover/btn:translate-y-0.5 transition-transform" />
               </>
             )}
           </button>

@@ -1,67 +1,37 @@
 "use client";
-import { FaRupeeSign, FaCalendarAlt, FaFileInvoice, FaCreditCard } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { DollarSign, Calendar, FileText, CreditCard, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Fee_Policy() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] py-20 px-4 overflow-hidden">
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(#26C6DA 1px, transparent 1px), linear-gradient(90deg, #26C6DA 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+    <div className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50 py-20 px-4 overflow-hidden">
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
 
-      {/* Glowing Orbs */}
+      {/* Soft Glowing Orbs */}
       <motion.div 
-        className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#26C6DA]/10 blur-[120px] rounded-full"
+        className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-200/20 blur-[120px] rounded-full"
         animate={{ 
-          scale: [1, 1.2, 1],
-          x: [0, 30, 0],
-          y: [0, -30, 0]
+          scale: [1, 1.1, 1],
+          x: [0, 20, 0],
+          y: [0, -20, 0]
         }}
         transition={{ duration: 20, repeat: Infinity }}
       />
       <motion.div 
-        className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#FF6F00]/10 blur-[150px] rounded-full"
+        className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-indigo-200/20 blur-[130px] rounded-full"
         animate={{ 
-          scale: [1, 1.3, 1],
-          x: [0, -30, 0],
-          y: [0, 30, 0]
+          scale: [1, 1.2, 1],
+          x: [0, -20, 0],
+          y: [0, 20, 0]
         }}
-        transition={{ duration: 25, repeat: Infinity }}
+        transition={{ duration: 22, repeat: Infinity }}
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <motion.div 
-            className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-[#26C6DA]/10 border-2 border-[#26C6DA]/30 rounded-full backdrop-blur-xl shadow-2xl shadow-[#26C6DA]/20"
+            className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-white/80 border-2 border-blue-200 rounded-full backdrop-blur-sm shadow-lg"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -70,28 +40,28 @@ export default function Fee_Policy() {
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <HiSparkles className="text-[#26C6DA] text-xl" />
+              <Sparkles className="text-blue-500 w-5 h-5" />
             </motion.div>
-            <span className="text-[#26C6DA] text-sm font-bold tracking-widest">FEE STRUCTURE</span>
+            <span className="text-blue-600 text-sm font-semibold tracking-wider">FEE STRUCTURE</span>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <HiSparkles className="text-[#26C6DA] text-xl" />
+              <Sparkles className="text-blue-500 w-5 h-5" />
             </motion.div>
           </motion.div>
 
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Fees Structure & <span className="text-[#26C6DA]">Payment Policy</span>
+            Fees Structure & <span className="text-blue-600">Payment Policy</span>
           </motion.h1>
 
           <motion.h2 
-            className="text-xl md:text-2xl font-semibold text-[#FF6F00]"
+            className="text-xl md:text-2xl font-medium text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -106,18 +76,18 @@ export default function Fee_Policy() {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <motion.div 
-              className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
-              animate={{ opacity: [0.5, 1, 0.5] }}
+              className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full"
+              animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.div 
-              className="w-2 h-2 rounded-full bg-[#26C6DA]"
-              animate={{ scale: [1, 1.5, 1] }}
+              className="w-2 h-2 rounded-full bg-blue-500"
+              animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.div 
-              className="h-1 w-24 bg-gradient-to-r from-transparent via-[#26C6DA] to-transparent rounded-full"
-              animate={{ opacity: [0.5, 1, 0.5] }}
+              className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full"
+              animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </motion.div>
@@ -126,32 +96,32 @@ export default function Fee_Policy() {
         {/* Total Fee Card */}
         <motion.div 
           className="relative mb-16 group"
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.div 
-            className="absolute -inset-1 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121]rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500"
+            className="absolute -inset-1 bg-gradient-to-r from-blue-200 via-indigo-200 to-blue-200 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"
           />
           
-          <div className="relative bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-3xl p-8 border-2 border-white/20">
+          <div className="relative bg-white rounded-3xl p-10 border border-gray-200 shadow-xl">
             <div className="flex items-center justify-center gap-4 mb-4">
               <motion.div 
-                className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center"
-                whileHover={{ rotate: 360, scale: 1.1 }}
+                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg"
+                whileHover={{ rotate: 360, scale: 1.05 }}
                 transition={{ duration: 0.6 }}
               >
-                <FaRupeeSign className="text-white text-3xl" />
+                <DollarSign className="text-white w-8 h-8" />
               </motion.div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                 Total Program Fee
               </h3>
             </div>
-            <p className="text-3xl md:text-4xl font-bold text-white text-center">
+            <p className="text-4xl md:text-5xl font-bold text-blue-600 text-center">
               ₹3,36,000/-
             </p>
-            <p className="text-lg text-white/90 text-center mt-2">
+            <p className="text-lg text-gray-600 text-center mt-3 font-medium">
               (₹1,12,000 per year for 3 years)
             </p>
           </div>
@@ -165,71 +135,71 @@ export default function Fee_Policy() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-            Detailed <span className="text-[#26C6DA]">Fee Bifurcation</span> (Per Year)
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10 text-center">
+            Detailed <span className="text-blue-600">Fee Bifurcation</span> (Per Year)
           </h2>
 
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500" />
             
-            <div className="relative overflow-x-auto rounded-3xl border-2 border-[#26C6DA]/50 backdrop-blur-xl">
-              <table className="w-full text-left text-base border-collapse">
-                <thead className="bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] text-white">
+            <div className="relative overflow-x-auto rounded-3xl border border-gray-200 shadow-xl bg-white">
+              <table className="w-full text-left border-collapse">
+                <thead className="bg-gradient-to-r from-blue-50 to-indigo-50">
                   <tr>
-                    <th className="px-6 py-4 font-bold text-xl text-center border-2 border-white/20">
+                    <th className="px-6 py-5 font-bold text-lg text-gray-800 text-center border-b-2 border-gray-200">
                       Component
                     </th>
-                    <th className="px-6 py-4 font-bold text-xl text-center border-2 border-white/20">
+                    <th className="px-6 py-5 font-bold text-lg text-gray-800 text-center border-b-2 border-gray-200">
                       Amount per Year (₹)
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-[#1A287E]/80 text-white backdrop-blur-xl">
-                  <tr className="hover:bg-[#26C6DA]/10 transition-colors">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/20">
+                <tbody className="text-gray-700">
+                  <tr className="hover:bg-blue-50/50 transition-colors border-b border-gray-100">
+                    <td className="px-6 py-4 font-medium">
                       Admission & Registration Fee
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/20 font-semibold">
+                    <td className="px-6 py-4 text-center font-semibold text-gray-800">
                       ₹5,000
                     </td>
                   </tr>
-                  <tr className="hover:bg-[#26C6DA]/10 transition-colors">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/20">
+                  <tr className="hover:bg-blue-50/50 transition-colors border-b border-gray-100">
+                    <td className="px-6 py-4 font-medium">
                       Tuition Fee
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/20 font-semibold">
+                    <td className="px-6 py-4 text-center font-semibold text-gray-800">
                       ₹85,000
                     </td>
                   </tr>
-                  <tr className="hover:bg-[#26C6DA]/10 transition-colors">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/20">
+                  <tr className="hover:bg-blue-50/50 transition-colors border-b border-gray-100">
+                    <td className="px-6 py-4 font-medium">
                       Lab, AI Tools & Project Access
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/20 font-semibold">
+                    <td className="px-6 py-4 text-center font-semibold text-gray-800">
                       ₹10,000
                     </td>
                   </tr>
-                  <tr className="hover:bg-[#26C6DA]/10 transition-colors">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/20">
+                  <tr className="hover:bg-blue-50/50 transition-colors border-b border-gray-100">
+                    <td className="px-6 py-4 font-medium">
                       Examination Fee
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/20 font-semibold">
+                    <td className="px-6 py-4 text-center font-semibold text-gray-800">
                       ₹6,000
                     </td>
                   </tr>
-                  <tr className="hover:bg-[#26C6DA]/10 transition-colors">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/20">
+                  <tr className="hover:bg-blue-50/50 transition-colors border-b-2 border-gray-200">
+                    <td className="px-6 py-4 font-medium">
                       Student Development & Activity Fee
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/20 font-semibold">
+                    <td className="px-6 py-4 text-center font-semibold text-gray-800">
                       ₹6,000
                     </td>
                   </tr>
-                  <tr className="bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121]">
-                    <td className="px-6 py-4 border-2 border-[#26C6DA]/30 font-bold text-lg">
+                  <tr className="bg-gradient-to-r from-blue-50 to-indigo-50">
+                    <td className="px-6 py-5 font-bold text-lg text-gray-800">
                       Total per Year
                     </td>
-                    <td className="px-6 py-4 text-center border-2 border-[#26C6DA]/30 font-bold text-xl text-[#26C6DA]">
+                    <td className="px-6 py-5 text-center font-bold text-2xl text-blue-600">
                       ₹1,12,000
                     </td>
                   </tr>
@@ -240,15 +210,15 @@ export default function Fee_Policy() {
         </motion.div>
 
         {/* Payment Options */}
-        <div className="mb-12">
+        <div className="mb-16">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
+            className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Payment <span className="text-[#26C6DA]">Schedule</span> & <span className="text-[#FF6F00]">Options</span>
+            Payment <span className="text-blue-600">Schedule</span> & <span className="text-indigo-600">Options</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -259,42 +229,42 @@ export default function Fee_Policy() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ y: -5 }}
             >
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500" />
               
-              <div className="relative h-full bg-[#1A287E]/80 backdrop-blur-xl rounded-3xl p-8 border-2 border-[#26C6DA]/50">
+              <div className="relative h-full bg-white rounded-3xl p-8 border border-gray-200 shadow-lg">
                 <div className="flex flex-col items-center mb-6">
                   <motion.div 
-                    className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-[#26C6DA]/50"
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white mb-4 shadow-lg"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <FaCalendarAlt />
+                    <Calendar className="w-7 h-7" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-[#26C6DA] text-center">
+                  <h3 className="text-xl font-bold text-gray-800 text-center">
                     Option A: Annual Payment
                   </h3>
                 </div>
 
-                <div className="space-y-4 text-gray-300">
+                <div className="space-y-4 text-gray-700">
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       1
                     </span>
-                    <p className="text-lg">1st Year: ₹1,12,000 at Admission</p>
+                    <p className="text-base leading-relaxed">1st Year: ₹1,12,000 at Admission</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       2
                     </span>
-                    <p className="text-lg">2nd Year: ₹1,12,000 at the start of 3th Semester</p>
+                    <p className="text-base leading-relaxed">2nd Year: ₹1,12,000 at the start of 3rd Semester</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       3
                     </span>
-                    <p className="text-lg">3rd Year: ₹1,12,000 at the start of 5th Semester</p>
+                    <p className="text-base leading-relaxed">3rd Year: ₹1,12,000 at the start of 5th Semester</p>
                   </div>
                 </div>
               </div>
@@ -307,32 +277,32 @@ export default function Fee_Policy() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ y: -5 }}
             >
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-3xl blur opacity-25 group-hover:opacity-35 transition duration-500" />
               
-              <div className="relative h-full bg-[#1A287E]/80 backdrop-blur-xl rounded-3xl p-8 border-2 border-[#26C6DA]/50">
+              <div className="relative h-full bg-white rounded-3xl p-8 border border-indigo-200 shadow-lg">
                 <div className="flex flex-col items-center mb-6">
                   <motion.div 
-                    className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FF6F00] to-[#26C6DA] flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-[#FF6F00]/50"
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white mb-4 shadow-lg"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <FaFileInvoice />
+                    <FileText className="w-7 h-7" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-[#26C6DA] text-center">
+                  <h3 className="text-xl font-bold text-gray-800 text-center">
                     Option B: Semester-wise Installments
                   </h3>
                 </div>
 
                 <div className="space-y-6 text-center">
-                  <div className="p-6 rounded-xl bg-gradient-to-r from-[#26C6DA]/10 to-[#FF6F00]/10 border border-[#26C6DA]/30 backdrop-blur-sm">
-                    <p className="text-lg text-gray-300 mb-2">Per Semester</p>
-                    <p className="text-3xl font-bold text-[#26C6DA]">₹56,000</p>
+                  <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200">
+                    <p className="text-base text-gray-600 mb-2 font-medium">Per Semester</p>
+                    <p className="text-3xl font-bold text-blue-600">₹56,000</p>
                   </div>
-                  <div className="p-6 rounded-xl bg-gradient-to-r from-[#FF6F00]/10 to-[#26C6DA]/10 border border-[#26C6DA]/30 backdrop-blur-sm">
-                    <p className="text-lg text-gray-300 mb-2">Total Fee (6 Semesters)</p>
-                    <p className="text-3xl font-bold text-[#FF6F00]">₹3,36,000</p>
+                  <div className="p-6 rounded-2xl bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200">
+                    <p className="text-base text-gray-600 mb-2 font-medium">Total Fee (6 Semesters)</p>
+                    <p className="text-3xl font-bold text-indigo-600">₹3,36,000</p>
                   </div>
                 </div>
               </div>
@@ -345,67 +315,67 @@ export default function Fee_Policy() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ y: -5 }}
             >
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500" />
 
-              <div className="relative h-full bg-[#1A287E]/80 backdrop-blur-xl rounded-3xl p-8 border-2 border-[#26C6DA]/50">
+              <div className="relative h-full bg-white rounded-3xl p-8 border border-gray-200 shadow-lg">
                 <div className="flex flex-col items-center mb-6">
                   <motion.div 
-                    className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-[#26C6DA]/50"
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white mb-4 shadow-lg"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <FaCreditCard />
+                    <CreditCard className="w-7 h-7" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-[#26C6DA] text-center">
+                  <h3 className="text-xl font-bold text-gray-800 text-center">
                     Option C: Monthly EMI Plan
                   </h3>
                 </div>
 
-                <div className="space-y-4 text-gray-300">
+                <div className="space-y-4 text-gray-700">
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       1
                     </span>
-                    <p className="text-lg">Admission Fees: ₹5,000 (one-time)</p>
+                    <p className="text-base leading-relaxed">Admission Fees: ₹5,000 (one-time)</p>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       2
                     </span>
-                    <p className="text-lg">Exam Fees: ₹6,000 (one-time)</p>
+                    <p className="text-base leading-relaxed">Exam Fees: ₹6,000 (one-time)</p>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       3
                     </span>
-                    <p className="text-lg">Student Development Fees: ₹6,000 (one-time)</p>
+                    <p className="text-base leading-relaxed">Student Development Fees: ₹6,000 (one-time)</p>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       4
                     </span>
-                    <p className="text-lg">Balance Amount: ₹95,000</p>
+                    <p className="text-base leading-relaxed">Balance Amount: ₹95,000</p>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       5
                     </span>
-                    <p className="text-lg">
-                      EMI via <span className="text-[#26C6DA] font-semibold">Credit Card Only</span> (No Cost EMI)
+                    <p className="text-base leading-relaxed">
+                      EMI via <span className="text-blue-600 font-semibold">Credit Card Only</span> (No Cost EMI)
                     </p>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#26C6DA] to-[#FF6F00] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[#26C6DA]/50">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold shadow">
                       💳
                     </span>
-                    <p className="text-lg font-semibold text-[#FF6F00]">
+                    <p className="text-base leading-relaxed font-semibold text-indigo-600">
                       Monthly EMI: ₹10,555 / month
                     </p>
                   </div>
@@ -425,12 +395,12 @@ export default function Fee_Policy() {
         >
           <div className="relative inline-block">
             <motion.div 
-              className="absolute -inset-2 bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] rounded-full blur-xl opacity-75"
-              animate={{ scale: [1, 1.1, 1] }}
+              className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full blur-lg opacity-30"
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.button 
-              className="relative px-8 py-4 bg-gradient-to-r from-[#FF6F00] to-[#FF8C00] hover:from-[#FF8C00] hover:to-[#FF6F00] text-white font-bold rounded-full text-lg shadow-2xl shadow-[#FF6F00]/50 transition-all duration-300"
+              className="relative px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-full text-lg shadow-xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const careers = [
@@ -34,46 +33,45 @@ const CareerOpportunities = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 px-6 lg:px-24 overflow-hidden bg-gradient-to-br from-[#1A287E] via-[#2C3560] to-[#212121] text-white"
+      className="relative py-24 px-6 lg:px-24 overflow-hidden bg-white text-slate-900"
     >
-      {/* Animated Grid Background */}
-     <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(38,198,218,0.4) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(38,198,218,0.4) 1px, transparent 1px)
-              `,
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
-        </div>
-
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.015]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(#cbd5e1 1px, transparent 1px),
+              linear-gradient(90deg, #cbd5e1 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
+      </div>
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#26C6DA] rounded-full"
+            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{ y: [0, -30, 0], opacity: [0, 1, 0] }}
-            transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+            animate={{ y: [0, -30, 0], opacity: [0, 0.5, 0] }}
+            transition={{ duration: 4 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
           />
         ))}
       </div>
 
-      {/* Glowing Orbs */}
+      {/* Soft Glowing Orbs */}
       <motion.div
-        className="absolute top-10 left-10 w-64 h-64 rounded-full blur-[100px] bg-[#26C6DA]/20"
-        animate={{ scale: [1, 1.3, 1], x: [0, 30, 0], y: [0, -30, 0] }}
-        transition={{ duration: 15, repeat: Infinity }}
+        className="absolute top-10 left-10 w-64 h-64 rounded-full blur-[140px] bg-blue-100/15"
+        animate={{ scale: [1, 1.2, 1], x: [0, 25, 0], y: [0, -25, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-10 right-10 w-80 h-80 rounded-full blur-[120px] bg-[#FF6F00]/20"
-        animate={{ scale: [1, 1.4, 1], x: [0, -30, 0], y: [0, 30, 0] }}
-        transition={{ duration: 18, repeat: Infinity }}
+        className="absolute bottom-10 right-10 w-72 h-72 rounded-full blur-[150px] bg-indigo-100/12"
+        animate={{ scale: [1, 1.25, 1], x: [0, -25, 0], y: [0, 25, 0] }}
+        transition={{ duration: 20, repeat: Infinity }}
       />
 
       {/* Section Heading */}
@@ -83,10 +81,16 @@ const CareerOpportunities = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <h1 className="text-4xl lg:text-6xl font-extrabold">
+        <h1 
+          className="text-4xl lg:text-6xl font-bold text-slate-900"
+          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
+        >
           Career & Opportunities
         </h1>
-        <p className="text-xl lg:text-2xl mt-4 text-[#26C6DA]">
+        <p 
+          className="text-xl lg:text-2xl mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold"
+          style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
+        >
           Step Into High-Demand Tech Careers
         </p>
       </motion.div>
@@ -102,18 +106,19 @@ const CareerOpportunities = () => {
           <motion.div
             key={i}
             variants={itemVariants}
-            className="group flex flex-col items-center w-full max-w-[140px] transition-transform hover:scale-110"
+            className="group flex flex-col items-center w-full max-w-[140px] transition-transform hover:scale-105"
           >
-            <div className="w-24 h-24 flex justify-center items-center bg-gradient-to-br from-[#00d4ff]/10 via-[#AC6CFF]/10 to-[#ff6b35]/10 rounded-2xl shadow-lg hover:shadow-xl transition-all">
-              <Image
+            <div className="w-24 h-24 flex justify-center items-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-md hover:shadow-lg transition-all border border-blue-100 hover:border-blue-200">
+              <img
                 src={career.img}
                 alt={career.alt}
-                width={100}
-                height={100}
-                className="transition-transform group-hover:scale-110"
+                className="w-16 h-16 transition-transform group-hover:scale-110"
               />
             </div>
-            <p className="mt-4 text-lg font-bold bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] bg-clip-text text-transparent">
+            <p 
+              className="mt-4 text-base font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent text-center"
+              style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
+            >
               {career.label}
             </p>
           </motion.div>

@@ -1,0 +1,29 @@
+#Apply rules to all search engine bots
+User-agent: *
+
+#Allow crawling of the entire website by default
+Allow: /
+
+#Block admin panel (not for public indexing)
+Disallow: /admin/
+
+#Block backend APIs (not SEO content)
+Disallow: /api/
+
+#Block private/internal pages
+Disallow: /private/
+
+#Block authentication pages (no SEO value)
+Disallow: /login/
+Disallow: /forgotpassword/
+
+#Block search results page (avoid duplicate/thin content)
+Disallow: /search
+
+#Explicitly allow images (important for Image SEO)
+Allow: /images/
+Allow: /_next/image/
+Allow: /public/
+
+Sitemap: https://nexcoreinstitute.org/sitemap.xml
+

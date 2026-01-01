@@ -1,3 +1,19 @@
+export const metadata = {
+  title: "Why Choose Us | Nexcore Alliance LLP",
+  description:
+    "Discover why Nexcore Alliance LLP is the right choice for BVOC and skill-based education with industry-aligned curriculum.",
+  openGraph: {
+    title: "Why Choose Nexcore Alliance LLP",
+    description:
+      "Industry-focused BVOC programs, expert mentors, and career-driven learning.",
+    url: "https://nexcoreinstitute.org/whychooseus",
+    siteName: "Nexcore Alliance LLP",
+  },
+};
+
+
+
+
 import React from "react";
 import CardCarousel from "@/components/WhyChooseUs/Cardcarousel";
 import DegreeComparisonTable from "@/components/WhyChooseUs/Tablesection";

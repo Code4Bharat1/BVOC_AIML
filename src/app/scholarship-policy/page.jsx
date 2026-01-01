@@ -1,3 +1,18 @@
+export const metadata = {
+  title: "Scholarship Policy | BVOC Programs",
+  description:
+    "Explore scholarship opportunities and financial support options for BVOC students at Nexcore Alliance LLP.",
+  openGraph: {
+    title: "BVOC Scholarship Policy",
+    description:
+      "Merit and need-based scholarships for skill-based degree programs.",
+    url: "https://nexcoreinstitute.org/scholarship-policy",
+    siteName: "Nexcore Alliance LLP",
+  },
+};
+
+
+
 import React from "react";
 import Scholarship_Policy from "@/components/Opportunities/Scholarship_Policy";
 export default function page() {

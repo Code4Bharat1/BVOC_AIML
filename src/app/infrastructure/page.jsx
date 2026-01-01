@@ -1,4 +1,21 @@
-"use client";
+export const metadata = {
+  title: "Infrastructure | Nexcore Alliance LLP",
+  description:
+    "Explore modern infrastructure, labs, and learning facilities provided by Nexcore Alliance LLP for BVOC students.",
+  openGraph: {
+    title: "Our Infrastructure",
+    description:
+      "State-of-the-art infrastructure supporting practical and skill-based education.",
+    url: "https://nexcoreinstitute.org/infrastructure",
+    siteName: "Nexcore Alliance LLP",
+  },
+};
+
+
+
+
+
+
 import React from "react";
 import Hero from "@/components/Infrastructure/Hero";
 import ModernInfra from "@/components/Infrastructure/ModernInfra";

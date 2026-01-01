@@ -1,3 +1,16 @@
+export const metadata = {
+  title: "Selection Policy | BVOC Admission",
+  description:
+    "Understand the BVOC admission and student selection process at Nexcore Alliance LLP.",
+  openGraph: {
+    title: "BVOC Selection Policy",
+    description:
+      "Transparent and fair admission process for BVOC programs.",
+    url: "https://nexcoreinstitute.org/selection-policy",
+    siteName: "Nexcore Alliance LLP",
+  },
+};
+
 import React from "react";
 import SelectionPolicy from "@/components/Opportunities/SelectionPolicy";
 export default function page() {

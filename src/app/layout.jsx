@@ -1,7 +1,7 @@
 // ❌ NO "use client" here — RootLayout must be a Server Component
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import ClientLayout from "./LP_clientLayout";
+import ClientLayout from "./LP_clientLayout";
 import Script from "next/script"; 
 
 // Fonts
@@ -138,7 +138,7 @@ export default function RootLayout({ children }) {
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* Client Layout (Navbar, Footer, etc.) */}
-        {/* <ClientLayout>{children}</ClientLayout> */}
+        <ClientLayout>{children}</ClientLayout>
 
 
         {/* ✅ Website + SearchAction Schema */}

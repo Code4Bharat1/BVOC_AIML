@@ -140,6 +140,7 @@ export default function RootLayout({ children }) {
         {/* Client Layout (Navbar, Footer, etc.) */}
         <ClientLayout>{children}</ClientLayout>
 
+
         {/* ✅ Website + SearchAction Schema */}
         <script
           type="application/ld+json"

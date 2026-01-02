@@ -4,9 +4,8 @@ export async function GET() {
   const baseUrl = "https://nexcoreinstitute.org";
   const today = new Date().toISOString().split("T")[0];
 
-  // 🔹 Static Pages
   const staticUrls = [
-    { path: "", priority: "1.0" }, // Home
+    { path: "", priority: "1.0" },
     { path: "whychooseus", priority: "0.9" },
     { path: "learn-grow", priority: "0.9" },
     { path: "opportunities", priority: "0.9" },
@@ -20,21 +19,15 @@ export async function GET() {
     { path: "contact", priority: "0.6" },
   ];
 
-  // 🔹 BVOC Programs
-  const bvocPrograms = [
-    "ai-ml",
-    "data-science",
-    "software-development",
-  ];
-
-  const programUrls = bvocPrograms.map((slug) => ({
+  const programs = ["ai-ml", "data-science", "software-development"];
+  const programUrls = programs.map((slug) => ({
     path: `bvoc/${slug}`,
     priority: "0.8",
   }));
 
   const urls = [...staticUrls, ...programUrls];
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(({ path, priority }) => {
@@ -50,9 +43,11 @@ ${urls
   .join("")}
 </urlset>`;
 
-  return new NextResponse(sitemap, {
+  return new NextResponse(xml, {
+    status: 200,
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/xml; charset=utf-8",
+      "Cache-Control": "public, max-age=86400",
     },
   });
 }

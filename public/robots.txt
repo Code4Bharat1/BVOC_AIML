@@ -3,12 +3,14 @@ User-agent: *
 
 #Allow crawling of the entire website by default
 Allow: /
+Allow: /sitemap.xml
+Allow : api/sitemap.xml
 
 #Block admin panel (not for public indexing)
 Disallow: /admin/
 
 #Block backend APIs (not SEO content)
-Disallow: /api/
+#Disallow: /api/
 
 #Block private/internal pages
 Disallow: /private/

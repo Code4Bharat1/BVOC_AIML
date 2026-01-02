@@ -4,7 +4,7 @@ User-agent: *
 #Allow crawling of the entire website by default
 Allow: /
 Allow: /sitemap.xml
-Allow : api/sitemap.xml
+Allow : /api/sitemap.xml
 
 #Block admin panel (not for public indexing)
 Disallow: /admin/

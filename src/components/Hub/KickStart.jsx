@@ -19,25 +19,24 @@ const KickStart = () => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    let scrollInterval;
+    let animationFrameId;
+    let scrollSpeed = 0.5;
 
-    const startAutoScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (!isPaused && scrollContainer) {
-          // Smooth scroll to the right
-          scrollContainer.scrollLeft += 1;
+    const smoothScroll = () => {
+      if (!isPaused && scrollContainer) {
+        scrollContainer.scrollLeft += scrollSpeed;
 
-          // Reset to start when reaching the end
-          if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-            scrollContainer.scrollLeft = 0;
-          }
+        // Reset to start for infinite loop
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
         }
-      }, 20);
+      }
+      animationFrameId = requestAnimationFrame(smoothScroll);
     };
 
-    startAutoScroll();
+    animationFrameId = requestAnimationFrame(smoothScroll);
 
-    return () => clearInterval(scrollInterval);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
   return (
@@ -122,55 +121,89 @@ const KickStart = () => {
       <div
         ref={scrollContainerRef}
         className="relative z-10 overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing"
-        style={{ scrollBehavior: "smooth" }}
+        style={{ scrollBehavior: "auto" }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="flex gap-8 w-max pr-8">
-          {/* Duplicate cards for infinite loop effect */}
-          {[...cardData, ...cardData].map((card, index) => (
+          {/* Triple cards for seamless infinite loop */}
+          {[...cardData, ...cardData, ...cardData].map((card, index) => (
             <motion.div
               key={`${card.id}-${index}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: (index % cardData.length) * 0.1 }}
-              className="relative group w-[290px] lg:w-[350px] h-[340px] lg:h-[440px] bg-[#1a1a1a] overflow-hidden shadow-[0_0_30px_rgba(0,123,255,0.15)] flex-shrink-0 flex flex-col items-center justify-start p-6 rounded-xl"
+              transition={{ duration: 0.5, delay: (index % cardData.length) * 0.08 }}
+              className="relative group w-[280px] flex-shrink-0"
             >
-              {/* Gradient Border Effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#007BFF] via-[#FF7F00] to-[#007BFF] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-                style={{ padding: '2px' }}
-              >
-                <div className="w-full h-full bg-[#1a1a1a] rounded-xl" />
-              </div>
-
-              {/* Card Border */}
-              <div className="absolute inset-0 rounded-xl border border-[#007BFF]/20 group-hover:border-[#007BFF]/40 transition-colors duration-500" />
-
-              {/* Card Glow on Hover */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#007BFF]/5 via-transparent to-[#FF7F00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative z-10 w-full flex flex-col items-center">
-                <div className="relative w-full h-[300px] overflow-hidden rounded-lg mb-4">
-                  {/* Image Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#007BFF]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                  
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-                  />
+              {/* Card Container */}
+              <div className="relative bg-gradient-to-br from-[#1a1a1a] to-[#2C2C2C] rounded-3xl p-6 shadow-[0_8px_40px_rgba(0,123,255,0.2)] overflow-hidden">
+                
+                {/* Animated Border */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#007BFF] via-[#FF7F00] to-[#FFCD00] blur-sm" style={{ padding: '2px' }} />
                 </div>
 
-                <h3 className="text-white font-bold text-center text-xl lg:text-2xl uppercase leading-snug whitespace-pre-line group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#80C8F7] group-hover:to-[#007BFF] transition-all duration-500">
-                  {card.title}
-                </h3>
-              </div>
+                {/* Inner Border Glow */}
+                <div className="absolute inset-[2px] rounded-3xl border-2 border-[#007BFF]/30 group-hover:border-[#007BFF]/60 transition-all duration-500" />
 
-              {/* Corner Accent */}
-              <div className="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute top-0 right-0 w-full h-0.5 bg-gradient-to-l from-[#FF7F00] to-transparent" />
-                <div className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-b from-[#FF7F00] to-transparent" />
+                {/* Top Glow Effect */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#007BFF]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="relative z-10">
+                  {/* Circular Image Container */}
+                  <div className="relative mx-auto mb-6 w-[220px] h-[220px]">
+                    {/* Outer Glow Ring */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#007BFF]/40 via-[#FF7F00]/30 to-[#FFCD00]/40 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Image Ring Border */}
+                    <div className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-br from-[#007BFF] via-[#80C8F7] to-[#007BFF]">
+                      <div className="w-full h-full rounded-full  p-2">
+                        <div className="relative w-full h-full rounded-full overflow-hidden">
+                          {/* Image Overlay Gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#007BFF]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                          
+                          {/* Actual Image */}
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Rotating Ring Effect */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-transparent opacity-0 group-hover:opacity-100"
+                      style={{
+                        borderImage: 'linear-gradient(45deg, #007BFF, #FF7F00, #FFCD00, #007BFF) 1',
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-white font-bold text-center text-lg leading-snug whitespace-pre-line px-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#80C8F7] group-hover:via-[#007BFF] group-hover:to-[#FF7F00] transition-all duration-500">
+                    {card.title}
+                  </h3>
+
+                  {/* Bottom Accent Line */}
+                  <div className="mt-4 mx-auto w-16 h-1 bg-gradient-to-r from-transparent via-[#007BFF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
+                {/* Corner Sparkles */}
+                <motion.div
+                  className="absolute top-4 right-4 w-2 h-2 bg-[#FFCD00] rounded-full opacity-0 group-hover:opacity-100"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div
+                  className="absolute bottom-4 left-4 w-2 h-2 bg-[#80C8F7] rounded-full opacity-0 group-hover:opacity-100"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                />
               </div>
             </motion.div>
           ))}

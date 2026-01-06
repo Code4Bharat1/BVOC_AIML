@@ -2,7 +2,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./LP_clientLayout";
-import Script from "next/script"; 
 
 // Fonts
 const geistSans = Geist({
@@ -21,62 +20,28 @@ export const viewport = {
   initialScale: 1,
 };
 
-// ✅ SEO Metadata (BVOC + Existing SEO combined)
+// ✅ SEO Metadata
 export const metadata = {
   metadataBase: new URL("https://nexcoreinstitute.org"),
 
   title: {
-    default: "BVOC in AI & ML | Nexcore Institute",
-    template: "%s | Nexcore Institute",
+    default: "BVOC in AIML, Cyber Security & Computer Science | Nexcore Institute of Technology",
+    template: "%s | Nexcore Institute of Technology",
   },
 
   description:
-    "Nexcore Institute offers industry-focused BVOC programs in AI & ML with hands-on training, internships, and strong career outcomes.",
+    "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and Computer Science with hands-on training, internships, and strong career outcomes.",
 
-  // 🔥 UPDATED KEYWORDS (BVOC FULL RESEARCH ADDED)
   keywords: [
-    // 🔹 Core BVOC Keywords
     "BVOC",
-    "BVOC course",
-    "BVOC courses",
     "Bachelor of Vocation",
-    "B Voc full form",
-    "BVOC degree",
-    "BVOC program",
-
-    // 🔹 Admission & Eligibility
-    "BVOC admission 2026",
-    "BVOC eligibility",
-    "BVOC eligibility criteria",
-    "BVOC after 12th",
-    "BVOC admission process",
-
-    // 🔹 Career & Scope
-    "BVOC scope",
-    "BVOC scope after 12th",
-    "BVOC jobs",
-    "BVOC jobs after degree",
-    "BVOC salary",
-    "BVOC internships",
-    "BVOC placements",
-
-    // 🔹 Comparison & Intent
-    "BVOC vs BTech",
-    "BVOC vs BSc",
+    "BVOC in AI and Machine Learning",
+    "BVOC Cyber Security",
+    "BVOC Computer Science",
     "Skill based degree program",
     "Vocational degree in India",
-
-    // 🔹 Program Specific
-    "BVOC in AI and Machine Learning",
-    "BVOC AI ML course",
-    "BVOC data science",
-    "BVOC software development",
-
-    // 🔹 Brand & Local
-    "Nexcore Institute BVOC",
-    "BVOC colleges in India",
-    "Best BVOC programs India",
-    "BVOC colleges near me",
+    "Nexcore Institute of Technology",
+    "Best BVOC colleges in India",
   ],
 
   alternates: {
@@ -89,11 +54,11 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "BVOC in AI & ML | Nexcore Institute",
+    title: "BVOC in AI, Cyber Security & Computer Science | Nexcore Institute of Technology",
     description:
-      "Industry-ready BVOC programs in AI & ML with practical learning, internships, and placement support.",
+      "Industry-ready B.Voc programs in AI & ML, Cyber Security, and Computer Science at Nexcore Institute of Technology.",
     url: "https://nexcoreinstitute.org/",
-    siteName: "Nexcore Institute",
+    siteName: "Nexcore Institute of Technology",
     locale: "en_IN",
     type: "website",
     images: [
@@ -101,16 +66,16 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BVOC in AI & ML – Nexcore Institute",
+        alt: "Nexcore Institute of Technology – BVOC Programs",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "BVOC in AI & ML | Nexcore Institute",
+    title: "BVOC in AI, Cyber Security & Computer Science | Nexcore Institute of Technology",
     description:
-      "Build your career with skill-based BVOC programs in AI & ML at Nexcore Institute.",
+      "Build your career with skill-based B.Voc programs at Nexcore Institute of Technology.",
   },
 };
 
@@ -126,24 +91,23 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
               "@id": "https://nexcoreinstitute.org/#organization",
-              name: "Nexcore Institute",
+              name: "Nexcore Institute of Technology",
               url: "https://nexcoreinstitute.org",
               logo: "https://nexcoreinstitute.org/logo.png",
               description:
-                "Nexcore Institute provides industry-aligned BVOC programs focused on skill development, internships, and employability.",
+                "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and Computer Science focused on skills, internships, and employability.",
             }),
           }}
         />
 
-        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+       
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* Client Layout (Navbar, Footer, etc.) */}
         <ClientLayout>{children}</ClientLayout>
 
-
-        {/* ✅ Website + SearchAction Schema */}
+        {/* ✅ Website Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -152,8 +116,8 @@ export default function RootLayout({ children }) {
               "@type": "WebSite",
               "@id": "https://nexcoreinstitute.org/#website",
               url: "https://nexcoreinstitute.org/",
-              name: "Nexcore Institute",
-              alternateName: "Nexcore BVOC",
+              name: "Nexcore Institute of Technology",
+              alternateName: "Nexcore Institute",
               potentialAction: {
                 "@type": "SearchAction",
                 target:

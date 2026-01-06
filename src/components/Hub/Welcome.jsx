@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Brain, Code, Shield } from "lucide-react";
+import Link from "next/link";
 
 const degrees = [
   {
@@ -188,25 +189,27 @@ const Welcome = () => {
         </motion.div>
 
         {/* Minimal CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.9 }}
-        >
-          <motion.button
-            className="group relative px-8 py-4 rounded-lg font-medium text-base text-white overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-            }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span className="relative z-10 flex items-center gap-3">
-              Enroll Now
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </motion.button>
-        </motion.div>
+       <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ delay: 0.9 }}
+>
+  <Link href="/contact">
+    <motion.button
+      className="group relative px-8 py-4 rounded-lg font-medium text-base text-white overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)",
+      }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Enroll Now
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </span>
+    </motion.button>
+  </Link>
+</motion.div>
       </motion.div>
 
       {/* Minimal Robot Illustration */}

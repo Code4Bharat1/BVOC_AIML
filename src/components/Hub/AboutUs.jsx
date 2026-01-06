@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Brain, Code, Shield, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 const degrees = [
   {
@@ -195,18 +196,20 @@ const DegreesShowcase = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full mt-4 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn"
-                    style={{
-                      background: `linear-gradient(135deg, ${degree.color}, ${degree.color}CC)`,
-                      boxShadow: `0 4px 20px ${degree.color}30`,
-                    }}
-                  >
-                    Explore Program
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </motion.button>
+                  <Link href="/contact">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full mt-4 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                      style={{
+                        background: `linear-gradient(135deg, ${degree.color}, ${degree.color}CC)`,
+                        boxShadow: `0 4px 20px ${degree.color}30`,
+                      }}
+                    >
+                      Explore Program
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </Link>
                 </div>
 
                 {/* Hover Glow Effect */}
@@ -230,23 +233,28 @@ const DegreesShowcase = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-300 mb-6">
-            Can't decide? Our counselors can help you choose the right path
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#007BFF] to-[#FF7F00] text-white font-semibold shadow-lg hover:shadow-2xl transition-all duration-300"
-          >
-            Schedule a Consultation
-          </motion.button>
-        </motion.div>
+        ;
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, delay: 0.8 }}
+  className="text-center mt-16"
+>
+  <p className="text-gray-300 mb-6">
+    Can't decide? Our counselors can help you choose the right path
+  </p>
+
+  <Link href="/contact">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#007BFF] to-[#FF7F00] text-white font-semibold shadow-lg hover:shadow-2xl transition-all duration-300"
+    >
+      Schedule a Consultation
+    </motion.button>
+  </Link>
+</motion.div>
       </div>
     </section>
   );

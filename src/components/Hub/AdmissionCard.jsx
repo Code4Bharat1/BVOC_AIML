@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, GraduationCap, Rocket, ArrowRight, Brain, Code, Shield } from "lucide-react";
-
+import Link from "next/link";
 const degrees = [
   {
     id: 1,
@@ -280,48 +280,56 @@ const AdmissionCard = () => {
           ))}
         </motion.div>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          viewport={{ once: true }}
+     {/* CTA Button */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.2 }}
+  viewport={{ once: true }}
+>
+  <Link href="/contact">
+    <motion.button
+      className="group relative px-10 py-4 rounded-xl font-semibold text-base text-white overflow-hidden z-10"
+      style={{
+        background: "linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)",
+        boxShadow:
+          "0 10px 30px rgba(0, 123, 255, 0.3), 0 5px 15px rgba(255, 127, 0, 0.2)",
+      }}
+      whileHover={{
+        scale: 1.03,
+        y: -1,
+        boxShadow:
+          "0 15px 40px rgba(0, 123, 255, 0.4), 0 8px 20px rgba(255, 127, 0, 0.3)",
+      }}
+      whileTap={{ scale: 0.98 }}
+    >
+      {/* Hover Gradient */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: "linear-gradient(135deg, #FF7F00 0%, #007BFF 100%)",
+        }}
+      />
+
+      <span className="relative z-10 flex items-center gap-2 justify-center">
+        Book Admission Slot
+        <motion.span
+          animate={{ x: [0, 4, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <motion.button
-            className="group relative px-10 py-4 rounded-xl font-semibold text-base text-white overflow-hidden z-10"
-            style={{
-              background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-              boxShadow: '0 10px 30px rgba(0, 123, 255, 0.3), 0 5px 15px rgba(255, 127, 0, 0.2)'
-            }}
-            whileHover={{ 
-              scale: 1.03, 
-              y: -1,
-              boxShadow: '0 15px 40px rgba(0, 123, 255, 0.4), 0 8px 20px rgba(255, 127, 0, 0.3)'
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div 
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: 'linear-gradient(135deg, #FF7F00 0%, #007BFF 100%)' }}
-            />
-            <span className="relative z-10 flex items-center gap-2 justify-center">
-              Book Admission Slot
-              <motion.span
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <ArrowRight className="w-4 h-4" />
-              </motion.span>
-            </span>
-            
-            {/* Shimmer Effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5 }}
-            />
-          </motion.button>
-        </motion.div>
+          <ArrowRight className="w-4 h-4" />
+        </motion.span>
+      </span>
+
+      {/* Shimmer Effect */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
+        animate={{ x: ["-100%", "100%"] }}
+        transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5 }}
+      />
+    </motion.button>
+  </Link>
+</motion.div>
       </motion.div>
     </div>
   );

@@ -192,11 +192,11 @@ const Footer = () => {
             </h2>
             <ul className="space-y-3">
               {[
-                { href: '/selection-policy', label: 'Selection' },
-                { href: '/eligibility-criteria', label: 'Eligibility' },
-                { href: '/placement-policy', label: 'Placement' },
-                { href: '/scholarship-policy', label: 'Scholarship' },
-                { href: '/fees-policy', label: 'Fees' }
+                { href: '/selection-policy', label: 'Selection Policy' },
+                { href: '/eligibility-criteria', label: 'Eligibility Criteria' },
+                { href: '/placement-policy', label: 'Placement Policy' },
+                { href: '/scholarship-policy', label: 'Scholarship Policy' },
+                { href: '/fees-policy', label: 'Fees Policy' }
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link
@@ -259,14 +259,14 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#FFCD00' }} />
                 <a
-                  href="mailto:bvoc@nexcorealliance.com"
+                  href="mailto:admin@nexcoreinstitute.org"
                   className="footer-link text-base font-medium break-all"
                   style={{ 
                     fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                     color: 'rgba(44, 44, 44, 0.75)'
                   }}
                 >
-                  bvoc@nexcorealliance.com
+                  admin@nexcoreinstitute.org
                 </a>
               </li>
             </ul>
@@ -284,7 +284,7 @@ const Footer = () => {
               color: 'rgba(44, 44, 44, 0.7)'
             }}
           >
-            © 2025{" "}
+            © 2026{" "}
             <Link
               href="/"
               className="font-bold"
@@ -304,13 +304,13 @@ const Footer = () => {
           >
             Designed by{" "}
             <a
-              href="https://code4bharat.com"
+              href="https://nexcorealliance.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold inline-flex items-center gap-1.5"
               style={{ color: '#FF7F00' }}
             >
-              Code4Bharat
+              Nexcore alliance
               <Heart className="w-4 h-4 fill-current" style={{ color: '#FF5733' }} />
             </a>
           </div>

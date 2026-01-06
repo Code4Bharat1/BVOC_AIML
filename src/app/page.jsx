@@ -54,11 +54,12 @@ const Page = () => {
   }, []);
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow ">
+      <main className="flex-grow  pt-18 ">
         {" "}
         {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
         <HubHero />
+        
         <Welcome />
         <AdmissionCard />
         <AboutUs />

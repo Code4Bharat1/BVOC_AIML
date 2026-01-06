@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { Award, GraduationCap, Heart, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function Scholarship_Policy() {
   const ScholarshipData = [
     {
       heading: "1. Meritorious Student Scholarship",
       icon: Award,
+      color: "from-[#007BFF] to-[#80C8F7]",
+      accentColor: "#007BFF",
       para: [
         "Objective :",
         [
@@ -21,7 +22,7 @@ export default function Scholarship_Policy() {
         ],
         "Benefits:",
         [
-          "25000/- waiver on tuition fees for the first year.",
+          "₹25,000/- waiver on tuition fees for the first year.",
           "Scholarship amount will be adjusted against the tuition fees.",
         ],
         "Application Requirements:",
@@ -35,6 +36,8 @@ export default function Scholarship_Policy() {
     {
       heading: "2. Underprivileged & Rural Background Scholarship",
       icon: Heart,
+      color: "from-[#FF7F00] to-[#FFCD00]",
+      accentColor: "#FF7F00",
       para: [
         "Objective :",
         [
@@ -49,7 +52,7 @@ export default function Scholarship_Policy() {
         ],
         "Benefits:",
         [
-          "Up to 25000/- tuition fee waiver.",
+          "Up to ₹25,000/- tuition fee waiver.",
           "Additional support for hostel or transportation, subject to availability and need.",
         ],
         "Rules & Regulations:",
@@ -70,6 +73,8 @@ export default function Scholarship_Policy() {
     {
       heading: "3. Women in Tech Scholarship",
       icon: GraduationCap,
+      color: "from-[#007BFF] to-[#FF7F00]",
+      accentColor: "#007BFF",
       para: [
         "Objective :",
         [
@@ -83,13 +88,13 @@ export default function Scholarship_Policy() {
         ],
         "Benefits:",
         [
-          "Up to 25000/- tuition fee waiver.",
+          "Up to ₹25,000/- tuition fee waiver.",
           "Mentorship and skill-building workshops specifically designed for female students.",
           "Networking support for internships and placements.",
         ],
         "Rules & Regulations:",
         [
-          "Must maintain a 90% or above each semester.",
+          "Must maintain 90% attendance or above each semester.",
           "Active participation in academic and project-based activities is mandatory.",
           "Misuse of scholarship privileges may lead to revocation.",
         ],
@@ -97,232 +102,283 @@ export default function Scholarship_Policy() {
         [
           "Marksheet of Class 12.",
           "Aadhaar card or government ID as proof of gender.",
-          "Short essay (150–200 words) on Why I want to build a career in AI & ML",
+          "Short essay (150–200 words) on 'Why I want to build a career in AI & ML'",
         ],
       ],
     },
   ];
 
   return (
-    <div className="w-full bg-white min-h-screen relative overflow-hidden py-12">
-      {/* Floating Particles */}
+    <div className="relative min-h-screen bg-white py-16 px-4 overflow-hidden">
+      {/* Optimized Floating Particles - Reduced from 15 to 6 for Better Performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
+        {[...Array(6)].map((_, i) => (
+          <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
+            className="absolute w-1 h-1 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
+              background: i % 2 === 0 ? '#007BFF' : '#FF7F00',
+              opacity: 0.15,
+              left: `${15 + i * 15}%`,
+              top: `${10 + i * 12}%`,
+              animation: `floatUp ${6 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.8}s`
             }}
           />
         ))}
       </div>
 
-      {/* Glowing Orbs */}
-      <motion.div 
-        className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/15 blur-[200px] rounded-full"
-        animate={{ 
-          scale: [1, 1.25, 1],
-          x: [0, 40, 0],
-          y: [0, -40, 0]
+      {/* Lighter Glowing Orbs with CSS Animation - Better Performance */}
+      <div 
+        className="absolute top-0 left-0 w-80 h-80 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          animation: 'moveOrb1 20s ease-in-out infinite',
+          willChange: 'transform'
         }}
-        transition={{ duration: 22, repeat: Infinity }}
       />
-      <motion.div 
-        className="absolute bottom-0 right-0 w-[550px] h-[550px] bg-indigo-100/12 blur-[220px] rounded-full"
-        animate={{ 
-          scale: [1, 1.3, 1],
-          x: [0, -40, 0],
-          y: [0, 40, 0]
+      <div 
+        className="absolute bottom-0 right-0 w-80 h-80 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.08) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          animation: 'moveOrb2 22s ease-in-out infinite',
+          willChange: 'transform'
         }}
-        transition={{ duration: 25, repeat: Infinity }}
       />
 
-      {/* Header Section */}
-      <div className="relative z-10 max-w-6xl mx-auto mb-12 px-6 text-center">
-        <motion.div 
-          className="inline-flex items-center gap-3 mb-8 px-8 py-3 bg-blue-50/80 border border-blue-200/50 rounded-full backdrop-blur-sm shadow-sm"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      {/* CSS Animations for Better Performance */}
+      <style jsx>{`
+        @keyframes floatUp {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0;
+          }
+          15% {
+            opacity: 0.2;
+          }
+          85% {
+            opacity: 0.2;
+          }
+          100% {
+            transform: translateY(-120px) translateX(20px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes moveOrb1 {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(40px, 40px);
+          }
+        }
+
+        @keyframes moveOrb2 {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(-40px, -40px);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar with Brand Colors */
+        .smooth-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .smooth-scroll::-webkit-scrollbar-track {
+          background: rgba(0, 123, 255, 0.05);
+          border-radius: 10px;
+        }
+
+        .smooth-scroll::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #007BFF, #FF7F00);
+          border-radius: 10px;
+        }
+
+        .smooth-scroll::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #0056b3, #cc6600);
+        }
+
+        .smooth-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: #007BFF rgba(0, 123, 255, 0.1);
+        }
+      `}</style>
+
+      <div className="max-w-7xl mx-auto relative z-10 mt-10">
+        {/* Header Section */}
+        <div className="text-center mb-14">
+          {/* <div 
+            className="inline-flex items-center gap-2 mb-5 px-5 py-2 bg-gradient-to-r from-blue-50 to-orange-50 border rounded-full"
+            style={{ 
+              borderColor: 'rgba(0, 123, 255, 0.2)',
+              animation: 'fadeInUp 0.5s ease-out'
+            }}
           >
-            <Sparkles className="text-blue-600 w-5 h-5" />
-          </motion.div>
-          <span className="text-blue-700 text-xs font-semibold tracking-[0.12em] uppercase">Scholarship Opportunities</span>
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            <Sparkles className="w-4 h-4" style={{ color: '#007BFF' }} />
+            <span 
+              className="text-xs font-semibold tracking-wider uppercase" 
+              style={{ color: '#2C2C2C' }}
+            >
+              Scholarship Opportunities
+            </span>
+            <Sparkles className="w-4 h-4" style={{ color: '#FF7F00' }} />
+          </div> */}
+
+          <h1 
+            className="text-3xl md:text-5xl font-bold mb-4 leading-tight"
+            style={{ 
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+              color: '#2C2C2C',
+              animation: 'fadeInUp 0.6s ease-out 0.1s backwards'
+            }}
           >
-            <Sparkles className="text-blue-600 w-5 h-5" />
-          </motion.div>
-        </motion.div>
+            <span style={{ color: '#007BFF' }}>Scholarship Policy</span>{" "}
+            <span style={{ color: '#2C2C2C' }}>Document</span>
+          </h1>
 
-        <motion.h1 
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
-        >
-          <span className="text-blue-600">Scholarship Policy</span>{" "}
-          <span className="text-slate-900">Document</span>
-        </motion.h1>
-
-        <motion.div 
-          className="flex items-center justify-center gap-3 mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <motion.div 
-            className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.div 
-            className="w-1.5 h-1.5 rounded-full bg-blue-600"
-            animate={{ scale: [1, 1.4, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.div 
-            className="h-0.5 w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </motion.div>
-
-        <motion.p 
-          className="text-base sm:text-lg font-normal text-slate-600 leading-relaxed max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
-        >
-          This document outlines the{" "}
-          <span className="text-blue-700 font-semibold">Scholarship policies</span>{" "}
-          for students enrolling in the{" "}
-          <span className="text-indigo-700 font-semibold">Bachelor's in Artificial Intelligence and Machine Learning</span>{" "}
-          program offered by{" "}
-          <span className="text-blue-700 font-semibold">Nexcore Alliance</span> in
-          collaboration with{" "}
-          <span className="text-blue-700 font-semibold">Recognized University.</span>
-        </motion.p>
-      </div>
-
-      {/* Scholarship Cards */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 space-y-8">
-        {ScholarshipData.map((item, idx) => (
-          <motion.div
-            key={idx}
-            className="group relative"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
-            viewport={{ once: true }}
+          <div 
+            className="flex items-center justify-center gap-3 mt-5"
+            style={{ animation: 'fadeInUp 0.6s ease-out 0.2s backwards' }}
           >
-            {/* Main Card */}
-            <div className="relative rounded-3xl bg-white border border-slate-200 backdrop-blur-sm overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
-              {/* Header with icon */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-slate-200 p-6 lg:p-8 flex items-center gap-4">
-                <motion.div 
-                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-md"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
-                </motion.div>
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 leading-tight" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>
-                  {item.heading}
-                </h3>
-              </div>
+            <div 
+              className="h-0.5 w-16 rounded-full" 
+              style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }} 
+            />
+            <div 
+              className="w-1.5 h-1.5 rounded-full" 
+              style={{ backgroundColor: '#FF7F00' }} 
+            />
+            <div 
+              className="h-0.5 w-16 rounded-full" 
+              style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }} 
+            />
+          </div>
 
-              {/* Content */}
-              <div className="p-6 lg:p-8 max-h-[600px] overflow-y-auto custom-scrollbar">
-                <div className="space-y-4">
-                  {item.para.map((point, i) => {
-                    if (typeof point === "string") {
-                      return (
-                        <p
-                          key={i}
-                          className="text-base lg:text-lg font-bold text-blue-600"
-                          style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
-                        >
-                          {point}
-                        </p>
-                      );
-                    } else if (Array.isArray(point)) {
-                      return (
-                        <ul
-                          key={i}
-                          className="list-disc list-inside space-y-2 ml-2"
-                        >
-                          {point.map((line, j) => (
-                            <li
-                              key={j}
-                              className="text-base lg:text-lg text-slate-600 leading-relaxed font-normal"
-                              style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
-                            >
-                              {line}
-                            </li>
-                          ))}
-                        </ul>
-                      );
-                    }
-                    return null;
-                  })}
+          <p 
+            className="text-base sm:text-lg leading-relaxed max-w-4xl mx-auto mt-6"
+            style={{ 
+              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+              color: 'rgba(44, 44, 44, 0.8)',
+              animation: 'fadeInUp 0.6s ease-out 0.3s backwards'
+            }}
+          >
+            This document outlines the{" "}
+            <span style={{ color: '#007BFF', fontWeight: 600 }}>Scholarship policies</span>{" "}
+            for students enrolling in the{" "}
+            <span style={{ color: '#FF7F00', fontWeight: 600 }}>
+              Bachelor's in AI & Machine Learning, Computer Science and Cybersecurity
+            </span>{" "}
+            program offered by{" "}
+            <span style={{ color: '#007BFF', fontWeight: 600 }}>Nexcore Alliance</span> in
+            collaboration with{" "}
+            <span style={{ color: '#2C2C2C', fontWeight: 600 }}>Recognized University.</span>
+          </p>
+        </div>
+
+        {/* Scholarship Cards */}
+        <div className="space-y-6">
+          {ScholarshipData.map((item, idx) => (
+            <div
+              key={idx}
+              className="group"
+              style={{
+                animation: `fadeInUp 0.6s ease-out ${idx * 0.1}s backwards`
+              }}
+            >
+              {/* Card Container */}
+              <div className="relative rounded-2xl bg-white border border-gray-200/60 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                {/* Accent Bar */}
+                <div 
+                  className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color}`} 
+                />
+
+                {/* Header */}
+                <div className="bg-gradient-to-br from-gray-50 to-white border-b border-gray-100 p-5 lg:p-7 flex items-center gap-4">
+                  <div
+                    className={`w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-105 transition-transform duration-300`}
+                  >
+                    <item.icon className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
+                  </div>
+                  <h3 
+                    className="text-lg lg:text-xl font-bold leading-tight"
+                    style={{ 
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                      color: '#2C2C2C'
+                    }}
+                  >
+                    {item.heading}
+                  </h3>
+                </div>
+
+                {/* Content with Smooth Scroll */}
+                <div className="p-5 lg:p-7 max-h-[500px] overflow-y-auto smooth-scroll">
+                  <div className="space-y-3.5">
+                    {item.para.map((point, i) => {
+                      if (typeof point === "string") {
+                        return (
+                          <p
+                            key={i}
+                            className="text-base lg:text-lg font-bold"
+                            style={{ 
+                              color: item.accentColor,
+                              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                            }}
+                          >
+                            {point}
+                          </p>
+                        );
+                      } else if (Array.isArray(point)) {
+                        return (
+                          <ul key={i} className="space-y-2 ml-1">
+                            {point.map((line, j) => (
+                              <li
+                                key={j}
+                                className="text-sm lg:text-base leading-relaxed flex items-start gap-2"
+                                style={{ 
+                                  color: 'rgba(44, 44, 44, 0.75)',
+                                  fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                                }}
+                              >
+                                <span
+                                  className="inline-block w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                                  style={{ backgroundColor: item.accentColor }}
+                                />
+                                <span>{line}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(226, 232, 240, 0.3);
-          border-radius: 10px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(
-            to bottom,
-            rgba(59, 130, 246, 0.5),
-            rgba(99, 102, 241, 0.5)
-          );
-          border-radius: 10px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(
-            to bottom,
-            rgba(59, 130, 246, 0.8),
-            rgba(99, 102, 241, 0.8)
-          );
-        }
-
-        .custom-scrollbar {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(59, 130, 246, 0.5) rgba(226, 232, 240, 0.3);
-        }
-      `}</style>
     </div>
   );
 }

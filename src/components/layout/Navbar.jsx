@@ -58,35 +58,33 @@ const Navbar = () => {
 
       <nav className="fixed w-full top-0 z-50 bg-white border-b shadow-sm" style={{ borderColor: '#e5e7eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between ">
             {/* Logo & Brand Name - LEFT ALIGNED - RESPONSIVE */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0 min-w-0">
-              {/* Logo - Responsive sizes */}
+            <Link
+              href="/"
+              className="flex items-center  flex-shrink-0 min-w-0"
+            >
+              {/* Left Logo (Icon) */}
               <Image
-                src="/logo.png"
-                alt="Nexcore Institute of Technology"
-                width={80}
-                height={80}
-                className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto flex-shrink-0"
+                src="/logo2.png" // first logo
+                alt="Nexcore Logo Icon"
+                width={250}
+                height={100}
+                className="h-7 sm:h-12 md:h-18 w-auto flex-shrink-0"
                 priority
               />
-              
-              {/* Brand Text - Responsive */}
-              <div className="min-w-0">
-                <h1 
-                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold leading-tight"
-                  style={{ 
-                    fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                    color: '#007BFF'
-                  }}
-                >
-                  {/* Mobile: Short version */}
-                  <span className="block sm:hidden">Nexcore Institute</span>
-                  {/* Tablet and up: Full version */}
-                  <span className="hidden sm:block">Nexcore Institute of Technology</span>
-                </h1>
-              </div>
+
+              {/* Right Logo (Text) */}
+              <Image
+                src="/logo1.png" // second logo
+                alt="Nexcore Institute of Technology"
+                width={250}
+                height={100}
+                className="h-7 sm:h-7 md:h-12 w-auto"
+              />
             </Link>
+
+
 
             {/* Desktop Navigation - RIGHT SIDE - Hidden on mobile/tablet */}
             <div className="hidden lg:flex items-center ml-auto">
@@ -99,7 +97,7 @@ const Navbar = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="nav-link block py-2 px-2 xl:px-4 font-semibold text-sm xl:text-base whitespace-nowrap"
-                        style={{ 
+                        style={{
                           fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                           color: '#2C2C2C'
                         }}
@@ -110,7 +108,7 @@ const Navbar = () => {
                       <Link
                         href={item.href}
                         className="nav-link block py-2 px-2 xl:px-4 font-semibold text-sm xl:text-base whitespace-nowrap"
-                        style={{ 
+                        style={{
                           fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                           color: activeIndex === index ? '#007BFF' : '#2C2C2C',
                           borderBottom: activeIndex === index ? '2px solid #007BFF' : 'none'
@@ -129,7 +127,7 @@ const Navbar = () => {
               ref={buttonRef}
               onClick={toggleMenu}
               className="lg:hidden p-2 rounded-lg flex-shrink-0"
-              style={{ 
+              style={{
                 backgroundColor: menuOpen ? 'rgba(255, 127, 0, 0.1)' : 'rgba(0, 123, 255, 0.1)'
               }}
               aria-label="Toggle menu"
@@ -160,7 +158,7 @@ const Navbar = () => {
                       rel="noopener noreferrer"
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link block py-3 px-4 sm:px-6 font-semibold text-sm sm:text-base"
-                      style={{ 
+                      style={{
                         fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                         color: '#2C2C2C'
                       }}
@@ -172,7 +170,7 @@ const Navbar = () => {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link block py-3 px-4 sm:px-6 font-semibold text-sm sm:text-base"
-                      style={{ 
+                      style={{
                         fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                         color: activeIndex === index ? '#007BFF' : '#2C2C2C',
                         backgroundColor: activeIndex === index ? 'rgba(0, 123, 255, 0.05)' : 'transparent',

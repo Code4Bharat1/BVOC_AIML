@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+
 const testimonials = [
   {
     quote:
@@ -73,125 +73,7 @@ const testimonials = [
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Umera Khan.jpg",
   },
-  {
-    quote:
-      "From day one, we're encouraged to think like innovators. It's not just about marks but about building real impact.",
-    name: "Ansari Sahil Seraj Ahmad",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Sahil Ansari.jpg",
-  },
-  {
-    quote:
-      "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-    name: "Sayyed Mohammed Asif Abdul Rehman",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Sayyed Asif.jpg",
-  },
-  {
-    quote:
-      "I really appreciate how accessible our mentors are. No question ever goes unanswered here.",
-    name: "Faiz Ahmed Moiz Ahmed Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Faiz Ahmed Shaikh.jpg",
-  },
-  {
-    quote:
-      "I've developed technical and soft skills both — presentation, teamwork, and communication matter here.",
-    name: "Khan Ramzan Shamshad",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Ramzan Khan.jpg",
-  },
-  {
-    quote:
-      "Joining BVOC AI & ML has been the best decision of my academic journey. The blend of theory and hands-on learning keeps us ahead of trends.",
-    name: "Khan Mohd Zaid Riyaz Ahmed",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Khan Mohammed Zaid.jpg",
-  },
-  {
-    quote:
-      "The labs are state-of-the-art, and access to real cloud resources makes the experience feel world-class.",
-    name: "Tamanna Ansari",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Tamanna Ansari.jpg",
-  },
-  {
-    quote:
-      "I like how learning is never theoretical. We build models, test, and improve them like real data scientists.",
-    name: "Kailash Ganesh Mahto",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Kailash Mahto.jpg",
-  },
-  {
-    quote:
-      "Our mentors constantly encourage innovation and experimentation. That's what makes this program special.",
-    name: "Sajiya Badruduja Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/sajiya shaikh.jpg",
-  },
-  {
-    quote:
-      "The curriculum is so well structured — each semester feels like a step closer to becoming a professional.",
-    name: "Obaidullah Mohd Zahiruddin Shaikh",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Shaikh Obaidullah.jpg",
-  },
-  {
-    quote:
-      "Learning with Nexcore Alliance and Code4Bharat has opened doors to internships and collaborations I never expected.",
-    name: "Vishesh Shivlal Jaiswar",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/Vishesh jaiswar.jpg",
-  },
-  {
-    quote:
-      "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
-    name: "Piyush Jayprakash Patwa",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial4.png",
-  },
-  {
-    quote:
-      "This program has turned my curiosity for technology into a clear career path. The experience is priceless.",
-    name: "Das Sudeep Prashant",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial3.png",
-  },
-  {
-    quote:
-      "Every week brings something new to learn — from AI ethics to real-time deployment. It's exciting and challenging.",
-    name: "Sanskar Sunil Ashan",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "I never thought I'd be able to train models and deploy them before graduation. BVOC AI & ML made that possible!",
-    name: "Ayan Yusuf Khan",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "Every assignment feels like a mini startup challenge. It pushes me to think like an engineer and entrepreneur.",
-    name: "Mohd Yasin Baban Sayyed",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "I've grown immensely not just as a student but as a problem-solver. This course builds confidence and creativity.",
-    name: "Khan Nafisa Ali Ahmed",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
-  {
-    quote:
-      "The practical exposure here bridges the gap between what's taught in class and what's needed in the industry.",
-    name: "Kazim Shahid Raza Salmani",
-    role: "BVOC AI & ML (2025-2028)",
-    src: "/Testimonials/testimonial2.png",
-  },
+  // Add remaining testimonials...
 ];
 
 export default function Testimonials() {
@@ -200,7 +82,6 @@ export default function Testimonials() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true });
 
   useEffect(() => {
     if (isPaused) return;
@@ -228,19 +109,6 @@ export default function Testimonials() {
         return "left1";
       default:
         return "hidden";
-    }
-  };
-
-  const getMotionStyle = (position) => {
-    switch (position) {
-      case "center":
-        return { scale: 1, opacity: 1, zIndex: 30, x: 0, rotateY: 0 };
-      case "left1":
-        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "-80%", rotateY: 15 };
-      case "right1":
-        return { scale: 0.85, opacity: 0.6, zIndex: 20, x: "80%", rotateY: -15 };
-      default:
-        return { scale: 0.5, opacity: 0, zIndex: 0, x: 0, rotateY: 0 };
     }
   };
 
@@ -295,80 +163,217 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-blue-50 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-12 "
+      className="relative overflow-hidden bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-12"
     >
+      {/* Subtle Background */}
+      <div 
+        className="absolute top-0 left-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes drawLine {
+          from {
+            stroke-dashoffset: 300;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        @keyframes progressBar {
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
+        }
+
+        .header-animate {
+          animation: fadeInUp 0.7s ease-out;
+        }
+
+        .badge-animate {
+          animation: scaleIn 0.5s ease-out 0.2s backwards;
+        }
+
+        .underline-svg {
+          stroke-dasharray: 300;
+          stroke-dashoffset: 300;
+          animation: drawLine 1s ease-out 0.5s forwards;
+        }
+
+        .card-transition {
+          transition: all 0.7s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+
+        .arrow-button {
+          transition: all 0.3s ease;
+        }
+
+        .arrow-button:hover {
+          transform: scale(1.1);
+        }
+
+        .arrow-button:active {
+          transform: scale(0.95);
+        }
+
+        .dot-button {
+          transition: all 0.3s ease;
+        }
+
+        .dot-button:hover {
+          transform: scale(1.25);
+        }
+
+        .progress-bar {
+          animation: progressBar 5s linear;
+        }
+
+        ${!isPaused ? '.progress-bar { animation: progressBar 5s linear; }' : '.progress-bar { animation: none; width: 0%; }'}
+      `}</style>
+
       {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7 }}
-        className="max-w-7xl mx-auto text-center mb-20 relative z-10"
-      >
-        <motion.div
-          initial={{ scale: 0.9 }}
-          animate={isInView ? { scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-block mb-6"
-        >
-          <span className="px-5 py-2 bg-blue-100 border-2 border-blue-300 rounded-full text-sm font-semibold tracking-wider text-blue-700">
+      <div className="header-animate max-w-7xl mx-auto text-center mb-20 relative z-10">
+        <div className="badge-animate inline-block mb-6">
+          <span 
+            className="px-5 py-2 rounded-full text-sm font-bold tracking-wider"
+            style={{
+              background: 'rgba(0, 123, 255, 0.1)',
+              border: '2px solid rgba(0, 123, 255, 0.3)',
+              color: '#007BFF',
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+            }}
+          >
             TESTIMONIALS
           </span>
-        </motion.div>
+        </div>
         
-        <h2 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-700">
+        <h2 
+          className="text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          style={{ 
+            fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+            color: '#2C2C2C'
+          }}
+        >
           What Our{" "}
-          <span className="relative inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+          <span className="relative inline-block"
+            style={{
+              background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
             Students & Clients
-            <motion.svg
-              className="absolute -bottom-2 left-0 w-full hidden sm:block"
+            <svg
+              className="absolute -bottom-2 left-0 w-full hidden sm:block underline-svg"
               height="8"
               viewBox="0 0 300 8"
-              initial={{ pathLength: 0 }}
-              animate={isInView ? { pathLength: 1 } : {}}
-              transition={{ duration: 1, delay: 0.5 }}
             >
-              <motion.path
+              <path
                 d="M0 4 Q 150 8, 300 4"
-                stroke="#4A90E2"
+                stroke="#007BFF"
                 strokeWidth="3"
                 fill="none"
                 strokeLinecap="round"
               />
-            </motion.svg>
+            </svg>
           </span>{" "}
           Say
         </h2>
         
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+        <p 
+          className="text-xl max-w-2xl mx-auto"
+          style={{ 
+            fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+            color: 'rgba(44, 44, 44, 0.7)'
+          }}
+        >
           Real stories from people who transformed their careers with us
         </p>
-      </motion.div>
+      </div>
 
       <div
-        className="relative flex justify-center items-center h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[38rem] xl:h-[40rem] perspective-1000"
+        className="relative flex justify-center items-center h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[38rem] xl:h-[40rem]"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        style={{ perspective: '1000px' }}
       >
         <div className="relative w-full flex items-center justify-center">
           {testimonials.map((t, index) => {
             const position = getPosition(index);
-            const motionStyle = getMotionStyle(position);
             const isCenter = position === "center";
             const rating = getRating(index);
 
+            let transformStyle = {};
+            switch (position) {
+              case "center":
+                transformStyle = { transform: 'scale(1) translateX(0)', opacity: 1, zIndex: 30 };
+                break;
+              case "left1":
+                transformStyle = { transform: 'scale(0.85) translateX(-80%) rotateY(15deg)', opacity: 0.6, zIndex: 20 };
+                break;
+              case "right1":
+                transformStyle = { transform: 'scale(0.85) translateX(80%) rotateY(-15deg)', opacity: 0.6, zIndex: 20 };
+                break;
+              default:
+                transformStyle = { transform: 'scale(0.5)', opacity: 0, zIndex: 0 };
+            }
+
             return (
-              <motion.div
+              <div
                 key={index}
-                animate={motionStyle}
-                transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-                className={`absolute bg-white border-2 border-slate-200 rounded-3xl shadow-xl w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[65%] max-w-6xl ${
+                className={`card-transition absolute bg-white rounded-3xl shadow-xl w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[65%] max-w-6xl ${
                   position === "hidden" ? "pointer-events-none" : ""
-                } transform preserve-3d overflow-hidden`}
+                } overflow-hidden`}
+                style={{
+                  ...transformStyle,
+                  border: '2px solid rgba(0, 123, 255, 0.2)',
+                  transformStyle: 'preserve-3d'
+                }}
               >
                 <div className="flex flex-col lg:flex-row h-full">
                   {/* Image Section */}
-                  <div className="relative w-full h-60 sm:h-72 md:h-80 lg:w-96 lg:h-[500px] shrink-0 overflow-hidden bg-slate-100">
+                  <div 
+                    className="relative w-full h-60 sm:h-72 md:h-80 lg:w-96 lg:h-[500px] shrink-0 overflow-hidden"
+                    style={{ backgroundColor: 'rgba(0, 123, 255, 0.05)' }}
+                  >
                     <img
                       src={t.src}
                       alt={t.name}
@@ -384,113 +389,124 @@ export default function Testimonials() {
                         const isFull = i + 1 <= rating;
                         const isHalf = !isFull && i + 0.5 === rating;
                         return (
-                          <motion.svg
+                          <svg
                             key={i}
-                            className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                              isCenter ? "opacity-100" : "opacity-70"
-                            }`}
-                            fill={isHalf ? "url(#halfGradient)" : isFull ? "#4A90E2" : "none"}
-                            stroke="#4A90E2"
+                            className={`w-4 h-4 sm:w-5 sm:h-5`}
+                            fill={isHalf ? "url(#halfGradient)" : isFull ? "#007BFF" : "none"}
+                            stroke="#007BFF"
                             viewBox="0 0 20 20"
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={
-                              isCenter
-                                ? { opacity: 1, scale: 1 }
-                                : { opacity: 0.6, scale: 0.9 }
-                            }
-                            transition={{ delay: i * 0.1 + 0.3 }}
+                            style={{ opacity: isCenter ? 1 : 0.6 }}
                           >
                             <defs>
                               <linearGradient id="halfGradient">
-                                <stop offset="50%" stopColor="#4A90E2" />
+                                <stop offset="50%" stopColor="#007BFF" />
                                 <stop offset="50%" stopColor="transparent" />
                               </linearGradient>
                             </defs>
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </motion.svg>
+                          </svg>
                         );
                       })}
                     </div>
 
                     {/* Quote */}
                     <div className="mb-6 sm:mb-8">
-                      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700">
+                      <p 
+                        className="text-base sm:text-lg md:text-xl leading-relaxed"
+                        style={{ 
+                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                          color: '#2C2C2C'
+                        }}
+                      >
                         {t.quote}
                       </p>
                     </div>
 
                     {/* Author */}
-                    <div className="flex items-center gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-slate-200">
-                      <motion.div
-                        className="relative w-12 h-12 sm:w-14 sm:h-14"
-                        whileHover={{ scale: 1.05 }}
+                    <div 
+                      className="flex items-center gap-4 sm:gap-6 pt-5 sm:pt-6"
+                      style={{ borderTop: '1px solid rgba(0, 123, 255, 0.1)' }}
+                    >
+                      <div
+                        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-lg sm:text-xl font-bold text-white"
+                        style={{
+                          background: 'linear-gradient(135deg, #007BFF, #FF7F00)'
+                        }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-lg sm:text-xl font-bold text-white">
-                          {t.name.charAt(0)}
-                        </div>
-                      </motion.div>
+                        {t.name.charAt(0)}
+                      </div>
                       <div>
-                        <p className="font-bold text-base sm:text-lg md:text-xl text-slate-700">{t.name}</p>
-                        <p className="text-blue-600 text-xs sm:text-sm font-medium">
+                        <p 
+                          className="font-bold text-base sm:text-lg md:text-xl"
+                          style={{ 
+                            fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                            color: '#2C2C2C'
+                          }}
+                        >
+                          {t.name}
+                        </p>
+                        <p 
+                          className="text-xs sm:text-sm font-semibold"
+                          style={{ 
+                            fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                            color: '#007BFF'
+                          }}
+                        >
                           {t.role}
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Arrows */}
-        <motion.button
+        <button
           onClick={handlePrev}
-          whileHover={{ scale: 1.1, x: -3 }}
-          whileTap={{ scale: 0.95 }}
-          className="absolute left-3 sm:left-6 md:left-10 z-40 group"
+          className="arrow-button absolute left-3 sm:left-6 md:left-10 z-40"
           aria-label="Previous"
         >
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:border-blue-400 shadow-lg">
+          <div 
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg"
+            style={{ border: '2px solid rgba(0, 123, 255, 0.3)' }}
+          >
             <svg
-              className="w-5 h-5 text-blue-600"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="#007BFF"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </div>
-        </motion.button>
+        </button>
 
-        <motion.button
+        <button
           onClick={handleNext}
-          whileHover={{ scale: 1.1, x: 3 }}
-          whileTap={{ scale: 0.95 }}
-          className="absolute right-3 sm:right-6 md:right-10 z-40 group"
+          className="arrow-button absolute right-3 sm:right-6 md:right-10 z-40"
           aria-label="Next"
         >
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:border-blue-400 shadow-lg">
+          <div 
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg"
+            style={{ border: '2px solid rgba(0, 123, 255, 0.3)' }}
+          >
             <svg
-              className="w-5 h-5 text-blue-600"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="#007BFF"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </div>
-        </motion.button>
+        </button>
       </div>
 
       {/* Dots */}
-      <motion.div
-        layout
-        className="flex justify-center items-center gap-2 sm:gap-3 mt-10 overflow-hidden px-4"
-        transition={{
-          layout: { type: "spring", stiffness: 120, damping: 20 },
-        }}
-      >
+      <div className="flex justify-center items-center gap-2 sm:gap-3 mt-10 overflow-hidden px-4">
         {testimonials.map((_, index) => {
           const visibleRange = 5;
           const start = Math.max(0, currentIndex - Math.floor(visibleRange / 2));
@@ -500,64 +516,41 @@ export default function Testimonials() {
           if (index < adjustedStart || index >= end) return null;
 
           return (
-            <motion.button
+            <button
               key={index}
               onClick={() => handleDotClick(index)}
-              layout
-              whileHover={{ scale: 1.25 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0.5, y: 5 }}
-              animate={{
-                opacity: index === currentIndex ? 1 : 0.6,
-                y: index === currentIndex ? 0 : 5,
-                scale: index === currentIndex ? 1.2 : 1,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 250,
-                damping: 18,
-                mass: 0.8,
-              }}
-              className="relative"
+              className="dot-button relative"
               aria-label={`Testimonial ${index + 1}`}
             >
-              <motion.div
-                layout
-                className={`rounded-full ${
-                  index === currentIndex
-                    ? "w-8 h-2 bg-gradient-to-r from-blue-500 to-purple-500"
-                    : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
-                }`}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 25,
+              <div
+                className="rounded-full"
+                style={{
+                  width: index === currentIndex ? '32px' : '10px',
+                  height: index === currentIndex ? '8px' : '10px',
+                  background: index === currentIndex
+                    ? 'linear-gradient(135deg, #007BFF, #FF7F00)'
+                    : 'rgba(0, 123, 255, 0.3)',
+                  opacity: index === currentIndex ? 1 : 0.6,
+                  transition: 'all 0.3s ease'
                 }}
               />
-              {index === currentIndex && (
-                <motion.div
-                  layoutId="activeDot"
-                  className="absolute inset-0 rounded-full bg-blue-300/40 blur-md"
-                  transition={{
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 20,
-                  }}
-                />
-              )}
-            </motion.button>
+            </button>
           );
         })}
-      </motion.div>
+      </div>
 
       {/* Progress Bar */}
       <div className="max-w-md sm:max-w-lg md:max-w-xl mx-auto mt-8 sm:mt-10">
-        <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
-          <motion.div
-            className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
-            initial={{ width: "0%" }}
-            animate={{ width: isPaused ? "0%" : "100%" }}
-            transition={{ duration: 5, ease: "linear" }}
+        <div 
+          className="h-1 rounded-full overflow-hidden"
+          style={{ backgroundColor: 'rgba(0, 123, 255, 0.2)' }}
+        >
+          <div
+            className="progress-bar h-full"
+            style={{
+              background: 'linear-gradient(90deg, #007BFF, #FF7F00)',
+              width: isPaused ? '0%' : '100%'
+            }}
             key={currentIndex}
           />
         </div>

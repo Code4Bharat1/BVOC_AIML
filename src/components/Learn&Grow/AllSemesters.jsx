@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Download, X } from "lucide-react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const semesters = [
   { id: 1, name: "Semester 1", pdfUrl: "/docs/sem1.pdf", description: "You will learn how to create user-friendly and efficient interfaces" },
@@ -16,8 +15,6 @@ const semesters = [
 const AllSemesters = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(null);
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   const openModal = (semester) => {
     setSelectedSemester(semester);
@@ -39,168 +36,420 @@ const AllSemesters = () => {
     closeModal();
   };
 
-  // Motion Variants
-  const timelineVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } } };
-  const lineVariants = { hidden: { height: 0 }, visible: { height: "100%", transition: { duration: 1.5, ease: "easeOut" } } };
-  const dotVariants = { hidden: { scale: 0, opacity: 0 }, visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } } };
-  const connectorVariants = { hidden: (isEven) => ({ x: isEven ? -20 : 20, opacity: 0 }), visible: { x: 0, opacity: 1, transition: { duration: 0.5 } } };
-  const cardVariants = { hidden: { y: 50, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.6 } } };
-  const descriptionVariants = { hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
-
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-slate-50 to-blue-50">
+    <div className="relative min-h-screen overflow-hidden bg-white">
+      {/* Subtle Background */}
+      <div 
+        className="absolute top-0 left-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes growLine {
+          from {
+            height: 0;
+          }
+          to {
+            height: 100%;
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes slideConnector {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes modalSlideUp {
+          from {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        .header-animate {
+          animation: slideDown 0.5s ease-out;
+        }
+
+        .timeline-line {
+          animation: growLine 1.5s ease-out;
+        }
+
+        .semester-card {
+          animation: fadeInUp 0.6s ease-out;
+          transition: all 0.3s ease;
+        }
+
+        .semester-card:hover {
+          transform: translateY(-5px) scale(1.05);
+          box-shadow: 0 10px 40px rgba(0, 123, 255, 0.3);
+        }
+
+        .timeline-dot {
+          animation: scaleIn 0.5s ease-out;
+        }
+
+        .timeline-connector {
+          animation: slideConnector 0.5s ease-out;
+        }
+
+        .card-overlay {
+          transition: opacity 0.3s ease;
+        }
+
+        .semester-card:hover .card-overlay {
+          opacity: 1;
+        }
+
+        .mobile-card {
+          animation: fadeInUp 0.6s ease-out;
+        }
+
+        .mobile-card:active {
+          transform: scale(0.98);
+        }
+
+        .modal-backdrop {
+          animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+          animation: modalSlideUp 0.3s ease-out;
+        }
+
+        .modal-exit {
+          animation: fadeIn 0.3s ease-out reverse;
+        }
+
+        /* Stagger animation delays */
+        .semester-card:nth-child(1) { animation-delay: 0s; }
+        .semester-card:nth-child(2) { animation-delay: 0.2s; }
+        .semester-card:nth-child(3) { animation-delay: 0.4s; }
+        .semester-card:nth-child(4) { animation-delay: 0.6s; }
+        .semester-card:nth-child(5) { animation-delay: 0.8s; }
+        .semester-card:nth-child(6) { animation-delay: 1s; }
+
+        .mobile-card:nth-child(1) { animation-delay: 0s; }
+        .mobile-card:nth-child(2) { animation-delay: 0.1s; }
+        .mobile-card:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-card:nth-child(4) { animation-delay: 0.3s; }
+        .mobile-card:nth-child(5) { animation-delay: 0.4s; }
+        .mobile-card:nth-child(6) { animation-delay: 0.5s; }
+      `}</style>
+
       {/* Main Content */}
-      <div className="py-8 sm:py-12 px-4 text-slate-700 relative z-10">
+      <div className="py-8 sm:py-12 px-4 relative z-10">
         {/* Header */}
-        <div className="flex items-center justify-center py-3 mt-6 sm:mt-14 text-center mx-auto rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 shadow-xl max-w-4xl">
-          <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold py-4 sm:py-6 tracking-wide px-4 text-white"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+        <div 
+          className="header-animate flex items-center justify-center py-3 mt-6 sm:mt-14 text-center mx-auto rounded-2xl sm:rounded-3xl shadow-xl max-w-4xl"
+          style={{
+            background: 'linear-gradient(135deg, #007BFF, #FF7F00)'
+          }}
+        >
+          <h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold py-4 sm:py-6 tracking-wide px-4 text-white"
+            style={{ 
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+            }}
           >
             All <span className="drop-shadow-md">Semesters</span>
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Desktop & Tablet Timeline View */}
-        <div ref={containerRef} className="hidden md:block container mx-auto max-w-4xl relative pt-20">
-          <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-teal-500"
-            style={{ top: "0px", bottom: "0px" }}
-            variants={lineVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          ></motion.div>
+        <div className="hidden md:block container mx-auto max-w-4xl relative pt-20">
+          <div
+            className="timeline-line absolute left-1/2 transform -translate-x-1/2 w-1"
+            style={{
+              background: 'linear-gradient(to bottom, #007BFF, #FF7F00)',
+              top: '0px',
+              bottom: '0px'
+            }}
+          />
 
-          <motion.div variants={timelineVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+          <div>
             {semesters.map((semester, index) => (
-              <motion.div
+              <div
                 key={semester.id}
-                className={`relative flex items-center mb-10 ${index % 2 !== 0 ? "justify-start" : "justify-end"}`}
+                className={`semester-card relative flex items-center mb-10 ${index % 2 !== 0 ? "justify-start" : "justify-end"}`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <motion.div
-                  className={`w-5/12 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl shadow-lg p-6 cursor-pointer group relative z-10 ${
+                <div
+                  className={`w-5/12 bg-white border-2 rounded-2xl shadow-lg p-6 cursor-pointer group relative z-10 ${
                     index % 2 !== 0 ? "mr-8 lg:mr-12" : "ml-8 lg:ml-12"
                   }`}
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(74, 144, 226, 0.3)" }}
                   onClick={() => openModal(semester)}
-                  variants={cardVariants}
+                  style={{
+                    borderColor: 'rgba(0, 123, 255, 0.2)'
+                  }}
                 >
-                  <h2 className="text-xl lg:text-2xl font-bold text-blue-600 group-hover:text-purple-600 transition-colors">
+                  <h2 
+                    className="text-xl lg:text-2xl font-bold transition-colors"
+                    style={{ 
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                      color: '#007BFF'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#FF7F00'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#007BFF'}
+                  >
                     {semester.name}
                   </h2>
-                  <motion.p className="text-sm text-slate-600 mt-2" variants={descriptionVariants} initial="hidden" animate="visible">
+                  <p 
+                    className="text-sm mt-2"
+                    style={{ 
+                      fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                      color: 'rgba(44, 44, 44, 0.7)'
+                    }}
+                  >
                     {semester.description}
-                  </motion.p>
-                  <motion.div className="mt-4 flex justify-center" variants={descriptionVariants} initial="hidden" animate="visible">
-                    <button className="px-4 lg:px-5 py-2 lg:py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition text-sm lg:text-base">
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <button 
+                      className="px-4 lg:px-5 py-2 lg:py-2.5 text-white font-bold rounded-xl shadow-lg transition text-sm lg:text-base"
+                      style={{
+                        background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
+                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                      }}
+                    >
                       Preview
                     </button>
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                </motion.div>
+                  </div>
+                  <div 
+                    className="card-overlay absolute inset-0 rounded-xl"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(0, 123, 255, 0.05), transparent)',
+                      opacity: 0
+                    }}
+                  />
+                </div>
 
-                <motion.div
-                  className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 lg:w-5 lg:h-5 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full z-20 border-2 border-white shadow-lg top-1/2 -translate-y-1/2"
-                  variants={dotVariants}
-                ></motion.div>
+                <div
+                  className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 lg:w-5 lg:h-5 rounded-full z-20 border-2 border-white shadow-lg top-1/2 -translate-y-1/2"
+                  style={{
+                    background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
+                    animationDelay: `${index * 0.2 + 0.1}s`
+                  }}
+                />
 
-                <motion.div
-                  className={`absolute w-8 lg:w-12 h-1.5 bg-purple-400 rounded-full z-10 top-1/2 -translate-y-1/2 ${
+                <div
+                  className={`timeline-connector absolute w-8 lg:w-12 h-1.5 rounded-full z-10 top-1/2 -translate-y-1/2 ${
                     index % 2 === 0 ? "left-1/2 translate-x-2" : "left-1/2 -translate-x-8 lg:-translate-x-12"
                   }`}
-                  variants={connectorVariants}
-                  custom={index % 2 === 0}
-                ></motion.div>
-              </motion.div>
+                  style={{
+                    backgroundColor: '#FF7F00',
+                    animationDelay: `${index * 0.2 + 0.2}s`
+                  }}
+                />
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Mobile View */}
         <div className="md:hidden container mx-auto max-w-2xl pt-8">
-          <motion.div className="grid grid-cols-1 gap-6" variants={timelineVariants} initial="hidden" animate="visible">
-            {semesters.map((semester) => (
-              <motion.div
+          <div className="grid grid-cols-1 gap-6">
+            {semesters.map((semester, index) => (
+              <div
                 key={semester.id}
-                className="bg-white border-2 border-slate-200 text-slate-700 rounded-2xl shadow-lg p-5 cursor-pointer group relative overflow-hidden"
-                whileTap={{ scale: 0.98 }}
+                className="mobile-card bg-white border-2 rounded-2xl shadow-lg p-5 cursor-pointer group relative overflow-hidden"
                 onClick={() => openModal(semester)}
-                variants={cardVariants}
+                style={{
+                  borderColor: 'rgba(0, 123, 255, 0.2)',
+                  animationDelay: `${index * 0.1}s`
+                }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center font-bold text-white shadow-lg">
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-lg"
+                    style={{
+                      background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                    }}
+                  >
                     {semester.id}
                   </div>
-                  <h2 className="text-xl font-bold text-blue-600 group-active:text-purple-600 transition-colors">
+                  <h2 
+                    className="text-xl font-bold transition-colors"
+                    style={{ 
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                      color: '#007BFF'
+                    }}
+                  >
                     {semester.name}
                   </h2>
                 </div>
 
-                <p className="text-sm text-slate-600 mb-4 leading-relaxed">{semester.description}</p>
+                <p 
+                  className="text-sm mb-4 leading-relaxed"
+                  style={{ 
+                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                    color: 'rgba(44, 44, 44, 0.7)'
+                  }}
+                >
+                  {semester.description}
+                </p>
 
                 <div className="flex gap-3">
-                  <button className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition text-sm">
+                  <button 
+                    className="flex-1 px-4 py-2.5 text-white font-bold rounded-xl shadow-lg transition text-sm"
+                    style={{
+                      background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                    }}
+                  >
                     Preview & Download
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Modal */}
-        <AnimatePresence>
-          {isModalOpen && selectedSemester && (
-            <motion.div
-              className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+        {isModalOpen && selectedSemester && (
+          <div
+            className="modal-backdrop fixed inset-0 flex items-center justify-center z-50 p-4"
+            style={{
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(8px)'
+            }}
+            onClick={closeModal}
+          >
+            <div
+              className="modal-content bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                borderColor: 'rgba(0, 123, 255, 0.2)'
+              }}
             >
-              <motion.div
-                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 border-blue-200 shadow-2xl"
-                initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex justify-between items-center mb-4 sm:mb-6">
-                  <h2 className="text-xl sm:text-2xl font-bold text-blue-600">{selectedSemester.name}</h2>
-                  <button
-                    onClick={closeModal}
-                    className="text-slate-600 hover:text-blue-600 p-2 rounded-lg hover:bg-slate-100 transition"
-                  >
-                    <X size={24} />
-                  </button>
-                </div>
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h2 
+                  className="text-xl sm:text-2xl font-bold"
+                  style={{ 
+                    fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                    color: '#007BFF'
+                  }}
+                >
+                  {selectedSemester.name}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="p-2 rounded-lg transition"
+                  style={{
+                    color: 'rgba(44, 44, 44, 0.7)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#007BFF';
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 123, 255, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'rgba(44, 44, 44, 0.7)';
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  <X size={24} />
+                </button>
+              </div>
 
-                <iframe
-                  src={`${selectedSemester.pdfUrl}#toolbar=0&navpanes=0`}
-                  className="w-full h-[50vh] sm:h-[65vh] rounded-xl border-2 border-slate-200"
-                  title={`${selectedSemester.name} Preview`}
-                />
+              <iframe
+                src={`${selectedSemester.pdfUrl}#toolbar=0&navpanes=0`}
+                className="w-full h-[50vh] sm:h-[65vh] rounded-xl border-2"
+                style={{
+                  borderColor: 'rgba(0, 123, 255, 0.2)'
+                }}
+                title={`${selectedSemester.name} Preview`}
+              />
 
-                <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 mt-4 sm:mt-6">
-                  <button
-                    onClick={closeModal}
-                    className="w-full sm:w-auto px-6 py-2.5 sm:py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition font-medium text-slate-700"
-                  >
-                    Close
-                  </button>
-                  <button
-                    onClick={() => handleDownload(selectedSemester)}
-                    className="w-full sm:w-auto px-6 py-2.5 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg flex items-center justify-center gap-2 font-medium transition"
-                  >
-                    <Download size={20} />
-                    Download
-                  </button>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 mt-4 sm:mt-6">
+                <button
+                  onClick={closeModal}
+                  className="w-full sm:w-auto px-6 py-2.5 sm:py-2 rounded-lg transition font-semibold"
+                  style={{
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    color: '#2C2C2C',
+                    fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 123, 255, 0.2)'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 123, 255, 0.1)'}
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => handleDownload(selectedSemester)}
+                  className="w-full sm:w-auto px-6 py-2.5 sm:py-2 text-white rounded-lg shadow-lg flex items-center justify-center gap-2 font-semibold transition"
+                  style={{
+                    background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
+                    fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                  }}
+                >
+                  <Download size={20} />
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

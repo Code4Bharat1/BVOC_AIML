@@ -1,169 +1,279 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
 
 const Hero = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const leftVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  const rightVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
   return (
     <section
-      ref={ref}
       className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden bg-white"
     >
-      {/* Floating Particles */}
+      {/* Optimized Floating Particles - Reduced from 15 to 6 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
+        {[...Array(6)].map((_, i) => (
+          <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
+            className="absolute w-1 h-1 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
+              background: i % 2 === 0 ? '#007BFF' : '#FF7F00',
+              opacity: 0.15,
+              left: `${15 + i * 15}%`,
+              top: `${10 + i * 12}%`,
+              animation: `floatUp ${6 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.8}s`
             }}
           />
         ))}
       </div>
 
-      {/* Soft Glowing Orbs */}
-      <motion.div
-        className="absolute top-20 left-16 w-56 h-56 bg-blue-100/15 blur-[140px] rounded-full"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 40, 0],
-          y: [0, -40, 0],
+      {/* Lighter Glowing Orbs with CSS Animation */}
+      <div 
+        className="absolute top-20 left-16 w-72 h-72 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          animation: 'moveOrb1 20s ease-in-out infinite',
+          willChange: 'transform'
         }}
-        transition={{ duration: 22, repeat: Infinity }}
       />
-      <motion.div
-        className="absolute bottom-20 right-24 w-60 h-60 bg-indigo-100/12 blur-[150px] rounded-full"
-        animate={{
-          scale: [1, 1.25, 1],
-          x: [0, -40, 0],
-          y: [0, 40, 0],
+      <div 
+        className="absolute bottom-20 right-24 w-80 h-80 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.08) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          animation: 'moveOrb2 22s ease-in-out infinite',
+          willChange: 'transform'
         }}
-        transition={{ duration: 25, repeat: Infinity }}
       />
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes floatUp {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0;
+          }
+          15% {
+            opacity: 0.15;
+          }
+          85% {
+            opacity: 0.15;
+          }
+          100% {
+            transform: translateY(-100px) translateX(15px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes moveOrb1 {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(40px, -40px);
+          }
+        }
+
+        @keyframes moveOrb2 {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(-40px, 40px);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes floatBox1 {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(10deg);
+          }
+        }
+
+        @keyframes floatBox2 {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(25px) rotate(-8deg);
+          }
+        }
+
+        @keyframes floatBox3 {
+          0%, 100% {
+            transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-50%, -50%) translateY(-15px) rotate(15deg);
+          }
+        }
+
+        .hero-content {
+          animation: fadeInUp 0.8s ease-out;
+        }
+
+        .feature-pill {
+          transition: all 0.3s ease;
+        }
+
+        .feature-pill:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
+        }
+      `}</style>
 
       <div className="relative flex flex-col lg:flex-row justify-between items-center gap-12 z-10 w-full max-w-7xl">
         {/* LEFT SIDE */}
-        <motion.div
-          variants={leftVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="lg:w-[65%] w-full text-center lg:text-left"
-        >
-          <h1 className="lg:hidden text-4xl md:text-5xl font-bold leading-snug text-slate-900" style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}>
+        <div className="hero-content lg:w-[65%] w-full text-center lg:text-left">
+          {/* Mobile Heading */}
+          <h1 
+            className="lg:hidden text-4xl md:text-5xl font-bold leading-snug mb-6"
+            style={{ 
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+              color: '#2C2C2C'
+            }}
+          >
             Where Innovation <br /> Meets World-Class <br />
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
+            <span 
+              style={{
+                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
               Infrastructure.
             </span>
           </h1>
 
-          <p className="lg:hidden my-8 text-lg text-center text-slate-700 leading-relaxed" style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}>
-            <span className="text-blue-700 font-semibold">High-Tech</span> Learning Spaces, and{" "}
-            <span className="text-indigo-700 font-semibold">Smart Classrooms</span>. Built to empower
+          <p 
+            className="lg:hidden my-8 text-lg text-center leading-relaxed"
+            style={{ 
+              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+              color: 'rgba(44, 44, 44, 0.8)'
+            }}
+          >
+            <span className="font-semibold" style={{ color: '#007BFF' }}>High-Tech</span> Learning Spaces, and{" "}
+            <span className="font-semibold" style={{ color: '#FF7F00' }}>Smart Classrooms</span>. Built to empower
             hands-on learning, creativity, and real-world simulation.
           </p>
 
           {/* Desktop Heading */}
-          <motion.h1
-            className="hidden lg:block text-5xl md:text-6xl font-bold leading-snug text-slate-900"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
+          <h1
+            className="hidden lg:block text-5xl md:text-6xl font-bold leading-snug"
+            style={{ 
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+              color: '#2C2C2C',
+              animation: 'fadeInUp 0.8s ease-out 0.2s backwards'
+            }}
           >
             Where Innovation Meets <br /> World-Class{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
+            <span 
+              style={{
+                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
               Infrastructure.
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="hidden lg:block mt-10 text-xl lg:text-2xl text-slate-700 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ fontFamily: "'Inter', -apple-system, system-ui, sans-serif" }}
+          <p
+            className="hidden lg:block mt-10 text-xl lg:text-2xl leading-relaxed"
+            style={{ 
+              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+              color: 'rgba(44, 44, 44, 0.8)',
+              animation: 'fadeInUp 0.8s ease-out 0.4s backwards'
+            }}
           >
-            <span className="text-blue-700 font-semibold">High-Tech</span> Learning Spaces, and{" "}
-            <span className="text-indigo-700 font-semibold">Smart Classrooms</span>. <br />
+            <span className="font-semibold" style={{ color: '#007BFF' }}>High-Tech</span> Learning Spaces, and{" "}
+            <span className="font-semibold" style={{ color: '#FF7F00' }}>Smart Classrooms</span>. <br />
             Built to empower hands-on learning, creativity, and real-world simulation.
-          </motion.p>
+          </p>
 
           {/* Feature Pills */}
-          <motion.div
+          <div
             className="hidden lg:flex flex-wrap gap-4 mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            style={{ animation: 'fadeInUp 0.8s ease-out 0.6s backwards' }}
           >
             {[
-              { text: "State-of-the-art Labs", color: "#2563eb" },
-              { text: "Smart Classrooms", color: "#4f46e5" },
-              { text: "Innovation Hub", color: "#3b82f6" },
+              { text: "State-of-the-art Labs", gradient: "linear-gradient(135deg, #007BFF, #80C8F7)" },
+              { text: "Smart Classrooms", gradient: "linear-gradient(135deg, #FF7F00, #FFCD00)" },
+              { text: "Innovation Hub", gradient: "linear-gradient(135deg, #007BFF, #FF7F00)" },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={i}
-                className="px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                className="feature-pill px-6 py-3 rounded-full text-white shadow-md font-semibold text-sm"
+                style={{
+                  background: item.gradient,
+                  fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                }}
               >
-                <span className="text-sm font-medium" style={{ color: item.color }}>
-                  {item.text}
-                </span>
-              </motion.div>
+                {item.text}
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* RIGHT SIDE (Animated Boxes) */}
-        <motion.div
-          variants={rightVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+        <div
           className="hidden lg:block lg:w-[30%] w-full relative h-[300px]"
+          style={{ animation: 'fadeInUp 0.8s ease-out 0.3s backwards' }}
         >
           {/* Glow Layers */}
-          <div className="absolute -top-10 -left-10 w-72 h-72 bg-blue-100/20 blur-[140px] rounded-full" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-100/15 blur-[150px] rounded-full" />
+          <div 
+            className="absolute -top-10 -left-10 w-72 h-72 rounded-full" 
+            style={{
+              background: 'radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%)',
+              filter: 'blur(80px)'
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-0 w-80 h-80 rounded-full" 
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 127, 0, 0.1) 0%, transparent 70%)',
+              filter: 'blur(80px)'
+            }}
+          />
 
           {/* Animated Box Elements */}
-          <motion.div
-            className="absolute top-0 left-10 w-20 h-20 bg-blue-100 border border-blue-300 rounded-2xl"
-            animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
+          <div
+            className="absolute top-0 left-10 w-20 h-20 rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(128, 200, 247, 0.2))',
+              border: '2px solid rgba(0, 123, 255, 0.3)',
+              animation: 'floatBox1 6s ease-in-out infinite'
+            }}
           />
-          <motion.div
-            className="absolute bottom-10 right-10 w-24 h-24 bg-indigo-100 border border-indigo-300 rounded-2xl"
-            animate={{ y: [0, 25, 0], rotate: [0, -8, 0] }}
-            transition={{ duration: 7, repeat: Infinity }}
+          <div
+            className="absolute bottom-10 right-10 w-24 h-24 rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 127, 0, 0.2), rgba(255, 205, 0, 0.2))',
+              border: '2px solid rgba(255, 127, 0, 0.3)',
+              animation: 'floatBox2 7s ease-in-out infinite'
+            }}
           />
-          <motion.div
-            className="absolute top-1/2 left-1/2 w-16 h-16 bg-blue-50 border border-blue-200 rounded-xl transform -translate-x-1/2 -translate-y-1/2"
-            animate={{ y: [0, -15, 0], rotate: [0, 15, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
+          <div
+            className="absolute top-1/2 left-1/2 w-16 h-16 rounded-xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(255, 127, 0, 0.15))',
+              border: '2px solid rgba(0, 123, 255, 0.2)',
+              animation: 'floatBox3 5s ease-in-out infinite'
+            }}
           />
 
           {/* Static Decorative Image */}
@@ -172,7 +282,7 @@ const Hero = () => {
             alt="Decorative Element"
             className="absolute -bottom-20 left-0 opacity-30 w-[180px] h-[180px]"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

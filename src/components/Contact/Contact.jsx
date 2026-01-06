@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Globe } from "lucide-react";
 import toast from "react-hot-toast";
 
-// Custom Social Media Icons with Brand Colors
+// Custom Social Media Icons
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -67,7 +67,7 @@ const ContactPage = () => {
     }
     setIsSubmitting(true);
     try {
-      const whatsappNumber = "919594402822"; // Replace with your WhatsApp number
+      const whatsappNumber = "919594402822";
       const message = `🔔 *New Contact Form Submission*
 👤 *Name:* ${formData.name}
 📧 *Email:* ${formData.email}
@@ -97,90 +97,149 @@ Sent from Nexcore Alliance Website`;
   };
 
   const contactInfo = [
-    { icon: Phone, title: "Phone", content: "+91 9594402822", subContent: "Mon-Fri 9:00 AM - 6:00 PM", color: "from-[#00d4ff] to-[#AC6CFF]", href: "tel:+919594430295" },
-    { icon: Mail, title: "Email", content: "bvoc@nexcorealliance.com", subContent: "We'll respond within 24 hours", color: "from-[#AC6CFF] to-[#ff6b35]", href: "mailto:hello@nexcorealliance.com" },
-    { icon: MapPin, title: "Office", content: "Mumbai, Maharashtra", subContent: "India - 400001", color: "from-[#ff6b35] to-[#00d4ff]", href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6" },
-    { icon: Globe, title: "Website", content: "www.bvoc@nexcorealliance.com", subContent: "Visit our main website", color: "from-[#00d4ff] to-[#AC6CFF]", href: "https://www.nexcorealliance.com" },
+    { 
+      icon: Phone, 
+      title: "Phone", 
+      content: "+91 9594402822", 
+      subContent: "Mon-Fri 9:00 AM - 6:00 PM", 
+      color: "#007BFF", 
+      href: "tel:+919594402822" 
+    },
+    { 
+      icon: Mail, 
+      title: "Email", 
+      content: "bvoc@nexcorealliance.com", 
+      subContent: "We'll respond within 24 hours", 
+      color: "#FF7F00", 
+      href: "mailto:bvoc@nexcorealliance.com" 
+    },
+    { 
+      icon: MapPin, 
+      title: "Office", 
+      content: "Mumbai, Maharashtra", 
+      subContent: "India - 400001", 
+      color: "#007BFF", 
+      href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6" 
+    },
+    { 
+      icon: Globe, 
+      title: "Website", 
+      content: "www.nexcorealliance.com", 
+      subContent: "Visit our main website", 
+      color: "#FF7F00", 
+      href: "https://www.nexcorealliance.com" 
+    },
   ];
 
   const socialLinks = [
     { 
       icon: LinkedInIcon, 
       href: "https://www.linkedin.com/company/105730702/admin/dashboard", 
-      color: "text-white/70 hover:text-[#0077b5]",
-      glowColor: "hover:drop-shadow-[0_0_15px_rgba(0,119,181,0.8)]"
+      color: "#0077b5"
     },
     { 
       icon: FacebookIcon, 
       href: "https://www.facebook.com/profile.php?id=61570113656994", 
-      color: "text-white/70 hover:text-[#1877f2]",
-      glowColor: "hover:drop-shadow-[0_0_15px_rgba(24,119,242,0.8)]"
+      color: "#1877f2"
     },
     { 
       icon: InstagramIcon, 
       href: "https://www.instagram.com/nexcorealliancellp/", 
-      color: "text-white/70 hover:text-[#E4405F]",
-      glowColor: "hover:drop-shadow-[0_0_15px_rgba(228,64,95,0.8)]"
+      color: "#E4405F"
     },
     { 
       icon: YouTubeIcon, 
       href: "https://www.youtube.com/channel/UCYqpIltw48XxkMRLC-HCgag", 
-      color: "text-white/70 hover:text-[#FF0000]",
-      glowColor: "hover:drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]"
+      color: "#FF0000"
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1f4d] via-[#2d1b4e] to-[#4a1f6b] select-none relative overflow-hidden">
-      {/* Animated Background Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-              opacity: Math.random() * 0.7 + 0.3,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Floating Orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#00d4ff] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute top-40 right-10 w-72 h-72 bg-[#ff6b35] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-      <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-[#AC6CFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+    <div className="min-h-screen bg-white select-none relative overflow-hidden">
+      {/* Subtle Background */}
+      <div 
+        className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-10"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.3) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+      <div 
+        className="absolute bottom-20 right-10 w-72 h-72 rounded-full opacity-10"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.3) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
 
       <style jsx>{`
-        @keyframes blob {
-          0%, 100% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .animate-blob {
-          animation: blob 7s infinite;
+
+        .contact-card {
+          animation: fadeIn 0.6s ease-out;
+          transition: all 0.3s ease;
         }
-        .animation-delay-2000 {
-          animation-delay: 2s;
+
+        .contact-card:hover {
+          transform: scale(1.05);
         }
-        .animation-delay-4000 {
-          animation-delay: 4s;
+
+        .contact-card:nth-child(1) { animation-delay: 0s; }
+        .contact-card:nth-child(2) { animation-delay: 0.1s; }
+        .contact-card:nth-child(3) { animation-delay: 0.2s; }
+        .contact-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .social-icon {
+          transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+          transform: scale(1.25);
         }
       `}</style>
 
       <section ref={sectionRef} className="relative py-20">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 mt-10">
-            <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-4 bg-gradient-to-r from-[#00d4ff]/20 via-[#AC6CFF]/20 to-[#ff6b35]/20 backdrop-blur-lg rounded-full border border-[#00d4ff]/30 text-white shadow-lg shadow-[#00d4ff]/20">
+            <span 
+              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-4 backdrop-blur-lg rounded-full border shadow-sm"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(255, 127, 0, 0.1))',
+                borderColor: 'rgba(0, 123, 255, 0.2)',
+                color: '#007BFF',
+                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+              }}
+            >
               ✨ Get In Touch
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] drop-shadow-2xl animate-pulse">
+            <h1 
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
+              style={{
+                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+              }}
+            >
               Let's Talk
             </h1>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p 
+              className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
+              style={{
+                color: 'rgba(44, 44, 44, 0.8)',
+                fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+              }}
+            >
               Ready to transform your vision into reality? Let's discuss how our innovative solutions can drive your success forward.
             </p>
           </div>
@@ -194,31 +253,81 @@ Sent from Nexcore Alliance Website`;
                   href={info.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative flex items-center space-x-4 p-6 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl hover:shadow-[#00d4ff]/50 hover:scale-105 transition-all duration-300 overflow-hidden`}
+                  className="contact-card group relative flex items-center space-x-4 p-6 backdrop-blur-xl rounded-2xl border shadow-lg overflow-hidden"
+                  style={{
+                    backgroundColor: 'white',
+                    borderColor: 'rgba(0, 123, 255, 0.2)'
+                  }}
                 >
                   {/* Animated Border Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl" style={{background: `linear-gradient(to right, #00d4ff, #AC6CFF, #ff6b35)`}} />
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
+                    style={{
+                      background: `linear-gradient(135deg, ${info.color}80, ${info.color}40)`
+                    }}
+                  />
                   
-                  <div className={`relative z-10 w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r ${info.color} text-white shadow-lg group-hover:rotate-12 transition-transform duration-300`}>
+                  <div 
+                    className="relative z-10 w-14 h-14 flex items-center justify-center rounded-xl text-white shadow-md group-hover:rotate-12 transition-transform duration-300"
+                    style={{
+                      background: `linear-gradient(135deg, ${info.color}, ${info.color}dd)`
+                    }}
+                  >
                     <info.icon className="w-6 h-6" />
                   </div>
                   <div className="relative z-10">
-                    <h3 className="font-bold text-white text-lg">{info.title}</h3>
-                    <p className="text-[#00d4ff] font-semibold">{info.content}</p>
-                    <p className="text-sm text-gray-300">{info.subContent}</p>
+                    <h3 
+                      className="font-bold text-lg"
+                      style={{ 
+                        color: '#2C2C2C',
+                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                      }}
+                    >
+                      {info.title}
+                    </h3>
+                    <p 
+                      className="font-bold"
+                      style={{ 
+                        color: info.color,
+                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                      }}
+                    >
+                      {info.content}
+                    </p>
+                    <p 
+                      className="text-sm"
+                      style={{ 
+                        color: 'rgba(44, 44, 44, 0.6)',
+                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                      }}
+                    >
+                      {info.subContent}
+                    </p>
                   </div>
                 </a>
               ))}
               
-              {/* Social Links with Brand Glows */}
+              {/* Social Links */}
               <div className="flex gap-4 pt-4 justify-center lg:justify-start">
-                {socialLinks.map(({ icon: Icon, href, color, glowColor }, index) => (
+                {socialLinks.map(({ icon: Icon, href, color }, index) => (
                   <a 
                     key={index} 
                     href={href} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className={`transition-all duration-300 hover:scale-125 ${color} ${glowColor}`}
+                    className="social-icon"
+                    style={{
+                      color: 'rgba(44, 44, 44, 0.5)',
+                      filter: 'drop-shadow(0 0 0 transparent)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = color;
+                      e.currentTarget.style.filter = `drop-shadow(0 0 15px ${color}80)`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'rgba(44, 44, 44, 0.5)';
+                      e.currentTarget.style.filter = 'drop-shadow(0 0 0 transparent)';
+                    }}
                   >
                     <Icon />
                   </a>
@@ -228,13 +337,40 @@ Sent from Nexcore Alliance Website`;
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 overflow-hidden">
+              <div 
+                className="relative backdrop-blur-xl rounded-3xl p-8 shadow-xl border overflow-hidden"
+                style={{
+                  backgroundColor: 'white',
+                  borderColor: 'rgba(0, 123, 255, 0.2)'
+                }}
+              >
                 {/* Decorative Corner Glow */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#00d4ff] rounded-full filter blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#ff6b35] rounded-full filter blur-3xl opacity-30 translate-y-1/2 -translate-x-1/2" />
+                <div 
+                  className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(0, 123, 255, 0.5) 0%, transparent 70%)',
+                    filter: 'blur(60px)'
+                  }}
+                />
+                <div 
+                  className="absolute bottom-0 left-0 w-40 h-40 rounded-full opacity-10 translate-y-1/2 -translate-x-1/2"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(255, 127, 0, 0.5) 0%, transparent 70%)',
+                    filter: 'blur(60px)'
+                  }}
+                />
                 
                 <div className="relative z-10">
-                  <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] via-[#AC6CFF] to-[#ff6b35] mb-8">
+                  <h2 
+                    className="text-3xl font-bold mb-8"
+                    style={{
+                      background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                    }}
+                  >
                     Send us a Message 💬
                   </h2>
                   <div className="space-y-6">
@@ -245,7 +381,23 @@ Sent from Nexcore Alliance Website`;
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Full Name *"
-                        className="w-full px-5 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-[#00d4ff] focus:border-[#00d4ff] bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/10"
+                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
+                        style={{
+                          borderColor: 'rgba(0, 123, 255, 0.2)',
+                          backgroundColor: 'rgba(0, 123, 255, 0.02)',
+                          color: '#2C2C2C',
+                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.borderColor = '#007BFF';
+                          e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
+                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
+                          e.target.style.boxShadow = 'none';
+                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
+                        }}
                       />
                       <input
                         type="email"
@@ -253,7 +405,23 @@ Sent from Nexcore Alliance Website`;
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="Email Address *"
-                        className="w-full px-5 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-[#AC6CFF] focus:border-[#AC6CFF] bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/10"
+                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
+                        style={{
+                          borderColor: 'rgba(255, 127, 0, 0.2)',
+                          backgroundColor: 'rgba(255, 127, 0, 0.02)',
+                          color: '#2C2C2C',
+                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.borderColor = '#FF7F00';
+                          e.target.style.boxShadow = '0 0 0 2px rgba(255, 127, 0, 0.1)';
+                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.05)';
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = 'rgba(255, 127, 0, 0.2)';
+                          e.target.style.boxShadow = 'none';
+                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.02)';
+                        }}
                       />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,20 +431,52 @@ Sent from Nexcore Alliance Website`;
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="Phone Number"
-                        className="w-full px-5 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-[#ff6b35] focus:border-[#ff6b35] bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/10"
+                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
+                        style={{
+                          borderColor: 'rgba(0, 123, 255, 0.2)',
+                          backgroundColor: 'rgba(0, 123, 255, 0.02)',
+                          color: '#2C2C2C',
+                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.borderColor = '#007BFF';
+                          e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
+                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
+                          e.target.style.boxShadow = 'none';
+                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
+                        }}
                       />
                       <select
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-5 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-[#00d4ff] focus:border-[#00d4ff] bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/10"
+                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
+                        style={{
+                          borderColor: 'rgba(255, 127, 0, 0.2)',
+                          backgroundColor: 'rgba(255, 127, 0, 0.02)',
+                          color: '#2C2C2C',
+                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.borderColor = '#FF7F00';
+                          e.target.style.boxShadow = '0 0 0 2px rgba(255, 127, 0, 0.1)';
+                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.05)';
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = 'rgba(255, 127, 0, 0.2)';
+                          e.target.style.boxShadow = 'none';
+                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.02)';
+                        }}
                       >
-                        <option value="" className="bg-[#2d1b4e] text-white">Select a subject *</option>
-                        <option value="general" className="bg-[#2d1b4e] text-white">General Inquiry</option>
-                        <option value="partnership" className="bg-[#2d1b4e] text-white">Partnership</option>
-                        <option value="careers" className="bg-[#2d1b4e] text-white">Careers</option>
-                        <option value="support" className="bg-[#2d1b4e] text-white">Technical Support</option>
-                        <option value="other" className="bg-[#2d1b4e] text-white">Other</option>
+                        <option value="">Select a subject *</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="careers">Careers</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
                       </select>
                     </div>
                     <textarea
@@ -285,14 +485,47 @@ Sent from Nexcore Alliance Website`;
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Your Message *"
-                      className="w-full px-5 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-[#AC6CFF] focus:border-[#AC6CFF] bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/10 resize-none"
+                      className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300 resize-none"
+                      style={{
+                        borderColor: 'rgba(0, 123, 255, 0.2)',
+                        backgroundColor: 'rgba(0, 123, 255, 0.02)',
+                        color: '#2C2C2C',
+                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = '#007BFF';
+                        e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
+                        e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
+                        e.target.style.boxShadow = 'none';
+                        e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
+                      }}
                     />
                     <button
                       onClick={handleSubmit}
                       disabled={isSubmitting}
-                      className="group w-full bg-gradient-to-r from-[#ff6b35] via-[#AC6CFF] to-[#00d4ff] text-white font-bold py-5 rounded-xl hover:shadow-2xl hover:shadow-[#00d4ff]/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg flex items-center justify-center gap-3"
+                      className="group w-full text-white font-bold py-5 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg flex items-center justify-center gap-3 shadow-lg"
+                      style={{
+                        background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isSubmitting) {
+                          e.currentTarget.style.transform = 'scale(1.05)';
+                          e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 123, 255, 0.4)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+                      }}
                     >
-                      <span className="group-hover:drop-shadow-[0_0_10px_rgba(37,211,102,0.8)]">
+                      <span 
+                        className="group-hover:drop-shadow-[0_0_10px_rgba(37,211,102,0.8)]"
+                        style={{ transition: 'all 0.3s ease' }}
+                      >
                         <WhatsAppIcon />
                       </span>
                       {isSubmitting ? "Sending to WhatsApp..." : "Send via WhatsApp"}

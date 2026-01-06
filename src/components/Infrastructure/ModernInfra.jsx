@@ -1,24 +1,7 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-
-// Simple Fade-in animation wrapper
-const FadeIn = ({ children, delay = 0 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import React, { useState } from "react";
+import { FaVideo, FaLightbulb, FaBuilding, FaMicroscope, FaGraduationCap } from "react-icons/fa";
 
 const ModernInfra = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -26,138 +9,230 @@ const ModernInfra = () => {
   const features = [
     {
       id: 1,
-      icon: "📹",
+      icon: FaVideo,
       title: "Explore Through",
       subtitle: "Videos & Photos",
-      color: "#4A90E2",
+      color: "#007BFF",
     },
     {
       id: 2,
-      icon: "💡",
+      icon: FaLightbulb,
       title: "Innovation-Driven",
       subtitle: "Workspaces",
-      color: "#E67E22",
+      color: "#FF7F00",
     },
     {
       id: 3,
-      icon: "🏛️",
+      icon: FaBuilding,
       title: "Dynamic &",
       subtitle: "Comfortable Spaces",
-      color: "#9B59B6",
+      color: "#007BFF",
     },
     {
       id: 4,
-      icon: "🔬",
+      icon: FaMicroscope,
       title: "Cutting-Edge",
       subtitle: "Technology",
-      color: "#16A085",
+      color: "#FF7F00",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white via-slate-50 to-blue-50 py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Header Section */}
-        <FadeIn delay={0.1}>
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg mb-6 border-4 border-slate-100">
-              <span className="text-5xl">🎓</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-light text-slate-700 mb-3 leading-tight">
-              Modern{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent font-semibold">
-                Infrastructure
-              </span>
-            </h1>
-            <p className="text-xl text-slate-600">
-              Experience Our Campus
-            </p>
-          </div>
-        </FadeIn>
+    <div className="bg-white py-20 px-4 relative overflow-hidden">
+      {/* Subtle Background Elements */}
+      <div 
+        className="absolute top-0 left-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)'
+        }}
+      />
 
-        {/* Features Grid Section */}
-        <FadeIn delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature) => (
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .fade-in {
+          animation: fadeInUp 0.6s ease-out;
+        }
+
+        .feature-card {
+          transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-8px);
+        }
+
+        .icon-circle {
+          transition: all 0.3s ease;
+        }
+      `}</style>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-16 fade-in">
+          <div 
+            className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg mb-6"
+            style={{
+              border: '4px solid rgba(0, 123, 255, 0.1)'
+            }}
+          >
+            <FaGraduationCap className="text-5xl" style={{ color: '#007BFF' }} />
+          </div>
+          <h1 
+            className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
+            style={{ 
+              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+              color: '#2C2C2C'
+            }}
+          >
+            Modern{" "}
+            <span 
+              style={{
+                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontWeight: 'bold'
+              }}
+            >
+              Infrastructure
+            </span>
+          </h1>
+          <p 
+            className="text-xl font-medium"
+            style={{ 
+              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+              color: 'rgba(44, 44, 44, 0.7)'
+            }}
+          >
+            Experience Our Campus
+          </p>
+        </div>
+
+        {/* Desktop Features Grid */}
+        <div 
+          className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in"
+          style={{ animationDelay: '0.2s' }}
+        >
+          {features.map((feature) => {
+            const IconComponent = feature.icon;
+            return (
               <div
                 key={feature.id}
-                className="bg-white rounded-3xl p-8 shadow-md border-2 border-slate-100 hover:shadow-xl transition-all duration-300 cursor-pointer text-center"
+                className="feature-card bg-white rounded-2xl p-8 shadow-md border-2 text-center"
                 onMouseEnter={() => setHoveredCard(feature.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{
-                  borderColor: hoveredCard === feature.id ? feature.color : '#e2e8f0',
-                  transform: hoveredCard === feature.id ? 'translateY(-5px)' : 'translateY(0)',
+                  borderColor: hoveredCard === feature.id ? feature.color : '#e5e7eb',
+                  boxShadow: hoveredCard === feature.id 
+                    ? `0 20px 40px ${feature.color}20` 
+                    : '0 4px 6px rgba(0, 0, 0, 0.1)'
                 }}
               >
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300"
+                  className="icon-circle w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto"
                   style={{
-                    backgroundColor: hoveredCard === feature.id ? `${feature.color}15` : '#f8fafc',
+                    backgroundColor: hoveredCard === feature.id 
+                      ? `${feature.color}15` 
+                      : '#f8fafc',
                   }}
                 >
-                  <span className="text-5xl">{feature.icon}</span>
+                  <IconComponent 
+                    className="text-4xl" 
+                    style={{ 
+                      color: hoveredCard === feature.id ? feature.color : 'rgba(44, 44, 44, 0.6)'
+                    }} 
+                  />
                 </div>
                 <h3 
-                  className="text-2xl font-light mb-2 transition-colors duration-300"
+                  className="text-xl font-bold mb-2"
                   style={{
-                    color: hoveredCard === feature.id ? feature.color : '#334155',
+                    fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                    color: hoveredCard === feature.id ? feature.color : '#2C2C2C',
                   }}
                 >
                   {feature.title}
                 </h3>
                 <p 
-                  className="text-xl font-medium transition-colors duration-300"
+                  className="text-lg font-semibold"
                   style={{
-                    color: hoveredCard === feature.id ? feature.color : '#64748b',
+                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                    color: hoveredCard === feature.id ? feature.color : 'rgba(44, 44, 44, 0.6)',
                   }}
                 >
                   {feature.subtitle}
                 </p>
               </div>
-            ))}
-          </div>
-        </FadeIn>
-
-        {/* Mobile Optimized Section */}
-        <div className="block lg:hidden mt-12">
-          <FadeIn delay={0.3}>
-            <div className="space-y-6">
-              {features.map((feature) => (
-                <div
-                  key={`mobile-${feature.id}`}
-                  className="bg-white rounded-2xl p-6 shadow-md border-2 border-slate-100 hover:shadow-xl transition-all duration-300"
-                  style={{
-                    borderColor: '#e2e8f0',
-                  }}
-                >
-                  <div className="flex items-center gap-5">
-                    <div 
-                      className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{
-                        backgroundColor: `${feature.color}15`,
-                      }}
-                    >
-                      <span className="text-4xl">{feature.icon}</span>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xl font-light text-slate-700 leading-relaxed">
-                        {feature.title}
-                      </p>
-                      <p 
-                        className="text-xl font-medium"
-                        style={{ color: feature.color }}
-                      >
-                        {feature.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
+            );
+          })}
         </div>
 
+        {/* Mobile Optimized Section */}
+        <div 
+          className="block lg:hidden space-y-6 fade-in"
+          style={{ animationDelay: '0.3s' }}
+        >
+          {features.map((feature) => {
+            const IconComponent = feature.icon;
+            return (
+              <div
+                key={`mobile-${feature.id}`}
+                className="bg-white rounded-2xl p-6 shadow-md border-2"
+                style={{
+                  borderColor: '#e5e7eb',
+                }}
+              >
+                <div className="flex items-center gap-5">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{
+                      backgroundColor: `${feature.color}15`,
+                    }}
+                  >
+                    <IconComponent className="text-3xl" style={{ color: feature.color }} />
+                  </div>
+                  <div className="text-left">
+                    <p 
+                      className="text-lg font-bold leading-tight"
+                      style={{ 
+                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                        color: '#2C2C2C'
+                      }}
+                    >
+                      {feature.title}
+                    </p>
+                    <p 
+                      className="text-lg font-semibold"
+                      style={{ 
+                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
+                        color: feature.color 
+                      }}
+                    >
+                      {feature.subtitle}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

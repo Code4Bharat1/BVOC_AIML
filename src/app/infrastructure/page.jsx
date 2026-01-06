@@ -30,7 +30,7 @@ const Page = () => {
         {/* Page content goes here */}
         <Hero />
         <ModernInfra />
-        <InfraImgVid />
+        {/* <InfraImgVid /> */}
       </main>
     </div>
   );

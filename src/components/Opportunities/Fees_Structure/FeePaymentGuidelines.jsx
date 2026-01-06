@@ -1,6 +1,7 @@
 "use client";
 import { FaCreditCard, FaClock, FaFileInvoice, FaBell, FaChartLine } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
+import Link from "next/link";
 
 export default function FeePaymentGuidelines() {
   const guidelines = [
@@ -52,7 +53,7 @@ export default function FeePaymentGuidelines() {
       </div>
 
       {/* Lighter Glowing Orbs with CSS Animation */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-80 h-80 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%)',
@@ -61,7 +62,7 @@ export default function FeePaymentGuidelines() {
           willChange: 'transform'
         }}
       />
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-80 h-80 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(255, 127, 0, 0.08) 0%, transparent 70%)',
@@ -156,9 +157,9 @@ export default function FeePaymentGuidelines() {
             <HiSparkles className="text-xl" style={{ color: '#FF7F00' }} />
           </div> */}
 
-          <h1 
+          <h1
             className="text-3xl md:text-5xl font-bold mb-4 leading-tight"
-            style={{ 
+            style={{
               fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
               color: '#2C2C2C',
               animation: 'fadeInUp 0.6s ease-out 0.1s backwards'
@@ -167,21 +168,21 @@ export default function FeePaymentGuidelines() {
             Fee Payment <span style={{ color: '#007BFF' }}>Guidelines</span>
           </h1>
 
-          <div 
+          <div
             className="flex items-center justify-center gap-3 mt-5"
             style={{ animation: 'fadeInUp 0.6s ease-out 0.2s backwards' }}
           >
-            <div 
-              className="h-0.5 w-16 rounded-full" 
-              style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }} 
+            <div
+              className="h-0.5 w-16 rounded-full"
+              style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }}
             />
-            <div 
-              className="w-1.5 h-1.5 rounded-full" 
-              style={{ backgroundColor: '#FF7F00' }} 
+            <div
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: '#FF7F00' }}
             />
-            <div 
-              className="h-0.5 w-16 rounded-full" 
-              style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }} 
+            <div
+              className="h-0.5 w-16 rounded-full"
+              style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }}
             />
           </div>
         </div>
@@ -195,36 +196,35 @@ export default function FeePaymentGuidelines() {
             return (
               <div
                 key={index}
-                className={`relative ${
-                  isLast && isOdd ? "md:col-span-2 md:mx-auto md:w-full md:max-w-lg" : ""
-                }`}
+                className={`relative ${isLast && isOdd ? "md:col-span-2 md:mx-auto md:w-full md:max-w-lg" : ""
+                  }`}
                 style={{ animation: `fadeInUp 0.6s ease-out ${0.3 + index * 0.1}s backwards` }}
               >
                 <div className="relative h-full bg-white rounded-2xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[200px] guideline-card">
                   {/* Accent Bar */}
-                  <div 
+                  <div
                     className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${item.color}`}
                   />
 
                   {/* Corner Decorations */}
-                  <div 
+                  <div
                     className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 rounded-tl-2xl opacity-30"
                     style={{ borderColor: index % 2 === 0 ? '#007BFF' : '#FF7F00' }}
                   />
-                  <div 
+                  <div
                     className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 rounded-br-2xl opacity-30"
                     style={{ borderColor: index % 2 === 0 ? '#FF7F00' : '#007BFF' }}
                   />
 
                   {/* Icon Badge */}
-                  <div 
+                  <div
                     className={`guideline-icon flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-2xl mb-6 shadow-lg`}
                   >
                     {item.icon}
                   </div>
 
                   {/* Number Badge */}
-                  <div 
+                  <div
                     className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md"
                     style={{ background: `linear-gradient(135deg, ${index % 2 === 0 ? '#007BFF' : '#FF7F00'}, ${index % 2 === 0 ? '#80C8F7' : '#FFCD00'})` }}
                   >
@@ -233,9 +233,9 @@ export default function FeePaymentGuidelines() {
 
                   {/* Description */}
                   <div className="text-center">
-                    <p 
-                      className="text-base md:text-lg font-medium leading-relaxed" 
-                      style={{ 
+                    <p
+                      className="text-base md:text-lg font-medium leading-relaxed"
+                      style={{
                         fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                         color: 'rgba(44, 44, 44, 0.85)'
                       }}
@@ -250,22 +250,22 @@ export default function FeePaymentGuidelines() {
         </div>
 
         {/* Bottom Info Section */}
-        <div 
+        <div
           className="relative group"
           style={{ animation: 'fadeInUp 0.6s ease-out 0.9s backwards' }}
         >
           <div className="relative bg-white rounded-2xl p-8 border border-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
             {/* Accent Bar */}
-            <div 
+            <div
               className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
               style={{ background: 'linear-gradient(to right, #007BFF, #FF7F00)' }}
             />
 
             <div className="flex items-center justify-center gap-3 mb-4 mt-2">
               <HiSparkles className="text-2xl" style={{ color: '#007BFF' }} />
-              <h3 
-                className="text-2xl md:text-3xl font-bold" 
-                style={{ 
+              <h3
+                className="text-2xl md:text-3xl font-bold"
+                style={{
                   fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
                   color: '#2C2C2C'
                 }}
@@ -274,24 +274,26 @@ export default function FeePaymentGuidelines() {
               </h3>
               <HiSparkles className="text-2xl" style={{ color: '#FF7F00' }} />
             </div>
-            <p 
-              className="text-lg mb-6" 
-              style={{ 
+            <p
+              className="text-lg mb-6"
+              style={{
                 fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
                 color: 'rgba(44, 44, 44, 0.7)'
               }}
             >
               Contact our finance department for any payment-related queries
             </p>
-            <button 
-              className="cta-button px-8 py-3 text-white font-semibold rounded-full transition-all duration-300 shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-              }}
-            >
-              Contact Finance Team →
-            </button>
+            <Link href="/contact">
+              <button
+                className="cta-button px-8 py-3 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:scale-105 active:scale-95"
+                style={{
+                  background: "linear-gradient(135deg, #007BFF, #FF7F00)",
+                  fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+                }}
+              >
+                Contact Finance Team →
+              </button>
+            </Link>
           </div>
         </div>
       </div>

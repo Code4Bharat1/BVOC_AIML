@@ -1,5 +1,7 @@
 "use client";
 import { DollarSign, Calendar, FileText, CreditCard, Sparkles } from "lucide-react";
+import React from "react";
+import Link from "next/link";
 
 export default function Fee_Policy() {
   return (
@@ -23,7 +25,7 @@ export default function Fee_Policy() {
       </div>
 
       {/* Lighter Glowing Orbs with CSS Animation - Better Performance */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-80 h-80 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%)',
@@ -32,7 +34,7 @@ export default function Fee_Policy() {
           willChange: 'transform'
         }}
       />
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-80 h-80 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(255, 127, 0, 0.08) 0%, transparent 70%)',
@@ -126,9 +128,9 @@ export default function Fee_Policy() {
             <Sparkles className="w-4 h-4" style={{ color: '#FF7F00' }} />
           </div> */}
 
-          <h1 
+          <h1
             className="text-3xl md:text-5xl font-bold mb-4 leading-tight"
-            style={{ 
+            style={{
               fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
               color: '#2C2C2C',
               animation: 'fadeInUp 0.6s ease-out 0.1s backwards'
@@ -137,60 +139,60 @@ export default function Fee_Policy() {
             Fees Structure & <span style={{ color: '#007BFF' }}>Payment Policy</span>
           </h1>
 
-          <h2 
+          <h2
             className="text-xl md:text-2xl font-medium max-w-3xl mx-auto"
-            style={{ 
+            style={{
               color: 'rgba(44, 44, 44, 0.75)',
               animation: 'fadeInUp 0.6s ease-out 0.2s backwards'
             }}
           >
             Course: Bachelor's in <span style={{ color: '#FF7F00', fontWeight: 600 }}>AI</span> and <span style={{ color: '#007BFF', fontWeight: 600 }}>Machine Learning,</span>
-              <span style={{ color: '#FF7F00' , fontWeight:600}}>Computer Science,</span> and {" "}
-              <span style={{ color: '#007BFF', fontWeight:600}}>Cybersecurity</span>
-            
+            <span style={{ color: '#FF7F00', fontWeight: 600 }}>Computer Science,</span> and {" "}
+            <span style={{ color: '#007BFF', fontWeight: 600 }}>Cybersecurity</span>
+
           </h2>
 
-          <div 
+          <div
             className="flex items-center justify-center gap-3 mt-5"
             style={{ animation: 'fadeInUp 0.6s ease-out 0.3s backwards' }}
           >
-            <div 
-              className="h-0.5 w-16 rounded-full" 
-              style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }} 
+            <div
+              className="h-0.5 w-16 rounded-full"
+              style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }}
             />
-            <div 
-              className="w-1.5 h-1.5 rounded-full" 
-              style={{ backgroundColor: '#FF7F00' }} 
+            <div
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: '#FF7F00' }}
             />
-            <div 
-              className="h-0.5 w-16 rounded-full" 
-              style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }} 
+            <div
+              className="h-0.5 w-16 rounded-full"
+              style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }}
             />
           </div>
         </div>
 
         {/* Total Fee Card */}
-        <div 
+        <div
           className="relative mb-16 group"
           style={{ animation: 'scaleUp 0.6s ease-out 0.4s backwards' }}
         >
           <div className="relative bg-white rounded-2xl p-8 lg:p-10 border border-gray-200/60 shadow-xl hover:shadow-2xl transition-shadow duration-300">
             {/* Accent Bar */}
-            <div 
+            <div
               className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
               style={{ background: 'linear-gradient(to right, #007BFF, #FF7F00)' }}
             />
-            
+
             <div className="flex items-center justify-center gap-4 mb-4 mt-2">
-              <div 
+              <div
                 className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300"
                 style={{ background: 'linear-gradient(135deg, #007BFF, #80C8F7)' }}
               >
                 <DollarSign className="text-white w-7 h-7 lg:w-8 lg:h-8" />
               </div>
-              <h3 
+              <h3
                 className="text-2xl md:text-3xl font-bold"
-                style={{ 
+                style={{
                   fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
                   color: '#2C2C2C'
                 }}
@@ -198,13 +200,13 @@ export default function Fee_Policy() {
                 Total Program Fee
               </h3>
             </div>
-            <p 
+            <p
               className="text-4xl md:text-5xl font-bold text-center"
               style={{ color: '#007BFF' }}
             >
               ₹3,36,000/-
             </p>
-            <p 
+            <p
               className="text-lg text-center mt-3 font-medium"
               style={{ color: 'rgba(44, 44, 44, 0.7)' }}
             >
@@ -214,13 +216,13 @@ export default function Fee_Policy() {
         </div>
 
         {/* Fee Bifurcation Section */}
-        <div 
+        <div
           className="mb-16"
           style={{ animation: 'fadeInUp 0.6s ease-out 0.5s backwards' }}
         >
-          <h2 
+          <h2
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
-            style={{ 
+            style={{
               fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
               color: '#2C2C2C'
             }}
@@ -231,26 +233,26 @@ export default function Fee_Policy() {
           <div className="relative group">
             <div className="relative overflow-x-auto rounded-2xl border border-gray-200/60 shadow-xl bg-white">
               {/* Accent Bar for Table */}
-              <div 
+              <div
                 className="absolute top-0 left-0 right-0 h-1"
                 style={{ background: 'linear-gradient(to right, #007BFF, #FF7F00)' }}
               />
-              
+
               <table className="w-full text-left border-collapse">
                 <thead className="bg-gradient-to-r from-blue-50 to-orange-50">
                   <tr>
-                    <th 
+                    <th
                       className="px-6 py-5 font-bold text-lg text-center border-b-2"
-                      style={{ 
+                      style={{
                         color: '#2C2C2C',
                         borderColor: 'rgba(0, 123, 255, 0.2)'
                       }}
                     >
                       Component
                     </th>
-                    <th 
+                    <th
                       className="px-6 py-5 font-bold text-lg text-center border-b-2"
-                      style={{ 
+                      style={{
                         color: '#2C2C2C',
                         borderColor: 'rgba(0, 123, 255, 0.2)'
                       }}
@@ -264,7 +266,7 @@ export default function Fee_Policy() {
                     <td className="px-6 py-4 font-medium">
                       Admission & Registration Fee
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-4 text-center font-semibold"
                       style={{ color: '#2C2C2C' }}
                     >
@@ -275,7 +277,7 @@ export default function Fee_Policy() {
                     <td className="px-6 py-4 font-medium">
                       Tuition Fee
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-4 text-center font-semibold"
                       style={{ color: '#2C2C2C' }}
                     >
@@ -286,7 +288,7 @@ export default function Fee_Policy() {
                     <td className="px-6 py-4 font-medium">
                       Lab, AI Tools & Project Access
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-4 text-center font-semibold"
                       style={{ color: '#2C2C2C' }}
                     >
@@ -297,7 +299,7 @@ export default function Fee_Policy() {
                     <td className="px-6 py-4 font-medium">
                       Examination Fee
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-4 text-center font-semibold"
                       style={{ color: '#2C2C2C' }}
                     >
@@ -308,7 +310,7 @@ export default function Fee_Policy() {
                     <td className="px-6 py-4 font-medium">
                       Student Development & Activity Fee
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-4 text-center font-semibold"
                       style={{ color: '#2C2C2C' }}
                     >
@@ -316,13 +318,13 @@ export default function Fee_Policy() {
                     </td>
                   </tr>
                   <tr className="bg-gradient-to-r from-blue-50 to-orange-50">
-                    <td 
+                    <td
                       className="px-6 py-5 font-bold text-lg"
                       style={{ color: '#2C2C2C' }}
                     >
                       Total per Year
                     </td>
-                    <td 
+                    <td
                       className="px-6 py-5 text-center font-bold text-2xl"
                       style={{ color: '#007BFF' }}
                     >
@@ -337,9 +339,9 @@ export default function Fee_Policy() {
 
         {/* Payment Options */}
         <div className="mb-16">
-          <h2 
+          <h2
             className="text-3xl md:text-4xl font-bold mb-12 text-center"
-            style={{ 
+            style={{
               fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
               color: '#2C2C2C',
               animation: 'fadeInUp 0.6s ease-out 0.6s backwards'
@@ -350,27 +352,27 @@ export default function Fee_Policy() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Option A */}
-            <div 
+            <div
               className="relative group payment-card"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.7s backwards' }}
             >
               <div className="relative h-full bg-white rounded-2xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-300">
                 {/* Accent Bar */}
-                <div 
+                <div
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
                   style={{ background: 'linear-gradient(to right, #007BFF, #80C8F7)' }}
                 />
-                
+
                 <div className="flex flex-col items-center mb-6 mt-2">
-                  <div 
+                  <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg icon-hover"
                     style={{ background: 'linear-gradient(135deg, #007BFF, #80C8F7)' }}
                   >
                     <Calendar className="w-6 h-6" />
                   </div>
-                  <h3 
+                  <h3
                     className="text-xl font-bold text-center"
-                    style={{ 
+                    style={{
                       fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
                       color: '#2C2C2C'
                     }}
@@ -381,7 +383,7 @@ export default function Fee_Policy() {
 
                 <div className="space-y-4" style={{ color: 'rgba(44, 44, 44, 0.8)' }}>
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #80C8F7)' }}
                     >
@@ -390,7 +392,7 @@ export default function Fee_Policy() {
                     <p className="text-base leading-relaxed">1st Year: ₹1,12,000 at Admission</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #80C8F7)' }}
                     >
@@ -399,7 +401,7 @@ export default function Fee_Policy() {
                     <p className="text-base leading-relaxed">2nd Year: ₹1,12,000 at the start of 3rd Semester</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #80C8F7)' }}
                     >
@@ -412,27 +414,27 @@ export default function Fee_Policy() {
             </div>
 
             {/* Option B */}
-            <div 
+            <div
               className="relative group payment-card"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.8s backwards' }}
             >
               <div className="relative h-full bg-white rounded-2xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-300">
                 {/* Accent Bar */}
-                <div 
+                <div
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
                   style={{ background: 'linear-gradient(to right, #FF7F00, #FFCD00)' }}
                 />
-                
+
                 <div className="flex flex-col items-center mb-6 mt-2">
-                  <div 
+                  <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg icon-hover"
                     style={{ background: 'linear-gradient(135deg, #FF7F00, #FFCD00)' }}
                   >
                     <FileText className="w-6 h-6" />
                   </div>
-                  <h3 
+                  <h3
                     className="text-xl font-bold text-center"
-                    style={{ 
+                    style={{
                       fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
                       color: '#2C2C2C'
                     }}
@@ -443,13 +445,13 @@ export default function Fee_Policy() {
 
                 <div className="space-y-6 text-center">
                   <div className="p-6 rounded-xl bg-gradient-to-r from-blue-50 to-orange-50 border border-blue-200/40">
-                    <p 
+                    <p
                       className="text-base mb-2 font-medium"
                       style={{ color: 'rgba(44, 44, 44, 0.7)' }}
                     >
                       Per Semester
                     </p>
-                    <p 
+                    <p
                       className="text-3xl font-bold"
                       style={{ color: '#007BFF' }}
                     >
@@ -457,13 +459,13 @@ export default function Fee_Policy() {
                     </p>
                   </div>
                   <div className="p-6 rounded-xl bg-gradient-to-r from-orange-50 to-yellow-50 border border-orange-200/40">
-                    <p 
+                    <p
                       className="text-base mb-2 font-medium"
                       style={{ color: 'rgba(44, 44, 44, 0.7)' }}
                     >
                       Total Fee (6 Semesters)
                     </p>
-                    <p 
+                    <p
                       className="text-3xl font-bold"
                       style={{ color: '#FF7F00' }}
                     >
@@ -475,27 +477,27 @@ export default function Fee_Policy() {
             </div>
 
             {/* Option C */}
-            <div 
+            <div
               className="relative group payment-card"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.9s backwards' }}
             >
               <div className="relative h-full bg-white rounded-2xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-300">
                 {/* Accent Bar */}
-                <div 
+                <div
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
                   style={{ background: 'linear-gradient(to right, #007BFF, #FF7F00)' }}
                 />
-                
+
                 <div className="flex flex-col items-center mb-6 mt-2">
-                  <div 
+                  <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg icon-hover"
                     style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                   >
                     <CreditCard className="w-6 h-6" />
                   </div>
-                  <h3 
+                  <h3
                     className="text-xl font-bold text-center"
-                    style={{ 
+                    style={{
                       fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
                       color: '#2C2C2C'
                     }}
@@ -506,7 +508,7 @@ export default function Fee_Policy() {
 
                 <div className="space-y-4" style={{ color: 'rgba(44, 44, 44, 0.8)' }}>
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
@@ -516,7 +518,7 @@ export default function Fee_Policy() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
@@ -526,7 +528,7 @@ export default function Fee_Policy() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
@@ -536,7 +538,7 @@ export default function Fee_Policy() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
@@ -546,7 +548,7 @@ export default function Fee_Policy() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
@@ -558,13 +560,13 @@ export default function Fee_Policy() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span 
+                    <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
                       style={{ background: 'linear-gradient(135deg, #007BFF, #FF7F00)' }}
                     >
                       💳
                     </span>
-                    <p 
+                    <p
                       className="text-base leading-relaxed font-semibold"
                       style={{ color: '#FF7F00' }}
                     >
@@ -578,19 +580,21 @@ export default function Fee_Policy() {
         </div>
 
         {/* Bottom CTA */}
-        <div 
+        <div
           className="text-center"
           style={{ animation: 'fadeInUp 0.6s ease-out 1s backwards' }}
         >
-          <button 
-            className="cta-button px-10 py-4 text-white font-semibold rounded-full text-lg shadow-xl transition-all duration-300"
-            style={{
-              background: 'linear-gradient(135deg, #007BFF, #FF7F00)',
-              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-            }}
-          >
-            Start Your Admission →
-          </button>
+          <Link href="/contact">
+            <button
+              className="cta-button px-10 py-4 text-white font-semibold rounded-full text-lg shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{
+                background: "linear-gradient(135deg, #007BFF, #FF7F00)",
+                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
+              }}
+            >
+              Start Your Admission →
+            </button>
+          </Link>
         </div>
       </div>
 

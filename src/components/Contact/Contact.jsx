@@ -108,7 +108,7 @@ Sent from Nexcore Alliance Website`;
     { 
       icon: Mail, 
       title: "Email", 
-      content: "bvoc@nexcorealliance.com", 
+      content: "admin@nexcoreinstitute.org", 
       subContent: "We'll respond within 24 hours", 
       color: "#FF7F00", 
       href: "mailto:bvoc@nexcorealliance.com" 
@@ -132,26 +132,26 @@ Sent from Nexcore Alliance Website`;
   ];
 
   const socialLinks = [
-    { 
-      icon: LinkedInIcon, 
-      href: "https://www.linkedin.com/company/105730702/admin/dashboard", 
-      color: "#0077b5"
-    },
-    { 
-      icon: FacebookIcon, 
-      href: "https://www.facebook.com/profile.php?id=61570113656994", 
-      color: "#1877f2"
-    },
-    { 
-      icon: InstagramIcon, 
-      href: "https://www.instagram.com/nexcorealliancellp/", 
-      color: "#E4405F"
-    },
-    { 
-      icon: YouTubeIcon, 
-      href: "https://www.youtube.com/channel/UCYqpIltw48XxkMRLC-HCgag", 
-      color: "#FF0000"
-    },
+    // { 
+    //   icon: LinkedInIcon, 
+    //   href: "https://www.linkedin.com/company/105730702/admin/dashboard", 
+    //   color: "#0077b5"
+    // },
+    // { 
+    //   icon: FacebookIcon, 
+    //   href: "https://www.facebook.com/profile.php?id=61570113656994", 
+    //   color: "#1877f2"
+    // },
+    // { 
+    //   icon: InstagramIcon, 
+    //   href: "https://www.instagram.com/nexcorealliancellp/", 
+    //   color: "#E4405F"
+    // },
+    // { 
+    //   icon: YouTubeIcon, 
+    //   href: "https://www.youtube.com/channel/UCYqpIltw48XxkMRLC-HCgag", 
+    //   color: "#FF0000"
+    // },
   ];
 
   return (

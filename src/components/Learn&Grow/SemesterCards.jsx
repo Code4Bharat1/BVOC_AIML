@@ -162,7 +162,7 @@ const SemesterCards = () => {
       {/* Nexcore Alliance Logo - Centered */}
       <div className="logo-animate relative z-30 w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto mb-8 md:mb-12">
         <Image
-          src="/elements/Nexcore_Alliance.svg"
+          src="/logo.png"
           alt="Nexcore Alliance"
           fill
           className="object-contain"

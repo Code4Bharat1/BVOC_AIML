@@ -7,52 +7,22 @@ const ModernInfra = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   const features = [
-    {
-      id: 1,
-      icon: FaVideo,
-      title: "Explore Through",
-      subtitle: "Videos & Photos",
-      color: "#007BFF",
-    },
-    {
-      id: 2,
-      icon: FaLightbulb,
-      title: "Innovation-Driven",
-      subtitle: "Workspaces",
-      color: "#FF7F00",
-    },
-    {
-      id: 3,
-      icon: FaBuilding,
-      title: "Dynamic &",
-      subtitle: "Comfortable Spaces",
-      color: "#007BFF",
-    },
-    {
-      id: 4,
-      icon: FaMicroscope,
-      title: "Cutting-Edge",
-      subtitle: "Technology",
-      color: "#FF7F00",
-    },
+    { id: 1, icon: FaVideo, title: "Explore Through", subtitle: "Videos & Photos", color: "#2563EB" },
+    { id: 2, icon: FaLightbulb, title: "Innovation-Driven", subtitle: "Workspaces", color: "#F59E0B" },
+    { id: 3, icon: FaBuilding, title: "Dynamic &", subtitle: "Comfortable Spaces", color: "#2563EB" },
+    { id: 4, icon: FaMicroscope, title: "Cutting-Edge", subtitle: "Technology", color: "#F59E0B" },
   ];
 
   return (
-    <div className="bg-white py-20 px-4 relative overflow-hidden">
-      {/* Subtle Background Elements */}
-      <div 
-        className="absolute top-0 left-0 w-96 h-96 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
+    <div className="bg-[#F8FAFC] py-20 px-4 relative overflow-hidden">
+      {/* Subtle Solid Background Elements */}
+      <div
+        className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ background: "rgba(37, 99, 235, 0.05)" }}
       />
-      <div 
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.05) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ background: "rgba(245, 158, 11, 0.05)" }}
       />
 
       <style jsx>{`
@@ -72,7 +42,7 @@ const ModernInfra = () => {
         }
 
         .feature-card {
-          transition: all 0.3s ease;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
@@ -80,57 +50,46 @@ const ModernInfra = () => {
         }
 
         .icon-circle {
-          transition: all 0.3s ease;
+          transition: background-color 0.3s ease;
         }
       `}</style>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header Section */}
+        {/* Header */}
         <div className="text-center mb-16 fade-in">
-          <div 
+          <div
             className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg mb-6"
-            style={{
-              border: '4px solid rgba(0, 123, 255, 0.1)'
-            }}
+            style={{ border: "4px solid rgba(37, 99, 235, 0.15)" }}
           >
-            <FaGraduationCap className="text-5xl" style={{ color: '#007BFF' }} />
+            <FaGraduationCap className="text-5xl" style={{ color: "#2563EB" }} />
           </div>
-          <h1 
+
+          <h1
             className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-            style={{ 
+            style={{
               fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              color: '#2C2C2C'
+              color: "#0A2540",
             }}
           >
             Modern{" "}
-            <span 
-              style={{
-                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                fontWeight: 'bold'
-              }}
-            >
+            <span style={{ color: "#F59E0B", fontWeight: "bold" }}>
               Infrastructure
             </span>
           </h1>
-          <p 
+
+          <p
             className="text-xl font-medium"
-            style={{ 
+            style={{
               fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: 'rgba(44, 44, 44, 0.7)'
+              color: "rgba(15, 23, 42, 0.7)",
             }}
           >
             Experience Our Campus
           </p>
         </div>
 
-        {/* Desktop Features Grid */}
-        <div 
-          className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in"
-          style={{ animationDelay: '0.2s' }}
-        >
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in">
           {features.map((feature) => {
             const IconComponent = feature.icon;
             return (
@@ -140,41 +99,43 @@ const ModernInfra = () => {
                 onMouseEnter={() => setHoveredCard(feature.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{
-                  borderColor: hoveredCard === feature.id ? feature.color : '#e5e7eb',
-                  boxShadow: hoveredCard === feature.id 
-                    ? `0 20px 40px ${feature.color}20` 
-                    : '0 4px 6px rgba(0, 0, 0, 0.1)'
+                  borderColor: hoveredCard === feature.id ? feature.color : "#E5E7EB",
+                  boxShadow:
+                    hoveredCard === feature.id
+                      ? `0 20px 40px ${feature.color}25`
+                      : "0 4px 6px rgba(0,0,0,0.08)",
                 }}
               >
-                <div 
+                <div
                   className="icon-circle w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto"
                   style={{
-                    backgroundColor: hoveredCard === feature.id 
-                      ? `${feature.color}15` 
-                      : '#f8fafc',
+                    backgroundColor:
+                      hoveredCard === feature.id ? `${feature.color}20` : "#F1F5F9",
                   }}
                 >
-                  <IconComponent 
-                    className="text-4xl" 
-                    style={{ 
-                      color: hoveredCard === feature.id ? feature.color : 'rgba(44, 44, 44, 0.6)'
-                    }} 
+                  <IconComponent
+                    className="text-4xl"
+                    style={{
+                      color: hoveredCard === feature.id ? feature.color : "#475569",
+                    }}
                   />
                 </div>
-                <h3 
+
+                <h3
                   className="text-xl font-bold mb-2"
                   style={{
                     fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                    color: hoveredCard === feature.id ? feature.color : '#2C2C2C',
+                    color: "#0F172A",
                   }}
                 >
                   {feature.title}
                 </h3>
-                <p 
+
+                <p
                   className="text-lg font-semibold"
                   style={{
                     fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                    color: hoveredCard === feature.id ? feature.color : 'rgba(44, 44, 44, 0.6)',
+                    color: "#475569",
                   }}
                 >
                   {feature.subtitle}
@@ -184,46 +145,32 @@ const ModernInfra = () => {
           })}
         </div>
 
-        {/* Mobile Optimized Section */}
-        <div 
-          className="block lg:hidden space-y-6 fade-in"
-          style={{ animationDelay: '0.3s' }}
-        >
+        {/* Mobile */}
+        <div className="block lg:hidden space-y-6 fade-in">
           {features.map((feature) => {
             const IconComponent = feature.icon;
             return (
               <div
                 key={`mobile-${feature.id}`}
-                className="bg-white rounded-2xl p-6 shadow-md border-2"
-                style={{
-                  borderColor: '#e5e7eb',
-                }}
+                className="bg-white rounded-2xl p-6 shadow-md border-2 border-slate-200"
               >
                 <div className="flex items-center gap-5">
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{
-                      backgroundColor: `${feature.color}15`,
-                    }}
+                    style={{ backgroundColor: `${feature.color}20` }}
                   >
                     <IconComponent className="text-3xl" style={{ color: feature.color }} />
                   </div>
-                  <div className="text-left">
-                    <p 
-                      className="text-lg font-bold leading-tight"
-                      style={{ 
-                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                        color: '#2C2C2C'
-                      }}
+                  <div>
+                    <p
+                      className="text-lg font-bold"
+                      style={{ color: "#0F172A" }}
                     >
                       {feature.title}
                     </p>
-                    <p 
+                    <p
                       className="text-lg font-semibold"
-                      style={{ 
-                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                        color: feature.color 
-                      }}
+                      style={{ color: "#475569" }}
                     >
                       {feature.subtitle}
                     </p>

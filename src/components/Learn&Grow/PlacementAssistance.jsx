@@ -101,7 +101,7 @@ const PlacementAssistance = () => {
           >
             At{" "}
             <span className="font-bold" style={{ color: "#0A2540" }}>
-              Nexcore INTITUTE OF TECHNOLOGY
+              NEXCORE INTITUTE OF TECHNOLOGY
             </span>
             , we don't just teach — you{" "}
             <span className="font-bold" style={{ color: "#FF7F00" }}>

@@ -144,7 +144,7 @@ const CenteredBoxWithCards = () => {
         </div>
 
         {/* Desktop Cards */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 justify-center ite">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -181,7 +181,7 @@ const CenteredBoxWithCards = () => {
                   />
                   <div 
                     className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to top, white, rgba(255, 255, 255, 0.5), transparent)' }}
+                    // style={{ background: 'linear-gradient(to top, white, rgba(255, 255, 255, 0.5), transparent)' }}
                   />
                   
                   {/* Floating Icon Badge */}

@@ -91,7 +91,7 @@ const FlexibleCareerSupport = () => {
         {/* Text + CTA */}
         <div className="slide-up bg-white pt-14 pb-20 pl-6 lg:pl-24 relative">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#2C2C2C]">
-            <span className="text-[#007BFF]">Nexcore</span> Alliance LLP — <br />
+            <span className="text-[#007BFF]">NEXCORE</span> INTITUTE OF TECHNOLOGY —<br />
             A Clear Path Forward
           </h2>
 
@@ -164,7 +164,7 @@ const FlexibleCareerSupport = () => {
         {/* Mobile Text */}
         <div className="px-6 pb-20">
           <h2 className="text-3xl font-bold text-[#2C2C2C]">
-            <span className="text-[#007BFF]">Nexcore</span> Alliance LLP — <br />
+            <span className="text-[#007BFF]">NEXCORE</span>INTITUTE OF TECHNOLOGY — <br />
             A Clear Path Forward
           </h2>
 

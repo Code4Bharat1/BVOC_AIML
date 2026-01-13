@@ -76,7 +76,7 @@ export default function EnhancedAITools() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white py-24 px-4 mt-3">
+    <div className="relative min-h-screen bg-white py-24 px-4 mt-5">
       {/* Subtle Background */}
       <div 
         className="absolute top-0 left-0 w-96 h-96 rounded-full"

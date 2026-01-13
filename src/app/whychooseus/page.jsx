@@ -23,9 +23,9 @@ import CenteredBoxWithCards from "@/components/WhyChooseUs/TopBenefits";
 const page = () => {
   return (
     <div>
-      <main className="bg-[#0f0f1a] min-h-screen">
-        <CardCarousel />
+      <main className="bg-white min-h-screen">
         <DegreeComparisonTable />
+        <CardCarousel />
         <WhyChooseBVoc />
         <PeerToPeerLearning />
         <CenteredBoxWithCards />

@@ -115,43 +115,60 @@ const Welcome = () => {
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.9 }}
       >
-        <motion.div
-          className="rounded-3xl bg-white p-14 shadow-xl border border-gray-100"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {/* Your existing SVG robot – unchanged */}
-          <svg width="350" height="350" viewBox="0 0 350 350">
-            <defs>
-              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#007BFF" />
-                <stop offset="100%" stopColor="#80C8F7" />
-              </linearGradient>
-            </defs>
+    <svg width="300" height="360" viewBox="0 0 300 360" fill="none">
 
-            <g transform="translate(175, 175)">
-              <rect x="-45" y="-90" width="90" height="70" rx="18" fill="url(#g1)" />
-              <circle cx="-20" cy="-60" r="8" fill="#fff" />
-              <circle cx="20" cy="-60" r="8" fill="#fff" />
-              <path
-                d="M -20,-35 Q 0,-25 20,-35"
-                stroke="#FF7F00"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <rect
-                x="-50"
-                y="-15"
-                width="100"
-                height="85"
-                rx="18"
-                fill="url(#g1)"
-                opacity="0.9"
-              />
-            </g>
-          </svg>
-        </motion.div>
+  {/* Antenna */}
+  <line x1="150" y1="20" x2="150" y2="45" stroke="#FF9800" strokeWidth="6" />
+  <circle cx="150" cy="15" r="8" fill="#FF9800" />
+
+  {/* Head */}
+  <rect x="80" y="45" rx="24" ry="24" width="140" height="110" fill="#4DA3FF" />
+
+  {/* Eyes */}
+  <circle cx="120" cy="95" r="10" fill="white" />
+  <circle cx="180" cy="95" r="10" fill="white" />
+
+  {/* Smile */}
+  <path
+    d="M120 125 Q150 145 180 125"
+    stroke="#FF9800"
+    strokeWidth="5"
+    fill="none"
+    strokeLinecap="round"
+  />
+
+  {/* Body */}
+  <rect x="70" y="165" rx="26" ry="26" width="160" height="130" fill="#3A8DDE" />
+
+  {/* Screen */}
+  <rect x="105" y="195" rx="10" ry="10" width="90" height="55" fill="#1E3A5F" />
+  <line x1="120" y1="215" x2="175" y2="215" stroke="#4DA3FF" strokeWidth="4" />
+  <line x1="120" y1="235" x2="160" y2="235" stroke="#FF9800" strokeWidth="4" />
+
+  {/* Arms */}
+  <rect x="45" y="185" rx="12" ry="12" width="25" height="80" fill="#FF9800" />
+  <rect x="230" y="185" rx="12" ry="12" width="25" height="80" fill="#FF9800" />
+
+  {/* Legs */}
+  <rect x="110" y="300" rx="14" ry="14" width="30" height="55" fill="#4DA3FF" />
+  <rect x="160" y="300" rx="14" ry="14" width="30" height="55" fill="#4DA3FF" />
+
+  {/* AI Bubble */}
+  <circle cx="245" cy="120" r="18" fill="#FF9800" />
+  <text
+    x="245"
+    y="125"
+    textAnchor="middle"
+    fontSize="14"
+    fill="white"
+    fontWeight="700"
+    fontFamily="Arial, sans-serif"
+  >
+    AI
+  </text>
+
+</svg>
+
       </motion.div>
 
       {/* ================= PDF MODAL ================= */}

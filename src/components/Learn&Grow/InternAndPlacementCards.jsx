@@ -40,7 +40,7 @@ const InternAndPlacementCards = () => {
           {/* Image */}
           <div className="relative w-full lg:w-1/3 h-64 rounded-2xl overflow-hidden border border-gray-200">
             <Image
-              src="/learn&grow/placement-image.svg"
+              src="/SelectionPolicy/SelectionPolicy6.png"
               alt="Placement"
               fill
               className="object-cover"

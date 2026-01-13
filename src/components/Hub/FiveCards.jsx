@@ -49,10 +49,10 @@ const FiveCards = () => {
           viewport={{ once: true }}
           className="text-center mb-20 md:mb-24"
         >
-<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C]">
-  Why Choose <span className="text-blue-900">Us</span>
+<h2 className="text-3xl md:text-4xl lg:text-5xl mb-2 font-bold text-[#2C2C2C]">
+  Why Choose Us
 </h2>
-
+    <div className="w-60 h-[4px] mx-auto mb-2 rounded-full bg-[#FF7F00]" />
           <p className="text-gray-600 max-w-2xl mx-auto">
             Everything you need to build a successful technology career — under one roof.
           </p>

@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Why Choose Us | Nexcore Alliance LLP",
+  title: "Why Choose Us | Nexcore INTITUTE OF TECHNOLOGY",
   description:
-    "Discover why Nexcore Alliance LLP is the right choice for BVOC and skill-based education with industry-aligned curriculum.",
+    "Discover why Nexcore INTITUTE OF TECHNOLOGY is the right choice for BVOC and skill-based education with industry-aligned curriculum.",
   openGraph: {
-    title: "Why Choose Nexcore Alliance LLP",
+    title: "Why Choose Nexcore INTITUTE OF TECHNOLOGY",
     description:
       "Industry-focused BVOC programs, expert mentors, and career-driven learning.",
     url: "https://nexcoreinstitute.org/whychooseus",
-    siteName: "Nexcore Alliance LLP",
+    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
   },
 };
 

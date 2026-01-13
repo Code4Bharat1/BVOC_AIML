@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Placement Policy | Nexcore Alliance LLP",
+  title: "Placement Policy | Nexcore INTITUTE OF TECHNOLOGY",
   description:
-    "Learn about placement support, career guidance, and job assistance for BVOC students at Nexcore Alliance LLP.",
+    "Learn about placement support, career guidance, and job assistance for BVOC students at Nexcore INTITUTE OF TECHNOLOGY.",
   openGraph: {
     title: "BVOC Placement Policy",
     description:
       "Career-focused placement assistance for skill-based BVOC programs.",
     url: "https://nexcoreinstitute.org/placement-policy",
-    siteName: "Nexcore Alliance LLP",
+    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
   },
 };
 
@@ -20,6 +20,7 @@ import YourCareerStarts from "@/components/Learn&Grow/YourCareerStarts";
 import Testimonials2 from "@/components/Learn&Grow/Testimonals2";
 import OurSyllabus from "@/components/Learn&Grow/OurSyllabus";
 import AllSemesters from "@/components/Learn&Grow/AllSemesters";
+import ModernInfra from "@/components/Infrastructure/ModernInfra";
 
 const Page = () => {
   return (
@@ -32,6 +33,7 @@ const Page = () => {
         <YourCareerStarts />
         <Testimonials2 />
         <OurSyllabus />
+          <ModernInfra />
         {/* <AllSemesters /> */}
       </main>
     </div>

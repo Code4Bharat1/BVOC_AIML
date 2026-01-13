@@ -1,13 +1,13 @@
 export const metadata = {
   title: "Fees Policy | BVOC Programs",
   description:
-    "Learn about the BVOC program fee structure, payment terms, and transparency at Nexcore Alliance LLP.",
+    "Learn about the BVOC program fee structure, payment terms, and transparency at Nexcore INTITUTE OF TECHNOLOGY.",
   openGraph: {
     title: "BVOC Fees Policy",
     description:
       "Transparent and student-friendly fee structure for BVOC programs.",
     url: "https://nexcoreinstitute.org/fees-policy",
-    siteName: "Nexcore Alliance LLP",
+    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
   },
 };
 

@@ -41,8 +41,8 @@ const Welcome = () => {
         {/* Description */}
         <p className="mb-10 text-gray-600 text-lg max-w-xl">
           Strategic partnership with{" "}
-          <span className="font-semibold text-[#007BFF]">
-            Nexcore Alliance LLP
+          <span className="font-semibold text-zinc-800">
+            NEXCORE INTITUTE OF TECHNOLOGY
           </span>
           , launching{" "}
           <span className="font-semibold text-[#FF7F00]">B.Voc</span> degree

@@ -1,13 +1,13 @@
 export const metadata = {
   title: "Selection Policy | BVOC Admission",
   description:
-    "Understand the BVOC admission and student selection process at Nexcore Alliance LLP.",
+    "Understand the BVOC admission and student selection process at Nexcore INTITUTE OF TECHNOLOGY.",
   openGraph: {
     title: "BVOC Selection Policy",
     description:
       "Transparent and fair admission process for BVOC programs.",
     url: "https://nexcoreinstitute.org/selection-policy",
-    siteName: "Nexcore Alliance LLP",
+    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
   },
 };
 

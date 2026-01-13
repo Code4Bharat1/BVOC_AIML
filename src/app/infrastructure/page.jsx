@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Infrastructure | Nexcore Alliance LLP",
+  title: "Infrastructure | Nexcore INTITUTE OF TECHNOLOGY",
   description:
-    "Explore modern infrastructure, labs, and learning facilities provided by Nexcore Alliance LLP for BVOC students.",
+    "Explore modern infrastructure, labs, and learning facilities provided by Nexcore INTITUTE OF TECHNOLOGY for BVOC students.",
   openGraph: {
     title: "Our Infrastructure",
     description:
       "State-of-the-art infrastructure supporting practical and skill-based education.",
     url: "https://nexcoreinstitute.org/infrastructure",
-    siteName: "Nexcore Alliance LLP",
+    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
   },
 };
 
@@ -29,7 +29,7 @@ const Page = () => {
         {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
         <Hero />
-        <ModernInfra />
+        {/* <ModernInfra /> */}
         {/* <InfraImgVid /> */}
       </main>
     </div>

@@ -62,25 +62,16 @@ const Navbar = () => {
             {/* Logo & Brand Name - LEFT ALIGNED - RESPONSIVE */}
             <Link
               href="/"
-              className="flex items-center  flex-shrink-0 min-w-0"
+              className="flex items-center"
             >
-              {/* Left Logo (Icon) */}
-              <Image
-                src="/logo2.png" // first logo
-                alt="Nexcore Logo Icon"
-                width={250}
-                height={100}
-                className="h-7 sm:h-12 md:h-18 w-auto flex-shrink-0"
-                priority
-              />
-
+ 
               {/* Right Logo (Text) */}
               <Image
-                src="/logo1.png" // second logo
+                src="/logos.png" // second logo
                 alt="Nexcore Institute of Technology"
-                width={250}
-                height={100}
-                className="h-7 sm:h-7 md:h-12 w-auto"
+                width={350}
+                height={150}
+                className="h-7 sm:h-8 md:h-15 w-auto"
               />
             </Link>
 

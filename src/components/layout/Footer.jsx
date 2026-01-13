@@ -1,176 +1,83 @@
 "use client";
+
 import { MapPin, Phone, Mail, Heart } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from "react-icons/fa";
-import { usePathname } from "next/navigation";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
-  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   const socialLinks = [
-    {
-      icon: <FaFacebookF />,
-      url: "https://www.facebook.com/profile.php?id=61585525156166",
-      label: "Facebook",
-      bgColor: "#1877F2"
-    },
-    {
-      icon: <FaInstagram />,
-      url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0",
-      label: "Instagram",
-      bgColor: "#E4405F"
-    },
-    {
-      icon: <FaLinkedinIn />,
-      url: "https://www.linkedin.com/company/nexcore-institute-of-technology/?viewAsMember=true",
-      label: "LinkedIn",
-      bgColor: "#0A66C2"
-    },
-    {
-      icon: <FaYoutube />,
-      url: "https://www.youtube.com/@NexcoreInstitute",
-      label: "YouTube",
-      bgColor: "#FF0000"
-    },
-    {
-      icon: <FaWhatsapp />,
-      url: "https://wa.me/919892398976",
-      label: "WhatsApp",
-      bgColor: "#25D366"
-    }
+    { icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61585525156166" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/company/nexcore-institute-of-technology/?viewAsMember=true" },
+    { icon: <FaYoutube />, url: "https://www.youtube.com/@NexcoreInstitute" },
+    { icon: <FaWhatsapp />, url: "https://wa.me/919892398976" },
   ];
-  
+
   return (
-    <footer className="relative bg-white text-slate-900 border-t border-slate-200">
-      {/* Simple CSS - NO LAG */}
-      <style jsx>{`
-        html {
-          scroll-behavior: smooth;
-        }
+    <footer className="bg-[#2C2C2C] text-white pt-20 relative overflow-hidden">
+      {/* subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(#007BFF 1px, transparent 1px),
+            linear-gradient(90deg, #007BFF 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-        .footer-link {
-          transition: color 0.2s ease;
-        }
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
 
-        .footer-link:hover {
-          color: #007BFF;
-        }
+        {/* ===== GRID ===== */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
 
-        .social-icon {
-          transition: transform 0.2s ease;
-        }
-
-        .social-icon:hover {
-          transform: translateY(-3px);
-        }
-      `}</style>
-
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 py-12">
-        {/* Top Section - Logo and Social Icons */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-14 pb-10 border-b-2 border-slate-200">
-          {/* Logo - LEFT */}
+          {/* LOGO + ABOUT */}
           <div>
             <Link href="/" className="inline-block">
-              <Image
-                src="/logo.png"
-                alt="Nexcore Institute of Technology"
-                width={300}
-                height={120}
-                className="h-auto w-auto max-w-[300px]"
-                priority
-              />
+              {/* logo container for better contrast */}
+              <div className="bg-white rounded-xl p-3 inline-block mb-5 shadow-md">
+                <Image
+                  src="/logo.png"
+                  alt="Nexcore Institute"
+                  width={220}
+                  height={90}
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </Link>
-          </div>
 
-          {/* Social Media Icons - RIGHT */}
-          <div className="flex flex-col items-start md:items-end gap-5">
-            <h3 
-              className="text-xl font-bold"
-              style={{ 
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                color: '#2C2C2C'
-              }}
-            >
-              Connect With Us
-            </h3>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="social-icon w-12 h-12 rounded-lg flex items-center justify-center text-white shadow-lg"
-                  style={{
-                    backgroundColor: social.bgColor,
-                  }}
-                >
-                  <span className="text-xl">{social.icon}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content - Links Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
-          {/* About Section */}
-          <div className="lg:col-span-1">
-            <h2 
-              className="mb-5 text-xl font-bold"
-              style={{ 
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                color: '#007BFF'
-              }}
-            >
-              About Us
-            </h2>
-            <p 
-              className="text-base leading-relaxed font-medium"
-              style={{ 
-                fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                color: 'rgba(44, 44, 44, 0.75)'
-              }}
-            >
-              A next-gen program designed to equip students with real-world AI skills for tech-driven careers.
+            <p className="text-gray-300 leading-relaxed text-sm">
+              A next-generation institute empowering students with real-world
+              AI and technology skills for industry-ready careers.
             </p>
           </div>
 
-          {/* Explore More */}
+          {/* EXPLORE */}
           <div>
-            <h2 
-              className="mb-5 text-xl font-bold"
-              style={{ 
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                color: '#007BFF'
-              }}
-            >
-              Explore
-            </h2>
+            <h3 className="text-lg font-semibold mb-5 text-[#80C8F7]">Explore</h3>
             <ul className="space-y-3">
               {[
-                { href: '/infrastructure', label: 'Infrastructure' },
-                { href: '/learn-grow', label: 'Learn & Grow' },
-                { href: '/whychooseus', label: 'Why Choose Us' }
+                { href: "/infrastructure", label: "Infrastructure" },
+                { href: "/learn-grow", label: "Learn & Grow" },
+                { href: "/whychooseus", label: "Why Choose Us" },
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className={`footer-link text-base font-semibold block ${
-                      mounted && pathname === link.href ? "font-bold" : ""
-                    }`}
-                    style={{ 
-                      fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                      color: mounted && pathname === link.href ? '#007BFF' : 'rgba(44, 44, 44, 0.7)'
-                    }}
+                    className="text-gray-300 hover:text-[#007BFF] transition"
                   >
                     {link.label}
                   </Link>
@@ -179,35 +86,21 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Policies */}
+          {/* POLICIES */}
           <div>
-            <h2 
-              className="mb-5 text-xl font-bold"
-              style={{ 
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                color: '#FF7F00'
-              }}
-            >
-              Policies
-            </h2>
+            <h3 className="text-lg font-semibold mb-5 text-[#FF7F00]">Policies</h3>
             <ul className="space-y-3">
               {[
-                { href: '/selection-policy', label: 'Selection Policy' },
-                { href: '/eligibility-criteria', label: 'Eligibility Criteria' },
-                { href: '/placement-policy', label: 'Placement Policy' },
-                { href: '/scholarship-policy', label: 'Scholarship Policy' },
-                { href: '/fees-policy', label: 'Fees Policy' }
+                { href: "/selection-policy", label: "Selection Policy" },
+                { href: "/eligibility-criteria", label: "Eligibility Criteria" },
+                { href: "/placement-policy", label: "Placement Policy" },
+                { href: "/scholarship-policy", label: "Scholarship Policy" },
+                { href: "/fees-policy", label: "Fees Policy" },
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className={`footer-link text-base font-semibold block ${
-                      mounted && pathname === link.href ? "font-bold" : ""
-                    }`}
-                    style={{ 
-                      fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                      color: mounted && pathname === link.href ? '#FF7F00' : 'rgba(44, 44, 44, 0.7)'
-                    }}
+                    className="text-gray-300 hover:text-[#FF7F00] transition"
                   >
                     {link.label}
                   </Link>
@@ -216,102 +109,70 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <div>
-            <h2 
-              className="mb-5 text-xl font-bold"
-              style={{ 
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                color: '#007BFF'
-              }}
-            >
-              Contact
-            </h2>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#007BFF' }} />
-                <a
-                  href="https://maps.app.goo.gl/prUqufdGwFhtm6DFA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link text-base font-medium"
-                  style={{ 
-                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                    color: 'rgba(44, 44, 44, 0.75)'
-                  }}
-                >
-                  Kurla West, Mumbai 400070
-                </a>
+            <h3 className="text-lg font-semibold mb-5 text-[#80C8F7]">Contact</h3>
+            <ul className="space-y-4 text-gray-300 text-sm">
+              <li className="flex gap-3">
+                <MapPin className="w-5 h-5 text-[#80C8F7]" />
+                Kurla West, Mumbai 400070
               </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#FF7F00' }} />
-                <a
-                  href="tel:+919892398976"
-                  className="footer-link text-base font-medium"
-                  style={{ 
-                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                    color: 'rgba(44, 44, 44, 0.75)'
-                  }}
-                >
-                  +91 9892398976
-                </a>
+              <li className="flex gap-3">
+                <Phone className="w-5 h-5 text-[#FF7F00]" />
+                +91 9892398976
               </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#FFCD00' }} />
-                <a
-                  href="mailto:admin@nexcoreinstitute.org"
-                  className="footer-link text-base font-medium break-all"
-                  style={{ 
-                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                    color: 'rgba(44, 44, 44, 0.75)'
-                  }}
-                >
-                  admin@nexcoreinstitute.org
-                </a>
+              <li className="flex gap-3 break-all">
+                <Mail className="w-5 h-5 text-[#FFCD00]" />
+                admin@nexcoreinstitute.org
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div 
-          className="pt-8 border-t-2 border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4"
-        >
-          <div 
-            className="text-base font-semibold text-center md:text-left" 
-            style={{ 
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: 'rgba(44, 44, 44, 0.7)'
-            }}
-          >
-            © 2026{" "}
-            <Link
-              href="/"
-              className="font-bold"
-              style={{ color: '#007BFF' }}
-            >
-              Nexcore Institute
-            </Link>
-            . All Rights Reserved.
+        {/* ===== SOCIAL + BOTTOM ===== */}
+        <div className="py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          {/* SOCIAL (smaller + cleaner) */}
+          <div className="flex gap-3">
+            {socialLinks.map((s, i) => (
+              <a
+                key={i}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  w-9 h-9 rounded-md
+                  bg-white/10
+                  flex items-center justify-center
+                  hover:bg-[#007BFF]
+                  hover:scale-110
+                  transition
+                "
+              >
+                <span className="text-sm">{s.icon}</span>
+              </a>
+            ))}
           </div>
-          
-          <div 
-            className="text-base font-semibold flex items-center gap-2" 
-            style={{ 
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: 'rgba(44, 44, 44, 0.7)'
-            }}
-          >
-            Designed by{" "}
+
+          {/* COPYRIGHT */}
+          <div className="text-gray-400 text-sm text-center">
+            © 2026{" "}
+            <Link href="/" className="text-[#80C8F7] font-semibold">
+              Nexcore Institute
+            </Link>{" "}
+            — All Rights Reserved
+          </div>
+
+          {/* DESIGN CREDIT */}
+          <div className="text-gray-400 text-sm flex items-center gap-2">
+            Designed by
             <a
               href="https://nexcorealliance.com/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold inline-flex items-center gap-1.5"
-              style={{ color: '#FF7F00' }}
+              className="text-[#FF7F00] font-semibold flex items-center gap-1"
             >
-              Nexcore alliance
-              <Heart className="w-4 h-4 fill-current" style={{ color: '#FF5733' }} />
+              Nexcore Alliance
+              <Heart className="w-4 h-4 fill-current text-[#FF5733]" />
             </a>
           </div>
         </div>

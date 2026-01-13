@@ -32,7 +32,7 @@ const Page = () => {
         <YourCareerStarts />
         <Testimonials2 />
         <OurSyllabus />
-        <AllSemesters />
+        {/* <AllSemesters /> */}
       </main>
     </div>
   );

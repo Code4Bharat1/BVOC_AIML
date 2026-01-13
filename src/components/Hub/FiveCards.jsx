@@ -1,276 +1,145 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import { Briefcase, Hammer, Award, Users, Rocket } from "lucide-react";
 
 const cardData = [
   {
-    title: "Strategic Partnerships with Industry Giants",
+    title: "Strategic Industry Partnerships",
     content:
-      "We've joined forces with Microsoft, Google, and Amazon, offering co-branded certifications recognized globally.",
+      "Collaborations with leading tech companies offering co-branded global certifications.",
+    icon: Briefcase,
   },
   {
-    title: "Hands-on Learning with Real-World Impact",
+    title: "Hands-on Practical Learning",
     content:
-      "Gain practical experience through projects, internships, and industry case studies.",
+      "Real-world projects, internships, and live industry case studies.",
+    icon: Hammer,
   },
   {
-    title: "Career Guidance and Mentorship",
+    title: "NAAC A+ Accredited Excellence",
     content:
-      "Our mentors and career advisors provide personalized support for your growth journey.",
+      "Recognized for academic excellence and industry-integrated curriculum.",
+    icon: Award,
   },
   {
-    title: "NAAC A+ Accreditation – Excellence Recognized",
+    title: "Career Guidance & Mentorship",
     content:
-      "Achieving NAAC A+ accreditation showcases our commitment to academic excellence.",
+      "Dedicated mentors and placement support for long-term career success.",
+    icon: Users,
   },
   {
-    title: "Empowering India's Digital Future",
+    title: "Future-Ready Curriculum",
     content:
-      "Our curriculum builds digital-first skills to drive innovation across India's tech ecosystem.",
+      "Designed to build digital-first skills aligned with industry demand.",
+    icon: Rocket,
   },
 ];
 
-const Particle = ({ delay }) => {
-  const colors = ["#007BFF", "#FF7F00", "#FF5733"];
-  const color = colors[Math.floor(Math.random() * colors.length)];
-  const startX = Math.random() * 100;
-  const endX = startX + (Math.random() - 0.5) * 30;
-  const duration = 8 + Math.random() * 6;
-
-  return (
-    <motion.div
-      className="absolute w-1 h-1 rounded-full"
-      style={{ 
-        backgroundColor: color,
-        left: `${startX}%`,
-        top: '-10px',
-        boxShadow: `0 0 8px ${color}`,
-      }}
-      animate={{
-        y: ['0vh', '110vh'],
-        x: [`0vw`, `${endX - startX}vw`],
-        opacity: [0, 0.8, 0.8, 0],
-        scale: [0, 1.5, 1, 0],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    />
-  );
-};
-
 const FiveCards = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
-  const toggleCard = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-    }),
-  };
-
   return (
-    <div className="relative bg-[#ffffff] text-black py-20 px-6 lg:px-12 border-b-2 border-[#007BFF] overflow-hidden">
-      {/* Animated Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
-        <svg width="100%" height="100%">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#007BFF" strokeWidth="1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section className="bg-[#eef2f7] py-28 px-4">
+      <div className="max-w-6xl mx-auto">
 
-      {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
-        <Particle key={i} delay={i * 0.4} />
-      ))}
-
-      {/* Glowing Orbs */}
-      <motion.div
-        className="absolute top-20 left-10 w-96 h-96 rounded-full blur-[120px] opacity-30"
-        style={{ background: 'radial-gradient(circle, #007BFF 0%, transparent 70%)' }}
-        animate={{ 
-          scale: [1, 1.3, 1],
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{ duration: 12, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-10 w-80 h-80 rounded-full blur-[130px] opacity-25"
-        style={{ background: 'radial-gradient(circle, #FF7F00 0%, transparent 70%)' }}
-        animate={{ 
-          scale: [1, 1.4, 1],
-          x: [0, -30, 0],
-          y: [0, 20, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 w-72 h-72 rounded-full blur-[110px] opacity-20"
-        style={{ background: 'radial-gradient(circle, #80C8F7 0%, transparent 70%)' }}
-        animate={{ 
-          scale: [1.2, 1, 1.2],
-          rotate: [0, 360],
-        }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
-
-      {/* Section Title with Gradient */}
-      <motion.div
-        className="text-center mb-16 relative z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 
-          className="text-4xl md:text-5xl font-bold mb-4"
-          style={{ 
-            background: 'linear-gradient(135deg, #FF7F00 0%, #FFCD00 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-20 md:mb-24"
         >
-          Why Choose Us
-        </h2>
-        <div className="flex items-center justify-center gap-2">
-          <Sparkles className="text-[#FFCD00]" size={20} />
-          <p className="text-[#80C8F7] text-lg">Excellence in Education & Innovation</p>
-          <Sparkles className="text-[#FFCD00]" size={20} />
+<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C]">
+  Why Choose <span className="text-blue-900">Us</span>
+</h2>
+
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Everything you need to build a successful technology career — under one roof.
+          </p>
+        </motion.div>
+
+        {/* ================= MOBILE LAYOUT ================= */}
+        <div className="md:hidden grid gap-10 justify-items-center">
+          {cardData.map((item, i) => (
+            <HexCard key={i} data={item} />
+          ))}
         </div>
-      </motion.div>
 
-      {/* Cards Grid */}
-      <motion.div
-        ref={containerRef}
-        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto justify-items-center z-10"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        {cardData.map((card, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            variants={cardVariants}
-            onClick={() => toggleCard(i)}
-            className={`cursor-pointer relative w-full sm:w-[280px] md:w-[300px] p-6 rounded-2xl border-2 transition-all duration-500 ${
-              activeIndex === i
-                ? "scale-105 border-[#007BFF] shadow-[0_0_30px_rgba(0,123,255,0.4)]"
-                : "border-[#007BFF]/30 hover:scale-[1.02] hover:border-[#007BFF]/60"
-            }`}
-            style={{
-              background: activeIndex === i 
-                ? 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)'
-                : 'linear-gradient(135deg, #2C2C2C 0%, #1a1a1a 100%)',
-              boxShadow: activeIndex === i 
-                ? '0 8px 32px rgba(0,123,255,0.3), inset 0 1px 1px rgba(128,200,247,0.1)'
-                : '0 4px 20px rgba(0,0,0,0.4), inset 0 1px 1px rgba(128,200,247,0.05)',
-            }}
-          >
-            {/* Card Glow Effect */}
-            {activeIndex === i && (
-              <motion.div
-                className="absolute inset-0 rounded-2xl opacity-20 blur-xl"
-                style={{ background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)' }}
-                animate={{ opacity: [0.2, 0.4, 0.2] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            )}
+        {/* ================= DESKTOP HONEYCOMB (UNCHANGED) ================= */}
+        <div className="hidden md:flex flex-col items-center">
 
-            {/* Sparkle Icon */}
-            <motion.div
-              className="absolute top-4 right-4"
-              animate={activeIndex === i ? { 
-                rotate: [0, 360],
-                scale: [1, 1.2, 1],
-              } : {}}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Sparkles className="text-[#FFCD00]" size={18} />
-            </motion.div>
+          {/* ROW 1 */}
+          <div className="flex gap-[220px]">
+            <HexCard data={cardData[0]} />
+            <HexCard data={cardData[1]} />
+          </div>
 
-            <h3
-              className="text-lg font-semibold mb-2 text-center pr-6"
-              style={{ 
-                fontFamily: "'Inter', sans-serif",
-                color: activeIndex === i ? '#80C8F7' : '#ffffff',
-              }}
-            >
-              {card.title}
-            </h3>
+          {/* ROW 2 */}
+          <div className="-mt-40">
+            <HexCard data={cardData[2]} center />
+          </div>
 
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{
-                height: activeIndex === i ? "auto" : 0,
-                opacity: activeIndex === i ? 1 : 0,
-              }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <p className="text-gray-300 text-sm leading-relaxed text-center mt-3">
-                {card.content}
-              </p>
-            </motion.div>
-
-            {/* Chevron Indicator */}
-            <div
-              className={`absolute bottom-4 right-4 transition-transform duration-300 ${
-                activeIndex === i ? "rotate-180" : ""
-              }`}
-            >
-              <ChevronDown 
-                size={22} 
-                className="text-[#007BFF]"
-                style={{ filter: 'drop-shadow(0 0 4px rgba(0,123,255,0.6))' }}
-              />
-            </div>
-
-            {/* Bottom Edge Glow */}
-            <div 
-              className="absolute bottom-0 left-0 right-0 h-[2px] rounded-b-2xl"
-              style={{
-                background: activeIndex === i 
-                  ? 'linear-gradient(90deg, transparent, #FF7F00, transparent)'
-                  : 'linear-gradient(90deg, transparent, #007BFF, transparent)',
-                opacity: activeIndex === i ? 1 : 0.3,
-              }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Custom Grid Positioning for Last Row */}
-      <style>{`
-        @media (min-width: 1024px) {
-          .grid-cols-3 > :nth-child(4) {
-            grid-column: 1 / span 1;
-            justify-self: center;
-          }
-          .grid-col-3 > :nth-child(5) {
-            grid-column: 3 / span 1;
-            justify-self: center;
-          }
-        }
-      `}</style>
-    </div>
+          {/* ROW 3 */}
+          <div className="-mt-40 flex gap-[220px]">
+            <HexCard data={cardData[3]} />
+            <HexCard data={cardData[4]} />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default FiveCards;
+
+/* ================= HEX CARD ================= */
+
+const HexCard = ({ data, center }) => {
+  const Icon = data.icon;
+
+  return (
+    <motion.div
+      whileHover={{ y: -8, scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 220, damping: 18 }}
+      className={`relative
+        w-[280px] h-[250px]
+        md:w-[340px] md:h-[300px]
+        flex items-center justify-center
+        ${center ? "md:scale-105" : ""}
+      `}
+      style={{
+        clipPath:
+          "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+        background: "#ffffff",
+        border: "2px solid #e5e7eb",
+        boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
+      }}
+    >
+      {/* BORDER OVERLAY */}
+      <div
+        className="absolute inset-0"
+        style={{
+          clipPath:
+            "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+          border: "2px solid #e5e7eb",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* CONTENT */}
+      <div className="text-center px-8 md:px-10">
+        <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-5 rounded-full bg-[#fff1e6] flex items-center justify-center">
+          <Icon className="w-7 h-7 md:w-8 md:h-8 text-[#FF7F00]" />
+        </div>
+
+        <h3 className="font-semibold text-[#2C2C2C] text-sm md:text-base mb-2 md:mb-3">
+          {data.title}
+        </h3>
+
+        <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+          {data.content}
+        </p>
+      </div>
+    </motion.div>
+  );
+};

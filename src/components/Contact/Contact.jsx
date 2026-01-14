@@ -104,7 +104,7 @@ ${formData.message}`;
   ];
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden p-5">
       <section ref={sectionRef} className="relative py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 mt-10">

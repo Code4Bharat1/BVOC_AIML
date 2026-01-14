@@ -19,46 +19,97 @@ const OurSyllabus = () => {
 
       <style jsx>{`
         @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-50px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         @keyframes scaleIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
         @keyframes slideLeft {
-          from { opacity: 0; transform: translateX(-50px); }
-          to { opacity: 1; transform: translateX(0); }
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         @keyframes slideRight {
-          from { opacity: 0; transform: translateX(50px); }
-          to { opacity: 1; transform: translateX(0); }
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         @keyframes slideUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
-        .heading-animate { animation: slideDown 0.8s ease-out; }
-        .card-animate { animation: scaleIn 0.6s ease-out; }
-        .robot-animate { animation: slideLeft 0.6s ease-out 0.4s backwards; }
-        .text-animate { animation: slideRight 0.6s ease-out 0.6s backwards; }
-        .mobile-header-animate { animation: slideUp 0.6s ease-out; }
-        .mobile-robot-animate { animation: slideLeft 0.6s ease-out 0.3s backwards; }
-        .mobile-text-animate { animation: slideUp 0.6s ease-out 0.5s backwards; }
+        .heading-animate {
+          animation: slideDown 0.8s ease-out;
+        }
+        .card-animate {
+          animation: scaleIn 0.6s ease-out;
+        }
+        .robot-animate {
+          animation: slideLeft 0.6s ease-out 0.4s backwards;
+        }
+        .text-animate {
+          animation: slideRight 0.6s ease-out 0.6s backwards;
+        }
+        .mobile-header-animate {
+          animation: slideUp 0.6s ease-out;
+        }
+        .mobile-robot-animate {
+          animation: slideLeft 0.6s ease-out 0.3s backwards;
+        }
+        .mobile-text-animate {
+          animation: slideUp 0.6s ease-out 0.5s backwards;
+        }
 
-        .syllabus-card { transition: all 0.3s ease-in-out; }
-        .robot-image { transition: transform 0.3s ease-in-out; }
-        .text-content { transition: transform 0.3s ease; }
+        .syllabus-card {
+          transition: all 0.3s ease-in-out;
+        }
+        .robot-image {
+          transition: transform 0.3s ease-in-out;
+        }
+        .text-content {
+          transition: transform 0.3s ease;
+        }
       `}</style>
 
       {/* Heading */}
       <div className="heading-animate text-center max-w-4xl mx-auto mb-20 relative z-10">
-        <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#2C2C2C]"
-        >
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#2C2C2C]">
           Level Up Your Skills with <br />
-          <span className="text-[#007BFF]">Our B.Voc AI & ML Program</span>
+          <span className="text-[#007BFF]">
+            Our Cyber Security , AI & ML &
+            Computer Science Program
+          </span>
         </h2>
       </div>
 
@@ -102,11 +153,14 @@ const OurSyllabus = () => {
             >
               <p className="text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80">
                 Our{" "}
-                <span className="font-bold text-[#007BFF]">B.Voc AI & ML</span>{" "}
+                <span className="font-bold text-[#007BFF]">
+                  Cyber Security , AI & ML & Computer Science
+                </span>{" "}
                 program is structured across six dynamic semesters, providing
                 hands-on skills and deep theoretical knowledge in{" "}
                 <span className="font-bold text-[#2C2C2C]">
-                  AI, ML, and Data Science
+                  Cyber Security, Artificial Intelligence, Machine Learning, and
+                  Data Science
                 </span>
                 .
               </p>
@@ -118,9 +172,7 @@ const OurSyllabus = () => {
       {/* Mobile */}
       <div className="block lg:hidden px-6">
         <div className="mobile-header-animate flex items-center justify-center py-3 mb-10 mt-10 text-center w-full mx-auto rounded-2xl shadow-lg bg-[#007BFF]">
-          <h2 className="text-xl font-bold text-white">
-            About Our Syllabus
-          </h2>
+          <h2 className="text-xl font-bold text-white">About Our Syllabus</h2>
         </div>
 
         <div

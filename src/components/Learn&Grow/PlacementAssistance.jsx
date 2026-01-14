@@ -165,9 +165,9 @@ const PlacementAssistance = () => {
           <div className="mt-6 flex justify-center lg:justify-start">
             <Link
               href="/contact"
-              className="cta-button inline-flex items-center justify-center text-white font-bold py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg shadow-lg"
+              className="cta-button inline-flex items-center justify-center text-white font-bold py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg shadow-lg bg-blue-600 hover:bg-blue-500 cursor-pointer transition duration-500"
               style={{
-                background: "#0A2540",
+                // background: "#0A2540",
                 fontFamily:
                   "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
               }}

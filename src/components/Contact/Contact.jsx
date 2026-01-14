@@ -3,39 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Globe } from "lucide-react";
 import toast from "react-hot-toast";
 
-// Custom Social Media Icons
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-  </svg>
-);
-
-const FacebookIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-  </svg>
-);
-
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-  </svg>
-);
-
-const YouTubeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-  </svg>
-);
-
+/* WhatsApp Icon */
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487" />
   </svg>
 );
 
 const ContactPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,16 +20,6 @@ const ContactPage = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setIsVisible(true),
-      { root: null, rootMargin: "-100px", threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => sectionRef.current && observer.unobserve(sectionRef.current);
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,190 +28,96 @@ const ContactPage = () => {
 
   const handleSubmit = () => {
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error("कृपया सभी आवश्यक फील्ड भरें (Please fill all required fields)");
+      toast.error("Please fill all required fields");
       return;
     }
+
     setIsSubmitting(true);
+
     try {
       const whatsappNumber = "919594402822";
-      const message = `🔔 *New Contact Form Submission*
-👤 *Name:* ${formData.name}
-📧 *Email:* ${formData.email}
-📱 *Phone:* ${formData.phone || "Not provided"}
-📝 *Subject:* ${formData.subject}
-💬 *Message:*
-${formData.message}
----
-Sent from Nexcore Alliance Website`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-      if (typeof window !== "undefined") {
-        const newWindow = window.open(whatsappURL, "_blank");
-        if (newWindow) {
-          setTimeout(() => {
-            setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-            toast.success("Message sent successfully! WhatsApp should open now.");
-          }, 1000);
-        } else {
-          toast.error("Please allow pop-ups for this site to send WhatsApp messages.");
-        }
-      }
-    } catch (error) {
-      toast.error("कुछ गलत हो गया। कृपया फिर से कोशिश करें। (Something went wrong. Please try again.)");
+      const message = `New Contact Form Submission
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}`;
+
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+
+      window.open(whatsappURL, "_blank");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+      toast.success("Message sent successfully!");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   const contactInfo = [
-    { 
-      icon: Phone, 
-      title: "Phone", 
-      content: "+91 9594402822", 
-      subContent: "Mon-Fri 9:00 AM - 6:00 PM", 
-      color: "#007BFF", 
-      href: "tel:+919594402822" 
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "+91 9594402822",
+      sub: "Mon–Sat 8:00 AM – 5:30 PM",
+      href: "tel:+919594402822",
+      color: "#007BFF",
     },
-    { 
-      icon: Mail, 
-      title: "Email", 
-      content: "admin@nexcoreinstitute.org", 
-      subContent: "We'll respond within 24 hours", 
-      color: "#FF7F00", 
-      href: "mailto:bvoc@nexcorealliance.com" 
+    {
+      icon: Mail,
+      title: "Email",
+      content: "admin@nexcoreinstitute.org",
+      sub: "We'll respond within 24 hours",
+      href: "mailto:admin@nexcoreinstitute.org",
+      color: "#FF7F00",
     },
-    { 
-      icon: MapPin, 
-      title: "Office", 
-      content: "Mumbai, Maharashtra", 
-      subContent: "India - 400001", 
-      color: "#007BFF", 
-      href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6" 
+    {
+      icon: MapPin,
+      title: "Institute Location",
+      content: "Mumbai, Maharashtra",
+      sub: "India – 400001",
+      href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6",
+      color: "#007BFF",
     },
-    { 
-      icon: Globe, 
-      title: "Website", 
-      content: "www.nexcorealliance.com", 
-      subContent: "Visit our main website", 
-      color: "#FF7F00", 
-      href: "https://www.nexcorealliance.com" 
+    {
+      icon: Globe,
+      title: "Website",
+      content: "www.nexcoreinstitute.org",
+      sub: "Visit our main website",
+      href: "https://www.nexcoreinstitute.org",
+      color: "#FF7F00",
     },
-  ];
-
-  const socialLinks = [
-    // { 
-    //   icon: LinkedInIcon, 
-    //   href: "https://www.linkedin.com/company/105730702/admin/dashboard", 
-    //   color: "#0077b5"
-    // },
-    // { 
-    //   icon: FacebookIcon, 
-    //   href: "https://www.facebook.com/profile.php?id=61570113656994", 
-    //   color: "#1877f2"
-    // },
-    // { 
-    //   icon: InstagramIcon, 
-    //   href: "https://www.instagram.com/nexcorealliancellp/", 
-    //   color: "#E4405F"
-    // },
-    // { 
-    //   icon: YouTubeIcon, 
-    //   href: "https://www.youtube.com/channel/UCYqpIltw48XxkMRLC-HCgag", 
-    //   color: "#FF0000"
-    // },
   ];
 
   return (
-    <div className="min-h-screen bg-white select-none relative overflow-hidden">
-      {/* Subtle Background */}
-      <div 
-        className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-10"
-        style={{
-          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.3) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
-      />
-      <div 
-        className="absolute bottom-20 right-10 w-72 h-72 rounded-full opacity-10"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.3) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
-      />
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .contact-card {
-          animation: fadeIn 0.6s ease-out;
-          transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-          transform: scale(1.05);
-        }
-
-        .contact-card:nth-child(1) { animation-delay: 0s; }
-        .contact-card:nth-child(2) { animation-delay: 0.1s; }
-        .contact-card:nth-child(3) { animation-delay: 0.2s; }
-        .contact-card:nth-child(4) { animation-delay: 0.3s; }
-
-        .social-icon {
-          transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-          transform: scale(1.25);
-        }
-      `}</style>
-
+    <div className="min-h-screen bg-white relative overflow-hidden">
       <section ref={sectionRef} className="relative py-20">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 mt-10">
-            <span 
-              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-4 backdrop-blur-lg rounded-full border shadow-sm"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(255, 127, 0, 0.1))',
-                borderColor: 'rgba(0, 123, 255, 0.2)',
-                color: '#007BFF',
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-              }}
-            >
-              ✨ Get In Touch
-            </span>
-            <h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
-              style={{
-                background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-              }}
-            >
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-blue-500 ">
               Let's Talk
             </h1>
-            <p 
-              className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
-              style={{
-                color: 'rgba(44, 44, 44, 0.8)',
-                fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-              }}
-            >
-              Ready to transform your vision into reality? Let's discuss how our innovative solutions can drive your success forward.
+            <p className="text-lg max-w-3xl mx-auto text-gray-600">
+              Ready to transform your vision into reality? Let’s connect.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info Cards */}
+            {/* Contact Info */}
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <a
@@ -253,290 +125,113 @@ Sent from Nexcore Alliance Website`;
                   href={info.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="contact-card group relative flex items-center space-x-4 p-6 backdrop-blur-xl rounded-2xl border shadow-lg overflow-hidden"
-                  style={{
-                    backgroundColor: 'white',
-                    borderColor: 'rgba(0, 123, 255, 0.2)'
-                  }}
+                  className="flex items-center gap-4 p-6 rounded-2xl border shadow-lg bg-white"
+                  style={{ borderColor: "rgba(0,123,255,0.2)" }}
                 >
-                  {/* Animated Border Glow */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
+                  <div
+                    className="w-14 h-14 flex items-center justify-center rounded-xl text-white shadow-md"
                     style={{
-                      background: `linear-gradient(135deg, ${info.color}80, ${info.color}40)`
-                    }}
-                  />
-                  
-                  <div 
-                    className="relative z-10 w-14 h-14 flex items-center justify-center rounded-xl text-white shadow-md group-hover:rotate-12 transition-transform duration-300"
-                    style={{
-                      background: `linear-gradient(135deg, ${info.color}, ${info.color}dd)`
+                      background: `linear-gradient(135deg, ${info.color}, ${info.color}dd)`,
                     }}
                   >
                     <info.icon className="w-6 h-6" />
                   </div>
-                  <div className="relative z-10">
-                    <h3 
-                      className="font-bold text-lg"
-                      style={{ 
-                        color: '#2C2C2C',
-                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-                      }}
-                    >
+                  <div>
+                    <h3 className="font-bold text-lg text-gray-800">
                       {info.title}
                     </h3>
-                    <p 
-                      className="font-bold"
-                      style={{ 
-                        color: info.color,
-                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                      }}
-                    >
+                    <p className="font-bold" style={{ color: info.color }}>
                       {info.content}
                     </p>
-                    <p 
-                      className="text-sm"
-                      style={{ 
-                        color: 'rgba(44, 44, 44, 0.6)',
-                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                      }}
-                    >
-                      {info.subContent}
-                    </p>
+                    <p className="text-sm text-gray-500">{info.sub}</p>
                   </div>
                 </a>
               ))}
-              
-              {/* Social Links */}
-              <div className="flex gap-4 pt-4 justify-center lg:justify-start">
-                {socialLinks.map(({ icon: Icon, href, color }, index) => (
-                  <a 
-                    key={index} 
-                    href={href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="social-icon"
-                    style={{
-                      color: 'rgba(44, 44, 44, 0.5)',
-                      filter: 'drop-shadow(0 0 0 transparent)'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = color;
-                      e.currentTarget.style.filter = `drop-shadow(0 0 15px ${color}80)`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'rgba(44, 44, 44, 0.5)';
-                      e.currentTarget.style.filter = 'drop-shadow(0 0 0 transparent)';
-                    }}
-                  >
-                    <Icon />
-                  </a>
-                ))}
-              </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div 
-                className="relative backdrop-blur-xl rounded-3xl p-8 shadow-xl border overflow-hidden"
-                style={{
-                  backgroundColor: 'white',
-                  borderColor: 'rgba(0, 123, 255, 0.2)'
-                }}
-              >
-                {/* Decorative Corner Glow */}
-                <div 
-                  className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"
-                  style={{
-                    background: 'radial-gradient(circle, rgba(0, 123, 255, 0.5) 0%, transparent 70%)',
-                    filter: 'blur(60px)'
-                  }}
-                />
-                <div 
-                  className="absolute bottom-0 left-0 w-40 h-40 rounded-full opacity-10 translate-y-1/2 -translate-x-1/2"
-                  style={{
-                    background: 'radial-gradient(circle, rgba(255, 127, 0, 0.5) 0%, transparent 70%)',
-                    filter: 'blur(60px)'
-                  }}
-                />
-                
-                <div className="relative z-10">
-                  <h2 
-                    className="text-3xl font-bold mb-8"
-                    style={{
-                      background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-                    }}
-                  >
-                    Send us a Message 💬
-                  </h2>
-                  <div className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Full Name *"
-                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
-                        style={{
-                          borderColor: 'rgba(0, 123, 255, 0.2)',
-                          backgroundColor: 'rgba(0, 123, 255, 0.02)',
-                          color: '#2C2C2C',
-                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                        }}
-                        onFocus={(e) => {
-                          e.target.style.borderColor = '#007BFF';
-                          e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
-                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
-                        }}
-                        onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
-                          e.target.style.boxShadow = 'none';
-                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
-                        }}
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Email Address *"
-                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
-                        style={{
-                          borderColor: 'rgba(255, 127, 0, 0.2)',
-                          backgroundColor: 'rgba(255, 127, 0, 0.02)',
-                          color: '#2C2C2C',
-                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                        }}
-                        onFocus={(e) => {
-                          e.target.style.borderColor = '#FF7F00';
-                          e.target.style.boxShadow = '0 0 0 2px rgba(255, 127, 0, 0.1)';
-                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.05)';
-                        }}
-                        onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255, 127, 0, 0.2)';
-                          e.target.style.boxShadow = 'none';
-                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.02)';
-                        }}
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="Phone Number"
-                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
-                        style={{
-                          borderColor: 'rgba(0, 123, 255, 0.2)',
-                          backgroundColor: 'rgba(0, 123, 255, 0.02)',
-                          color: '#2C2C2C',
-                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                        }}
-                        onFocus={(e) => {
-                          e.target.style.borderColor = '#007BFF';
-                          e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
-                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
-                        }}
-                        onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
-                          e.target.style.boxShadow = 'none';
-                          e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
-                        }}
-                      />
-                      <select
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300"
-                        style={{
-                          borderColor: 'rgba(255, 127, 0, 0.2)',
-                          backgroundColor: 'rgba(255, 127, 0, 0.02)',
-                          color: '#2C2C2C',
-                          fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                        }}
-                        onFocus={(e) => {
-                          e.target.style.borderColor = '#FF7F00';
-                          e.target.style.boxShadow = '0 0 0 2px rgba(255, 127, 0, 0.1)';
-                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.05)';
-                        }}
-                        onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255, 127, 0, 0.2)';
-                          e.target.style.boxShadow = 'none';
-                          e.target.style.backgroundColor = 'rgba(255, 127, 0, 0.02)';
-                        }}
-                      >
-                        <option value="">Select a subject *</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="careers">Careers</option>
-                        <option value="support">Technical Support</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <textarea
-                      name="message"
-                      rows="6"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Your Message *"
-                      className="w-full px-5 py-4 border-2 rounded-xl backdrop-blur-sm placeholder-gray-400 transition-all duration-300 resize-none"
-                      style={{
-                        borderColor: 'rgba(0, 123, 255, 0.2)',
-                        backgroundColor: 'rgba(0, 123, 255, 0.02)',
-                        color: '#2C2C2C',
-                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.borderColor = '#007BFF';
-                        e.target.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.1)';
-                        e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.05)';
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.borderColor = 'rgba(0, 123, 255, 0.2)';
-                        e.target.style.boxShadow = 'none';
-                        e.target.style.backgroundColor = 'rgba(0, 123, 255, 0.02)';
-                      }}
-                    />
-                    <button
-                      onClick={handleSubmit}
-                      disabled={isSubmitting}
-                      className="group w-full text-white font-bold py-5 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg flex items-center justify-center gap-3 shadow-lg"
-                      style={{
-                        background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)',
-                        fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!isSubmitting) {
-                          e.currentTarget.style.transform = 'scale(1.05)';
-                          e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 123, 255, 0.4)';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'scale(1)';
-                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-                      }}
-                    >
-                      <span 
-                        className="group-hover:drop-shadow-[0_0_10px_rgba(37,211,102,0.8)]"
-                        style={{ transition: 'all 0.3s ease' }}
-                      >
-                        <WhatsAppIcon />
-                      </span>
-                      {isSubmitting ? "Sending to WhatsApp..." : "Send via WhatsApp"}
-                    </button>
-                  </div>
+            {/* Form */}
+            <div className="lg:col-span-2 p-8 rounded-3xl border shadow-xl bg-white">
+              <h2 className="text-3xl font-bold text-blue-500 mb-8">
+                Connect to a Counselor
+              </h2>
+
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Full Name"
+                    className="input"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address"
+                    className="input"
+                  />
                 </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Phone Number"
+                    className="input"
+                  />
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="input"
+                  >
+                    <option value="">Select Subject</option>
+                    <option value="AI & ML">AI & ML</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Computer Science">Computer Science</option>
+                  </select>
+                </div>
+
+                <textarea
+                  name="message"
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Your Message"
+                  className="input resize-none"
+                />
+
+                <button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-3 py-5 text-white font-bold rounded-xl shadow-lg disabled:opacity-50 bg-blue-500"
+                 
+                >
+                  {/* <WhatsAppIcon className="w-20 h-10"/> */}
+                  {isSubmitting ? "Sending..." : "Send via WhatsApp"}
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .input {
+          width: 100%;
+          padding: 1rem 1.25rem;
+          border: 2px solid rgba(0, 123, 255, 0.2);
+          border-radius: 0.75rem;
+          font-family: Inter, system-ui, sans-serif;
+          outline: none;
+          background-color: rgba(0, 123, 255, 0.02);
+        }
+      `}</style>
     </div>
   );
 };

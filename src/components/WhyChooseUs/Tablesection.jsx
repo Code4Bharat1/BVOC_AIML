@@ -46,7 +46,7 @@ const DegreeComparisonTable = () => {
         .feature-card:nth-child(3) { animation-delay: 0.2s; }
       `}</style>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 mt-10">
         {/* Header Section */}
         <div className="text-center mb-16">
           {/* Tag */}

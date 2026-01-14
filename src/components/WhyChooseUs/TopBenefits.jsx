@@ -1,6 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Sparkles, ChevronDown, Briefcase, Globe, UserCheck, DollarSign, Award } from "lucide-react";
+import {
+  Sparkles,
+  ChevronDown,
+  Briefcase,
+  Globe,
+  UserCheck,
+  DollarSign,
+  Award,
+} from "lucide-react";
+
+/* ================= MAIN COMPONENT ================= */
 
 const CenteredBoxWithCards = () => {
   const cards = [
@@ -8,211 +18,123 @@ const CenteredBoxWithCards = () => {
       image: "/TopBenifits/topbenefits1.svg",
       icon: <Briefcase />,
       heading: "Job-Ready Skills from Day 1",
-      description: "Get hands-on, industry-driven training from the start. Work on live projects and global challenges to gain the skills employers want.",
-      color: "#007BFF"
+      description:
+        "Get hands-on, industry-driven training from the start. Work on live projects and global challenges to gain the skills employers want.",
+      color: "#007BFF",
     },
     {
       image: "/TopBenifits/topbenefits2.svg",
       icon: <Globe />,
       heading: "Work on International Projects",
-      description: "Collaborate with global industry leaders and gain experience that sets you apart in the international job market.",
-      color: "#FF7F00"
+      description:
+        "Collaborate with global industry leaders and gain experience that sets you apart in the international job market.",
+      color: "#FF7F00",
     },
     {
       image: "/TopBenifits/topbenefits3.svg",
       icon: <UserCheck />,
       heading: "Built-in Internships",
-      description: "Apply what you learn with real-world internships and projects—boosting your resume and skills while still studying.",
-      color: "#007BFF"
+      description:
+        "Apply what you learn with real-world internships and projects—boosting your resume and skills while still studying.",
+      color: "#007BFF",
     },
     {
       image: "/TopBenifits/topbenefits5.png",
       icon: <DollarSign />,
       heading: "Earn While You Learn",
-      description: "Leverage valuable internship opportunities to gain hands-on experience while earning, building both your skills and financial independence.",
-      color: "#FF7F00"
+      description:
+        "Leverage valuable internship opportunities to gain hands-on experience while earning, building both your skills and financial independence.",
+      color: "#FF7F00",
     },
     {
       image: "/TopBenifits/topbenefits4.svg",
       icon: <Award />,
       heading: "Recognized by UGC & NSQF",
-      description: "Your qualifications are UGC-approved and NSQF-certified, opening doors to global opportunities.",
-      color: "#007BFF"
+      description:
+        "Your qualifications are UGC-approved and NSQF-certified, opening doors to global opportunities.",
+      color: "#007BFF",
     },
   ];
 
   const [isClient, setIsClient] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  useEffect(() => setIsClient(true), []);
 
   if (!isClient) return null;
 
   return (
-    <div className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
-      {/* Subtle Background */}
-      <div 
-        className="absolute top-0 left-0 w-96 h-96 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
+    <div className="relative bg-white py-20 px-4 overflow-hidden">
+      {/* Background Glow */}
+      <div
+        className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[90px]"
+        style={{ background: "rgba(0,123,255,0.08)" }}
       />
-      <div 
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.05) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }}
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-[90px]"
+        style={{ background: "rgba(255,127,0,0.08)" }}
       />
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .benefit-card {
-          animation: fadeIn 0.6s ease-out;
-          transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-          transform: scale(1.05);
-        }
-
-        .accordion-item {
-          transition: all 0.3s ease;
-        }
-      `}</style>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Title Box */}
+        {/* ================= TITLE ================= */}
         <div className="text-center mb-16">
-          <div 
-            className="inline-flex items-center gap-2 mb-6 px-6 py-2 rounded-full backdrop-blur-sm shadow-sm"
-            style={{
-              backgroundColor: 'rgba(0, 123, 255, 0.1)',
-              border: '1px solid rgba(0, 123, 255, 0.2)'
-            }}
-          >
-            <Sparkles className="w-4 h-4" style={{ color: '#007BFF' }} />
-            <span 
-              className="text-xs font-bold tracking-[0.12em] uppercase"
-              style={{ 
-                color: '#007BFF',
-                fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif"
-              }}
-            >
+          <div className="inline-flex items-center gap-2 mb-6 px-6 py-2 rounded-full bg-blue-50 border border-blue-200">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
               Career Benefits
             </span>
-            <Sparkles className="w-4 h-4" style={{ color: '#007BFF' }} />
+            <Sparkles className="w-4 h-4 text-blue-600" />
           </div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div 
-              className="absolute -inset-1 rounded-3xl blur-lg opacity-30"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(255, 127, 0, 0.3))'
-              }}
-            />
-            <div 
-              className="relative bg-white backdrop-blur-sm px-8 py-6 rounded-3xl border shadow-lg"
-              style={{ borderColor: 'rgba(0, 123, 255, 0.2)' }}
-            >
-              <h1 
-                className="text-3xl md:text-4xl font-bold" 
-                style={{ fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif" }}
-              >
-                <span style={{ color: '#007BFF' }}>Top Benefits:</span>{" "}
-                <span style={{ color: '#2C2C2C' }}>The Fast-Track to Your Career</span>
+            <div className="absolute -inset-1 rounded-3xl blur-lg opacity-30 bg-gradient-to-r from-blue-400 to-orange-400" />
+            <div className="relative bg-white px-8 py-6 rounded-3xl border shadow-lg border-blue-200">
+              <h1 className="text-3xl md:text-4xl font-bold">
+                <span className="text-blue-600">Top Benefits:</span>{" "}
+                <span className="text-gray-800">
+                  The Fast-Track to Your Career
+                </span>
               </h1>
             </div>
           </div>
         </div>
 
-        {/* Desktop Cards */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 justify-center ite">
+        {/* ================= DESKTOP CARDS ================= */}
+        <div className="hidden md:grid grid-cols-3 gap-8 mb-24">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="benefit-card relative group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="relative group transition-all hover:scale-105"
             >
-              <div 
-                className="absolute -inset-1 rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500"
+              <div
+                className="absolute -inset-1 rounded-3xl blur-lg opacity-20 group-hover:opacity-40"
                 style={{
-                  background: `linear-gradient(135deg, ${card.color}80, ${card.color}40)`
+                  background: `linear-gradient(135deg, ${card.color}80, ${card.color}40)`,
                 }}
               />
-              
-              <div 
-                className="relative h-full rounded-3xl overflow-hidden bg-white backdrop-blur-sm border shadow-lg"
-                style={{ borderColor: 'rgba(0, 123, 255, 0.2)' }}
-              >
-                {/* Corner Decorations */}
-                <div 
-                  className="absolute top-0 left-0 w-16 h-16 border-t border-l rounded-tl-3xl z-10"
-                  style={{ borderColor: 'rgba(0, 123, 255, 0.2)' }}
-                />
-                <div 
-                  className="absolute bottom-0 right-0 w-16 h-16 border-b border-r rounded-br-3xl z-10"
-                  style={{ borderColor: 'rgba(255, 127, 0, 0.2)' }}
-                />
 
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+              <div className="relative h-full rounded-3xl bg-white border border-blue-200 shadow-lg overflow-hidden">
+                <div className="relative h-56">
                   <img
                     src={card.image}
                     alt={card.heading}
                     className="w-full h-full object-cover"
                   />
-                  <div 
-                    className="absolute inset-0"
-                    // style={{ background: 'linear-gradient(to top, white, rgba(255, 255, 255, 0.5), transparent)' }}
-                  />
-                  
-                  {/* Floating Icon Badge */}
-                  <div 
+                  <div
                     className="absolute top-4 right-4 w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md"
                     style={{
-                      background: `linear-gradient(135deg, ${card.color}, ${card.color}dd)`
+                      background: `linear-gradient(135deg, ${card.color}, ${card.color}dd)`,
                     }}
                   >
                     {card.icon}
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6">
-                  <h3 
-                    className="text-xl font-bold mb-3" 
-                    style={{ 
-                      fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                      color: '#2C2C2C'
-                    }}
-                  >
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
                     {card.heading}
                   </h3>
-                  <p 
-                    className="text-sm leading-relaxed" 
-                    style={{ 
-                      fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                      color: 'rgba(44, 44, 44, 0.75)'
-                    }}
-                  >
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     {card.description}
                   </p>
                 </div>
@@ -221,70 +143,43 @@ const CenteredBoxWithCards = () => {
           ))}
         </div>
 
-        {/* Mobile Accordion */}
-        <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto md:hidden mb-16">
+        {/* ================= MOBILE ACCORDION ================= */}
+        <div className="md:hidden flex flex-col gap-4 max-w-xl mx-auto mb-24">
           {cards.map((card, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className="accordion-item relative overflow-hidden border backdrop-blur-sm"
-                style={{
-                  borderRadius: isOpen ? '1rem' : '9999px',
-                  borderColor: isOpen ? 'rgba(0, 123, 255, 0.3)' : 'rgba(0, 123, 255, 0.2)',
-                  backgroundColor: 'white',
-                  boxShadow: isOpen ? '0 10px 30px rgba(0, 123, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.05)'
-                }}
+                className="border rounded-2xl overflow-hidden bg-white shadow-sm"
               >
                 <button
-                  onClick={() => toggleAccordion(index)}
-                  className="relative flex items-center justify-between w-full px-6 py-4 font-bold"
-                  style={{ 
-                    fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                    color: '#2C2C2C'
-                  }}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="flex items-center justify-between w-full px-5 py-4 font-semibold"
                 >
                   <div className="flex items-center gap-3">
-                    <div 
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-md"
-                      style={{
-                        background: `linear-gradient(135deg, ${card.color}, ${card.color}dd)`
-                      }}
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center text-white"
+                      style={{ background: card.color }}
                     >
                       {card.icon}
                     </div>
-                    <span className="text-left text-sm">{card.heading}</span>
+                    <span className="text-sm text-left">{card.heading}</span>
                   </div>
                   <ChevronDown
-                    className="w-5 h-5 transition-transform duration-300"
-                    style={{ 
-                      color: card.color,
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-                    }}
+                    className={`transition-transform ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
-                
+
                 {isOpen && (
-                  <div className="bg-white px-6 pb-6">
-                    <div 
-                      className="relative rounded-xl overflow-hidden mb-4 border"
-                      style={{ borderColor: 'rgba(0, 123, 255, 0.2)' }}
-                    >
-                      <img
-                        src={card.image}
-                        alt={card.heading}
-                        className="w-full h-40 object-cover"
-                      />
-                    </div>
-                    <p 
-                      className="text-sm leading-relaxed" 
-                      style={{ 
-                        fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                        color: 'rgba(44, 44, 44, 0.75)'
-                      }}
-                    >
-                      {card.description}
-                    </p>
+                  <div className="px-5 pb-5 text-sm text-gray-600">
+                    <img
+                      src={card.image}
+                      className="rounded-xl mb-3"
+                      alt=""
+                    />
+                    {card.description}
                   </div>
                 )}
               </div>
@@ -292,120 +187,90 @@ const CenteredBoxWithCards = () => {
           })}
         </div>
 
-        {/* Desktop Flow Chart */}
-        <div className="hidden md:flex justify-center items-center">
-          <div className="relative">
-            <div 
-              className="absolute -inset-4 rounded-3xl blur-2xl opacity-20"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(255, 127, 0, 0.3))'
-              }}
-            />
-            <img
-              src="/why_it_work_for_you.svg"
-              alt="Why It Works for You"
-              className="relative w-full max-w-2xl object-contain rounded-2xl"
-            />
+        {/* ================= WHY IT WORKS — ZIG-ZAG WATERFALL ================= */}
+        <div className="mt-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Why It <span className="text-blue-600">Works</span> for You
+            </h2>
+            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+              A structured journey that transforms learning into career success.
+            </p>
           </div>
-        </div>
 
-        {/* Mobile Flow Chart */}
-        <div className="md:hidden">
-          <MobileFlowChart />
+          <div className="relative max-w-4xl mx-auto">
+            {/* Center Line */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-gray-300 to-purple-200" />
+
+            <div className="flex flex-col gap-20">
+              <ZigZagCard
+                align="left"
+                step="01"
+                title="Real-World Exposure"
+                text="Work on live projects, collaborate with industry experts, and gain experience from day one."
+                color="border-blue-500 bg-blue-50"
+              />
+
+              <ZigZagCard
+                align="right"
+                step="02"
+                title="Flexible Learning Path"
+                text="Exit when it makes sense, stack credentials, and qualify as you progress."
+                color="border-orange-500 bg-orange-50"
+              />
+
+              <ZigZagCard
+                align="left"
+                step="03"
+                title="Global Opportunities"
+                text="Work on international projects and open doors to a global career."
+                color="border-purple-500 bg-purple-50"
+              />
+
+              <ZigZagCard
+                align="right"
+                step="04"
+                title="Career-Ready Outcome"
+                text="Graduate with verified skills, experience, and industry recognition."
+                color="border-emerald-500 bg-emerald-50"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const MobileFlowChart = () => (
-  <div className="flex flex-col items-center px-4 py-0">
-    <div className="w-full max-w-xs relative" style={{ height: '700px' }}>
-      {/* Step 1 */}
-      <div className="absolute top-0 left-4">
-        <div className="relative">
-          <div 
-            className="absolute -inset-2 rounded-full blur-xl"
-            style={{ backgroundColor: 'rgba(0, 123, 255, 0.2)' }}
-          />
-          <img
-            src="/x3.svg"
-            alt="Step 1"
-            className="relative w-36 h-36"
-          />
+/* ================= SUB COMPONENTS ================= */
+
+const ZigZagCard = ({ align, step, title, text, color }) => {
+  const isLeft = align === "left";
+
+  return (
+    <div
+      className={`relative flex ${
+        isLeft ? "justify-start pr-10" : "justify-end pl-10"
+      }`}
+    >
+      {/* Dot */}
+      <div
+        className={`hidden md:block absolute top-8 ${
+          isLeft ? "right-[-6px]" : "left-[-6px]"
+        } w-3 h-3 rounded-full bg-blue-600`}
+      />
+
+      <div
+        className={`w-full md:w-[420px] bg-white border-l-8 ${color} rounded-2xl shadow-lg p-6 transition-all hover:shadow-xl`}
+      >
+        <div className="flex items-center gap-3 mb-2">
+          <span className="text-xs font-bold text-gray-500">STEP {step}</span>
         </div>
-      </div>
-
-      <div className="absolute top-[90px] right-20">
-        <img
-          src="/purple-arrow-down.svg"
-          alt="Arrow 1"
-          className="w-17 h-17 opacity-60"
-        />
-      </div>
-
-      {/* Step 2 */}
-      <div className="absolute top-[160px] right-4">
-        <div className="relative">
-          <div 
-            className="absolute -inset-2 rounded-full blur-xl"
-            style={{ backgroundColor: 'rgba(255, 127, 0, 0.2)' }}
-          />
-          <img
-            src="/x1.svg"
-            alt="Step 2"
-            className="relative w-36 h-36"
-          />
-        </div>
-      </div>
-
-      <div className="absolute top-[310px] right-28">
-        <img
-          src="/purple-arrow-down2.svg"
-          alt="Arrow 2"
-          className="w-17 h-17 opacity-60"
-        />
-      </div>
-
-      {/* Step 3 */}
-      <div className="absolute top-[350px] left-4">
-        <div className="relative">
-          <div 
-            className="absolute -inset-2 rounded-full blur-xl"
-            style={{ backgroundColor: 'rgba(0, 123, 255, 0.2)' }}
-          />
-          <img
-            src="/x2.svg"
-            alt="Step 3"
-            className="relative w-36 h-36"
-          />
-        </div>
-      </div>
-
-      <div className="absolute top-[460px] left-40">
-        <img
-          src="/purple-arrow-down3.svg"
-          alt="Arrow 3"
-          className="w-17 h-17 opacity-60"
-        />
-      </div>
-
-      {/* Step 4 */}
-      <div className="absolute top-[530px] right-4">
-        <div className="relative">
-          <div 
-            className="absolute -inset-2 rounded-full blur-xl"
-            style={{ backgroundColor: 'rgba(255, 127, 0, 0.2)' }}
-          />
-          <img
-            src="/x4.svg"
-            alt="Step 4"
-            className="relative w-36 h-36"
-          />
-        </div>
+        <h4 className="text-lg font-semibold text-gray-900 mb-2">{title}</h4>
+        <p className="text-sm text-gray-600 leading-relaxed">{text}</p>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default CenteredBoxWithCards;

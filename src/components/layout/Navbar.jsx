@@ -70,17 +70,17 @@ const Navbar = () => {
                 alt="Nexcore Logo Icon"
                 width={250}
                 height={100}
-                className="h-7 sm:h-12 md:h-18 w-auto flex-shrink-0"
+                className="h-7 mb-7 sm:h-8 md:h-10 w-auto scale-150 mr-4 mt-1.5 flex-shrink-0"
                 priority
               />
 
               {/* Right Logo (Text) */}
               <Image
-                src="/sdd.png" // second logo
+                src="/logo05.png" // second logo
                 alt="Nexcore Institute of Technology"
-                width={520}
+                width={720}
                 height={200}
-                className="h-9 sm:h-7 md:h-20 w-auto"
+                className="h-9 sm:h-7 md:h-20 ml-15 mt-1 w-fit scale-350"
               />
             </Link>
 

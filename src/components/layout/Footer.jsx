@@ -156,7 +156,7 @@ const Footer = () => {
 
           {/* COPYRIGHT */}
           <div className="text-gray-400 text-sm text-center">
-            © 2026{" "}
+            © 2011 - 2026{" "}
             <Link href="/" className="text-[#80C8F7] font-semibold">
               Nexcore Institute Of Technology
             </Link>{" "}

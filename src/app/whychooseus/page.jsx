@@ -20,6 +20,7 @@ import DegreeComparisonTable from "@/components/WhyChooseUs/Tablesection";
 import WhyChooseBVoc from "@/components/WhyChooseUs/WhyChooseBvoc";
 import PeerToPeerLearning from "@/components/WhyChooseUs/PeerToPeerLearning";
 import CenteredBoxWithCards from "@/components/WhyChooseUs/TopBenefits";
+import CourseComparison from "@/components/WhyChooseUs/CourseComparison";
 const page = () => {
   return (
     <div>
@@ -29,6 +30,7 @@ const page = () => {
         <WhyChooseBVoc />
         <PeerToPeerLearning />
         <CenteredBoxWithCards />
+        <CourseComparison />
       </main>
     </div>
   );

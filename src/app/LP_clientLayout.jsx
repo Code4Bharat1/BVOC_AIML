@@ -7,9 +7,9 @@ import { Toaster } from "react-hot-toast";
 export default function ClientLayout({ children }) {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
       <Toaster position="top-center" reverseOrder={false} />
     </>
   );

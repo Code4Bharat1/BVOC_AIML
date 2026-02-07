@@ -21,11 +21,14 @@ import Testimonials2 from "@/components/Learn&Grow/Testimonals2";
 import OurSyllabus from "@/components/Learn&Grow/OurSyllabus";
 import AllSemesters from "@/components/Learn&Grow/AllSemesters";
 import ModernInfra from "@/components/Infrastructure/ModernInfra";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
     <div className="min-h-screen">
       <main>
+        <Navbar />
         <PlacementAssistance />
         <InternAndPlacementCards />
         <FlexibleCareerSupport />
@@ -34,6 +37,7 @@ const Page = () => {
         <Testimonials2 />
         <OurSyllabus />
           <ModernInfra />
+          <Footer />
         {/* <AllSemesters /> */}
       </main>
     </div>

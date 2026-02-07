@@ -12,6 +12,8 @@ import KickStart from "@/components/Hub/KickStart";
 import NextLevelRole from "@/components/Hub/NextLevelRole";
 import ShapeTheFuture from "@/components/Hub/ShapeTheFuture";
 import HubHero from "@/components/Hub/HubHero";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   
@@ -21,6 +23,7 @@ const Page = () => {
         {" "}
         {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
+        <Navbar />
         <HubHero />
         
         <Welcome />
@@ -33,6 +36,7 @@ const Page = () => {
         <KickStart />
         <NextLevelRole />
         <ShapeTheFuture />
+        <Footer />
       </main>
     </div>
   );

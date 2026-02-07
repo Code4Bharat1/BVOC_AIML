@@ -21,16 +21,20 @@ import WhyChooseBVoc from "@/components/WhyChooseUs/WhyChooseBvoc";
 import PeerToPeerLearning from "@/components/WhyChooseUs/PeerToPeerLearning";
 import CenteredBoxWithCards from "@/components/WhyChooseUs/TopBenefits";
 import CourseComparison from "@/components/WhyChooseUs/CourseComparison";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 const page = () => {
   return (
     <div>
       <main className="bg-white min-h-screen">
+        <Navbar />
         <DegreeComparisonTable />
         <CardCarousel />
         <WhyChooseBVoc />
         <PeerToPeerLearning />
         <CenteredBoxWithCards />
         <CourseComparison />
+        <Footer />
       </main>
     </div>
   );

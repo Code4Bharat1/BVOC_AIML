@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#2C2C2C] text-white pt-20 relative overflow-hidden">
+    <footer className="bg-white text-gray-800 pt-20 relative overflow-hidden border-t">
       {/* subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -41,12 +41,11 @@ const Footer = () => {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
 
         {/* ===== GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
 
           {/* LOGO + ABOUT */}
           <div>
             <Link href="/" className="inline-block">
-              {/* logo container for better contrast */}
               <div className="bg-white rounded-xl p-3 inline-block mb-5 shadow-md">
                 <Image
                   src="/logo.png"
@@ -59,7 +58,7 @@ const Footer = () => {
               </div>
             </Link>
 
-            <p className="text-gray-300 leading-relaxed text-sm">
+            <p className="text-gray-600 leading-relaxed text-sm">
               A next-generation institute empowering students with real-world
               AI and technology skills for industry-ready careers.
             </p>
@@ -67,7 +66,7 @@ const Footer = () => {
 
           {/* EXPLORE */}
           <div>
-            <h3 className="text-lg font-semibold mb-5 text-[#80C8F7]">Explore</h3>
+            <h3 className="text-lg font-semibold mb-5 text-[#007BFF]">Explore</h3>
             <ul className="space-y-3">
               {[
                 { href: "/infrastructure", label: "Infrastructure" },
@@ -77,7 +76,7 @@ const Footer = () => {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-[#007BFF] transition"
+                    className="text-gray-600 hover:text-[#007BFF] transition"
                   >
                     {link.label}
                   </Link>
@@ -100,7 +99,7 @@ const Footer = () => {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-[#FF7F00] transition"
+                    className="text-gray-600 hover:text-[#FF7F00] transition"
                   >
                     {link.label}
                   </Link>
@@ -111,10 +110,10 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-lg font-semibold mb-5 text-[#80C8F7]">Contact</h3>
-            <ul className="space-y-4 text-gray-300 text-sm">
+            <h3 className="text-lg font-semibold mb-5 text-[#007BFF]">Contact</h3>
+            <ul className="space-y-4 text-gray-600 text-sm">
               <li className="flex gap-3">
-                <MapPin className="w-5 h-5 text-[#80C8F7]" />
+                <MapPin className="w-5 h-5 text-[#007BFF]" />
                 Kurla West, Mumbai 400070
               </li>
               <li className="flex gap-3">
@@ -129,10 +128,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ===== SOCIAL + BOTTOM ===== */}
-        <div className="py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* ===== SOCIAL + BOTTOM (SAME LINE) ===== */}
+        <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
 
-          {/* SOCIAL (smaller + cleaner) */}
+          {/* SOCIAL */}
           <div className="flex gap-3">
             {socialLinks.map((s, i) => (
               <a
@@ -142,9 +141,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="
                   w-9 h-9 rounded-md
-                  bg-white/10
+                  bg-gray-100
                   flex items-center justify-center
                   hover:bg-[#007BFF]
+                  hover:text-white
                   hover:scale-110
                   transition
                 "
@@ -154,27 +154,28 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* COPYRIGHT */}
-          <div className="text-gray-400 text-sm text-center">
-            © 2011 - 2026{" "}
-            <Link href="/" className="text-[#80C8F7] font-semibold">
+          {/* LEFT TEXT */}
+          <div className="text-center">
+            © 2026{" "}
+            <Link href="/" className="text-[#007BFF] font-semibold">
               Nexcore Institute Of Technology
             </Link>{" "}
             — All Rights Reserved
           </div>
 
-          {/* DESIGN CREDIT */}
-          <div className="text-gray-400 text-sm flex items-center gap-2">
-            Designed by
+          {/* RIGHT TEXT */}
+          <div className="flex items-center gap-1">
+            Designed by{" "}
             <a
               href="https://nexcorealliance.com/"
               target="_blank"
-              className="text-[#FF7F00] font-semibold flex items-center gap-1"
+              className="text-[#FF7F00] font-semibold inline-flex items-center gap-1"
             >
               Nexcore Alliance
-              <Heart className="w-4 h-4 fill-current text-[#FF5733]" />
+              <Heart className="w-4 h-4 fill-current text-red-500" />
             </a>
           </div>
+
         </div>
       </div>
     </footer>

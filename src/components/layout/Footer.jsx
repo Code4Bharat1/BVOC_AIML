@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white text-gray-800 pt-20 relative overflow-hidden border-t">
+    <footer className="bg-white text-gray-800 pt-10 relative overflow-hidden border-t">
       {/* subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -45,19 +45,20 @@ const Footer = () => {
 
           {/* LOGO + ABOUT */}
           <div>
-            <Link href="/" className="inline-block">
-              <div className="bg-white rounded-xl p-3 inline-block mb-5 shadow-md">
-                <Image
-                  src="/logo.png"
-                  alt="Nexcore Institute"
-                  width={220}
-                  height={90}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </Link>
-
+            <div className="flex justify-center sm:justify-start">
+              <Link href="/" className="inline-block">
+                <div className="bg-white rounded-xl p-3 inline-block mb-5 shadow-md">
+                  <Image
+                    src="/logo.png"
+                    alt="Nexcore Institute"
+                    width={150}
+                    height={90}
+                    className="object-contain justify-center items-center"
+                    priority
+                  />
+                </div>
+              </Link>
+            </div>
             <p className="text-gray-600 leading-relaxed text-sm">
               A next-generation institute empowering students with real-world
               AI and technology skills for industry-ready careers.

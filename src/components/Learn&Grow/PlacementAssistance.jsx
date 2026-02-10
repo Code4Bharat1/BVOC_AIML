@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 
 const PlacementAssistance = () => {
   return (
-    <section className="relative w-full overflow-x-hidden px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-white">
+    <section className="relative w-full overflow-x-hidden px-4 sm:px-6 py-15 sm:py-16 md:py-20 bg-white">
       {/* Subtle Solid Background Elements */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"

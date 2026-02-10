@@ -71,7 +71,7 @@ const KickStart = () => {
   }, [isPaused]);
 
   return (
-    <section className="relative py-24 px-6 lg:px-24 overflow-hidden bg-[#ffffff]">
+    <section className="relative py-10 px-6 lg:px-24 overflow-hidden bg-[#ffffff]">
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div

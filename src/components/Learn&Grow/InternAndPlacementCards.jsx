@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const InternAndPlacementCards = () => {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-white py-2 px-6">
       <div className="max-w-7xl mx-auto space-y-20">
 
         {/* ===== CARD 1 ===== */}

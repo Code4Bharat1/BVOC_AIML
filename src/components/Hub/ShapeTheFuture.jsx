@@ -10,7 +10,7 @@ const ShapeTheFuture = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen px-4 pt-10 relative overflow-hidden bg-[#ffffff]"
+      className="flex justify-center items-center min-h-screen px-4  relative overflow-hidden bg-[#ffffff]"
     >
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 opacity-[0.03]">

@@ -80,7 +80,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section ref={containerRef} className="bg-white py-20 px-4 overflow-hidden">
+    <section ref={containerRef} className="bg-white py-10 px-4 overflow-hidden">
       <div className="relative flex justify-center items-center h-[34rem]">
         {testimonials.map((t, index) => {
           const position = getPosition(index);

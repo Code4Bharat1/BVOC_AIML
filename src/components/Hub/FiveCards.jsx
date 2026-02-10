@@ -38,7 +38,7 @@ const cardData = [
 
 const FiveCards = () => {
   return (
-    <section className="bg-[#eef2f7] py-28 px-4">
+    <section className="bg-[#eef2f7] py-10 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* HEADER */}

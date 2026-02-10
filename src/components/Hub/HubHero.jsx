@@ -52,7 +52,7 @@ const HubHero = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-15"
+            className="w-full h-full object-cover opacity-90"
           >
             <source src="/homevideo/hero.mp4" type="video/mp4" />
           </video>
@@ -270,7 +270,7 @@ const HubHero = () => {
       </div>
 
       {/* Accreditation Section */}
-      <div className="relative bg-gradient-to-b from-white via-slate-50/40 to-white py-24 overflow-hidden border-t border-slate-100">
+      <div className="relative bg-gradient-to-b from-white via-slate-50/40 to-white py-5 overflow-hidden border-t border-slate-100">
         {/* Soft Background Glow */}
         <motion.div
           className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#007BFF]/8 blur-[160px] rounded-full"

@@ -50,7 +50,7 @@ export default function CourseComparison() {
   ];
 
   return (
-    <section className="relative py-24 bg-gray-100 overflow-hidden">
+    <section className="relative py-10 bg-gray-100 overflow-hidden">
       {/* Soft background glow */}
       {/* <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-400/20 blur-[140px] rounded-full" /> */}
 

@@ -39,7 +39,7 @@ const NextLevelRole = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-28 px-6 overflow-hidden"
+      className="relative py-10 px-6 overflow-hidden"
       style={{
         background:
           "linear-gradient(180deg, #F4F8FF 0%, #EEF3FB 60%, #F9FBFF 100%)",

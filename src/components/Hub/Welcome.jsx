@@ -18,7 +18,7 @@ const Welcome = () => {
   return (
     <section
       ref={ref}
-      className="relative py-28 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-20 bg-[#f9fafb] overflow-hidden"
+      className="relative py-10 px-6 lg:px-24 flex flex-col lg:flex-row items-center  bg-[#f9fafb] overflow-hidden"
     >
       {/* ================= LEFT CONTENT ================= */}
       <motion.div

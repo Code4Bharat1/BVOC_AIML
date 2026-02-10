@@ -3,7 +3,7 @@ import { Zap, Rocket, Target, Circle, Sparkles } from "lucide-react";
 
 const DegreeComparisonTable = () => {
   return (
-    <div className="relative min-h-screen bg-white py-20 px-4 overflow-hidden mt-10 shadow-sm">
+    <div className="relative min-h-screen bg-white py-10 px-4 overflow-hidden  shadow-sm">
       {/* Subtle Background */}
       <div 
         className="absolute top-0 left-0 w-96 h-96 rounded-full"

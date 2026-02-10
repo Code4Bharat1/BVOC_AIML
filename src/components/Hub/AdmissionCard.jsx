@@ -21,7 +21,7 @@ import Link from "next/link";
 
 const AdmissionCard = () => {
   return (
-    <section className="relative flex w-full justify-center items-center min-h-screen px-4 py-20 bg-gradient-to-b from-[#f8fafc] to-white overflow-hidden">
+    <section className="relative flex w-full justify-center items-center min-h-screen px-4 py-2 bg-gradient-to-b from-[#f8fafc] to-white overflow-hidden">
       {/* Soft Ambient Blobs */}
       <motion.div
         className="absolute top-24 left-10 w-96 h-96 rounded-full bg-blue-300/20 blur-[160px]"

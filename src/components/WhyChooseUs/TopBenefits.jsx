@@ -64,7 +64,7 @@ const CenteredBoxWithCards = () => {
   if (!isClient) return null;
 
   return (
-    <div className="relative bg-white py-20 px-4 overflow-hidden">
+    <div className="relative bg-white py-10 px-4 overflow-hidden">
       {/* Background Glow */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[90px]"

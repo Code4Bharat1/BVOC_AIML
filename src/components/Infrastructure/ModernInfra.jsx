@@ -14,7 +14,7 @@ const ModernInfra = () => {
   ];
 
   return (
-    <div className="bg-[#F8FAFC] py-20 px-4 relative overflow-hidden">
+    <div className="bg-[#F8FAFC] py-10 px-4 relative overflow-hidden">
       {/* Subtle Solid Background Elements */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"

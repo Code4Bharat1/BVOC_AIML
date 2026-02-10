@@ -15,7 +15,7 @@ const WhyChooseBVoc = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <div className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
+    <div className="relative min-h-screen bg-white py-10 px-4 overflow-hidden">
       {/* Subtle Background */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full"

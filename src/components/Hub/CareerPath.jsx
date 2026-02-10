@@ -11,7 +11,7 @@ function CareerPath() {
   return (
     <section
       ref={ref}
-      className="bg-[#F4F7FB] py-24 px-6"
+      className="bg-[#F4F7FB] py-10 px-6"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-14">
 

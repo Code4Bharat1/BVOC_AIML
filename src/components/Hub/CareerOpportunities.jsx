@@ -17,7 +17,7 @@ const CareerOpportunities = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white py-24 px-6">
+    <section ref={ref} className="bg-white py-10 px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* ===== HEADER ===== */}

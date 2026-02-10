@@ -40,7 +40,7 @@ const cardsData = [
 
 const SemesterCards = () => {
   return (
-    <section className="relative w-full bg-white py-20 px-4 overflow-hidden">
+    <section className="relative w-full bg-white py-5 px-4 overflow-hidden">
 
       {/* Soft background glow */}
       <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-blue-500/5 blur-[140px] rounded-full" />

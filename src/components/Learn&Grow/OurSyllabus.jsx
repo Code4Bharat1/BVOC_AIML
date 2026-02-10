@@ -6,7 +6,7 @@ const OurSyllabus = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 px-6 lg:px-16">
+    <section className="relative overflow-hidden bg-white py-10 px-6 lg:px-16">
       {/* Subtle Background */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full"

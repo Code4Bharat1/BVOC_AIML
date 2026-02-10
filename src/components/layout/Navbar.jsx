@@ -80,7 +80,7 @@ const Navbar = () => {
                 alt="Nexcore Institute of Technology"
                 width={200}
                 height={200}
-                className="h-9 sm:h-7 md:h-20 ml-8 mt-1 w-fit scale-350"
+                className="h-9 sm:h-7 md:h-20 ml-15 mt-1 w-fit scale-350"
               />
             </Link>
 

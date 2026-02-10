@@ -193,7 +193,8 @@ ${formData.message}`;
                     <option value="">Select Subject</option>
                     <option value="AI & ML">AI & ML</option>
                     <option value="Cyber Security">Cyber Security</option>
-                    <option value="Computer Science">Computer Science</option>
+                    <option value="AI & Robotics">AI & Robotics</option>
+                    <option value="Graphic Animation , VFX & Multimedia">Graphic Animation</option>
                   </select>
                 </div>
 

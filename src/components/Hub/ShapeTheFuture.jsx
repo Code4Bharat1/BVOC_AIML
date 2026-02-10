@@ -112,7 +112,7 @@ const ShapeTheFuture = () => {
           program is designed to equip you with the skills and experience to
           jump right into the heart of the{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7F00] to-[#FFCD00] font-semibold">
-            AI & ML , Cyber Security & Computer Science
+            AI & ML , AI & Robotics, Cyber Security, Graphic Animation, VFX & Multimedia
           </span>{" "}
           revolution. Your future
           starts now— and we're here to guide you every step of the way.

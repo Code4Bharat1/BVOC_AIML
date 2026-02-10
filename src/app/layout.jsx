@@ -26,19 +26,21 @@ export const metadata = {
   metadataBase: new URL("https://nexcoreinstitute.org"),
 
   title: {
-    default: "BVOC in AIML, Cyber Security & Computer Science | Nexcore Institute of Technology",
+    default: "BVOC in AIML, Cyber Security, AI & Robotics, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
     template: "%s | Nexcore Institute of Technology",
   },
 
   description:
-    "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and Computer Science with hands-on training, internships, and strong career outcomes.",
+    "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and AI & Robotics, Graphic Animation, VFX & Multimedia with hands-on training, internships, and strong career outcomes.",
 
   keywords: [
     "BVOC",
     "Bachelor of Vocation",
     "BVOC in AI and Machine Learning",
     "BVOC Cyber Security",
-    "BVOC Computer Science",
+    "BVOC AI & Robotics",
+    "BVOC Graphic Animation",
+    "BVOC VFX & Multimedia",
     "Skill based degree program",
     "Vocational degree in India",
     "Nexcore Institute of Technology",
@@ -55,9 +57,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "BVOC in AI, Cyber Security & Computer Science | Nexcore Institute of Technology",
+    title: "BVOC in AI, Cyber Security & CAI & Robotics, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
     description:
-      "Industry-ready B.Voc programs in AI & ML, Cyber Security, and Computer Science at Nexcore Institute of Technology.",
+      "Industry-ready B.Voc programs in AI & ML, Cyber Security, and AI & Robotics, Graphic Animation, VFX & Multimedia at Nexcore Institute of Technology.",
     url: "https://nexcoreinstitute.org/",
     siteName: "Nexcore Institute of Technology",
     locale: "en_IN",
@@ -74,7 +76,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "BVOC in AI, Cyber Security & Computer Science | Nexcore Institute of Technology",
+    title: "BVOC in AI, Cyber Security & AI & Robotics, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
     description:
       "Build your career with skill-based B.Voc programs at Nexcore Institute of Technology.",
   },
@@ -96,7 +98,7 @@ export default function RootLayout({ children }) {
               url: "https://nexcoreinstitute.org",
               logo: "https://nexcoreinstitute.org/logo.png",
               description:
-                "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and Computer Science focused on skills, internships, and employability.",
+                "Nexcore Institute of Technology offers B.Voc degrees in Artificial Intelligence & Machine Learning, Cyber Security, and AI & Robotics, Graphic Animation, VFX & Multimedia focused on skills, internships, and employability.",
             }),
           }}
         />

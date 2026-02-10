@@ -44,7 +44,7 @@ const Welcome = () => {
           </span>
           , launching{" "}
           <span className="font-semibold text-[#FF7F00]">
-            AI & ML , AI & Robotices, Cyber Security, Graphic Animation, VFX & Multimedia
+            AI & ML , AI & Robotics, Cyber Security, Graphic Animation, VFX & Multimedia
           </span>{" "}
           programs that integrate industry expertise with academic excellence.
         </p>

@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const degrees = [
-  { id: 1, name: "AI & ML", icon: Brain },
-  { id: 2, name: "Computer Science", icon: Code },
-  { id: 3, name: "Cyber Security", icon: Shield },
-];
+// const degrees = [
+//   { id: 1, name: "AI & ML", icon: Brain },
+//   { id: 2, name: "Computer Science", icon: Code },
+//   { id: 3, name: "Cyber Security", icon: Shield },
+// ];
 
 const AdmissionCard = () => {
   return (
@@ -74,7 +74,7 @@ const AdmissionCard = () => {
         </p>
 
         {/* Programs */}
-        <div className="mb-10">
+        {/* <div className="mb-10">
           <div className="text-xs mb-4 text-gray-500 font-semibold tracking-widest uppercase">
             Available Programs
           </div>
@@ -97,7 +97,7 @@ const AdmissionCard = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Subheading */}
         <h3 className="text-xl lg:text-3xl font-semibold mb-4 text-[#007BFF]">

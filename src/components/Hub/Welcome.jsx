@@ -4,11 +4,11 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Brain, Code, Shield } from "lucide-react";
 import Link from "next/link";
 
-const degrees = [
-  { id: 1, name: "AI & ML", icon: Brain },
-  { id: 2, name: "Computer Science", icon: Code },
-  { id: 3, name: "Cyber Security", icon: Shield },
-];
+// const degrees = [
+//   { id: 1, name: "AI & ML", icon: Brain },
+//   { id: 2, name: "Computer Science", icon: Code },
+//   { id: 3, name: "Cyber Security", icon: Shield },
+// ];
 
 const Welcome = () => {
   const ref = useRef(null);
@@ -44,7 +44,7 @@ const Welcome = () => {
           </span>
           , launching{" "}
           <span className="font-semibold text-[#FF7F00]">
-            Cyber Security, Computer Science, AI & ML
+            AI & ML , AI & Robotices, Cyber Security, Graphic Animation, VFX & Multimedia
           </span>{" "}
           programs that integrate industry expertise with academic excellence.
         </p>
@@ -65,7 +65,7 @@ const Welcome = () => {
           ))}
         </div>
         {/* Programs */}
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <div className="text-xs text-gray-400 mb-4 tracking-wider">
             AVAILABLE PROGRAMS
           </div>
@@ -83,7 +83,7 @@ const Welcome = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
         {/* CTA */}
         <div className="flex flex-wrap gap-4">
           <Link href="/contact">

@@ -145,12 +145,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
                   <div className="relative z-10">
                     {/* Logo */}
-                    <motion.div
-                      initial={{ scale: 0, rotate: -180 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: 0.4, type: "spring" }}
-                      className="mb-6 sm:mb-8"
-                    >
+                    
                       <div className="w-30 h-30 sm:w-40 sm:h-30  backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center border border-white/30 overflow-hidden">
                         <Image
                           src="/logo.png"
@@ -161,14 +156,13 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                           priority
                         />
                       </div>
-                    </motion.div>
 
                     {/* Title */}
                     <motion.h2
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
-                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2"
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 mt-2"
                     >
                       Welcome to
                       <br />
@@ -493,25 +487,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                     </form>
 
                     {/* Trust Badges */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1 }}
-                      className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-gray-500"
-                    >
-                      <div className="flex items-center gap-1">
-                        <span>🔒</span>
-                        <span>Secure</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span>✓</span>
-                        <span>Verified</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span>⚡</span>
-                        <span>Instant Access</span>
-                      </div>
-                    </motion.div>
+                    
                   </div>
                 </motion.div>
               </div>

@@ -146,7 +146,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                   <div className="relative z-10">
                     {/* Logo */}
                     
-                      <div className="w-30 h-30 sm:w-40 sm:h-30  backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center border border-white/30 overflow-hidden">
+                      <div className="w-30 h-30 sm:w-40 sm:h-30  bg-white  backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center border border-white/30 overflow-hidden">
                         <Image
                           src="/logo.png"
                           alt="NexCore Institute Logo"

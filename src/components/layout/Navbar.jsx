@@ -78,7 +78,7 @@ const Navbar = () => {
               <Image
                 src="/logo05.png" // second logo
                 alt="Nexcore Institute of Technology"
-                width={500}
+                width={200}
                 height={200}
                 className="h-9 sm:h-7 md:h-20 ml-15 mt-1 w-fit scale-350"
               />

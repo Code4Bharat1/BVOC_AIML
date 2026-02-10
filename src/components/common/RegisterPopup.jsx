@@ -344,12 +344,12 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
                     {/* Mobile Logo - Only visible on mobile */}
                     <div className="lg:hidden flex justify-center mb-3 xs:mb-4">
-                      <div className="w-16 h-16 xs:w-20 xs:h-20 bg-white rounded-xl flex items-center justify-center p-2">
+                      <div className="w-30 h-30 xs:w-20 xs:h-20 bg-white rounded-xl flex items-center justify-center p-2">
                         <Image
                           src="/logo.png"
-                          alt="NexCore Institute Logo"
-                          width={60}
-                          height={60}
+                          alt="Nexcore Institute Logo"
+                          width={80}
+                          height={80}
                           className="w-full h-full object-cover"
                           priority
                         />

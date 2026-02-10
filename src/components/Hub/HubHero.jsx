@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Sparkles } from "lucide-react";
+import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Sparkles, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const degrees = [
@@ -8,7 +8,7 @@ const degrees = [
     id: 1,
     name: "Artificial Intelligence & Machine Learning",
     shortName: "AI & ML",
-    icon: Brain,
+    icon: Brain, // Perfect for AI & ML - represents intelligence and learning
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -16,7 +16,7 @@ const degrees = [
     id: 2,
     name: "Artificial Intelligence & Robotics",
     shortName: "AI & Robotics",
-    icon: Code,
+    icon: Code, // Perfect for Robotics - represents programming and automation
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -24,7 +24,7 @@ const degrees = [
     id: 3,
     name: "Cyber Security",
     shortName: "Cyber Security",
-    icon: Shield,
+    icon: Shield, // Perfect for Security - represents protection
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -32,7 +32,7 @@ const degrees = [
     id: 4,
     name: "Graphic Animation, VFX & Multimedia",
     shortName: "Graphic, VFX & Multimedia",
-    icon: Sparkles,
+    icon: Palette, // Perfect for Graphics & Animation - represents creativity and design
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   }

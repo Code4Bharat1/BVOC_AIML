@@ -19,7 +19,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61585525156166" },
     { icon: <FaInstagram />, url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0" },
-    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/company/nexcore-institute-of-technology/?viewAsMember=true" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all" },
     { icon: <FaYoutube />, url: "https://www.youtube.com/@NexcoreInstitute" },
     { icon: <FaWhatsapp />, url: "https://wa.me/919892398976" },
   ];

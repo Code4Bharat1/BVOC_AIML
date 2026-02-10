@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Brain, Code, Shield, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Brain, Code, Shield, Palette, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 const initialDegrees = [
@@ -17,13 +17,13 @@ const initialDegrees = [
   },
   {
     id: 2,
-    name: "Computer Science",
-    shortName: "Computer Science",
+    name: "Artificial Intelligence & Robotics",
+    shortName: "AI & Robotics",
     icon: Code,
-    color: "#FF7F00",
+    color: "#007BFF",
     description:
-      "Build a strong foundation in software development and computational thinking",
-    features: ["Full-Stack Development", "Algorithms", "Cloud Computing", "DevOps"],
+      "Build intelligent systems and autonomous robots for the future",
+    features: ["Robotics Programming", "Automation", "IoT Integration", "Computer Vision"],
   },
   {
     id: 3,
@@ -35,12 +35,23 @@ const initialDegrees = [
       "Protect digital assets and become an expert in information security",
     features: ["Ethical Hacking", "Network Security", "Cryptography", "Threat Analysis"],
   },
+  {
+    id: 4,
+    name: "Graphic Animation, VFX & Multimedia",
+    shortName: "Graphic, VFX & Multimedia",
+    icon: Palette,
+    color: "#007BFF",
+    description:
+      "Create stunning visuals and bring imagination to life with cutting-edge animation",
+    features: ["3D Animation", "Visual Effects", "Motion Graphics", "Digital Design"],
+  },
 ];
 
 const positions = [
-  { x: -220, rotate: -12, scale: 0.95, z: 10 }, // left
-  { x: 0, rotate: 0, scale: 1.06, z: 30 },     // center
-  { x: 220, rotate: 12, scale: 0.95, z: 10 },  // right
+  { x: -300, rotate: -15, scale: 0.92, z: 10 }, // far left
+  { x: -100, rotate: -6, scale: 0.96, z: 20 },  // left
+  { x: 100, rotate: 6, scale: 0.96, z: 20 },    // right
+  { x: 300, rotate: 15, scale: 0.92, z: 10 },   // far right
 ];
 
 const DegreesShowcase = () => {
@@ -48,14 +59,25 @@ const DegreesShowcase = () => {
   const isInView = useInView(sectionRef, { once: true, threshold: 0.2 });
 
   const [cards, setCards] = useState(initialDegrees);
+  const [centerIndex, setCenterIndex] = useState(1);
 
   const handleCardClick = (index) => {
-    if (index === 1) return;
+    if (index === centerIndex) return;
 
+    const steps = index - centerIndex;
     const newOrder = [...cards];
 
-    if (index === 0) newOrder.splice(1, 0, newOrder.shift());
-    else if (index === 2) newOrder.splice(1, 0, newOrder.pop());
+    if (steps > 0) {
+      // Move right cards to center
+      for (let i = 0; i < steps; i++) {
+        newOrder.push(newOrder.shift());
+      }
+    } else {
+      // Move left cards to center
+      for (let i = 0; i < Math.abs(steps); i++) {
+        newOrder.unshift(newOrder.pop());
+      }
+    }
 
     setCards(newOrder);
   };
@@ -77,7 +99,7 @@ const DegreesShowcase = () => {
         }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* ===== HEADER ===== */}
         <motion.div
@@ -95,7 +117,7 @@ const DegreesShowcase = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            Industry-aligned Bachelor’s programs designed for future-ready careers.
+            Industry-aligned Bachelor's programs designed for future-ready careers.
           </p>
         </motion.div>
 
@@ -157,10 +179,11 @@ const DegreesShowcase = () => {
           ))}
         </div>
 
-        {/* ===== DESKTOP FAN STACK ===== */}
+        {/* ===== DESKTOP FAN STACK (4 CARDS) ===== */}
         <div className="relative h-[620px] items-center justify-center hidden lg:flex">
           {cards.map((degree, index) => {
             const pos = positions[index];
+            const isCenter = index === 1 || index === 2;
 
             return (
               <motion.div
@@ -168,24 +191,25 @@ const DegreesShowcase = () => {
                 onClick={() => handleCardClick(index)}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.15 }}
+                transition={{ delay: index * 0.12 }}
                 className="absolute cursor-pointer"
-                style={{ zIndex: pos.z }}
+                style={{ zIndex: isCenter ? 30 : pos.z }}
               >
                 <motion.div
                   animate={{
                     x: pos.x,
                     rotate: pos.rotate,
-                    scale: pos.scale,
+                    scale: isCenter ? 1.04 : pos.scale,
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                  className="
+                  className={`
                     w-[360px] h-[500px]
                     bg-[#111827]
                     rounded-2xl p-8
-                    border border-white/10
+                    border ${isCenter ? 'border-[#007BFF]/50' : 'border-white/10'}
                     shadow-2xl flex flex-col
-                  "
+                    ${isCenter ? 'shadow-[#007BFF]/20' : ''}
+                  `}
                 >
                   <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mb-6"

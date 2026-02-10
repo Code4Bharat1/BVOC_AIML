@@ -64,7 +64,7 @@ function CareerPath() {
             The best part? You're not limited. Whether you're just starting or
             aiming for an advanced role, the Bachelor's in{" "}
             <span className="font-semibold text-[#FF7F00]">
-              AI & ML, Cyber Security & Computer Science
+              AI & ML, Artificial Intelligence & Robotics, Cyber Security & Graphic Animation, VFX & Multimedia
             </span>{" "}
             offers a clear path to exciting opportunities at every stage of your
             career.

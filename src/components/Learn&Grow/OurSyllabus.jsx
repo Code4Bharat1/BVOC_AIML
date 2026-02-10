@@ -107,8 +107,8 @@ const OurSyllabus = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#2C2C2C]">
           Level Up Your Skills with <br />
           <span className="text-[#007BFF]">
-            Our Cyber Security , AI & ML &
-            Computer Science Program
+            Our  AI & ML ,Cyber Security , Artificial Intelligence & Robotics &
+            Graphic Animation, VFX & Multimedia
           </span>
         </h2>
       </div>
@@ -154,13 +154,14 @@ const OurSyllabus = () => {
               <p className="text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80">
                 Our{" "}
                 <span className="font-bold text-[#007BFF]">
-                  Cyber Security , AI & ML & Computer Science
+                  AI & ML ,Cyber Security , Artificial Intelligence & Robotics &
+            Graphic Animation, VFX & Multimedia
                 </span>{" "}
                 program is structured across six dynamic semesters, providing
                 hands-on skills and deep theoretical knowledge in{" "}
                 <span className="font-bold text-[#2C2C2C]">
-                  Cyber Security, Artificial Intelligence, Machine Learning, and
-                  Data Science
+                  AI & ML ,Cyber Security , Artificial Intelligence & Robotics &
+            Graphic Animation, VFX & Multimedia
                 </span>
                 .
               </p>

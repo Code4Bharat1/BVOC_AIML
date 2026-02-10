@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Sparkles, Palette } from "lucide-react";
+import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const degrees = [
@@ -8,7 +8,7 @@ const degrees = [
     id: 1,
     name: "Artificial Intelligence & Machine Learning",
     shortName: "AI & ML",
-    icon: Brain, // Perfect for AI & ML - represents intelligence and learning
+    icon: Brain,
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -16,7 +16,7 @@ const degrees = [
     id: 2,
     name: "Artificial Intelligence & Robotics",
     shortName: "AI & Robotics",
-    icon: Code, // Perfect for Robotics - represents programming and automation
+    icon: Code,
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -24,7 +24,7 @@ const degrees = [
     id: 3,
     name: "Cyber Security",
     shortName: "Cyber Security",
-    icon: Shield, // Perfect for Security - represents protection
+    icon: Shield,
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   },
@@ -32,14 +32,14 @@ const degrees = [
     id: 4,
     name: "Graphic Animation, VFX & Multimedia",
     shortName: "Graphic, VFX & Multimedia",
-    icon: Palette, // Perfect for Graphics & Animation - represents creativity and design
+    icon: Palette,
     gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
     color: "#007BFF"
   }
 ];
 
 const HubHero = () => {
-  const [activeDegree, setActiveDegree] = useState(1); // Default to AI & Robotics
+  const [activeDegree, setActiveDegree] = useState(1);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -82,6 +82,21 @@ const HubHero = () => {
 
         <div className="relative w-full min-h-[32rem] flex items-center justify-center text-center px-5 py-12">
           <div className="w-full">
+            {/* 3 Year Badge - Mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex justify-center mb-6"
+            >
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#007BFF]/15 border border-[#007BFF]/30 backdrop-blur-sm">
+                <GraduationCap className="w-4 h-4 text-[#007BFF]" />
+                <span className="text-sm font-semibold text-[#80C8F7]">
+                  3 Year Degree Programs
+                </span>
+              </div>
+            </motion.div>
+
             <motion.h1
               className="text-4xl md:text-5xl font-bold leading-tight mb-10 text-white tracking-tight"
               initial={{ opacity: 0, y: 20 }}
@@ -172,6 +187,21 @@ const HubHero = () => {
         />
 
         <div className="text-center max-w-7xl z-10">
+          {/* 3 Year Badge - Desktop */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center mb-8"
+          >
+            <div className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#007BFF]/15 border border-[#007BFF]/30 backdrop-blur-md shadow-lg shadow-[#007BFF]/10">
+              <GraduationCap className="w-5 h-5 text-[#007BFF]" />
+              <span className="text-base font-semibold text-[#80C8F7] tracking-wide">
+                3 Year Degree Programs
+              </span>
+            </div>
+          </motion.div>
+
           <motion.h1
             className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white mb-16 tracking-tight"
             initial={{ opacity: 0, y: 30 }}

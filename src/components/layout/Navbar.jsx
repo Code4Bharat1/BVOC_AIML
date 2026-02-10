@@ -70,7 +70,7 @@ const Navbar = () => {
                 alt="Nexcore Logo Icon"
                 width={250}
                 height={100}
-                className="h-7 mb-7 sm:h-8 md:h-10 w-auto scale-150 mr-4 mt-1.5 flex-shrink-0"
+                className="h-7 mb-7 sm:h-8 md:h-10 w-auto scale-150 mr-4 mt-3 flex-shrink-0"
                 priority
               />
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                 alt="Nexcore Institute of Technology"
                 width={200}
                 height={200}
-                className="h-9 sm:h-7 md:h-20 ml-15 mt-1 w-fit scale-350"
+                className="h-9 sm:h-7 md:h-20 ml-8 mt-1 w-fit scale-350"
               />
             </Link>
 

@@ -158,7 +158,7 @@ const HubHero = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-12"
+            className="w-full h-full object-cover opacity-90"
           >
             <source src="/homevideo/hero.mp4" type="video/mp4" />
           </video>

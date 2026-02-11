@@ -15,11 +15,15 @@ export const metadata = {
 
 import React from "react";
 import Admission_Eligibility from "@/components/Opportunities/Admission_Eligibility";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 export default function page() {
   return (
     <div className="flex flex-col min-h-screen ">
       <main className="flex-grow ">
+        <Navbar/>
         <Admission_Eligibility />
+        <Footer/>
       </main>
     </div>
   );

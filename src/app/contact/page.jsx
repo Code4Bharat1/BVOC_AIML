@@ -16,6 +16,7 @@ export const metadata = {
 import ContactPage from "@/components/Contact/Contact";
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function page() {
   return (
@@ -24,6 +25,7 @@ export default function page() {
       <main className="flex-grow py-16">
         <ContactPage />
         
+      <Footer/>
       </main>
     </div>
   );

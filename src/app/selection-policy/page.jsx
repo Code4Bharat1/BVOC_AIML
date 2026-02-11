@@ -13,11 +13,15 @@ export const metadata = {
 
 import React from "react";
 import SelectionPolicy from "@/components/Opportunities/SelectionPolicy";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 export default function page() {
   return (
     <div className="flex flex-col min-h-screen ">
       <main className="flex-grow ">
+      <Navbar/>
         <SelectionPolicy />
+        <Footer/>
       </main>
     </div>
   );

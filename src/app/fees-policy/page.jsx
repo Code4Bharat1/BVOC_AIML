@@ -20,12 +20,16 @@ import Fee_Policy from "@/components/Opportunities/Fees_Structure/Fee_Policy";
 import FeePaymentGuidelines from "@/components/Opportunities/Fees_Structure/FeePaymentGuidelines";
 import FinancialAssistance from "@/components/Opportunities/Fees_Structure/FinancialAssistance";
 import LastComponenet from "@/components/Opportunities/Fees_Structure/LastComponenet";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 export default function page() {
   return (
     <div className="flex flex-col min-h-screen ">
       <main className="flex-grow ">
+        <Navbar/>
         <Fee_Policy />
         <FeePaymentGuidelines />
+        <Footer/>
         {/* <FinancialAssistance />
         <LastComponenet /> */}
       </main>

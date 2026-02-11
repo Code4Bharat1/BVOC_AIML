@@ -11,7 +11,6 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     studentName: "",
-    address: "",
     whatsappNumber: "",
     parentsNumber: "",
     qualification: "",
@@ -35,7 +34,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
       color: "text-slate-400"
     },
     {
-      name: "Graphics, Animation, VFX and Multimedia",
+      name: "Graphics Animation, VFX and Multimedia",
       icon: FaPalette,
       color: "text-slate-400"
     },
@@ -75,6 +74,17 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     });
   };
 
+  // Handle mobile number input - only allow numbers, max 10 digits
+  const handleMobileChange = (e) => {
+    const value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+    if (value.length <= 10) {
+      setFormData({
+        ...formData,
+        [e.target.name]: value,
+      });
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -90,7 +100,6 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     setCurrentStep(1);
     setFormData({
       studentName: "",
-      address: "",
       whatsappNumber: "",
       parentsNumber: "",
       qualification: "",
@@ -100,18 +109,14 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
   };
 
   const validateStep1 = () => {
-    return formData.studentName && formData.address;
-  };
-
-  const validateStep2 = () => {
-    return formData.whatsappNumber && formData.parentsNumber;
+    return formData.studentName && 
+           formData.whatsappNumber.length === 10 && 
+           formData.parentsNumber.length === 10;
   };
 
   const nextStep = () => {
     if (currentStep === 1 && validateStep1()) {
       setCurrentStep(2);
-    } else if (currentStep === 2 && validateStep2()) {
-      setCurrentStep(3);
     }
   };
 
@@ -201,7 +206,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span>We'll contact you on <strong>{formData.whatsappNumber}</strong> within 24 hours</span>
+                        <span>We'll contact you on <strong>+91 {formData.whatsappNumber}</strong> within 24 hours</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -375,7 +380,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                       {/* Progress Indicator */}
                       <div className="mb-6">
                         <div className="flex items-center justify-between mb-3">
-                          {[1, 2, 3].map((step) => (
+                          {[1, 2].map((step) => (
                             <div key={step} className="flex items-center flex-1">
                               <div
                                 className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-semibold transition-all ${
@@ -386,7 +391,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               >
                                 {step}
                               </div>
-                              {step < 3 && (
+                              {step < 2 && (
                                 <div
                                   className={`flex-1 h-1 mx-2 transition-all ${
                                     currentStep > step ? "bg-slate-900" : "bg-slate-200"
@@ -397,13 +402,13 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                           ))}
                         </div>
                         <div className="text-xs text-slate-500 text-center">
-                          Step {currentStep} of 3
+                          Step {currentStep} of 2
                         </div>
                       </div>
 
                       {/* Form */}
                       <form onSubmit={handleSubmit} className="space-y-4">
-                        {/* Step 1: Personal Info */}
+                        {/* Step 1: Personal Info & Contact */}
                         {currentStep === 1 && (
                           <motion.div
                             initial={{ opacity: 0, x: 20 }}
@@ -428,45 +433,25 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                Address <span className="text-red-500">*</span>
-                              </label>
-                              <textarea
-                                name="address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                placeholder="Enter your complete address"
-                                required
-                                rows="4"
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all resize-none"
-                              />
-                            </div>
-                          </motion.div>
-                        )}
-
-                        {/* Step 2: Contact Info */}
-                        {currentStep === 2 && (
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            className="space-y-5"
-                          >
-                            <div>
-                              <label className="block text-sm font-medium text-slate-700 mb-2">
                                 WhatsApp Number <span className="text-red-500">*</span>
                               </label>
-                              <input
-                                type="tel"
-                                name="whatsappNumber"
-                                value={formData.whatsappNumber}
-                                onChange={handleChange}
-                                placeholder="+91 XXXXX XXXXX"
-                                required
-                                pattern="[0-9]{10}"
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
-                              />
+                              <div className="relative">
+                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 font-medium">
+                                  +91
+                                </span>
+                                <input
+                                  type="tel"
+                                  name="whatsappNumber"
+                                  value={formData.whatsappNumber}
+                                  onChange={handleMobileChange}
+                                  placeholder="XXXXX XXXXX"
+                                  required
+                                  maxLength="10"
+                                  className="w-full pl-14 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
+                                />
+                              </div>
                               <p className="text-xs text-slate-500 mt-2">
-                                Enter 10-digit mobile number
+                                Enter 10-digit mobile number (numbers only)
                               </p>
                             </div>
 
@@ -474,25 +459,30 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               <label className="block text-sm font-medium text-slate-700 mb-2">
                                 Parent's Mobile Number <span className="text-red-500">*</span>
                               </label>
-                              <input
-                                type="tel"
-                                name="parentsNumber"
-                                value={formData.parentsNumber}
-                                onChange={handleChange}
-                                placeholder="+91 XXXXX XXXXX"
-                                required
-                                pattern="[0-9]{10}"
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
-                              />
+                              <div className="relative">
+                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 font-medium">
+                                  +91
+                                </span>
+                                <input
+                                  type="tel"
+                                  name="parentsNumber"
+                                  value={formData.parentsNumber}
+                                  onChange={handleMobileChange}
+                                  placeholder="XXXXX XXXXX"
+                                  required
+                                  maxLength="10"
+                                  className="w-full pl-14 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
+                                />
+                              </div>
                               <p className="text-xs text-slate-500 mt-2">
-                                Enter 10-digit mobile number
+                                Enter 10-digit mobile number (numbers only)
                               </p>
                             </div>
                           </motion.div>
                         )}
 
-                        {/* Step 3: Academic Info */}
-                        {currentStep === 3 && (
+                        {/* Step 2: Academic Info */}
+                        {currentStep === 2 && (
                           <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -550,7 +540,10 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                                   <strong className="text-slate-900">Name:</strong> {formData.studentName}
                                 </p>
                                 <p>
-                                  <strong className="text-slate-900">WhatsApp:</strong> {formData.whatsappNumber}
+                                  <strong className="text-slate-900">WhatsApp:</strong> +91 {formData.whatsappNumber}
+                                </p>
+                                <p>
+                                  <strong className="text-slate-900">Parent's Number:</strong> +91 {formData.parentsNumber}
                                 </p>
                                 <p>
                                   <strong className="text-slate-900">Qualification:</strong> {formData.qualification}
@@ -575,14 +568,11 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                             </button>
                           )}
 
-                          {currentStep < 3 ? (
+                          {currentStep < 2 ? (
                             <button
                               type="button"
                               onClick={nextStep}
-                              disabled={
-                                (currentStep === 1 && !validateStep1()) ||
-                                (currentStep === 2 && !validateStep2())
-                              }
+                              disabled={!validateStep1()}
                               className="flex-1 py-3.5 px-6 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                             >
                               Next →

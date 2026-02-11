@@ -193,7 +193,7 @@ const testimonials = [
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/testimonial2.png",
   },
-  
+  /*
   {
     quote:
       "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
@@ -254,7 +254,7 @@ const testimonials = [
     name: "Sofia Shaikh",
     role: "BVOC AI & ML (2025-2028)",
   },
-  
+  */
 ];
 
 export default function Testimonials() {

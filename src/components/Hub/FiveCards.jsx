@@ -59,7 +59,7 @@ const FiveCards = () => {
         </motion.div>
 
         {/* ================= MOBILE LAYOUT ================= */}
-        <div className="md:hidden grid gap-10 justify-items-center">
+        <div className="md:hidden grid gap-2 justify-items-center">
           {cardData.map((item, i) => (
             <HexCard key={i} data={item} />
           ))}

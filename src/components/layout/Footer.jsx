@@ -17,57 +17,66 @@ const Footer = () => {
   useEffect(() => setMounted(true), []);
 
   const socialLinks = [
-    { icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61585525156166" },
-    { icon: <FaInstagram />, url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0" },
-    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all" },
-    { icon: <FaYoutube />, url: "https://www.youtube.com/@NexcoreInstitute" },
-    { icon: <FaWhatsapp />, url: "https://wa.me/919892398976" },
+    { icon: <FaFacebookF />, url: "https://www.facebook.com/profile.php?id=61585525156166", label: "Facebook" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0", label: "Instagram" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all", label: "LinkedIn" },
+    { icon: <FaYoutube />, url: "https://www.youtube.com/@NexcoreInstitute", label: "YouTube" },
+    { icon: <FaWhatsapp />, url: "https://wa.me/919892398976", label: "WhatsApp" },
   ];
 
   return (
-    <footer className="bg-white text-gray-800 pt-10 relative overflow-hidden border-t">
-      {/* subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(#007BFF 1px, transparent 1px),
-            linear-gradient(90deg, #007BFF 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
+    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 relative overflow-hidden">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 opacity-50" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-slate-800/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-800/20 rounded-full blur-3xl" />
 
-        {/* ===== GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
-
+      <div className="relative max-w-7xl mx-auto px-4 lg:px-8">
+        {/* ===== MAIN GRID ===== */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-12 mb-12 border-b border-slate-800">
           {/* LOGO + ABOUT */}
-          <div>
-            <div className="flex justify-center sm:justify-start">
-              <Link href="/" className="inline-block">
-                <div className="bg-white rounded-xl p-3 inline-block mb-5 shadow-md">
-                  <Image
-                    src="/logo.png"
-                    alt="Nexcore Institute"
-                    width={150}
-                    height={90}
-                    className="object-contain justify-center items-center"
-                    priority
-                  />
-                </div>
-              </Link>
-            </div>
-            <p className="text-gray-600 leading-relaxed text-sm">
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <div className="bg-white rounded-lg p-3 inline-block shadow-lg">
+                <Image
+                  src="/logo.png"
+                  alt="Nexcore Institute"
+                  width={140}
+                  height={80}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Link>
+            <p className="text-slate-400 leading-relaxed text-sm mb-6">
               A next-generation institute empowering students with real-world
               AI and technology skills for industry-ready careers.
             </p>
+
+            {/* Social Links - Desktop */}
+            <div className="hidden sm:flex gap-3">
+              {socialLinks.map((s, i) => (
+                <a
+                  key={i}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 hover:border-white transition-all duration-300 group"
+                >
+                  <span className="text-sm">{s.icon}</span>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* EXPLORE */}
           <div>
-            <h3 className="text-lg font-semibold mb-5 text-[#007BFF]">Explore</h3>
+            <h3 className="text-base font-semibold mb-6 text-white uppercase tracking-wide">
+              Explore
+            </h3>
             <ul className="space-y-3">
               {[
                 { href: "/infrastructure", label: "Infrastructure" },
@@ -77,8 +86,9 @@ const Footer = () => {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-[#007BFF] transition"
+                    className="text-slate-400 hover:text-white transition-colors duration-200 text-sm inline-flex items-center group"
                   >
+                    <span className="w-0 h-px bg-white transition-all duration-200 group-hover:w-4 group-hover:mr-2" />
                     {link.label}
                   </Link>
                 </li>
@@ -88,7 +98,9 @@ const Footer = () => {
 
           {/* POLICIES */}
           <div>
-            <h3 className="text-lg font-semibold mb-5 text-[#FF7F00]">Policies</h3>
+            <h3 className="text-base font-semibold mb-6 text-white uppercase tracking-wide">
+              Policies
+            </h3>
             <ul className="space-y-3">
               {[
                 { href: "/selection-policy", label: "Selection Policy" },
@@ -100,8 +112,9 @@ const Footer = () => {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-[#FF7F00] transition"
+                    className="text-slate-400 hover:text-white transition-colors duration-200 text-sm inline-flex items-center group"
                   >
+                    <span className="w-0 h-px bg-white transition-all duration-200 group-hover:w-4 group-hover:mr-2" />
                     {link.label}
                   </Link>
                 </li>
@@ -111,72 +124,82 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-lg font-semibold mb-5 text-[#007BFF]">Contact</h3>
-            <ul className="space-y-4 text-gray-600 text-sm">
-              <li className="flex gap-3">
-                <MapPin className="w-5 h-5 text-[#007BFF]" />
-                Kurla West, Mumbai 400070
+            <h3 className="text-base font-semibold mb-6 text-white uppercase tracking-wide">
+              Contact
+            </h3>
+            <ul className="space-y-4 text-slate-400 text-sm">
+              <li className="flex gap-3 items-start group">
+                <MapPin className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5 group-hover:text-white transition-colors duration-200" />
+                <span className="group-hover:text-white transition-colors duration-200">
+                  Kurla West, Mumbai 400070
+                </span>
               </li>
-              <li className="flex gap-3">
-                <Phone className="w-5 h-5 text-[#FF7F00]" />
-                +91 9892398976
+              <li className="flex gap-3 items-center group">
+                <Phone className="w-5 h-5 text-slate-500 flex-shrink-0 group-hover:text-white transition-colors duration-200" />
+                <a 
+                  href="tel:+919892398976"
+                  className="group-hover:text-white transition-colors duration-200"
+                >
+                  +91 9892398976
+                </a>
               </li>
-              <li className="flex gap-3 break-all">
-                <Mail className="w-5 h-5 text-[#FFCD00]" />
-                admin@nexcoreinstitute.org
+              <li className="flex gap-3 items-start group">
+                <Mail className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5 group-hover:text-white transition-colors duration-200" />
+                <a 
+                  href="mailto:admin@nexcoreinstitute.org"
+                  className="group-hover:text-white transition-colors duration-200 break-all"
+                >
+                  admin@nexcoreinstitute.org
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* ===== SOCIAL + BOTTOM (SAME LINE) ===== */}
-        <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+        {/* Social Links - Mobile */}
+        <div className="sm:hidden flex justify-center gap-3 pb-8 mb-8 border-b border-slate-800">
+          {socialLinks.map((s, i) => (
+            <a
+              key={i}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 hover:border-white transition-all duration-300"
+            >
+              <span className="text-base">{s.icon}</span>
+            </a>
+          ))}
+        </div>
 
-          {/* SOCIAL */}
-          <div className="flex gap-3">
-            {socialLinks.map((s, i) => (
-              <a
-                key={i}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  w-9 h-9 rounded-md
-                  bg-gray-100
-                  flex items-center justify-center
-                  hover:bg-[#007BFF]
-                  hover:text-white
-                  hover:scale-110
-                  transition
-                "
-              >
-                <span className="text-sm">{s.icon}</span>
-              </a>
-            ))}
-          </div>
-
-          {/* LEFT TEXT */}
-          <div className="text-center">
+        {/* ===== BOTTOM BAR ===== */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+          {/* Copyright */}
+          <div className="text-slate-500 text-center md:text-left order-2 md:order-1">
             © 2026{" "}
-            <Link href="/" className="text-[#007BFF] font-semibold">
+            <Link 
+              href="/" 
+              className="text-white font-medium hover:underline transition-all duration-200"
+            >
               Nexcore Institute Of Technology
-            </Link>{" "}
-            — All Rights Reserved
+            </Link>
+            {" "}— All Rights Reserved
           </div>
 
-          {/* RIGHT TEXT */}
-          <div className="flex items-center gap-1">
-            Designed by{" "}
+          {/* Designed by */}
+          <div className="flex items-center gap-2 text-slate-500 order-1 md:order-2">
+            <span>Designed with</span>
+            <Heart className="w-4 h-4 fill-red-500 text-red-500 animate-pulse" />
+            <span>by</span>
             <a
               href="https://nexcorealliance.com/"
               target="_blank"
-              className="text-[#FF7F00] font-semibold inline-flex items-center gap-1"
+              rel="noopener noreferrer"
+              className="text-white font-medium hover:underline transition-all duration-200"
             >
               Nexcore Alliance
-              <Heart className="w-4 h-4 fill-current text-red-500" />
             </a>
           </div>
-
         </div>
       </div>
     </footer>

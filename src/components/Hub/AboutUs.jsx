@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Brain, Code, Shield, Palette, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Brain, Code, Shield, Palette, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const initialDegrees = [
@@ -47,244 +47,234 @@ const initialDegrees = [
   },
 ];
 
-const positions = [
-  { x: -300, rotate: -15, scale: 0.92, z: 10 }, // far left
-  { x: -100, rotate: -6, scale: 0.96, z: 20 },  // left
-  { x: 100, rotate: 6, scale: 0.96, z: 20 },    // right
-  { x: 300, rotate: 15, scale: 0.92, z: 10 },   // far right
-];
-
 const DegreesShowcase = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, threshold: 0.2 });
 
-  const [cards, setCards] = useState(initialDegrees);
-  const [centerIndex, setCenterIndex] = useState(1);
-
-  const handleCardClick = (index) => {
-    if (index === centerIndex) return;
-
-    const steps = index - centerIndex;
-    const newOrder = [...cards];
-
-    if (steps > 0) {
-      // Move right cards to center
-      for (let i = 0; i < steps; i++) {
-        newOrder.push(newOrder.shift());
-      }
-    } else {
-      // Move left cards to center
-      for (let i = 0; i < Math.abs(steps); i++) {
-        newOrder.unshift(newOrder.pop());
-      }
-    }
-
-    setCards(newOrder);
-  };
-
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 px-4 bg-[#0b1220] overflow-hidden"
+      className="relative py-5 sm:py-28 lg:py-5 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50 overflow-hidden"
     >
-      {/* ===== GRID BACKGROUND ===== */}
+      {/* ===== SUBTLE DECORATIVE ELEMENTS ===== */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-40 pointer-events-none" />
+      
+      {/* ===== REFINED GRID BACKGROUND ===== */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.015]"
         style={{
           backgroundImage: `
-            linear-gradient(#007BFF 1px, transparent 1px),
-            linear-gradient(90deg, #007BFF 1px, transparent 1px)
+            linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px)
           `,
-          backgroundSize: "60px 60px",
+          backgroundSize: "100px 100px",
         }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* ===== HEADER ===== */}
+        {/* ===== REFINED PROFESSIONAL HEADER ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20 lg:mb-24"
+          className="text-center mb-10 sm:mb-24 lg:mb-10 max-w-4xl mx-auto"
         >
-          <div className="inline-block mb-4 px-5 py-2 rounded-full bg-blue-500/10 text-[#007BFF] text-xs font-semibold tracking-wider">
-            OUR PROGRAMS
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white border border-blue-100 shadow-sm"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-blue-600 text-xs sm:text-sm font-semibold tracking-widest uppercase">
+              Academic Programs
+            </span>
+          </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Choose Your Path
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-7 tracking-tight leading-[1.1]">
+            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">Path</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            Industry-aligned Bachelor's programs designed for future-ready careers.
+          <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+            Industry-aligned Bachelor's programs designed to prepare you for tomorrow's challenges and opportunities.
           </p>
         </motion.div>
 
-        {/* ===== MOBILE STACK ===== */}
-        <div className="grid gap-8 lg:hidden">
-          {cards.map((degree) => (
-            <div
+        {/* ===== PREMIUM PROFESSIONAL CARD GRID ===== */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-2 xl:gap-2">
+          {initialDegrees.map((degree, index) => (
+            <motion.div
               key={degree.id}
-              className="
-                w-full bg-[#111827]
-                rounded-2xl p-8
-                border border-white/10 shadow-xl
-                flex flex-col
-              "
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full group"
             >
+              {/* Card Container with Elevated Shadow */}
               <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                style={{
-                  background: `${degree.color}20`,
-                  border: `1px solid ${degree.color}50`,
-                }}
+                className="
+                  relative h-full
+                  bg-white
+                  rounded-3xl p-8
+                  border border-slate-200/60
+                  transition-all duration-500 ease-out
+                  hover:shadow-2xl hover:shadow-slate-200/50
+                  hover:border-blue-200/80
+                  hover:-translate-y-2
+                  flex flex-col
+                  overflow-hidden
+                "
               >
-                <degree.icon className="w-7 h-7" style={{ color: degree.color }} />
-              </div>
+                {/* Gradient Accent Line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Subtle Background Glow on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-              <h3 className="text-xl font-bold text-white mb-1">
-                {degree.shortName}
-              </h3>
-              <p className="text-sm text-gray-400 mb-4">{degree.name}</p>
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Icon & Badge Row */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div
+                      className="
+                        w-16 h-16 rounded-2xl 
+                        flex items-center justify-center 
+                        bg-gradient-to-br from-blue-50 to-blue-100/50
+                        border border-blue-200/50
+                        shadow-sm
+                        transition-all duration-500
+                        group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-200/30
+                      "
+                    >
+                      <degree.icon className="w-8 h-8 text-blue-600" />
+                    </div>
 
-              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
-                {degree.description}
-              </p>
-
-              <div className="space-y-2 mb-8">
-                {degree.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2
-                      className="w-4 h-4"
-                      style={{ color: degree.color }}
-                    />
-                    <span className="text-sm text-gray-300">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-auto">
-                <Link href="/contact">
-                  <button
-                    className="w-full px-5 py-3 rounded-xl font-semibold text-white flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#FF7F00" }}
-                  >
-                    Explore Program
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ===== DESKTOP FAN STACK (4 CARDS) ===== */}
-        <div className="relative h-[620px] items-center justify-center hidden lg:flex">
-          {cards.map((degree, index) => {
-            const pos = positions[index];
-            const isCenter = index === 1 || index === 2;
-
-            return (
-              <motion.div
-                key={degree.id}
-                onClick={() => handleCardClick(index)}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.12 }}
-                className="absolute cursor-pointer"
-                style={{ zIndex: isCenter ? 30 : pos.z }}
-              >
-                <motion.div
-                  animate={{
-                    x: pos.x,
-                    rotate: pos.rotate,
-                    scale: isCenter ? 1.04 : pos.scale,
-                  }}
-                  transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                  className={`
-                    w-[360px] h-[500px]
-                    bg-[#111827]
-                    rounded-2xl p-8
-                    border ${isCenter ? 'border-[#007BFF]/50' : 'border-white/10'}
-                    shadow-2xl flex flex-col
-                    ${isCenter ? 'shadow-[#007BFF]/20' : ''}
-                  `}
-                >
-                  <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6"
-                    style={{
-                      background: `${degree.color}20`,
-                      border: `1px solid ${degree.color}50`,
-                    }}
-                  >
-                    <degree.icon className="w-8 h-8" style={{ color: degree.color }} />
+                    {/* Elegant Number Badge */}
+                    <div
+                      className="
+                        min-w-[2.5rem] h-10 px-3
+                        rounded-xl 
+                        flex items-center justify-center 
+                        text-sm font-bold
+                        bg-slate-50 text-slate-400
+                        border border-slate-200/50
+                        transition-all duration-500
+                        group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-200
+                      "
+                    >
+                      0{index + 1}
+                    </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-1">
-                    {degree.shortName}
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-4">{degree.name}</p>
+                  {/* Title Section with Enhanced Typography */}
+                  <div className="mb-5">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight leading-tight transition-colors duration-300 group-hover:text-blue-900">
+                      {degree.shortName}
+                    </h3>
+                    <div className="flex items-center gap-3">
+                      <div className="h-[2px] w-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600" />
+                      <p className="text-[11px] text-slate-500 font-semibold uppercase tracking-[0.15em] leading-none">
+                        Bachelor's Degree
+                      </p>
+                    </div>
+                  </div>
 
-                  <p className="text-gray-300 text-base mb-6 leading-relaxed">
+                  {/* Description with Better Line Height */}
+                  <p className="text-slate-600 text-[15px] mb-6 leading-relaxed line-clamp-3">
                     {degree.description}
                   </p>
 
-                  <div className="space-y-2 mb-8">
+                  {/* Features with Refined Spacing */}
+                  <div className="space-y-3 mb-8 flex-grow">
                     {degree.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle2
-                          className="w-4 h-4"
-                          style={{ color: degree.color }}
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ delay: index * 0.15 + i * 0.08 }}
+                        className="flex items-start gap-3 group/item"
+                      >
+                        <div
+                          className="
+                            w-1.5 h-1.5 rounded-full flex-shrink-0 
+                            bg-blue-500 mt-[7px]
+                            transition-all duration-300
+                            group-hover/item:scale-125
+                          "
                         />
-                        <span className="text-sm text-gray-300">{feature}</span>
-                      </div>
+                        <span className="text-[15px] text-slate-600 leading-relaxed">{feature}</span>
+                      </motion.div>
                     ))}
                   </div>
 
-                  <div className="mt-auto">
+                  {/* Premium CTA Button */}
+                  <div className="mt-auto pt-6 border-t border-slate-100">
                     <Link href="/contact">
                       <motion.button
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="w-full px-5 py-3 rounded-xl font-semibold text-white flex items-center justify-center gap-2"
-                        style={{ backgroundColor: "#FF7F00" }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="
+                          w-full flex items-center justify-between 
+                          px-6 py-4 rounded-2xl 
+                          font-semibold text-[15px]
+                          transition-all duration-300
+                          bg-gradient-to-r from-blue-600 to-blue-700 
+                          text-white 
+                          shadow-lg shadow-blue-500/25
+                          hover:shadow-xl hover:shadow-blue-500/40
+                          hover:from-blue-700 hover:to-blue-800
+                          group/btn
+                        "
                       >
-                        Explore Program
-                        <ArrowRight className="w-4 h-4" />
+                        <span>Explore Program</span>
+                        <ArrowRight 
+                          className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1" 
+                        />
                       </motion.button>
                     </Link>
                   </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* ===== BOTTOM CTA ===== */}
+        {/* ===== REFINED BOTTOM CTA ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-20 lg:mt-24"
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-center mt-20 sm:mt-15 lg:mt-10 max-w-3xl mx-auto"
         >
-          <p className="text-gray-400 mb-6">
-            Not sure which program suits you best?
+          <p className="text-slate-600 text-lg sm:text-xl mb-8 sm:mb-10 font-light leading-relaxed">
+            Not sure which program aligns with your career goals?
           </p>
 
           <Link href="/contact">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, y: -3 }}
+              whileTap={{ scale: 0.98 }}
               className="
-                px-10 py-4 rounded-xl
-                bg-[#007BFF] text-white font-semibold
-                shadow-lg hover:shadow-xl transition
+                inline-flex items-center gap-3
+                px-10 sm:px-12 py-4 sm:py-5 rounded-2xl
+                bg-gradient-to-r from-slate-900 to-slate-800 text-white 
+                font-semibold text-base sm:text-lg
+                shadow-xl shadow-slate-900/20
+                hover:shadow-2xl hover:shadow-slate-900/30
+                transition-all duration-500
+                border border-slate-800
               "
             >
-              Schedule a Consultation
+              <span>Schedule a Consultation</span>
+              <ArrowRight className="w-5 h-5" />
             </motion.button>
           </Link>
+          
+          <p className="text-slate-500 text-sm mt-6">
+            Speak with our academic advisors to find your perfect fit
+          </p>
         </motion.div>
       </div>
     </section>

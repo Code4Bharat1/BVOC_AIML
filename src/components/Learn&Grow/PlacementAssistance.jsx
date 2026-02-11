@@ -7,174 +7,82 @@ import { ChevronRight } from "lucide-react";
 
 const PlacementAssistance = () => {
   return (
-    <section className="relative w-full overflow-x-hidden px-4 sm:px-6 py-15 sm:py-16 md:py-20 bg-white">
-      {/* Subtle Solid Background Elements */}
-      <div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
-        style={{ background: "rgba(0, 123, 255, 0.05)" }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl"
-        style={{ background: "rgba(255, 127, 0, 0.05)" }}
-      />
-
-      <style jsx>{`
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        .slide-left {
-          animation: slideInLeft 0.8s ease-out;
-        }
-
-        .slide-right {
-          animation: slideInRight 0.8s ease-out 0.2s backwards;
-        }
-
-        .cta-button {
-          transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover {
-          transform: scale(1.05);
-        }
-      `}</style>
-
-      <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 z-10">
-        {/* LEFT SIDE IMAGE (FIXED) */}
-        <div className="w-full lg:w-1/2 flex justify-center slide-left p-8">
-          <div className="w-full max-w-lg bg-white rounded-3xl p-4 shadow-xl border border-slate-200">
-            <Image
-              src="/placement-card.png"
-              alt="Placement Assistance"
-              width={600}
-              height={350}
-              priority
-              className="w-full h-auto object-contain rounded-2xl"
-            />
+    <section className="relative w-full overflow-hidden px-6 py-20 mt-20 bg-slate-50">
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 items-center gap-12">
+          
+          {/* LEFT SIDE IMAGE */}
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-lg">
+              {/* Decorative blur background */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-blue-100 to-orange-100 rounded-3xl blur-2xl opacity-30" />
+              
+              {/* Image container */}
+              <div className="relative bg-white rounded-2xl p-3 shadow-xl">
+                <Image
+                  src="/placement-card.png"
+                  alt="Placement Assistance"
+                  width={600}
+                  height={350}
+                  priority
+                  className="w-full h-auto rounded-xl"
+                />
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* RIGHT SIDE TEXT */}
-        <div className="w-full lg:w-1/2 text-center lg:text-start slide-right">
-          {/* Desktop Header */}
-          <h1
-            className="hidden lg:block text-4xl xl:text-5xl font-bold leading-tight mb-6 lg:mb-8"
-            style={{
-              fontFamily:
-                "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              color: "#2C2C2C",
-            }}
-          >
-            Placement Assistance:
-            <br />
-            <span style={{ color: "#0A2540", fontWeight: "bold" }}>
-              Your Path to Success!
-            </span>
-          </h1>
+          {/* RIGHT SIDE CONTENT */}
+          <div className="space-y-6">
+            {/* Badge */}
+            <div className="inline-block">
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                Career Support
+              </span>
+            </div>
 
-          {/* Desktop Text */}
-          <p
-            className="hidden lg:block text-lg xl:text-xl leading-relaxed pr-0 lg:pr-10"
-            style={{
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: "rgba(44, 44, 44, 0.75)",
-            }}
-          >
-            At{" "}
-            <span className="font-bold" style={{ color: "#0A2540" }}>
-              NEXCORE INTITUTE OF TECHNOLOGY
-            </span>
-            , we don't just teach — you{" "}
-            <span className="font-bold" style={{ color: "#FF7F00" }}>
-              intern
-            </span>{" "}
-            and{" "}
-            <span className="font-bold" style={{ color: "#F59E0B" }}>
-              work
-            </span>
-            . Our{" "}
-            <span className="font-bold" style={{ color: "#0A2540" }}>
-              100% placement assistance
-            </span>{" "}
-            ensures you're job-ready for the real world.
-          </p>
+            {/* Heading */}
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+              Placement Assistance:{" "}
+              <span className="text-blue-600">Your Path to Success!</span>
+            </h2>
 
-          {/* Mobile Header */}
-          <h1
-            className="lg:hidden text-2xl sm:text-3xl font-bold leading-tight mb-4 text-center"
-            style={{
-              fontFamily:
-                "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              color: "#2C2C2C",
-            }}
-          >
-            Placement Assistance:
-            <br />
-            <span style={{ color: "#0A2540", fontWeight: "bold" }}>
-              Your Path to Success!
-            </span>
-          </h1>
+            {/* Description */}
+            <p className="text-lg text-slate-600 leading-relaxed">
+              At{" "}
+              <span className="font-semibold text-slate-900">
+                NEXCORE INSTITUTE OF TECHNOLOGY
+              </span>
+              , we don't just teach — you{" "}
+              <span className="font-semibold text-orange-600">intern</span> and{" "}
+              <span className="font-semibold text-amber-600">work</span>. Our{" "}
+              <span className="font-semibold text-slate-900">
+                100% placement assistance
+              </span>{" "}
+              ensures you're job-ready for the real world.
+            </p>
 
-          {/* Mobile Text */}
-          <p
-            className="lg:hidden text-sm sm:text-base px-2 sm:px-4 mb-6 text-center leading-relaxed"
-            style={{
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: "rgba(44, 44, 44, 0.75)",
-            }}
-          >
-            At{" "}
-            <span className="font-bold" style={{ color: "#0A2540" }}>
-              Nexcore INTITUTE OF TECHNOLOGY
-            </span>
-            , we don't just teach — you{" "}
-            <span className="font-bold" style={{ color: "#FF7F00" }}>
-              intern
-            </span>{" "}
-            and{" "}
-            <span className="font-bold" style={{ color: "#F59E0B" }}>
-              work
-            </span>
-            . Our{" "}
-            <span className="font-bold" style={{ color: "#0A2540" }}>
-              100% placement assistance
-            </span>{" "}
-            ensures you're job-ready.
-          </p>
+            {/* Stats or Features */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="p-4 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-3xl font-bold text-blue-600 mb-1">100%</div>
+                <div className="text-sm text-slate-600">Placement Support</div>
+              </div>
+              <div className="p-4 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-3xl font-bold text-orange-600 mb-1">500+</div>
+                <div className="text-sm text-slate-600">Partner Companies</div>
+              </div>
+            </div>
 
-          {/* CTA BUTTON */}
-          <div className="mt-6 flex justify-center lg:justify-start">
-            <Link
-              href="/contact"
-              className="cta-button inline-flex items-center justify-center text-white font-bold py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg shadow-lg bg-blue-600 hover:bg-blue-500 cursor-pointer transition duration-500"
-              style={{
-                // background: "#0A2540",
-                fontFamily:
-                  "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              }}
-            >
-              Enroll Now
-              <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
+            {/* CTA Button */}
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all group"
+              >
+                Enroll Now
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

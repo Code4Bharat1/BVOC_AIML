@@ -1,11 +1,11 @@
 "use client";
-import { Briefcase, CheckCircle, UserCheck, AlertTriangle, FileText, Sparkles, ArrowRight } from "lucide-react";
+import { Briefcase, CheckCircle, UserCheck, AlertTriangle, FileText, ArrowRight } from "lucide-react";
 
 export default function Placement_Policy() {
-  const Placement_Policy = [
+  const policyItems = [
     {
       image: "/placement_policy/image1.svg",
-      icon: <Briefcase />,
+      icon: <Briefcase className="w-6 h-6" />,
       heading: "Placement Guarantee Overview",
       description: [
         "Minimum Guaranteed Package: ₹3,00,000 per annum (₹25,000/month).",
@@ -19,10 +19,11 @@ export default function Placement_Policy() {
           "Direct placement drives with partner companies",
         ],
       ],
+      color: "blue",
     },
     {
       image: "/placement_policy/image2.svg",
-      icon: <CheckCircle />,
+      icon: <CheckCircle className="w-6 h-6" />,
       heading: "Eligibility Criteria",
       description: [
         "To be eligible for the guaranteed placement, a student must:",
@@ -34,10 +35,11 @@ export default function Placement_Policy() {
           "Have no record of disciplinary issues or academic dishonesty.",
         ],
       ],
+      color: "orange",
     },
     {
       image: "/placement_policy/image3.svg",
-      icon: <UserCheck />,
+      icon: <UserCheck className="w-6 h-6" />,
       heading: "Student Responsibilities",
       description: [
         "Apply to all relevant job opportunities shared by the placement cell.",
@@ -45,311 +47,75 @@ export default function Placement_Policy() {
         "Accept job offers that meet or exceed the ₹3 LPA minimum.",
         "Students can decline only up to 2 job offers; declining more than 2 forfeits the placement guarantee.",
       ],
+      color: "blue",
     },
     {
       image: "/placement_policy/image4.svg",
-      icon: <AlertTriangle />,
+      icon: <AlertTriangle className="w-6 h-6" />,
       heading: "Force Majeure & Exemptions",
       description: [
         "Nexcore Alliance is not liable for placement outcomes impacted by unforeseen events like pandemics, economic crises, or personal emergencies.",
         "Students opting out of placements for higher education, family business, or entrepreneurship must submit a signed Opt-Out Declaration.",
       ],
+      color: "orange",
     },
     {
       image: "/placement_policy/image5MobileView.png",
-      icon: <FileText />,
+      icon: <FileText className="w-6 h-6" />,
       heading: "Policy Terms",
       description: [
         "This policy is applicable only to the Bachelor's in AI & ML program.",
         "Changes to the policy may be made by Nexcore Alliance based on industry or academic developments.",
         "At admission, students and guardians will sign a Placement Policy Agreement acknowledging these terms.",
       ],
+      color: "blue",
     },
   ];
 
   return (
-    <div className="relative min-h-screen bg-white py-16 px-4 overflow-hidden">
-      {/* Optimized Floating Particles - Reduced from 12 to 6 */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full"
-            style={{
-              background: i % 2 === 0 ? '#007BFF' : '#FF7F00',
-              opacity: 0.15,
-              left: `${15 + i * 15}%`,
-              top: `${10 + i * 12}%`,
-              animation: `floatUp ${6 + i}s ease-in-out infinite`,
-              animationDelay: `${i * 0.8}s`
-            }}
-          />
-        ))}
-      </div>
+    <div className="relative bg-gradient-to-b from-slate-50 to-white py-16 px-4 overflow-hidden mt-20">
+      {/* Simple background elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent" />
 
-      {/* Lighter Glowing Orbs with Optimized Animation */}
-      <div 
-        className="absolute top-0 left-0 w-80 h-80 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-          animation: 'moveOrb1 20s ease-in-out infinite',
-          willChange: 'transform'
-        }}
-      />
-      <div 
-        className="absolute bottom-0 right-0 w-80 h-80 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 127, 0, 0.08) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-          animation: 'moveOrb2 22s ease-in-out infinite',
-          willChange: 'transform'
-        }}
-      />
-
-      <style jsx>{`
-        @keyframes floatUp {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-            opacity: 0;
-          }
-          15% {
-            opacity: 0.2;
-          }
-          85% {
-            opacity: 0.2;
-          }
-          100% {
-            transform: translateY(-120px) translateX(20px);
-            opacity: 0;
-          }
-        }
-
-        @keyframes moveOrb1 {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(40px, 40px);
-          }
-        }
-
-        @keyframes moveOrb2 {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(-40px, -40px);
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        html {
-          scroll-behavior: smooth;
-        }
-
-        .scrollbar-thin::-webkit-scrollbar {
-          width: 4px;
-        }
-
-        .scrollbar-thin::-webkit-scrollbar-track {
-          background: transparent;
-        }
-
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-          background: #007BFF;
-          border-radius: 20px;
-        }
-
-        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-          background: #FF7F00;
-        }
-      `}</style>
-
-      <div className="max-w-7xl mx-auto relative z-10 mt-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          {/* <div className="inline-flex items-center gap-2 mb-5 px-5 py-2 bg-gradient-to-r from-blue-50 to-orange-50 border border-blue-200/40 rounded-full">
-            <Sparkles className="w-4 h-4" style={{ color: '#007BFF' }} />
-            <span 
-              className="text-xs font-semibold tracking-wider uppercase" 
-              style={{ color: '#2C2C2C' }}
-            >
-              Career Assurance
-            </span>
-            <Sparkles className="w-4 h-4" style={{ color: '#FF7F00' }} />
-          </div> */}
-
-          <h1 
-            className="text-4xl md:text-5xl font-bold mb-6 leading-tight" 
-            style={{ 
-              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              color: '#2C2C2C'
-            }}
-          >
-            <span style={{ color: '#007BFF' }}>Guaranteed</span> Placement Policy
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+            <span className="text-blue-600">Guaranteed</span> Placement Policy
           </h1>
 
-          <h2 
-            className="text-xl md:text-2xl font-semibold mb-4" 
-            style={{ 
-              fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-              color: '#FF7F00'
-            }}
-          >
+          <h2 className="text-2xl font-semibold mb-4 text-orange-500">
             Introduction
           </h2>
 
-          <p 
-            className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed" 
-            style={{ 
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              color: '#2C2C2C'
-            }}
-          >
+          <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed text-slate-700">
             Nexcore Alliance guarantees placement support for every student enrolled
             in the Bachelor's in Artificial Intelligence and Machine Learning program.
             This policy outlines the terms, responsibilities, and eligibility
             criteria for students to qualify for the guaranteed placement offer.
           </p>
 
-          <div className="flex items-center justify-center gap-3 mt-5">
-            <div className="h-0.5 w-16 rounded-full" style={{ background: 'linear-gradient(to right, transparent, #007BFF, transparent)' }} />
-            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#FF7F00' }} />
-            <div className="h-0.5 w-16 rounded-full" style={{ background: 'linear-gradient(to right, transparent, #FF7F00, transparent)' }} />
+          {/* Simple divider */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+            <div className="w-2 h-2 rounded-full bg-orange-500" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
           </div>
         </div>
 
         {/* Policy Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
-          {Placement_Policy.map((item, index) => {
-            const getDescriptionText = (desc) => {
-              if (Array.isArray(desc)) {
-                return desc
-                  .flatMap((d) => (Array.isArray(d) ? d : [d]))
-                  .join(" ");
-              }
-              return desc;
-            };
-
-            const totalDescLength = getDescriptionText(item.description).length;
-            const isLongText = totalDescLength > 300;
-
-            return (
-              <div
-                key={index}
-                className={`w-full max-w-[480px] group ${
-                  Placement_Policy.length % 2 === 1 &&
-                  index === Placement_Policy.length - 1
-                    ? "md:col-span-2"
-                    : ""
-                }`}
-                style={{
-                  animation: `fadeInUp 0.6s ease-out ${index * 0.1}s backwards`
-                }}
-              >
-                <div className="relative h-[750px] md:h-[700px]">
-                  <div className="relative h-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                    {/* Top Section - Image */}
-                    <div className="relative h-1/2 rounded-t-2xl" style={{ background: 'linear-gradient(135deg, rgba(0, 123, 255, 0.08) 0%, rgba(255, 127, 0, 0.08) 100%)' }}>
-                      {/* Corner Decorations with Brand Colors */}
-                      <div 
-                        className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 rounded-tl-2xl opacity-40 z-10"
-                        style={{ borderColor: index % 2 === 0 ? '#007BFF' : '#FF7F00' }}
-                      />
-                      
-                      {/* Icon Badge with Brand Colors */}
-                      <div 
-                        className="absolute top-4 right-4 w-14 h-14 rounded-xl flex items-center justify-center text-white shadow-md z-10"
-                        style={{
-                          background: `linear-gradient(135deg, #007BFF 0%, ${index % 2 === 0 ? '#0056b3' : '#FF7F00'} 100%)`
-                        }}
-                      >
-                        {item.icon}
-                      </div>
-
-                      {/* Image Container */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-white rounded-t-2xl">
-                        <img
-                          src={item.image}
-                          alt={item.heading}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-blue-50/20 via-transparent to-transparent" />
-                      </div>
-                    </div>
-
-                    {/* Bottom Section - Content */}
-                    <div className="relative h-1/2 bg-white p-6 rounded-b-2xl">
-                      {/* Corner Decoration */}
-                      <div 
-                        className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 rounded-br-2xl opacity-40"
-                        style={{ borderColor: index % 2 === 0 ? '#FF7F00' : '#007BFF' }}
-                      />
-
-                      <div className="relative h-full overflow-y-auto scrollbar-thin pr-2">
-                        <h3 
-                          className="text-lg font-bold mb-3 text-center" 
-                          style={{ 
-                            fontFamily: "'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif",
-                            color: '#007BFF'
-                          }}
-                        >
-                          {item.heading}
-                        </h3>
-
-                        <ul 
-                          className={`list-disc pl-5 space-y-2 ${isLongText ? "text-sm" : "text-base"}`} 
-                          style={{ 
-                            fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-                            color: '#2C2C2C'
-                          }}
-                        >
-                          {Array.isArray(item.description) ? (
-                            item.description.map((desc, i) =>
-                              Array.isArray(desc) ? (
-                                <ul key={i} className="list-[lower-alpha] pl-6 space-y-1 mt-1">
-                                  {desc.map((sub, j) => (
-                                    <li key={j} style={{ color: '#2C2C2C' }}>{sub}</li>
-                                  ))}
-                                </ul>
-                              ) : (
-                                <li key={i} className="leading-relaxed">{desc}</li>
-                              )
-                            )
-                          ) : (
-                            <li className="leading-relaxed">{item.description}</li>
-                          )}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {policyItems.map((item, index) => (
+            <PolicyCard key={index} item={item} index={index} />
+          ))}
         </div>
 
-        {/* Bottom CTA with Brand Colors */}
-        <div className="mt-14 text-center">
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl text-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-            style={{ 
-              fontFamily: "'Inter', -apple-system, system-ui, sans-serif",
-              background: 'linear-gradient(135deg, #007BFF 0%, #FF7F00 100%)'
-            }}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-orange-500 text-white font-bold rounded-xl text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             View Full Placement Terms
             <ArrowRight className="w-5 h-5" />
@@ -359,3 +125,112 @@ export default function Placement_Policy() {
     </div>
   );
 }
+
+const PolicyCard = ({ item, index }) => {
+  const colorStyles = {
+    blue: {
+      icon: "bg-blue-600",
+      border: "border-blue-200",
+      hoverBorder: "hover:border-blue-400",
+      heading: "text-blue-600",
+      accent: "bg-blue-500",
+    },
+    orange: {
+      icon: "bg-orange-500",
+      border: "border-orange-200",
+      hoverBorder: "hover:border-orange-400",
+      heading: "text-orange-500",
+      accent: "bg-orange-500",
+    },
+  };
+
+  const styles = colorStyles[item.color];
+
+  // Render nested list items
+  const renderDescription = (desc, level = 0) => {
+    if (Array.isArray(desc)) {
+      return desc.map((d, i) => {
+        if (Array.isArray(d)) {
+          return (
+            <ul key={i} className="ml-6 mt-2 space-y-1.5">
+              {d.map((sub, j) => (
+                <li key={j} className="text-sm text-slate-700 leading-relaxed flex items-start gap-2">
+                  <span className="text-slate-400 mt-1">•</span>
+                  <span>{sub}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        return (
+          <li key={i} className="text-slate-700 leading-relaxed flex items-start gap-2">
+            <span className="text-slate-400 mt-1">•</span>
+            <span>{d}</span>
+          </li>
+        );
+      });
+    }
+    return (
+      <li className="text-slate-700 leading-relaxed flex items-start gap-2">
+        <span className="text-slate-400 mt-1">•</span>
+        <span>{desc}</span>
+      </li>
+    );
+  };
+
+  return (
+    <>
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #3b82f6;
+          border-radius: 20px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #2563eb;
+        }
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #3b82f6 transparent;
+        }
+      `}</style>
+      
+      <div className="group">
+        <div className={`bg-white rounded-2xl border-2 ${styles.border} ${styles.hoverBorder} shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden h-full flex flex-col`}>
+          {/* Image Section */}
+          <div className="relative h-64 bg-gradient-to-br from-slate-50 to-slate-100">
+            <img
+              src={item.image}
+              alt={item.heading}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            
+            {/* Icon Badge */}
+            <div className={`absolute top-4 right-4 w-12 h-12 ${styles.icon} rounded-xl flex items-center justify-center text-white shadow-lg border-2 border-white`}>
+              {item.icon}
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="flex-1 p-6 flex flex-col">
+            <h3 className={`text-xl font-bold mb-4 ${styles.heading}`}>
+              {item.heading}
+            </h3>
+
+            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-2.5">
+                {renderDescription(item.description)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};

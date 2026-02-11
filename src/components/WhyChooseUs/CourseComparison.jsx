@@ -50,80 +50,110 @@ export default function CourseComparison() {
   ];
 
   return (
-    <section className="relative py-10 bg-gray-100 overflow-hidden">
-      {/* Soft background glow */}
-      {/* <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-400/20 blur-[140px] rounded-full" /> */}
-
-      <div className="relative max-w-7xl mx-auto px-6">
+    <div className="w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-widest text-blue-600 mb-3">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Compare Your Career Paths
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            BVoc vs Traditional Degree
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            See why industry-driven education is becoming the smarter choice for
-            modern tech careers.
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            See why industry-driven education is becoming the smarter choice for modern tech careers
           </p>
         </div>
 
-        {/* ================= DESKTOP TABLE ================= */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-3 rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-xl">
-            <div className="p-6 font-semibold text-gray-700 bg-gray-50">
-              Parameter
+        {/* Desktop View - Side by Side Cards */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 mb-8">
+          {/* Traditional Degree Card */}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+            <div className="bg-slate-100 px-6 py-4 border-b border-slate-200">
+              <h3 className="text-xl font-semibold text-slate-700">Traditional Degree</h3>
             </div>
-            <div className="p-6 font-semibold text-red-600 bg-red-50">
-              Traditional Degree
+            <div className="divide-y divide-slate-100">
+              {rows.map((row, i) => (
+                <div key={i} className="px-6 py-4 hover:bg-slate-50 transition-colors">
+                  <div className="text-sm font-medium text-slate-500 mb-1">{row.title}</div>
+                  <div className="text-slate-700 flex items-start gap-2">
+                    <span className="text-red-500 mt-0.5">✕</span>
+                    <span>{row.traditional}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="p-6 font-semibold text-blue-700 bg-blue-50">
-              Bachelor's [Nexcore Institute Of Technology]
-            </div>
+          </div>
 
-            {rows.map((row, i) => (
-              <div key={i} className="contents">
-                <div className="p-6 border-t border-gray-200 text-gray-700 bg-gray-50">
-                  {row.title}
+          {/* BVoc Card */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-indigo-500 relative">
+            <div className="absolute top-4 right-4 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              RECOMMENDED
+            </div>
+            <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-4 border-b">
+              <h3 className="text-xl font-semibold text-white">Bachelor's Program</h3>
+              <p className="text-indigo-100 text-sm mt-1">Nexcore Institute of Technology</p>
+            </div>
+            <div className="divide-y divide-slate-100">
+              {rows.map((row, i) => (
+                <div key={i} className="px-6 py-4 hover:bg-indigo-50 transition-colors">
+                  <div className="text-sm font-medium text-slate-500 mb-1">{row.title}</div>
+                  <div className="text-slate-800 flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">✓</span>
+                    <span className="font-medium">{row.bvoc}</span>
+                  </div>
                 </div>
-                <div className="p-6 border-t border-gray-200 text-gray-600">
-                  {row.traditional}
-                </div>
-                <div className="p-6 border-t border-gray-200 text-gray-800 bg-blue-50/50">
-                  {row.bvoc}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ================= MOBILE CARDS ================= */}
-        <div className="md:hidden space-y-6">
+        {/* Mobile View - Accordion Style */}
+        <div className="md:hidden space-y-4">
           {rows.map((row, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden"
-            >
-              <div className="p-4 font-semibold text-blue-700 bg-blue-50">
-                {row.title}
+            <div key={i} className="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+              <div className="bg-indigo-50 px-5 py-3 border-b border-indigo-100">
+                <h4 className="font-semibold text-slate-800">{row.title}</h4>
               </div>
+              
+              <div className="p-5 space-y-4">
+                {/* Traditional */}
+                <div>
+                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">
+                    Traditional Degree
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-red-500 text-lg">✕</span>
+                    <span className="text-sm">{row.traditional}</span>
+                  </div>
+                </div>
 
-              <div className="p-4 border-t border-gray-200">
-                <p className="text-xs text-red-600 mb-1">Traditional Degree</p>
-                <p className="text-gray-700 text-sm">{row.traditional}</p>
-              </div>
-
-              <div className="p-4 border-t border-gray-200 bg-blue-50/50">
-                <p className="text-xs text-blue-700 mb-1">BVoc Program</p>
-                <p className="text-gray-800 text-sm">{row.bvoc}</p>
+                {/* BVoc */}
+                <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-4 border border-indigo-200">
+                  <div className="text-xs font-semibold text-indigo-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                    BVoc Program
+                    <span className="bg-indigo-500 text-white px-2 py-0.5 rounded-full text-[10px]">
+                      BETTER
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-800">
+                    <span className="text-green-500 text-lg">✓</span>
+                    <span className="text-sm font-medium">{row.bvoc}</span>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-
+        {/* CTA Section */}
+        <div className="mt-12 text-center bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
+          <h3 className="text-2xl font-bold text-slate-900 mb-3">Ready to Make the Right Choice?</h3>
+          <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+            Join thousands of students who chose industry-relevant education over traditional degrees
+          </p>
+          <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all">
+            Explore BVoc Programs
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

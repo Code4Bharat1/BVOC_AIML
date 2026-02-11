@@ -4,78 +4,64 @@ import { Sparkles, Users, Code, MessageCircle, TrendingUp } from "lucide-react";
 
 const PeerToPeerLearning = () => {
   return (
-    <div className="relative bg-white py-16 overflow-hidden">
-      {/* Soft background blobs */}
-      <div
-        className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[80px]"
-        style={{ backgroundColor: "rgba(0,123,255,0.05)" }}
-      />
-      <div
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-[80px]"
-        style={{ backgroundColor: "rgba(255,127,0,0.05)" }}
-      />
+    <div className="relative bg-gradient-to-b from-slate-50 to-white py-20 overflow-hidden">
+      {/* Simplified background gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-blue-600" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-              Peer-to-Peer Learning
-            </h1>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-4">
+            <Sparkles className="w-5 h-5 text-blue-600" />
+            <span className="text-sm font-semibold text-blue-700">Collaborative Learning</span>
           </div>
-
-          <h2 className="text-2xl md:text-3xl font-semibold text-blue-600">
+          
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-3">
+            Peer-to-Peer Learning
+          </h1>
+          
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Learn, Collaborate, Grow Together
-          </h2>
-
-          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-blue-600" />
+          </p>
         </div>
 
-        {/* Sections */}
-        <div className="space-y-12">
+        {/* Sections Grid */}
+        <div className="space-y-8">
           <Section
-            icon={<Users className="w-8 h-8 text-blue-600" />}
+            icon={<Users className="w-7 h-7" />}
             title="Collaborative Learning Environment"
-            desc="At Nexcore, we believe in the power of learning "
-            bold={["together", "peer-to-peer learning platform"]}
-            tail=" that connects students, encouraging collaboration and deeper understanding."
+            desc="At Nexcore, we believe in the power of learning together with our peer-to-peer learning platform that connects students, encouraging collaboration and deeper understanding."
             image="/peertopeer/image1.png"
             reverse={false}
-            accent="#007BFF"
+            color="blue"
           />
 
           <Section
-            icon={<Code className="w-8 h-8 text-amber-500" />}
+            icon={<Code className="w-7 h-7" />}
             title="Group Projects & Hackathons"
-            desc="Work alongside peers on "
-            bold={["real-world projects", "hackathons"]}
-            tail=" that push creativity and practical problem-solving."
+            desc="Work alongside peers on real-world projects and hackathons that push creativity and practical problem-solving."
             image="/peertopeer/image2.png"
             reverse
-            accent="#FF7F00"
+            color="amber"
           />
 
           <Section
-            icon={<MessageCircle className="w-8 h-8 text-blue-600" />}
+            icon={<MessageCircle className="w-7 h-7" />}
             title="Discussion Boards & Networking"
-            desc="Engage in "
-            bold={["discussions", "industry-driven topics"]}
-            tail=" while learning from diverse perspectives and expanding your network."
+            desc="Engage in discussions around industry-driven topics while learning from diverse perspectives and expanding your network."
             image="/peertopeer/image3.png"
             reverse={false}
-            accent="#007BFF"
+            color="blue"
           />
 
           <Section
-            icon={<TrendingUp className="w-8 h-8 text-amber-500" />}
+            icon={<TrendingUp className="w-7 h-7" />}
             title="Build Skills for Success"
-            desc="Through collaboration, sharpen essential "
-            bold={["problem-solving", "communication skills"]}
-            tail=" that matter in every career."
+            desc="Through collaboration, sharpen essential problem-solving and communication skills that matter in every career."
             image="/peertopeer/image4.svg"
             reverse
-            accent="#FF7F00"
+            color="amber"
           />
         </div>
       </div>
@@ -83,72 +69,72 @@ const PeerToPeerLearning = () => {
   );
 };
 
-const Section = ({
-  icon,
-  title,
-  desc,
-  bold = [],
-  tail,
-  image,
-  reverse,
-  accent,
-}) => {
-  const [hover, setHover] = useState(false);
+const Section = ({ icon, title, desc, image, reverse, color }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const colorStyles = {
+    blue: {
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      text: "text-blue-600",
+      hoverBorder: "border-blue-400",
+      iconBg: "bg-blue-100",
+    },
+    amber: {
+      bg: "bg-amber-50",
+      border: "border-amber-200",
+      text: "text-amber-600",
+      hoverBorder: "border-amber-400",
+      iconBg: "bg-amber-100",
+    },
+  };
+
+  const styles = colorStyles[color];
 
   return (
     <div
-      className="rounded-3xl border bg-white shadow-sm p-8 md:p-12 transition"
-      style={{
-        borderColor: hover ? accent : "rgba(0,0,0,0.1)",
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      className={`group rounded-2xl bg-white border-2 transition-all duration-300 overflow-hidden ${
+        isHovered ? `${styles.hoverBorder} shadow-xl` : "border-slate-200 shadow-md"
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`flex flex-col ${
-          reverse ? "md:flex-row-reverse" : "md:flex-row"
-        } items-center gap-10`}
+        className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center p-8 md:p-10 ${
+          reverse ? "md:grid-flow-dense" : ""
+        }`}
       >
         {/* Image */}
-        <div className="flex-1 flex justify-center">
-          <div className="rounded-2xl border bg-white p-4 shadow-sm">
+        <div className={`${reverse ? "md:col-start-2" : ""} flex justify-center`}>
+          <div className={`rounded-xl ${styles.bg} p-6 transition-transform duration-300 ${
+            isHovered ? "scale-105" : ""
+          }`}>
             <img
               src={image}
               alt={title}
-              className="w-full max-w-[340px] object-contain"
+              className="w-full max-w-[280px] h-auto object-contain"
             />
           </div>
         </div>
 
-        {/* Text */}
-        <div className="flex-1 space-y-5">
-          <div className="flex items-center gap-4">
-            <div
-              className="p-3 rounded-xl border"
-              style={{ borderColor: accent, color: accent }}
-            >
+        {/* Content */}
+        <div className={`${reverse ? "md:col-start-1 md:row-start-1" : ""} space-y-4`}>
+          <div className="flex items-center gap-3">
+            <div className={`p-2.5 rounded-lg ${styles.iconBg} ${styles.text}`}>
               {icon}
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
               {title}
             </h3>
           </div>
 
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
             {desc}
-            {bold.map((b, i) => (
-              <span key={i} className="font-semibold" style={{ color: accent }}>
-                {b}
-                {i < bold.length - 1 && ", "}
-              </span>
-            ))}
-            {tail}
           </p>
 
-          <div
-            className="h-1 w-20 rounded-full"
-            style={{ backgroundColor: accent }}
-          />
+          <div className={`h-1 w-16 rounded-full ${
+            color === "blue" ? "bg-blue-500" : "bg-amber-500"
+          } transition-all duration-300 ${isHovered ? "w-24" : ""}`} />
         </div>
       </div>
     </div>

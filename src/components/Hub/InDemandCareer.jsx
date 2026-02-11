@@ -25,77 +25,100 @@ const InDemandCareer = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F4F7FB] py-10 px-6">
+    <section ref={ref} className="bg-white py-16 lg:py-10 px-4">
       <div className="max-w-7xl mx-auto">
-
         {/* ===== HEADER ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+          className="mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-4">
-            Future-Ready Careers Start Here
+          {/* Small label */}
+         
+
+          {/* Main heading */}
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-900 text-center mb-4 tracking-tight">
+            Future-Ready Careers <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">Start Here</span>
           </h2>
-          <div className="w-24 h-[3px] mx-auto mb-5 rounded-full bg-[#FF7F00]" />
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Learn skills that align with real industry demand and global career opportunities.
+
+          {/* Accent line */}
+          <motion.div
+            className="w-16 h-0.5 bg-slate-900 mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+
+          {/* Subheading */}
+          <p className="text-slate-600 text-lg lg:text-xl max-w-3xl mx-auto text-center leading-relaxed">
+            Learn skills that align with real industry demand and global career opportunities
           </p>
         </motion.div>
 
         {/* ===== CARDS ===== */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {cards.map((card, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.15, duration: 0.6 }}
-              className="group"
+              transition={{ 
+                delay: 0.2 + i * 0.1, 
+                duration: 0.5,
+                ease: [0.25, 0.4, 0.25, 1]
+              }}
+              className="group h-full"
             >
-              <div
-                className="
-                  bg-white
-                  rounded-[32px]
-                  overflow-hidden
-                  shadow-md
-                  hover:shadow-xl
-                  transition
-                  h-full
-                  flex flex-col
-                "
-              >
-                {/* Image */}
-                <div className="relative h-[280px] overflow-hidden">
-                  <img
+              <div className="relative h-full flex flex-col bg-white border border-slate-200 overflow-hidden transition-all duration-300 hover:border-slate-300 hover:shadow-lg">
+                {/* Top accent line - appears on hover */}
+                <motion.div
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-slate-900 z-10"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ transformOrigin: 'left' }}
+                />
+
+                {/* Image container */}
+                <div className="relative h-64 lg:h-72 overflow-hidden bg-slate-50">
+                  <motion.img
                     src={card.img}
                     alt={card.title}
-                    className="
-                      w-full h-full object-cover
-                      group-hover:scale-105
-                      transition duration-500
-                    "
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
                   />
+                  
+                  {/* Gradient overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
-       
-
-                {/* Text */}
-                <div className="p-6 flex-1 bg-[#05061A] text-white">
-                  <h3 className="font-semibold text-sm tracking-wide mb-3 uppercase text-purple-300">
+                {/* Content */}
+                <div className="flex-1 p-6 lg:p-8 flex flex-col">
+                  <h3 className="text-xl lg:text-2xl font-semibold text-slate-900 mb-3 leading-tight">
                     {card.title}
                   </h3>
-
-                  <p className="text-sm leading-relaxed text-gray-200">
+                  
+                  <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
                     {card.text}
                   </p>
+
+                  {/* Bottom spacing element */}
+                  <div className="mt-auto pt-6">
+                    <motion.div
+                      className="w-8 h-0.5 bg-slate-900"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      style={{ transformOrigin: 'left' }}
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -17,7 +17,6 @@ const testimonials = [
     name: "Pravin Mohana Sundaram Chettiar",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/PRAVIN.jpg",
-    linkedin: "https://www.linkedin.com/in/pravin-chettiar-a55951378/",
   },
   {
     quote:
@@ -25,7 +24,6 @@ const testimonials = [
     name: "Farhan Faiyaz Tolkar",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Farhan Tolkar.jpg",
-    linkedin: "https://www.linkedin.com/in/farhan-tolkar-a15447379/",
   },
   {
     quote:
@@ -33,7 +31,6 @@ const testimonials = [
     name: "Mohd Irfan Mohd Noor Alam Shaikh",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Mohd Irfan.jpg",
-    linkedin: "https://www.linkedin.com/in/irfan-shaikh-24a459379/",
   },
   {
     quote:
@@ -41,8 +38,223 @@ const testimonials = [
     name: "Mohd Ahmed Waseem Khan",
     role: "BVOC AI & ML (2025-2028)",
     src: "/Testimonials/Ahmed khan.jpg",
-    linkedin: "https://www.linkedin.com/in/ahmed-khan-222218338/",
   },
+  {
+    quote:
+      "The real-time projects gave me the confidence to handle data pipelines and APIs just like in the industry.",
+    name: "Mohammed Taha Mohd Yusuf Choudhary",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Taha Choudhary.jpg",
+  },
+  {
+    quote:
+      "The project-based learning structure ensures we apply everything we learn immediately — it's the best part.",
+    name: "Affan Rizwan Khan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Affan khan.jpg",
+  },
+  {
+    quote:
+      "Being part of this program made me realize how AI can transform industries and communities alike.",
+    name: "Khan Shahid Ali Asgar Ali",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Khan Shahid.jpg",
+  },
+  {
+    quote:
+      "The mentorship and guidance from faculty helped me turn my curiosity for AI into real-world projects that I can proudly showcase.",
+    name: "Shaikh Iqfat Nasir",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Shaikh Iqfat Nasir.jpg",
+  },
+  {
+    quote:
+      "Every module feels practical and industry-relevant. The labs are well-equipped and designed to make us job-ready.",
+    name: "Khan Umera Mohd Salim",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Umera Khan.jpg",
+  },
+  {
+    quote:
+      "From day one, we're encouraged to think like innovators. It's not just about marks but about building real impact.",
+    name: "Ansari Sahil Seraj Ahmad",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Sahil Ansari.jpg",
+  },
+  {
+    quote:
+      "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
+    name: "Sayyed Mohammed Asif Abdul Rehman",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Sayyed Asif.jpg",
+  },
+  {
+    quote:
+      "I really appreciate how accessible our mentors are. No question ever goes unanswered here.",
+    name: "Faiz Ahmed Moiz Ahmed Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Faiz Ahmed Shaikh.jpg",
+  },
+  {
+    quote:
+      "I've developed technical and soft skills both — presentation, teamwork, and communication matter here.",
+    name: "Khan Ramzan Shamshad",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Ramzan Khan.jpg",
+  },
+  {
+    quote:
+      "Joining BVOC AI & ML has been the best decision of my academic journey. The blend of theory and hands-on learning keeps us ahead of trends.",
+    name: "Khan Mohd Zaid Riyaz Ahmed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Khan Mohammed Zaid.jpg",
+  },
+  {
+    quote:
+      "The labs are state-of-the-art, and access to real cloud resources makes the experience feel world-class.",
+    name: "Tamanna Ansari",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Tamanna Ansari.jpg",
+  },
+  {
+    quote:
+      "I like how learning is never theoretical. We build models, test, and improve them like real data scientists.",
+    name: "Kailash Ganesh Mahto",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Kailash Mahto.jpg",
+  },
+  {
+    quote:
+      "Our mentors constantly encourage innovation and experimentation. That's what makes this program special.",
+    name: "Sajiya Badruduja Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/sajiya shaikh.jpg",
+  },
+  {
+    quote:
+      "The curriculum is so well structured — each semester feels like a step closer to becoming a professional.",
+    name: "Obaidullah Mohd Zahiruddin Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Shaikh Obaidullah.jpg",
+  },
+  {
+    quote:
+      "Learning with Nexcore Alliance and Code4Bharat has opened doors to internships and collaborations I never expected.",
+    name: "Vishesh Shivlal Jaiswar",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/Vishesh jaiswar.jpg",
+  },
+  {
+    quote:
+      "It has been an incredible journey with this tool. The ease of use and efficiency are unmatched.",
+    name: "Piyush Jayprakash Patwa",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial4.png",
+  },
+  {
+    quote:
+      "This program has turned my curiosity for technology into a clear career path. The experience is priceless.",
+    name: "Das Sudeep Prashant",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial3.png",
+  },
+  {
+    quote:
+      "Every week brings something new to learn — from AI ethics to real-time deployment. It's exciting and challenging.",
+    name: "Sanskar Sunil Ashan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "I never thought I'd be able to train models and deploy them before graduation. BVOC AI & ML made that possible!",
+    name: "Ayan Yusuf Khan",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "Every assignment feels like a mini startup challenge. It pushes me to think like an engineer and entrepreneur.",
+    name: "Mohd Yasin Baban Sayyed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "I've grown immensely not just as a student but as a problem-solver. This course builds confidence and creativity.",
+    name: "Khan Nafisa Ali Ahmed",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  {
+    quote:
+      "The practical exposure here bridges the gap between what's taught in class and what's needed in the industry.",
+    name: "Kazim Shahid Raza Salmani",
+    role: "BVOC AI & ML (2025-2028)",
+    src: "/Testimonials/testimonial2.png",
+  },
+  
+  {
+    quote:
+      "Hackathons, projects, and teamwork taught me more about leadership than any theory book could.",
+    name: "Farhan Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "This course is a perfect mix of coding, creativity, and career preparation. Every week feels productive.",
+    name: "Sanjana Reddy",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "It’s amazing how the instructors make complex algorithms so easy to understand with real-life examples.",
+    name: "Kartik Joshi",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "From Python basics to deploying deep learning models — I’ve learned the complete journey of AI development.",
+    name: "Tanya D’Souza",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "Every semester brings new excitement — the hands-on labs are the highlight of this entire program.",
+    name: "Vishal Rajput",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "I’ve built projects that I can showcase to recruiters — something that makes me confident about placements.",
+    name: "Manisha Pawar",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "The faculty’s mentorship and one-on-one sessions really help me understand where I stand and how to improve.",
+    name: "Rehan Ali",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "Learning AI here isn’t about rote memorization; it’s about experimenting, failing, and building better each time.",
+    name: "Bhavika Jain",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "I love the community vibe. Everyone helps each other grow — it feels like a family pushing toward success.",
+    name: "Aditya Chauhan",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  {
+    quote:
+      "With every workshop, I feel more confident about tackling real-world data and solving meaningful problems.",
+    name: "Sofia Shaikh",
+    role: "BVOC AI & ML (2025-2028)",
+  },
+  
 ];
 
 export default function Testimonials() {

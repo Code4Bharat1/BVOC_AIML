@@ -4,21 +4,25 @@ import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Palette } from "lu
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBrain, FaPalette } from "react-icons/fa";
 
- const degrees = [
-    {
-      name: "Bachelor of Data Science and Artificial Intelligence",
-      icon: FaBrain,
-      color: "text-slate-400",
-    },
-    {
-      name: "Bachelor of Multimedia and Animation",
-      icon: FaPalette,
-      color: "text-slate-400",
-    },
-  ];
+const degrees = [
+  {
+    id: 1,
+    name: "Bachelor of Data Science and Artificial Intelligence",
+    shortName: "Data Science & AI",
+    icon: FaBrain,
+    color: "text-slate-400",
+  },
+  {
+    id: 2,
+    name: "Bachelor of Multimedia and Animation",
+    shortName: "Multimedia & Animation",
+    icon: FaPalette,
+    color: "text-slate-400",
+  },
+];
 
 const HubHero = () => {
-  const [activeDegree, setActiveDegree] = useState(1);
+  const [activeDegree, setActiveDegree] = useState(0);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

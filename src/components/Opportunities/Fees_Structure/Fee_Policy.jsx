@@ -14,10 +14,9 @@ export default function Fee_Policy() {
           </h1>
 
           <h2 className="text-xl md:text-2xl font-medium max-w-3xl mx-auto" style={{ color: 'rgba(44, 44, 44, 0.75)' }}>
-            Course: Bachelor's in <span style={{ color: '#FF7F00', fontWeight: 600 }}>AI</span> and{" "}
-            <span style={{ color: '#007BFF', fontWeight: 600 }}>Machine Learning,</span>{" "}
-            <span style={{ color: '#FF7F00', fontWeight: 600 }}>Computer Science,</span> and{" "}
-            <span style={{ color: '#007BFF', fontWeight: 600 }}>Cybersecurity</span>
+            Course: <span style={{ color: '#007BFF', fontWeight: 600 }}>Bachelor of Data Science and Artificial Intelligence</span>{" "}
+            and{" "}
+            <span style={{ color: '#FF7F00', fontWeight: 600 }}>Bachelor of Multimedia and Animation</span>
           </h2>
 
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full mt-6" />
@@ -84,7 +83,7 @@ export default function Fee_Policy() {
                   <td className="px-6 py-4 text-center font-semibold" style={{ color: '#2C2C2C' }}>₹85,000</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 font-medium">Lab, AI Tools & Project Access</td>
+                  <td className="px-6 py-4 font-medium">Lab, Software Tools & Project Access</td>
                   <td className="px-6 py-4 text-center font-semibold" style={{ color: '#2C2C2C' }}>₹10,000</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
@@ -289,4 +288,4 @@ export default function Fee_Policy() {
       </div>
     </div>
   );
-}
+} 

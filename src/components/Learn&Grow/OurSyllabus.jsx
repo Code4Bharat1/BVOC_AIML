@@ -12,8 +12,8 @@ const OurSyllabus = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#2C2C2C]">
           Level Up Your Skills with <br />
           <span className="text-[#007BFF]">
-            Our AI & ML, Cyber Security, Artificial Intelligence & Robotics &
-            Graphic Animation, VFX & Multimedia
+            Our Bachelor of Data Science and Artificial Intelligence ,
+Bachelor of Multimedia and Animation
           </span>
         </h2>
       </div>
@@ -48,14 +48,14 @@ const OurSyllabus = () => {
               <p className="text-xl lg:text-2xl leading-relaxed text-gray-700">
                 Our{" "}
                 <span className="font-bold text-[#007BFF]">
-                  AI & ML, Cyber Security, Artificial Intelligence & Robotics &
-                  Graphic Animation, VFX & Multimedia
+                 Bachelor of Data Science and Artificial Intelligence ,
+Bachelor of Multimedia and Animation
                 </span>{" "}
                 program is structured across six dynamic semesters, providing
                 hands-on skills and deep theoretical knowledge in{" "}
                 <span className="font-bold text-[#2C2C2C]">
-                  AI & ML, Cyber Security, Artificial Intelligence & Robotics &
-                  Graphic Animation, VFX & Multimedia
+                 Bachelor of Data Science and Artificial Intelligence,
+Bachelor of Multimedia and Animation
                 </span>
                 .
               </p>

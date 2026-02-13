@@ -17,26 +17,16 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     courseInterested: "",
   });
 
-  const courses = [
+   const courses = [
     {
-      name: "Artificial Intelligence and Machine Learning",
+      name: "Bachelor of Data Science and Artificial Intelligence",
       icon: FaBrain,
-      color: "text-slate-400"
+      color: "text-slate-400",
     },
     {
-      name: "Artificial Intelligence and Robotics",
-      icon: FaRobot,
-      color: "text-slate-400"
-    },
-    {
-      name: "Cyber Security",
-      icon: FaShieldAlt,
-      color: "text-slate-400"
-    },
-    {
-      name: "Graphics Animation, VFX and Multimedia",
+      name: "Bachelor of Multimedia and Animation",
       icon: FaPalette,
-      color: "text-slate-400"
+      color: "text-slate-400",
     },
   ];
 

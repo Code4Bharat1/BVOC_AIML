@@ -8,7 +8,7 @@ const SelectionPolicy = () => {
       id: 1,
       heading: "Objective",
       image: "/SelectionPolicy/SelectionPolicy1.png",
-      description: "To establish a transparent, fair, and merit-based internal selection process for admitting students into the B.Voc in AI and ML program, ensuring compliance with academic and government regulations.",
+      description: "To establish a transparent, fair, and merit-based internal selection process for admitting students into the Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation programs, ensuring compliance with academic and government regulations.",
     },
     {
       id: 2,
@@ -20,13 +20,13 @@ const SelectionPolicy = () => {
       id: 3,
       heading: "Verification of Eligibility",
       image: "/SelectionPolicy/SelectionPolicy3.png",
-      description: "All applications will be screened for minimum eligibility criteria (educational qualification, minimum marks, age, etc.) as per the Admission Eligibility Criteria. Applications not meeting eligibility standards will be rejected outright",
+      description: "All applications will be screened for minimum eligibility criteria (educational qualification, minimum marks, age, etc.) as per the Admission Eligibility Criteria. Applications not meeting eligibility standards will be rejected outright.",
     },
     {
       id: 4,
       heading: "Evaluation Criteria",
       image: "/SelectionPolicy/SelectionPolicy4.png",
-      description: "Candidates who meet eligibility will be evaluated based on the following: Academic Performance: 10+2 marks percentage or equivalent (weightage 70%). Entrance Test (if applicable): A written or online test assessing basic knowledge related to Mathematics, Logical Reasoning, and English (weightage 20%). Personal Interview: To evaluate candidate's motivation, communication skills, and interest in AI & ML (weightage 10%). Note: The entrance test and interview may be waived off based on the merit of 10+2 scores or as per policy.",
+      description: "Candidates who meet eligibility will be evaluated based on the following: Academic Performance: 10+2 marks percentage or equivalent (weightage 70%). Entrance Test (if applicable): A written or online test assessing basic knowledge related to Mathematics, Logical Reasoning, and English for Data Science & AI; or Creative Aptitude and General Knowledge for Multimedia & Animation (weightage 20%). Personal Interview: To evaluate candidate's motivation, communication skills, and interest in their chosen field (weightage 10%). Note: The entrance test and interview may be waived off based on the merit of 10+2 scores or as per policy.",
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ const SelectionPolicy = () => {
       id: 6,
       heading: "Selection and Admission Offer",
       image: "/SelectionPolicy/SelectionPolicy6.png",
-      description: "To establish a transparent, fair, and merit-based internal selection process for admitting students into the B.Voc in AI and ML program, ensuring compliance with academic and government regulations.",
+      description: "Candidates will be selected based on their rank in the merit list and availability of seats. Selected candidates will receive an Admission Offer Letter via email or registered post. Candidates must confirm their admission by paying the required fees within the stipulated time to secure their seat.",
     },
     {
       id: 7,
@@ -66,14 +66,12 @@ const SelectionPolicy = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-slate-900">
             Internal Selection Process Policy
           </h1>
-          
+
           <div className="max-w-4xl mx-auto">
             <h2 className="text-lg md:text-xl text-slate-700 leading-relaxed">
-              <span className="font-semibold text-blue-600">Bachelor's</span> in{" "}
-              <span className="font-semibold text-blue-600">AI & Machine Learning</span>,{" "}
-              <span className="font-semibold text-orange-500">Artificial Intelligence & Robotics</span>,{" "}
-              <span className="font-semibold text-blue-600">Cybersecurity</span>,{" "}
-              <span className="font-semibold text-blue-600">Graphic Animation, VFX & Multimedia</span>
+              <span className="font-semibold text-blue-600">Bachelor of Data Science and Artificial Intelligence</span>
+              {" "}and{" "}
+              <span className="font-semibold text-orange-500">Bachelor of Multimedia and Animation</span>
             </h2>
           </div>
 

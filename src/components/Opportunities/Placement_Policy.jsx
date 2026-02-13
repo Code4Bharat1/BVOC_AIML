@@ -10,7 +10,7 @@ export default function Placement_Policy() {
       description: [
         "Minimum Guaranteed Package: ₹3,00,000 per annum (₹25,000/month).",
         "Maximum Guaranteed Package: ₹6,00,000 per annum (₹50,000/month).",
-        "Job Domains: AI, Machine Learning, Data Science, Analytics, and related fields.",
+        "Job Domains: Data Science, AI, Machine Learning, Analytics, Creative Tech, Multimedia, Animation, VFX, and related fields.",
         "Support Includes:",
         [
           "Resume & profile development",
@@ -54,7 +54,7 @@ export default function Placement_Policy() {
       icon: <AlertTriangle className="w-6 h-6" />,
       heading: "Force Majeure & Exemptions",
       description: [
-        "Nexcore Alliance is not liable for placement outcomes impacted by unforeseen events like pandemics, economic crises, or personal emergencies.",
+        "Nexcore Institute of Technology is not liable for placement outcomes impacted by unforeseen events like pandemics, economic crises, or personal emergencies.",
         "Students opting out of placements for higher education, family business, or entrepreneurship must submit a signed Opt-Out Declaration.",
       ],
       color: "orange",
@@ -64,8 +64,8 @@ export default function Placement_Policy() {
       icon: <FileText className="w-6 h-6" />,
       heading: "Policy Terms",
       description: [
-        "This policy is applicable only to the Bachelor's in AI & ML program.",
-        "Changes to the policy may be made by Nexcore Alliance based on industry or academic developments.",
+        "This policy is applicable to Bachelor of Data Science and Artificial Intelligence and Bachelor of Multimedia and Animation programs.",
+        "Changes to the policy may be made by Nexcore Institute of Technology based on industry or academic developments.",
         "At admission, students and guardians will sign a Placement Policy Agreement acknowledging these terms.",
       ],
       color: "blue",
@@ -90,8 +90,9 @@ export default function Placement_Policy() {
           </h2>
 
           <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed text-slate-700">
-            Nexcore Alliance guarantees placement support for every student enrolled
-            in the Bachelor's in Artificial Intelligence and Machine Learning program.
+            Nexcore Institute of Technology guarantees placement support for every student enrolled
+            in the <span className="font-semibold text-blue-600">Bachelor of Data Science and Artificial Intelligence</span> or{" "}
+            <span className="font-semibold text-orange-500">Bachelor of Multimedia and Animation</span> programs.
             This policy outlines the terms, responsibilities, and eligibility
             criteria for students to qualify for the guaranteed placement offer.
           </p>

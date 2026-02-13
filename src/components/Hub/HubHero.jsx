@@ -2,41 +2,20 @@
 import { useState } from "react";
 import { Award, BookOpen, GraduationCap, Brain, Code, Shield, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaBrain, FaPalette } from "react-icons/fa";
 
-const degrees = [
-  {
-    id: 1,
-    name: "Artificial Intelligence & Machine Learning",
-    shortName: "AI & ML",
-    icon: Brain,
-    gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
-    color: "#007BFF"
-  },
-  {
-    id: 2,
-    name: "Artificial Intelligence & Robotics",
-    shortName: "AI & Robotics",
-    icon: Code,
-    gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
-    color: "#007BFF"
-  },
-  {
-    id: 3,
-    name: "Cyber Security",
-    shortName: "Cyber Security",
-    icon: Shield,
-    gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
-    color: "#007BFF"
-  },
-  {
-    id: 4,
-    name: "Graphic Animation, VFX & Multimedia",
-    shortName: "Graphic, VFX & Multimedia",
-    icon: Palette,
-    gradient: "from-[#007BFF] via-[#0066DD] to-[#0052BB]",
-    color: "#007BFF"
-  }
-];
+ const degrees = [
+    {
+      name: "Bachelor of Data Science and Artificial Intelligence",
+      icon: FaBrain,
+      color: "text-slate-400",
+    },
+    {
+      name: "Bachelor of Multimedia and Animation",
+      icon: FaPalette,
+      color: "text-slate-400",
+    },
+  ];
 
 const HubHero = () => {
   const [activeDegree, setActiveDegree] = useState(1);

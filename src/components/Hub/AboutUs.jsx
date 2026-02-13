@@ -1,44 +1,24 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Brain, Code, Shield, Palette, ArrowRight } from "lucide-react";
+import { Brain, Palette, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const initialDegrees = [
   {
     id: 1,
-    name: "Artificial Intelligence & Machine Learning",
-    shortName: "AI & ML",
+    name: "Bachelor of Data Science and Artificial Intelligence",
+    shortName: "Data Science & AI",
     icon: Brain,
     color: "#007BFF",
     description:
-      "Master the future of technology with cutting-edge AI and ML techniques",
-    features: ["Deep Learning", "Neural Networks", "Data Science", "Computer Vision"],
+      "Master the future of technology with cutting-edge data science and AI techniques",
+    features: ["Deep Learning", "Data Analytics", "Machine Learning", "Predictive Modeling"],
   },
   {
     id: 2,
-    name: "Artificial Intelligence & Robotics",
-    shortName: "AI & Robotics",
-    icon: Code,
-    color: "#007BFF",
-    description:
-      "Build intelligent systems and autonomous robots for the future",
-    features: ["Robotics Programming", "Automation", "IoT Integration", "Computer Vision"],
-  },
-  {
-    id: 3,
-    name: "Cyber Security",
-    shortName: "Cyber Security",
-    icon: Shield,
-    color: "#007BFF",
-    description:
-      "Protect digital assets and become an expert in information security",
-    features: ["Ethical Hacking", "Network Security", "Cryptography", "Threat Analysis"],
-  },
-  {
-    id: 4,
-    name: "Graphic Animation, VFX & Multimedia",
-    shortName: "Graphic, VFX & Multimedia",
+    name: "Bachelor of Multimedia and Animation",
+    shortName: "Multimedia & Animation",
     icon: Palette,
     color: "#007BFF",
     description:
@@ -103,7 +83,7 @@ const DegreesShowcase = () => {
         </motion.div>
 
         {/* ===== PREMIUM PROFESSIONAL CARD GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-2 xl:gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-6 xl:gap-8 max-w-5xl mx-auto">
           {initialDegrees.map((degree, index) => (
             <motion.div
               key={degree.id}

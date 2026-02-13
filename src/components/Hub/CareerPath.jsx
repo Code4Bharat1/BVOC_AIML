@@ -43,12 +43,7 @@ function CareerPath() {
               </motion.div>
               
               {/* Gradient overlay on hover */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-teal-500/20"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
+             
               
               {/* Top accent line with gradient */}
               <motion.div
@@ -119,11 +114,8 @@ function CareerPath() {
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {[
-                  { name: "AI & Machine Learning", color: "from-emerald-500 to-teal-500" },
-                  { name: "AI & Robotics", color: "from-teal-500 to-cyan-500" },
-                  { name: "Cyber Security", color: "from-cyan-500 to-blue-500" },
-                  { name: "Graphic Animation", color: "from-blue-500 to-indigo-500" },
-                  { name: "VFX & Multimedia", color: "from-indigo-500 to-purple-500" }
+                  { name: "Data Science & AI", color: "from-blue-500 to-indigo-500" },
+                  { name: "Multimedia & Animation", color: "from-indigo-500 to-purple-500" }
                 ].map((program, idx) => (
                   <motion.div
                     key={idx}

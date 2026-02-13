@@ -47,11 +47,9 @@ export default function Admission_Eligibility() {
 
           <div className="max-w-4xl mx-auto">
             <h2 className="text-lg md:text-xl text-slate-700 leading-relaxed">
-              <span className="font-semibold text-blue-600">Bachelor's</span> in{" "}
-              <span className="font-semibold text-blue-600">AI & Machine Learning</span>,{" "}
-              <span className="font-semibold text-orange-500">Artificial Intelligence & Robotics</span>,{" "}
-              <span className="font-semibold text-blue-600">Cybersecurity</span>,{" "}
-              <span className="font-semibold text-blue-600">Graphic Animation, VFX & Multimedia</span>
+              <span className="font-semibold text-blue-600">Bachelor of Data Science and Artificial Intelligence</span>
+              {" "}and{" "}
+              <span className="font-semibold text-orange-500">Bachelor of Multimedia and Animation</span>
             </h2>
           </div>
 

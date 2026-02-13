@@ -17,7 +17,7 @@ export default function Scholarship_Policy() {
         [
           "Minimum 85% aggregate marks in Class 12 (Any recognized board).",
           "Scholarship applicable only in the first academic year (can be extended based on academic performance).",
-          "Must have enrolled in the Bachelor's in AI and ML program.",
+          "Must have enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program.",
         ],
         "Benefits:",
         [
@@ -28,7 +28,7 @@ export default function Scholarship_Policy() {
         [
           "Submission of Class 12 mark sheet.",
           "Character certificate from last attended institution.",
-          "Written statement (200 words) on why the student wants to pursue AI and ML.",
+          "Written statement (200 words) on why the student wants to pursue their chosen program.",
         ],
       ],
     },
@@ -46,7 +46,7 @@ export default function Scholarship_Policy() {
           "Annual family income less than ₹2.5 Lakhs (Income Certificate required).",
           "Must belong to a rural area (verified via residential proof).",
           "Must have passed Class 12 from a recognized board.",
-          "Enrolled in the Bachelor's in AI and ML program.",
+          "Enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program.",
         ],
         "Benefits:",
         [
@@ -75,12 +75,12 @@ export default function Scholarship_Policy() {
       para: [
         "Objective :",
         [
-          "To encourage and empower female students to pursue careers in new-age technologies such as Artificial Intelligence and Machine Learning.",
+          "To encourage and empower female students to pursue careers in new-age technologies such as Data Science, Artificial Intelligence, Multimedia, and Animation.",
         ],
         "Eligibility Criteria:",
         [
           "Female candidates who have passed Class 12.",
-          "Enrolled in the Bachelor's in AI and ML program.",
+          "Enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program.",
           "Priority given to first-generation learners or those from semi-urban/rural areas.",
         ],
         "Benefits:",
@@ -99,7 +99,7 @@ export default function Scholarship_Policy() {
         [
           "Marksheet of Class 12.",
           "Aadhaar card or government ID as proof of gender.",
-          "Short essay (150–200 words) on 'Why I want to build a career in AI & ML'",
+          "Short essay (150–200 words) on 'Why I want to build a career in my chosen field'",
         ],
       ],
     },
@@ -130,10 +130,14 @@ export default function Scholarship_Policy() {
             <span className="font-semibold text-blue-600">Scholarship policies</span>{" "}
             for students enrolling in the{" "}
             <span className="font-semibold text-orange-500">
-              Bachelor's in AI & Machine Learning, Computer Science and Cybersecurity
+              Bachelor of Data Science and Artificial Intelligence
             </span>{" "}
-            program offered by{" "}
-            <span className="font-semibold text-blue-600">Nexcore Alliance</span> in
+            or{" "}
+            <span className="font-semibold text-orange-500">
+              Bachelor of Multimedia and Animation
+            </span>{" "}
+            programs offered by{" "}
+            <span className="font-semibold text-blue-600">Nexcore Institute of Technology</span> in
             collaboration with{" "}
             <span className="font-semibold text-slate-900">Recognized University.</span>
           </p>

@@ -68,7 +68,11 @@ const Welcome = () => {
               </span>
               , launching cutting-edge programs in{" "}
               <span className="font-semibold text-blue-600">
-                AI & ML, AI & Robotics, Cyber Security, and Graphic Animation , VFX and Multimedia
+                Data Science & Artificial Intelligence
+              </span>{" "}
+              and{" "}
+              <span className="font-semibold text-orange-500">
+                Multimedia & Animation
               </span>{" "}
               that integrate industry expertise with academic excellence.
             </motion.p>

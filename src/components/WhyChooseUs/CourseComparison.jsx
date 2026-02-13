@@ -5,47 +5,47 @@ export default function CourseComparison() {
     {
       title: "Curriculum Design",
       traditional: "Theory-heavy, outdated syllabus",
-      bvoc: "Industry-designed & frequently updated",
+      nexcore: "Industry-designed & frequently updated",
     },
     {
       title: "Practical Exposure",
       traditional: "Limited labs, exam-focused",
-      bvoc: "Hands-on training from Day 1",
+      nexcore: "Hands-on training from Day 1",
     },
     {
       title: "Industry Alignment",
       traditional: "Weak connection to job roles",
-      bvoc: "Mapped to real industry profiles",
+      nexcore: "Mapped to real industry profiles",
     },
     {
       title: "Skill Readiness",
       traditional: "Not job-ready after graduation",
-      bvoc: "Industry-ready skill set",
+      nexcore: "Industry-ready skill set",
     },
     {
       title: "Technology Relevance",
       traditional: "Slow tech adoption",
-      bvoc: "AI, ML, Cyber tools taught live",
+      nexcore: "AI, Data Science & Animation tools taught live",
     },
     {
       title: "Faculty Experience",
       traditional: "Mostly academic background",
-      bvoc: "Industry professionals & practitioners",
+      nexcore: "Industry professionals & practitioners",
     },
     {
       title: "Projects & Internships",
       traditional: "Final year project only",
-      bvoc: "Live projects + mandatory internships",
+      nexcore: "Live projects + mandatory internships",
     },
     {
       title: "Placements",
       traditional: "Degree first, job later",
-      bvoc: "Employment-focused from start",
+      nexcore: "Employment-focused from start",
     },
     {
       title: "Career Clarity",
       traditional: "Unclear career path",
-      bvoc: "Clear roles in AI, Cyber & CS",
+      nexcore: "Clear roles in Data Science & Creative Tech",
     },
   ];
 
@@ -82,13 +82,13 @@ export default function CourseComparison() {
             </div>
           </div>
 
-          {/* BVoc Card */}
+          {/* Nexcore Bachelor's Program Card */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-indigo-500 relative">
             <div className="absolute top-4 right-4 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
               RECOMMENDED
             </div>
             <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-4 border-b">
-              <h3 className="text-xl font-semibold text-white">Bachelor's Program</h3>
+              <h3 className="text-xl font-semibold text-white">Bachelor's Programs</h3>
               <p className="text-indigo-100 text-sm mt-1">Nexcore Institute of Technology</p>
             </div>
             <div className="divide-y divide-slate-100">
@@ -97,7 +97,7 @@ export default function CourseComparison() {
                   <div className="text-sm font-medium text-slate-500 mb-1">{row.title}</div>
                   <div className="text-slate-800 flex items-start gap-2">
                     <span className="text-green-500 mt-0.5">✓</span>
-                    <span className="font-medium">{row.bvoc}</span>
+                    <span className="font-medium">{row.nexcore}</span>
                   </div>
                 </div>
               ))}
@@ -125,17 +125,17 @@ export default function CourseComparison() {
                   </div>
                 </div>
 
-                {/* BVoc */}
+                {/* Nexcore Bachelor's */}
                 <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-4 border border-indigo-200">
                   <div className="text-xs font-semibold text-indigo-700 uppercase tracking-wide mb-2 flex items-center gap-2">
-                    BVoc Program
+                    Nexcore Bachelor's
                     <span className="bg-indigo-500 text-white px-2 py-0.5 rounded-full text-[10px]">
                       BETTER
                     </span>
                   </div>
                   <div className="flex items-start gap-2 text-slate-800">
                     <span className="text-green-500 text-lg">✓</span>
-                    <span className="text-sm font-medium">{row.bvoc}</span>
+                    <span className="text-sm font-medium">{row.nexcore}</span>
                   </div>
                 </div>
               </div>
@@ -149,9 +149,21 @@ export default function CourseComparison() {
           <p className="text-slate-600 mb-6 max-w-xl mx-auto">
             Join thousands of students who chose industry-relevant education over traditional degrees
           </p>
-          <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all">
-            Explore BVoc Programs
-          </button>
+          <div className="space-y-3">
+            <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all">
+              Explore Our Programs
+            </button>
+            <div className="flex flex-wrap justify-center gap-2 text-sm text-slate-600">
+              <span className="inline-flex items-center gap-1.5 bg-indigo-50 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                Data Science & AI
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-purple-50 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
+                Multimedia & Animation
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

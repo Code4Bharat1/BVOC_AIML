@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,7 +18,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     courseInterested: "",
   });
 
-   const courses = [
+  const courses = [
     {
       name: "Bachelor of Data Science and Artificial Intelligence",
       icon: FaBrain,
@@ -64,9 +65,8 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     });
   };
 
-  // Handle mobile number input - only allow numbers, max 10 digits
   const handleMobileChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+    const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 10) {
       setFormData({
         ...formData,
@@ -75,11 +75,40 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     }
   };
 
+  const sendWhatsAppMessage = () => {
+    // Format the message with form details
+    const message = ` *New Registration - Nexcore Institute*
+
+*Student Details:*
+ Name: ${formData.studentName}
+ WhatsApp: +91 ${formData.whatsappNumber}
+ Parent's Number: +91 ${formData.parentsNumber}
+ Qualification: ${formData.qualification}
+ Course Interested: ${formData.courseInterested}
+
+*Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // WhatsApp number (without +91)
+    const whatsappNumber = "919594402822";
+    
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    setIsSubmitted(true);
     
+    // Send WhatsApp message
+    sendWhatsAppMessage();
+    
+    setIsSubmitted(true);
     setTimeout(() => {
       handleClose();
     }, 5000);
@@ -99,9 +128,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
   };
 
   const validateStep1 = () => {
-    return formData.studentName && 
-           formData.whatsappNumber.length === 10 && 
-           formData.parentsNumber.length === 10;
+    return formData.studentName && formData.whatsappNumber.length === 10 && formData.parentsNumber.length === 10;
   };
 
   const nextStep = () => {
@@ -117,7 +144,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <>
           {/* Backdrop */}
@@ -125,133 +152,89 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={!isSubmitted ? onClose : undefined}
-            className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50"
+            onClick={handleClose}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative w-full max-w-4xl my-8"
+              exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
+              className="relative bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden pointer-events-auto"
             >
               {/* Success Message */}
               {isSubmitted ? (
                 <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 text-center max-w-lg mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-8 md:p-12 text-center"
                 >
                   {/* Success Icon */}
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    className="mb-6"
+                    className="inline-block mb-6"
                   >
-                    <div className="w-20 h-20 mx-auto bg-slate-900 rounded-full flex items-center justify-center">
-                      <FaCheckCircle className="text-white text-4xl" />
+                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+                      <FaCheckCircle className="text-green-500 text-5xl" />
                     </div>
                   </motion.div>
 
                   {/* Success Title */}
-                  <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-3xl font-semibold text-slate-900 mb-3"
-                  >
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">
                     Registration Successful!
-                  </motion.h2>
+                  </h3>
 
                   {/* Success Message */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="text-slate-600 mb-8"
-                  >
-                    Thank you, <strong>{formData.studentName}</strong>! Your application has been submitted successfully.
-                  </motion.p>
+                  <p className="text-slate-600 mb-8 text-lg">
+                    Thank you, {formData.studentName}! Your application has been submitted successfully.
+                  </p>
 
                   {/* Details Card */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="bg-slate-50 rounded-xl p-6 mb-8 text-left border border-slate-200"
-                  >
-                    <h3 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
-                      <span>📧</span>
-                      <span>What's Next?</span>
-                    </h3>
-                    <ul className="space-y-3 text-sm text-slate-700">
-                      <li className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span>We'll contact you on <strong>+91 {formData.whatsappNumber}</strong> within 24 hours</span>
+                  <div className="bg-slate-50 rounded-xl p-6 mb-8 text-left max-w-md mx-auto">
+                    <h4 className="font-semibold text-slate-900 mb-4 text-lg">
+                      📧 What's Next?
+                    </h4>
+                    <ul className="space-y-3 text-slate-600">
+                      <li className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>We'll contact you on +91 {formData.whatsappNumber} within 24 hours</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span>Course details for <strong>{formData.courseInterested}</strong> will be shared</span>
+                      <li className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>Course details for {formData.courseInterested} will be shared</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
+                      <li className="flex items-start">
+                        <span className="mr-2">•</span>
                         <span>Check your WhatsApp for admission process updates</span>
                       </li>
                     </ul>
-                  </motion.div>
+                  </div>
 
                   {/* Close Button */}
-                  <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
+                  <button
                     onClick={handleClose}
-                    className="w-full py-3.5 px-6 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all shadow-lg"
+                    className="px-8 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors font-medium"
                   >
                     Close
-                  </motion.button>
+                  </button>
 
                   {/* Auto-close message */}
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.7 }}
-                    className="text-xs text-slate-500 mt-4"
-                  >
+                  <p className="text-sm text-slate-400 mt-4">
                     This window will close automatically in 5 seconds
-                  </motion.p>
+                  </p>
                 </motion.div>
               ) : (
                 /* Registration Form */
-                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row max-h-[90vh]">
+                <div className="grid md:grid-cols-2 h-full max-h-[90vh]">
                   {/* Left Side - Branding */}
-                  <motion.div
-                    initial={{ x: -30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="hidden lg:flex lg:w-1/3 bg-slate-900 p-8 flex-col justify-between relative overflow-hidden"
-                  >
+                  <div className="hidden md:flex flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white relative overflow-hidden">
                     {/* Subtle decorative elements */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-slate-800/50 rounded-full blur-3xl" />
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-800/50 rounded-full blur-3xl" />
-
+                   
                     <div className="relative z-10">
                       {/* Logo */}
                       <div className="w-28 h-28 bg-white rounded-xl flex items-center justify-center overflow-hidden mb-6 shadow-xl">
@@ -266,114 +249,86 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                       </div>
 
                       {/* Title */}
-                      <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-2xl font-semibold text-white mb-2 leading-tight"
-                      >
-                        Welcome to Nexcore Institute of Technology
-                      </motion.h2>
-
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="text-slate-400 mb-6 text-sm"
-                      >
-                        Start your journey to becoming a tech professional
-                      </motion.p>
+                      <div>
+                        <h2 className="text-4xl font-bold mb-4 leading-tight">
+                          Welcome to<br />Nexcore Institute of Technology
+                        </h2>
+                        <p className="text-slate-300 text-lg">
+                          Start your journey to becoming a tech professional
+                        </p>
+                      </div>
 
                       {/* Program Info */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.6 }}
-                        className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700"
-                      >
-                        <h3 className="text-white font-semibold mb-3 flex items-center gap-2 text-sm">
-                          <span>📚</span>
-                          <span>3 Year Degree Programs</span>
-                        </h3>
-                        <div className="space-y-2 text-xs text-slate-300">
-                          {courses.map((course, i) => {
-                            const IconComponent = course.icon;
-                            return (
-                              <div key={i} className="flex items-start gap-3">
-                                <IconComponent className="text-slate-400 mt-1 flex-shrink-0" />
-                                <span className="leading-relaxed">{course.name}</span>
-                              </div>
-                            );
-                          })}
+                      <div className="mt-12 space-y-6">
+                        <div className="flex items-center gap-3 text-slate-300">
+                          <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                            📚
+                          </div>
+                          <span className="font-medium">3 Year Degree Programs</span>
                         </div>
-                      </motion.div>
-                    </div>
 
-                    {/* Bottom accent */}
-                    <div className="relative z-10 pt-8 border-t border-slate-800">
-                      <p className="text-xs text-slate-500">
-                        Join thousands of students learning tech skills
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  {/* Right Side - Form */}
-                  <motion.div
-                    initial={{ x: 30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="w-full lg:w-2/3 p-6 sm:p-8 relative overflow-y-auto"
-                  >
-                    {/* Close button */}
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={onClose}
-                      className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors z-10"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </motion.button>
-
-                    {/* Mobile Logo */}
-                    <div className="lg:hidden flex justify-center mb-6">
-                      <div className="w-24 h-24 bg-white rounded-xl flex items-center justify-center shadow-lg border border-slate-200">
-                        <Image
-                          src="/logo.png"
-                          alt="Nexcore Institute Logo"
-                          width={80}
-                          height={80}
-                          className="object-contain"
-                          priority
-                        />
+                        {courses.map((course, i) => {
+                          const IconComponent = course.icon;
+                          return (
+                            <div key={i} className="flex items-start gap-3 text-slate-300">
+                              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <IconComponent className="text-lg" />
+                              </div>
+                              <span className="text-sm leading-relaxed">{course.name}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
 
+                    {/* Bottom accent */}
+                    <div className="relative z-10">
+                      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+                      <p className="text-slate-400 text-sm">
+                        Join thousands of students learning tech skills
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Form */}
+                  <div className="flex flex-col bg-white relative">
+                    {/* Close button */}
+                    <button
+                      onClick={handleClose}
+                      className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors z-10 text-slate-400 hover:text-slate-600"
+                    >
+                      ✕
+                    </button>
+
+                    {/* Mobile Logo */}
+                    <div className="md:hidden p-6 pb-0">
+                      <Image
+                        src="/logo.png"
+                        alt="Nexcore Logo"
+                        width={140}
+                        height={46}
+                      />
+                    </div>
+
                     {/* Form Content */}
-                    <div className="max-w-md mx-auto">
+                    <div className="flex-1 overflow-y-auto p-6 md:p-12">
                       {/* Header */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="mb-6 text-center lg:text-left"
-                      >
-                        <h3 className="text-2xl font-semibold text-slate-900 mb-2">
+                      <div className="mb-8">
+                        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                           Register Now
                         </h3>
-                        <p className="text-slate-600 text-sm">
+                        <p className="text-slate-600 hidden md:block">
                           Join thousands of students learning tech skills
                         </p>
-                      </motion.div>
+                      </div>
 
                       {/* Progress Indicator */}
-                      <div className="mb-6">
-                        <div className="flex items-center justify-between mb-3">
+                      <div className="mb-8">
+                        <div className="flex items-center justify-between max-w-xs mx-auto">
                           {[1, 2].map((step) => (
-                            <div key={step} className="flex items-center flex-1">
+                            <div key={step} className="flex items-center">
                               <div
-                                className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-semibold transition-all ${
+                                className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                                   currentStep >= step
                                     ? "bg-slate-900 text-white"
                                     : "bg-slate-100 text-slate-400"
@@ -383,7 +338,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               </div>
                               {step < 2 && (
                                 <div
-                                  className={`flex-1 h-1 mx-2 transition-all ${
+                                  className={`h-1 w-24 mx-2 transition-all ${
                                     currentStep > step ? "bg-slate-900" : "bg-slate-200"
                                   }`}
                                 />
@@ -391,13 +346,13 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                             </div>
                           ))}
                         </div>
-                        <div className="text-xs text-slate-500 text-center">
+                        <p className="text-center text-sm text-slate-500 mt-3">
                           Step {currentStep} of 2
-                        </div>
+                        </p>
                       </div>
 
                       {/* Form */}
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Step 1: Personal Info & Contact */}
                         {currentStep === 1 && (
                           <motion.div
@@ -408,63 +363,65 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                           >
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                Student Name <span className="text-red-500">*</span>
+                                Student Name *
                               </label>
                               <input
                                 type="text"
                                 name="studentName"
                                 value={formData.studentName}
                                 onChange={handleChange}
+                                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all"
                                 placeholder="Enter your full name"
                                 required
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
                               />
                             </div>
 
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                WhatsApp Number <span className="text-red-500">*</span>
+                                WhatsApp Number *
                               </label>
-                              <div className="relative">
-                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 font-medium">
+                              <div className="flex gap-2">
+                                <div className="w-16 px-3 py-3 bg-slate-100 border border-slate-300 rounded-lg flex items-center justify-center font-medium text-slate-700">
                                   +91
-                                </span>
+                                </div>
                                 <input
                                   type="tel"
                                   name="whatsappNumber"
                                   value={formData.whatsappNumber}
                                   onChange={handleMobileChange}
-                                  placeholder="XXXXX XXXXX"
+                                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all"
+                                  placeholder="9876543210"
                                   required
                                   maxLength="10"
-                                  className="w-full pl-14 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
+                                  pattern="[0-9]{10}"
                                 />
                               </div>
-                              <p className="text-xs text-slate-500 mt-2">
+                              <p className="text-xs text-slate-500 mt-1">
                                 Enter 10-digit mobile number (numbers only)
                               </p>
                             </div>
 
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                Parent's Mobile Number <span className="text-red-500">*</span>
+                                Parent's Mobile Number *
                               </label>
-                              <div className="relative">
-                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 font-medium">
+                              <div className="flex gap-2">
+                                <div className="w-16 px-3 py-3 bg-slate-100 border border-slate-300 rounded-lg flex items-center justify-center font-medium text-slate-700">
                                   +91
-                                </span>
+                                </div>
                                 <input
                                   type="tel"
                                   name="parentsNumber"
                                   value={formData.parentsNumber}
                                   onChange={handleMobileChange}
-                                  placeholder="XXXXX XXXXX"
+                                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all"
+                                  placeholder="9876543210"
                                   required
                                   maxLength="10"
-                                  className="w-full pl-14 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all"
+                                  pattern="[0-9]{10}"
                                 />
                               </div>
-                              <p className="text-xs text-slate-500 mt-2">
+                              <p className="text-xs text-slate-500 mt-1">
                                 Enter 10-digit mobile number (numbers only)
                               </p>
                             </div>
@@ -481,14 +438,14 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                           >
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                Qualification <span className="text-red-500">*</span>
+                                Qualification *
                               </label>
                               <select
                                 name="qualification"
                                 value={formData.qualification}
                                 onChange={handleChange}
+                                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all bg-white"
                                 required
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all bg-white"
                               >
                                 <option value="">Select your qualification</option>
                                 {qualifications.map((qual, i) => (
@@ -501,14 +458,14 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
                             <div>
                               <label className="block text-sm font-medium text-slate-700 mb-2">
-                                Course Interested In <span className="text-red-500">*</span>
+                                Course Interested In *
                               </label>
                               <select
                                 name="courseInterested"
                                 value={formData.courseInterested}
                                 onChange={handleChange}
+                                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all bg-white"
                                 required
-                                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all bg-white"
                               >
                                 <option value="">Select a course</option>
                                 {courses.map((course, i) => (
@@ -520,27 +477,16 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                             </div>
 
                             {/* Summary */}
-                            <div className="mt-6 p-5 bg-slate-50 rounded-xl border border-slate-200">
-                              <h4 className="font-semibold text-slate-900 mb-3 text-sm flex items-center gap-2">
-                                <span>📋</span>
-                                <span>Registration Summary</span>
+                            <div className="bg-slate-50 rounded-xl p-5 mt-6">
+                              <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                                📋 Registration Summary
                               </h4>
                               <div className="space-y-2 text-sm text-slate-600">
-                                <p>
-                                  <strong className="text-slate-900">Name:</strong> {formData.studentName}
-                                </p>
-                                <p>
-                                  <strong className="text-slate-900">WhatsApp:</strong> +91 {formData.whatsappNumber}
-                                </p>
-                                <p>
-                                  <strong className="text-slate-900">Parent's Number:</strong> +91 {formData.parentsNumber}
-                                </p>
-                                <p>
-                                  <strong className="text-slate-900">Qualification:</strong> {formData.qualification}
-                                </p>
-                                <p className="break-words">
-                                  <strong className="text-slate-900">Course:</strong> {formData.courseInterested}
-                                </p>
+                                <p><span className="font-medium">Name:</span> {formData.studentName}</p>
+                                <p><span className="font-medium">WhatsApp:</span> +91 {formData.whatsappNumber}</p>
+                                <p><span className="font-medium">Parent's Number:</span> +91 {formData.parentsNumber}</p>
+                                <p><span className="font-medium">Qualification:</span> {formData.qualification}</p>
+                                <p><span className="font-medium">Course:</span> {formData.courseInterested}</p>
                               </div>
                             </div>
                           </motion.div>
@@ -552,7 +498,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                             <button
                               type="button"
                               onClick={prevStep}
-                              className="flex-1 py-3 px-6 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors"
+                              className="flex-1 px-6 py-3 border-2 border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors font-medium"
                             >
                               ← Back
                             </button>
@@ -563,15 +509,14 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               type="button"
                               onClick={nextStep}
                               disabled={!validateStep1()}
-                              className="flex-1 py-3.5 px-6 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                              className="flex-1 px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors font-medium disabled:bg-slate-300 disabled:cursor-not-allowed"
                             >
                               Next →
                             </button>
                           ) : (
                             <button
                               type="submit"
-                              disabled={!formData.qualification || !formData.courseInterested}
-                              className="flex-1 py-3.5 px-6 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                              className="flex-1 px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors font-medium"
                             >
                               Submit Application ✓
                             </button>
@@ -579,14 +524,14 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                         </div>
                       </form>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               )}
             </motion.div>
           </div>
         </>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

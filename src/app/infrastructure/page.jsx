@@ -20,6 +20,8 @@ import React from "react";
 import Hero from "@/components/Infrastructure/Hero";
 import ModernInfra from "@/components/Infrastructure/ModernInfra";
 import InfraImgVid from "@/components/Infrastructure/InfraImgVid";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
@@ -28,9 +30,11 @@ const Page = () => {
         {" "}
         {/* Add padding top to prevent overlap with fixed navbar */}
         {/* Page content goes here */}
+        <Navbar/>
         <Hero />
-        {/* <ModernInfra /> */}
+        <ModernInfra /> 
         {/* <InfraImgVid /> */}
+        <Footer/>
       </main>
     </div>
   );

@@ -107,7 +107,7 @@ const ScholarshipsPage = () => {
                   borderRadius: "50%",
                   animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
                 }} />
-                REGISTRATION NOW OPEN
+                SCHOLARSHIP OPENS 16 MARCH
               </span>
             </motion.div>
 
@@ -124,8 +124,8 @@ const ScholarshipsPage = () => {
                 lineHeight: "1.1"
               }}
             >
-              <span style={{ color: "#000" }}>Choose Your </span>
-              <span style={{ color: "#0066cc" }}>Scholarships</span>
+              <span style={{ color: "#0066cc" }}>Scholarship</span>
+              <span style={{ color: "#000" }}> Program 2026</span>
             </motion.h1>
 
             <motion.p
@@ -141,12 +141,11 @@ const ScholarshipsPage = () => {
                 lineHeight: "1.6"
               }}
             >
-              Step into the future with a{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>NAAC A+ Accredited</span> program. 
               We're awarding{" "}
               <span style={{ fontWeight: "700", color: "#0066cc" }}>₹25 Lakh</span>{" "}
-              in scholarships — registrations started from{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>16 March 2025</span>.
+              in merit-based scholarships. Registration opens{" "}
+              <span style={{ fontWeight: "700", color: "#000" }}>16 March 2026</span>.{" "}
+              Scholarships will be awarded to students who successfully pass our scholarship test.
             </motion.p>
 
             {/* Pills */}
@@ -197,14 +196,14 @@ const ScholarshipsPage = () => {
               </span>
               <span style={{
                 padding: "0.5rem 1rem",
-                background: "#e7f3ff",
-                color: "#0066cc",
+                background: "#fff7ed",
+                color: "#ea580c",
                 borderRadius: "50px",
                 fontSize: "0.875rem",
                 fontWeight: "600",
-                border: "1px solid #b3d9ff"
+                border: "1px solid #fed7aa"
               }}>
-                📅 Since 16 March 2025
+                🎓 Merit-Based
               </span>
             </motion.div>
 
@@ -221,7 +220,7 @@ const ScholarshipsPage = () => {
               }}
             >
               <motion.a
-                href="#apply"
+                href="tel:+919892398976"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
@@ -239,31 +238,8 @@ const ScholarshipsPage = () => {
                   transition: "all 0.3s"
                 }}
               >
-                Apply Now
-                <FaArrowRight />
-              </motion.a>
-              <motion.a
-                href="tel:+919892398976"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  padding: "1rem 2rem",
-                  background: "#fff",
-                  color: "#0066cc",
-                  borderRadius: "8px",
-                  fontWeight: "700",
-                  fontSize: "1.125rem",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                  border: "2px solid #e7f3ff",
-                  textDecoration: "none",
-                  transition: "all 0.3s"
-                }}
-              >
                 <IoCallSharp />
-                Call Us
+                Contact Us
               </motion.a>
             </motion.div>
           </div>
@@ -317,73 +293,48 @@ const ScholarshipsPage = () => {
                       fontSize: "1.125rem",
                       color: "#4a5568"
                     }}>
-                      Across scholarship categories for deserving students
+                      Merit-based scholarships for students who pass the scholarship test
                     </p>
                   </div>
 
                   {/* Registration date card */}
                   <div style={{
-                    background: "#f0fdf4",
+                    background: "#fff7ed",
                     borderRadius: "12px",
                     padding: "1.5rem",
-                    border: "2px solid #86efac"
+                    border: "2px solid #fed7aa"
                   }}>
                     <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>🗓️</div>
                     <p style={{
                       fontSize: "0.75rem",
                       fontWeight: "700",
-                      color: "#16a34a",
+                      color: "#9a3412",
                       marginBottom: "0.25rem",
                       letterSpacing: "0.05em"
                     }}>
-                      REGISTRATION STARTED FROM
+                      REGISTRATION OPENS ON
                     </p>
                     <p style={{
                       fontSize: "1.875rem",
                       fontWeight: "900",
-                      color: "#15803d",
+                      color: "#ea580c",
                       marginBottom: "0.75rem"
                     }}>
-                      16 March 2025
+                      16 March 2026
                     </p>
                     <div style={{
                       display: "flex",
                       alignItems: "center",
                       gap: "0.5rem",
-                      color: "#16a34a",
+                      color: "#ea580c",
                       fontSize: "0.875rem",
                       fontWeight: "600"
                     }}>
                       <FaCheckCircle />
-                      Apply now — limited seats available!
+                      Mark your calendar — limited seats!
                     </div>
                   </div>
                 </div>
-
-                <motion.a
-                  href="#apply"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  style={{
-                    marginTop: "2rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "0.5rem",
-                    padding: "1rem 2.5rem",
-                    background: "#0066cc",
-                    color: "#fff",
-                    borderRadius: "8px",
-                    fontWeight: "700",
-                    fontSize: "1.125rem",
-                    boxShadow: "0 4px 12px rgba(0, 102, 204, 0.3)",
-                    textDecoration: "none",
-                    transition: "all 0.3s"
-                  }}
-                >
-                  Apply Now
-                  <FaArrowRight />
-                </motion.a>
               </div>
             </motion.div>
           </div>
@@ -429,7 +380,7 @@ const ScholarshipsPage = () => {
                 maxWidth: "42rem",
                 margin: "0 auto"
               }}>
-                A simple 4-step process to secure your scholarship
+                A simple 4-step process to secure your scholarship. Only students who pass the test will receive scholarships.
               </p>
             </motion.div>
 
@@ -519,9 +470,9 @@ const ScholarshipsPage = () => {
           </div>
         </section>
 
-        {/* ══════════ CONTACT ══════════ */}
+        {/* ══════════ CONTACT - COMPACT ══════════ */}
         <section style={{
-          padding: "5rem 1rem",
+          padding: "3rem 1rem",
           background: "#fff"
         }}>
           <div style={{ maxWidth: "56rem", margin: "0 auto" }}>
@@ -529,38 +480,30 @@ const ScholarshipsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              style={{ textAlign: "center", marginBottom: "3rem" }}
+              style={{ textAlign: "center", marginBottom: "2rem" }}
             >
-              <p style={{
-                fontSize: "0.875rem",
-                fontWeight: "700",
-                color: "#6b7280",
-                marginBottom: "0.5rem",
-                letterSpacing: "0.05em"
-              }}>
-                GET IN TOUCH
-              </p>
               <h2 style={{
-                fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
+                fontSize: "clamp(2rem, 5vw, 2.5rem)",
                 fontWeight: "900",
                 color: "#000",
-                marginBottom: "1rem"
+                marginBottom: "0.5rem"
               }}>
-                Ready to Apply?
+                Have Questions?
               </h2>
               <p style={{
-                fontSize: "1.25rem",
+                fontSize: "1rem",
                 color: "#4a5568"
               }}>
-                Our admissions team is ready to guide you through every step of the process.
+                Get in touch with our admissions team
               </p>
             </motion.div>
 
+            {/* Contact Buttons - 2 columns */}
             <div style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
               gap: "1rem",
-              marginBottom: "3rem"
+              marginBottom: "2rem"
             }}>
               <motion.a
                 href="https://wa.me/919892398976"
@@ -572,19 +515,20 @@ const ScholarshipsPage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "0.75rem",
-                  padding: "1rem 1.5rem",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.25rem",
                   background: "#f0fdf4",
                   color: "#16a34a",
                   borderRadius: "8px",
                   fontWeight: "700",
+                  fontSize: "0.875rem",
                   textDecoration: "none",
                   transition: "all 0.3s",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                   border: "2px solid #86efac"
                 }}
               >
-                <FaWhatsapp style={{ fontSize: "1.5rem" }} />
+                <FaWhatsapp style={{ fontSize: "1.25rem" }} />
                 WhatsApp
               </motion.a>
 
@@ -596,62 +540,39 @@ const ScholarshipsPage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "0.75rem",
-                  padding: "1rem 1.5rem",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.25rem",
                   background: "#eff6ff",
                   color: "#1d4ed8",
                   borderRadius: "8px",
                   fontWeight: "700",
+                  fontSize: "0.875rem",
                   textDecoration: "none",
                   transition: "all 0.3s",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                   border: "2px solid #93c5fd"
                 }}
               >
-                <IoCallSharp style={{ fontSize: "1.5rem" }} />
+                <IoCallSharp style={{ fontSize: "1.25rem" }} />
                 Call Us
-              </motion.a>
-
-              <motion.a
-                href="mailto:admissions@nexcore.edu"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.75rem",
-                  padding: "1rem 1.5rem",
-                  background: "#faf5ff",
-                  color: "#7e22ce",
-                  borderRadius: "8px",
-                  fontWeight: "700",
-                  textDecoration: "none",
-                  transition: "all 0.3s",
-                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
-                  border: "2px solid #d8b4fe"
-                }}
-              >
-                <IoMailSharp style={{ fontSize: "1.5rem" }} />
-                Email Us
               </motion.a>
             </div>
 
-            {/* Social */}
+            {/* Social - Compact */}
             <div style={{ textAlign: "center" }}>
               <p style={{
-                fontSize: "0.875rem",
+                fontSize: "0.75rem",
                 fontWeight: "700",
                 color: "#6b7280",
-                marginBottom: "1rem",
+                marginBottom: "0.75rem",
                 letterSpacing: "0.05em"
               }}>
-                FOLLOW US FOR UPDATES
+                FOLLOW US
               </p>
               <div style={{
                 display: "flex",
                 justifyContent: "center",
-                gap: "0.75rem"
+                gap: "0.5rem"
               }}>
                 {socialLinks.map((s, i) => {
                   const Icon = s.icon;
@@ -661,11 +582,11 @@ const ScholarshipsPage = () => {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -4 }}
+                      whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
                       style={{
-                        width: "3rem",
-                        height: "3rem",
+                        width: "2.5rem",
+                        height: "2.5rem",
                         background: "#fff",
                         borderRadius: "50%",
                         display: "flex",
@@ -678,7 +599,7 @@ const ScholarshipsPage = () => {
                       }}
                       aria-label={s.label}
                     >
-                      <Icon style={{ fontSize: "1.25rem" }} />
+                      <Icon style={{ fontSize: "1rem" }} />
                     </motion.a>
                   );
                 })}
@@ -687,9 +608,9 @@ const ScholarshipsPage = () => {
           </div>
         </section>
 
-        {/* ══════════ BOTTOM NOTE ══════════ */}
+        {/* ══════════ BOTTOM NOTE - COMPACT ══════════ */}
         <section style={{
-          padding: "3rem 1rem",
+          padding: "2rem 1rem",
           background: "#f8f9fa",
           borderTop: "1px solid #e5e7eb"
         }}>
@@ -705,13 +626,10 @@ const ScholarshipsPage = () => {
             }}
           >
             <p style={{
-              fontSize: "1.125rem",
-              lineHeight: "1.8"
+              fontSize: "0.875rem",
+              lineHeight: "1.6"
             }}>
-              Nexcore Institute of Technology is{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>NAAC A+ Accredited</span> and{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>UGC Recognized</span>. Our scholarship program 
-              is designed to make quality tech education accessible to every deserving student.
+              <span style={{ fontWeight: "700", color: "#000" }}>NAAC A+ Accredited</span> • <span style={{ fontWeight: "700", color: "#000" }}>UGC Recognized</span> • Since 2011
             </p>
           </motion.div>
         </section>

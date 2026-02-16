@@ -99,13 +99,13 @@ const ScholarshipPopup = () => {
                       <div className="w-2 h-2 bg-blue-600 rounded-full relative z-10" />
                     </div>
                     <span className="text-blue-600 text-[11px] font-bold tracking-wider">
-                      REGISTRATION NOW OPEN
+                      SCHOLARSHIP OPENS 16 MARCH
                     </span>
                   </div>
 
                   {/* Title */}
                   <h2 className="relative z-10 text-gray-900 text-[21px] font-extrabold leading-tight mb-3">
-                    Scholarship<br />Program 2025
+                    Scholarship<br />Program 2026
                   </h2>
                   
                   <p className="relative z-10 text-gray-600 text-xs leading-relaxed mb-5">
@@ -177,17 +177,17 @@ const ScholarshipPopup = () => {
 
                   {/* Eyebrow */}
                   <p className="text-[11px] font-bold text-gray-400 tracking-widest mb-2">
-                    ADMISSIONS NOW OPEN
+                    ADMISSIONS OPEN ON 16 MARCH
                   </p>
 
                   {/* Title */}
                   <h3 className="text-xl sm:text-[22px] font-extrabold text-gray-900 leading-tight mb-2">
-                    Registrations Started 🎉
+                    Scholarship Registration Opens Soon 🎉
                   </h3>
                   
                   <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
-                    Apply for the 2025 Scholarship Program — started from{" "}
-                    <strong className="text-blue-600">16 March 2025</strong>.{" "}
+                    Apply for the 2026 Scholarship Program — registration starts from{" "}
+                    <strong className="text-blue-600">16 March 2026</strong>.{" "}
                     Limited seats available.
                   </p>
 
@@ -221,13 +221,13 @@ const ScholarshipPopup = () => {
                     </div>
                     <div>
                       <div className="text-[9px] sm:text-[10px] font-bold text-green-700 tracking-wider mb-0.5">
-                        REGISTRATION STARTED FROM
+                        SCHOLARSHIP REGISTRATION OPENS
                       </div>
                       <div className="text-lg sm:text-xl font-extrabold text-gray-900">
-                        16 March 2025
+                        16 March 2026
                       </div>
                       <div className="text-[10px] sm:text-[11px] text-green-600 font-semibold mt-0.5">
-                        ✓ Apply now — seats filling fast!
+                        ✓ Mark your calendar — limited seats!
                       </div>
                     </div>
                   </motion.div>
@@ -244,10 +244,10 @@ const ScholarshipPopup = () => {
                       onClick={handleClose}
                       className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-3 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95"
                     >
-                      Apply Now <FaArrowRight className="text-xs" />
+                      Learn More <FaArrowRight className="text-xs" />
                     </Link>
                     <a
-                      href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20apply%20for%20the%20%E2%82%B925%20Lakh%20Scholarship%20at%20Nexcore%20Institute."
+                      href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20%E2%82%B925%20Lakh%20Scholarship%20at%20Nexcore%20Institute."
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleClose}

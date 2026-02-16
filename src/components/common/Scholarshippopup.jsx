@@ -67,17 +67,17 @@ const ScholarshipPopup = () => {
             />
 
             {/* Modal Container */}
-            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto">
+            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
               <motion.div
                 initial={{ scale: 0.88, opacity: 0, y: 50 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.88, opacity: 0, y: 50 }}
                 transition={{ type: "spring", stiffness: 265, damping: 26 }}
                 onClick={(e) => e.stopPropagation()}
-                className="w-full max-w-[780px] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl"
+                className="w-full max-w-[780px] flex flex-col md:flex-row rounded-xl md:rounded-2xl overflow-hidden shadow-2xl my-auto"
               >
-                {/* ══════════ LEFT PANEL ══════════ */}
-                <div className="w-full md:w-[290px] flex-shrink-0 bg-white border-b md:border-b-0 md:border-r border-gray-200 p-8 md:p-6 flex flex-col relative overflow-hidden">
+                {/* ══════════ LEFT PANEL (Hidden on Mobile) ══════════ */}
+                <div className="hidden md:flex md:w-[290px] flex-shrink-0 bg-white border-r border-gray-200 p-6 flex-col relative overflow-hidden">
                   {/* Subtle background decoration */}
                   <div className="absolute top-[-60px] right-[-60px] w-[200px] h-[200px] bg-blue-50 rounded-full blur-3xl opacity-50" />
 
@@ -150,28 +150,42 @@ const ScholarshipPopup = () => {
                   </div>
                 </div>
 
-                {/* ══════════ RIGHT PANEL ══════════ */}
-                <div className="flex-1 bg-white p-7 md:p-7 flex flex-col relative overflow-y-auto max-h-[90vh] md:max-h-none">
+                {/* ══════════ RIGHT PANEL (Full Width on Mobile) ══════════ */}
+                <div className="flex-1 bg-white p-5 sm:p-6 md:p-7 flex flex-col relative overflow-y-auto max-h-[85vh] md:max-h-[90vh]">
                   {/* Close Button */}
                   <button
                     onClick={handleClose}
-                    className="absolute top-3.5 right-3.5 w-8 h-8 bg-gray-100 hover:bg-gray-200 border-none rounded-full cursor-pointer text-gray-600 hover:text-gray-900 flex items-center justify-center transition-colors text-lg"
+                    className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 w-8 h-8 bg-gray-100 hover:bg-gray-200 border-none rounded-full cursor-pointer text-gray-600 hover:text-gray-900 flex items-center justify-center transition-colors text-lg z-10"
                     aria-label="Close"
                   >
                     <IoClose />
                   </button>
 
+                  {/* Mobile Logo (Only visible on mobile) */}
+                  <div className="md:hidden mb-4 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-md border border-gray-100">
+                      <Image 
+                        src="/logo.png" 
+                        alt="Nexcore" 
+                        width={52} 
+                        height={52} 
+                        className="object-contain"
+                        priority 
+                      />
+                    </div>
+                  </div>
+
                   {/* Eyebrow */}
-                  <p className="text-[11px] font-bold text-gray-400 tracking-widest mb-2.5">
+                  <p className="text-[11px] font-bold text-gray-400 tracking-widest mb-2">
                     ADMISSIONS NOW OPEN
                   </p>
 
                   {/* Title */}
-                  <h3 className="text-[22px] font-extrabold text-gray-900 leading-tight mb-1.5">
+                  <h3 className="text-xl sm:text-[22px] font-extrabold text-gray-900 leading-tight mb-2">
                     Registrations Started 🎉
                   </h3>
                   
-                  <p className="text-[13px] text-gray-600 leading-relaxed mb-5">
+                  <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
                     Apply for the 2025 Scholarship Program — started from{" "}
                     <strong className="text-blue-600">16 March 2025</strong>.{" "}
                     Limited seats available.
@@ -182,15 +196,15 @@ const ScholarshipPopup = () => {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="bg-gradient-to-br from-blue-50 to-blue-50/50 border-2 border-blue-200 rounded-2xl p-6 text-center mb-3.5"
+                    className="bg-gradient-to-br from-blue-50 to-blue-50/50 border-2 border-blue-200 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 text-center mb-3"
                   >
-                    <p className="text-[11px] font-bold text-gray-400 tracking-wider mb-2">
+                    <p className="text-[10px] sm:text-[11px] font-bold text-gray-400 tracking-wider mb-1.5">
                       TOTAL SCHOLARSHIP POOL
                     </p>
-                    <div className="text-[52px] md:text-[52px] font-black leading-none text-blue-600 mb-1.5">
+                    <div className="text-[42px] sm:text-[48px] md:text-[52px] font-black leading-none text-blue-600 mb-1">
                       ₹25 Lakh
                     </div>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-[11px] sm:text-xs text-gray-600">
                       Scholarship opportunities for deserving students
                     </p>
                   </motion.div>
@@ -200,19 +214,19 @@ const ScholarshipPopup = () => {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.52 }}
-                    className="bg-green-50 border-2 border-green-200 rounded-xl p-4 flex items-center gap-3.5 mb-5"
+                    className="bg-green-50 border-2 border-green-200 rounded-lg md:rounded-xl p-3 sm:p-4 flex items-center gap-3 mb-4"
                   >
-                    <div className="w-11 h-11 flex-shrink-0 bg-green-100 border border-green-300 rounded-lg flex items-center justify-center text-xl">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 bg-green-100 border border-green-300 rounded-lg flex items-center justify-center text-lg sm:text-xl">
                       🗓️
                     </div>
                     <div>
-                      <div className="text-[10px] font-bold text-green-700 tracking-wider mb-0.5">
+                      <div className="text-[9px] sm:text-[10px] font-bold text-green-700 tracking-wider mb-0.5">
                         REGISTRATION STARTED FROM
                       </div>
-                      <div className="text-xl font-extrabold text-gray-900">
+                      <div className="text-lg sm:text-xl font-extrabold text-gray-900">
                         16 March 2025
                       </div>
-                      <div className="text-[11px] text-green-600 font-semibold mt-0.5">
+                      <div className="text-[10px] sm:text-[11px] text-green-600 font-semibold mt-0.5">
                         ✓ Apply now — seats filling fast!
                       </div>
                     </div>
@@ -223,12 +237,12 @@ const ScholarshipPopup = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.62 }}
-                    className="flex flex-col md:flex-row gap-2.5 mb-3.5"
+                    className="flex flex-col sm:flex-row gap-2.5 mb-3"
                   >
                     <Link
                       href="/scholarships"
                       onClick={handleClose}
-                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-3 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95"
                     >
                       Apply Now <FaArrowRight className="text-xs" />
                     </Link>
@@ -237,16 +251,39 @@ const ScholarshipPopup = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleClose}
-                      className="flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 text-green-600 hover:text-white px-5 py-3 rounded-lg text-[13px] font-bold border-2 border-green-200 hover:border-green-600 transition-all whitespace-nowrap"
+                      className="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 text-green-600 hover:text-white px-4 sm:px-5 py-3 rounded-lg text-[13px] font-bold border-2 border-green-200 hover:border-green-600 transition-all active:scale-95"
                     >
                       <FaWhatsapp className="text-sm" /> WhatsApp
                     </a>
                   </motion.div>
 
                   {/* Footer Text */}
-                  <p className="text-center text-[11px] text-gray-400">
+                  <p className="text-center text-[10px] sm:text-[11px] text-gray-400">
                     NAAC A+ Accredited • UGC Recognized • Since 2011
                   </p>
+
+                  {/* Mobile Social Links */}
+                  <div className="md:hidden mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-center text-gray-500 text-[10px] mb-2">Follow us for updates</p>
+                    <div className="flex justify-center gap-2">
+                      {socialLinks.map((s) => {
+                        const Icon = s.icon;
+                        return (
+                          <a
+                            key={s.label}
+                            href={s.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleClose}
+                            aria-label={s.label}
+                            className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 text-gray-600 border border-gray-200 active:bg-blue-600 active:text-white transition-all text-xs"
+                          >
+                            <Icon />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>

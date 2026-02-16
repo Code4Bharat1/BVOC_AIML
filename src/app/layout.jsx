@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./LP_clientLayout";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScholarshipPopup from "@/components/common/Scholarshippopup";
 
 // Fonts
 const geistSans = Geist({
@@ -82,6 +83,9 @@ export const metadata = {
   },
 };
 
+
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -102,14 +106,13 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
-
-       
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Client Layout (Navbar, Footer, etc.) */}
+        {/* ❌ REMOVE ScholarshipPopup and FloatingWhatsApp from here */}
+        
+        {/* Client Layout will handle all client components */}
         <ClientLayout>{children}</ClientLayout>
-         <FloatingWhatsApp/>
 
         {/* ✅ Website Schema */}
         <script
@@ -130,7 +133,6 @@ export default function RootLayout({ children }) {
               },
             }),
           }}
-         
         />
       </body>
     </html>

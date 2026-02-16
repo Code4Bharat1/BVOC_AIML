@@ -60,7 +60,7 @@ import CareerPath from "@/components/Hub/CareerPath";
 import KickStart from "@/components/Hub/KickStart";
 import NextLevelRole from "@/components/Hub/NextLevelRole";
 import ShapeTheFuture from "@/components/Hub/ShapeTheFuture";
-import RegisterPopup from "@/components/common/RegisterPopup";
+
 
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -90,10 +90,11 @@ const Page = () => {
       <Footer />
 
       {/* Popup */}
-      <RegisterPopup
+      {/* <RegisterPopup
         isOpen={showPopup}
         onClose={() => setShowPopup(false)}
-      />
+      /> */}
+      
     </div>
   );
 };

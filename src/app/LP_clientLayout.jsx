@@ -1,8 +1,7 @@
 "use client";
 
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Toaster } from "react-hot-toast";
+import GlobalPopups from "./Globalpopups";
+
 
 export default function ClientLayout({ children }) {
   return (
@@ -10,7 +9,7 @@ export default function ClientLayout({ children }) {
       {/* <Navbar /> */}
       {children}
       {/* <Footer /> */}
-      <Toaster position="top-center" reverseOrder={false} />
+      <GlobalPopups />
     </>
   );
 }

@@ -132,7 +132,7 @@ const DegreesShowcase = () => {
                     </div>
 
                     {/* Elegant Number Badge */}
-                    <div
+                    {/* <div
                       className="
                         min-w-[2.5rem] h-10 px-3
                         rounded-xl 
@@ -145,7 +145,7 @@ const DegreesShowcase = () => {
                       "
                     >
                       0{index + 1}
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Title Section with Enhanced Typography */}
@@ -247,7 +247,8 @@ const DegreesShowcase = () => {
                 border border-slate-800
               "
             >
-              <span>Schedule a Consultation</span>
+             <span>Book a Free Career Consultation</span>
+
               <ArrowRight className="w-5 h-5" />
             </motion.button>
           </Link>

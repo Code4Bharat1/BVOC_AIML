@@ -43,7 +43,7 @@ const Footer = () => {
     },
     { 
       icon: <FaWhatsapp />, 
-      url: "https://wa.me/919892398976",
+      url: "https://wa.me/919594402822",
       label: "WhatsApp",
       color: "hover:bg-green-600"
     },
@@ -63,25 +63,26 @@ const Footer = () => {
     { href: "/fees-policy", label: "Fees Policy" },
   ];
 
-  const contactInfo = [
-    {
-      icon: <MapPin className="w-4 h-4" />,
-      text: "Kurla West, Mumbai 400070",
-      color: "text-blue-600",
-    },
-    {
-      icon: <Phone className="w-4 h-4" />,
-      text: "+91 9892398976",
-      color: "text-orange-500",
-      href: "tel:+919892398976",
-    },
-    {
-      icon: <Mail className="w-4 h-4" />,
-      text: "admin@nexcoreinstitute.org",
-      color: "text-amber-500",
-      href: "mailto:admin@nexcoreinstitute.org",
-    },
-  ];
+ const contactInfo = [
+  {
+    icon: <MapPin className="w-4 h-4" />,
+    text: "Campus At Kurla West, Mumbai 400070",
+    color: "text-blue-600",
+  },
+  {
+    icon: <Phone className="w-4 h-4" />,
+    text: "+91 919594402822",
+    color: "text-orange-500",
+    href: "tel:+919594402822",
+  },
+  {
+    icon: <Mail className="w-4 h-4" />,
+    text: "director@nexcoreinstitute.org",
+    color: "text-amber-500",
+    href: "mailto:director@nexcoreinstitute.org",
+  },
+];
+
 
   if (!mounted) return null;
 
@@ -226,7 +227,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center text-xs sm:text-sm text-slate-700 font-medium order-3 md:order-2">
-            © 2026{" "}
+            © 2011 - 2026{" "}
             <Link 
               href="/" 
               className="text-blue-600 font-bold hover:text-blue-700 transition-colors"
@@ -239,6 +240,7 @@ const Footer = () => {
           {/* Design Credit */}
           <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-700 font-medium order-2 md:order-3">
             Designed by{" "}
+            {/* <Heart className="w-3.5 h-3.5 fill-current text-red-500 animate-pulse" /> */}
             <a
               href="https://nexcorealliance.com/"
               target="_blank"
@@ -246,7 +248,6 @@ const Footer = () => {
               className="text-orange-500 font-bold hover:text-orange-600 inline-flex items-center gap-1 transition-colors"
             >
               Nexcore Alliance
-              <Heart className="w-3.5 h-3.5 fill-current text-red-500 animate-pulse" />
             </a>
           </div>
         </div>

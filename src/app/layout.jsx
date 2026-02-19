@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: new URL("https://nexcoreinstitute.org"),
 
   title: {
-    default: "BVOC in AIML, Cyber Security, AI & Robotics, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
+    default: "BVOC in AIML, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
     template: "%s | Nexcore Institute of Technology",
   },
 
@@ -58,7 +58,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "BVOC in AI, Cyber Security & CAI & Robotics, Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
+    title: "BVOC in AI,  Graphic Animation, VFX & Multimedia | Nexcore Institute of Technology",
     description:
       "Industry-ready B.Voc programs in AI & ML, Cyber Security, and AI & Robotics, Graphic Animation, VFX & Multimedia at Nexcore Institute of Technology.",
     url: "https://nexcoreinstitute.org/",

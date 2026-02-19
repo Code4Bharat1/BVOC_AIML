@@ -39,7 +39,7 @@ const socialLinks = [
   },
   { 
     icon: FaWhatsapp, 
-    url: "https://wa.me/919892398976", 
+    url: "https://wa.me/919594402822", 
     label: "WhatsApp" 
   },
 ];
@@ -107,7 +107,7 @@ const ScholarshipsPage = () => {
                   borderRadius: "50%",
                   animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
                 }} />
-                SCHOLARSHIP OPENS 16 MARCH
+                SCHOLARSHIP OPENS 16th MARCH
               </span>
             </motion.div>
 
@@ -142,9 +142,9 @@ const ScholarshipsPage = () => {
               }}
             >
               We're awarding{" "}
-              <span style={{ fontWeight: "700", color: "#0066cc" }}>₹25 Lakh</span>{" "}
+              <span style={{ fontWeight: "700", color: "#0066cc" }}> ₹25,00,000/-</span>{" "}
               in merit-based scholarships. Registration opens{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>16 March 2026</span>.{" "}
+              <span style={{ fontWeight: "700", color: "#000" }}>16th March 2026</span>.{" "}
               Scholarships will be awarded to students who successfully pass our scholarship test.
             </motion.p>
 
@@ -192,7 +192,7 @@ const ScholarshipsPage = () => {
                 fontWeight: "600",
                 border: "1px solid #b3d9ff"
               }}>
-                🏅 ₹25 Lakh Pool
+                🏅 ₹25,00,000/-
               </span>
               <span style={{
                 padding: "0.5rem 1rem",
@@ -220,7 +220,7 @@ const ScholarshipsPage = () => {
               }}
             >
               <motion.a
-                href="tel:+919892398976"
+                href="tel:+91 919594402822"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
@@ -287,7 +287,7 @@ const ScholarshipsPage = () => {
                       color: "#0066cc",
                       marginBottom: "1rem"
                     }}>
-                      ₹25 Lakh
+                       ₹25,00,000/-
                     </h2>
                     <p style={{
                       fontSize: "1.125rem",
@@ -320,7 +320,7 @@ const ScholarshipsPage = () => {
                       color: "#ea580c",
                       marginBottom: "0.75rem"
                     }}>
-                      16 March 2026
+                      16th March 2026
                     </p>
                     <div style={{
                       display: "flex",
@@ -506,7 +506,7 @@ const ScholarshipsPage = () => {
               marginBottom: "2rem"
             }}>
               <motion.a
-                href="https://wa.me/919892398976"
+                href="https://wa.me/919594402822"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -533,7 +533,7 @@ const ScholarshipsPage = () => {
               </motion.a>
 
               <motion.a
-                href="tel:+919892398976"
+                href="tel:+91 919594402822"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{

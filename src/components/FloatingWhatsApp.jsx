@@ -22,14 +22,15 @@ const FloatingWhatsApp = () => {
         bottom-6
         right-6
         z-50
-        w-14
-        h-14
+        w-10
+        h-10
         rounded-full
         bg-green-500
         flex
         items-center
         justify-center
         shadow-lg
+       
       "
     >
       <FaWhatsapp className="text-white text-3xl" />

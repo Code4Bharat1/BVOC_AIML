@@ -15,7 +15,7 @@ const socialLinks = [
   { icon: FaInstagram,  url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0",                        label: "Instagram" },
   { icon: FaLinkedinIn, url: "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all",  label: "LinkedIn"  },
   { icon: FaYoutube,    url: "https://www.youtube.com/@NexcoreInstitute",                                                label: "YouTube"   },
-  { icon: FaWhatsapp,   url: "https://wa.me/919892398976",                                                              label: "WhatsApp"  },
+  { icon: FaWhatsapp,   url: "https://wa.me/919594402822",                                                              label: "WhatsApp"  },
 ];
 
 const ScholarshipPopup = () => {
@@ -38,8 +38,8 @@ const ScholarshipPopup = () => {
           100% { transform: scale(2.4); opacity: 0;   }
         }
         @keyframes floatY {
-          0%, 100% { transform: translateY(0);     }
-          50%      { transform: translateY(-5px);  }
+          0%, 100% { transform: translateY(0);    }
+          50%      { transform: translateY(-5px); }
         }
         .pulse-ring::before {
           content: '';
@@ -77,29 +77,29 @@ const ScholarshipPopup = () => {
                 className="w-full max-w-[780px] flex flex-col md:flex-row rounded-xl md:rounded-2xl overflow-hidden shadow-2xl my-auto"
               >
                 {/* ══════════ LEFT PANEL (Hidden on Mobile) ══════════ */}
-                <div className="hidden md:flex md:w-[290px] flex-shrink-0 bg-white border-r border-gray-200 p-6 flex-col relative overflow-hidden">
+                <div className="hidden md:flex md:w-[300px] flex-shrink-0 bg-white border-r border-gray-200 p-6 flex-col relative overflow-hidden">
                   {/* Subtle background decoration */}
                   <div className="absolute top-[-60px] right-[-60px] w-[200px] h-[200px] bg-blue-50 rounded-full blur-3xl opacity-50" />
 
-                  {/* Logo */}
-                  <div className="relative z-10 mb-6 w-[76px] h-[76px] bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-md border border-gray-100">
-                    <Image 
-                      src="/logo.png" 
-                      alt="Nexcore" 
-                      width={64} 
-                      height={64} 
-                      className="object-contain"
-                      priority 
+                  {/* ── LOGO — full brand logo, properly sized ── */}
+                  <div className="relative z-10 mb-5 w-full">
+                    <Image
+                      src="/logo.png"
+                      alt="Nexcore Institute of Technology"
+                      width={240}
+                      height={96}
+                      className="object-contain w-full h-auto max-h-[88px]"
+                      priority
                     />
                   </div>
 
                   {/* Live Badge */}
                   <div className="relative z-10 flex items-center gap-2 mb-4">
-                    <div className="pulse-ring relative flex items-center justify-center">
+                    {/* <div className="pulse-ring relative flex items-center justify-center">
                       <div className="w-2 h-2 bg-blue-600 rounded-full relative z-10" />
-                    </div>
+                    </div> */}
                     <span className="text-blue-600 text-[11px] font-bold tracking-wider">
-                      SCHOLARSHIP OPENS 16 MARCH
+                      SCHOLARSHIP OPENS 16th MARCH 2026
                     </span>
                   </div>
 
@@ -107,27 +107,33 @@ const ScholarshipPopup = () => {
                   <h2 className="relative z-10 text-gray-900 text-[21px] font-extrabold leading-tight mb-3">
                     Scholarship<br />Program 2026
                   </h2>
-                  
+
                   <p className="relative z-10 text-gray-600 text-xs leading-relaxed mb-5">
                     Supporting deserving students to build a future in technology and creative arts.
                   </p>
 
                   {/* Divider */}
-                  <div className="relative z-10 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-5" />
+                  <div className="relative z-10 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-4" />
 
-                  {/* ₹25L Floating Pill */}
-                  <motion.div
-                    className="float-animation relative z-10 inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 px-5 py-2.5 rounded-full font-extrabold text-base mb-5"
-                  >
-                    🏅 Total Pool: ₹25 Lakh
-                  </motion.div>
+                  {/* ── Amount box — no overlap, stacked layout ── */}
+                  <div className="float-animation relative z-10 w-full bg-blue-50 border border-blue-200 rounded-2xl px-4 py-4 mb-5 text-center">
+                    <p className="text-[10px] font-bold text-gray-400 tracking-widest mb-1.5 uppercase">
+                      Total Scholarship Pool
+                    </p>
+                    <p className="text-[28px] font-black text-blue-600 leading-none tracking-tight">
+                      ₹25,00,000/-
+                    </p>
+                    <p className="text-[10px] text-blue-500 font-semibold mt-1.5">
+                      🏅 Twenty Five Lakh Rupees
+                    </p>
+                  </div>
 
                   <span className="relative z-10 text-gray-500 text-[11px]">
                     Nexcore Institute of Technology • Since 2011
                   </span>
 
                   {/* Social Links */}
-                  <div className="relative z-10 mt-auto pt-6">
+                  <div className="relative z-10 mt-auto pt-5">
                     <p className="text-gray-500 text-[11px] mb-2">Follow us for updates</p>
                     <div className="flex gap-2">
                       {socialLinks.map((s) => {
@@ -161,50 +167,51 @@ const ScholarshipPopup = () => {
                     <IoClose />
                   </button>
 
-                  {/* Mobile Logo (Only visible on mobile) */}
+                  {/* Mobile Logo */}
                   <div className="md:hidden mb-4 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-md border border-gray-100">
-                      <Image 
-                        src="/logo.png" 
-                        alt="Nexcore" 
-                        width={52} 
-                        height={52} 
-                        className="object-contain"
-                        priority 
-                      />
-                    </div>
+                    <Image
+                      src="/logo.png"
+                      alt="Nexcore Institute of Technology"
+                      width={180}
+                      height={72}
+                      className="object-contain h-auto max-h-[64px]"
+                      priority
+                    />
                   </div>
 
                   {/* Eyebrow */}
                   <p className="text-[11px] font-bold text-gray-400 tracking-widest mb-2">
-                    ADMISSIONS OPEN ON 16 MARCH
+                    ADMISSIONS OPEN ON 16th MARCH 2026
                   </p>
 
                   {/* Title */}
                   <h3 className="text-xl sm:text-[22px] font-extrabold text-gray-900 leading-tight mb-2">
                     Scholarship Registration Opens Soon 🎉
                   </h3>
-                  
+
                   <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
                     Apply for the 2026 Scholarship Program — registration starts from{" "}
-                    <strong className="text-blue-600">16 March 2026</strong>.{" "}
+                    <strong className="text-blue-600">16th March 2026</strong>.{" "}
                     Limited seats available.
                   </p>
 
-                  {/* ₹25 Lakh Box */}
+                  {/* ₹25,00,000/- Box — stacked, no overlap */}
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="bg-gradient-to-br from-blue-50 to-blue-50/50 border-2 border-blue-200 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 text-center mb-3"
+                    className="bg-gradient-to-br from-blue-50 to-blue-50/50 border-2 border-blue-200 rounded-xl md:rounded-2xl p-4 sm:p-5 text-center mb-3"
                   >
-                    <p className="text-[10px] sm:text-[11px] font-bold text-gray-400 tracking-wider mb-1.5">
-                      TOTAL SCHOLARSHIP POOL
+                    <p className="text-[10px] sm:text-[11px] font-bold text-gray-400 tracking-wider mb-2 uppercase">
+                      Total Scholarship Pool
                     </p>
-                    <div className="text-[42px] sm:text-[48px] md:text-[52px] font-black leading-none text-blue-600 mb-1">
-                      ₹25 Lakh
+                    <div className="text-[34px] sm:text-[40px] md:text-[44px] font-black leading-none text-blue-600 mb-1 tracking-tight">
+                      ₹25,00,000/-
                     </div>
-                    <p className="text-[11px] sm:text-xs text-gray-600">
+                    <p className="text-[11px] sm:text-xs text-blue-500 font-semibold mt-1">
+                      🏅 Twenty Five Lakh Rupees
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">
                       Scholarship opportunities for deserving students
                     </p>
                   </motion.div>
@@ -224,7 +231,7 @@ const ScholarshipPopup = () => {
                         SCHOLARSHIP REGISTRATION OPENS
                       </div>
                       <div className="text-lg sm:text-xl font-extrabold text-gray-900">
-                        16 March 2026
+                        16th March 2026
                       </div>
                       <div className="text-[10px] sm:text-[11px] text-green-600 font-semibold mt-0.5">
                         ✓ Mark your calendar — limited seats!
@@ -242,7 +249,7 @@ const ScholarshipPopup = () => {
                     <Link
                       href="/scholarships"
                       onClick={handleClose}
-                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-3 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95"
+                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-3 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95 no-underline"
                     >
                       Learn More <FaArrowRight className="text-xs" />
                     </Link>
@@ -251,7 +258,7 @@ const ScholarshipPopup = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleClose}
-                      className="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 text-green-600 hover:text-white px-4 sm:px-5 py-3 rounded-lg text-[13px] font-bold border-2 border-green-200 hover:border-green-600 transition-all active:scale-95"
+                      className="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 text-green-600 hover:text-white px-4 sm:px-5 py-3 rounded-lg text-[13px] font-bold border-2 border-green-200 hover:border-green-600 transition-all active:scale-95 no-underline"
                     >
                       <FaWhatsapp className="text-sm" /> WhatsApp
                     </a>

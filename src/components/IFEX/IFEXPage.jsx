@@ -272,7 +272,7 @@ export default function IFEXPage() {
 
                 <div className="mt-4 pt-4 border-t border-gray-100 text-center">
                   <p className="text-gray-400 text-xs">
-                    + many more students joining from B.Voc IT & CS batch 2024–27
+                    + many more students joining from B.Voc AIML batch 2025–28
                   </p>
                 </div>
               </div>

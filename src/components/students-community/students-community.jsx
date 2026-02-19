@@ -115,7 +115,7 @@ const tabs = [
 ];
 
 export default function StudentCommunity() {
-  const [active, setActive] = useState("tech");
+  const [active, setActive] = useState("culture");
   const [mounted, setMounted] = useState(false);
 
   const c = communities[active];
@@ -358,7 +358,7 @@ export default function StudentCommunity() {
                   </span>
                   Core Members
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {c.members_list.map((member, i) => (
                     <div
                       key={member.name}

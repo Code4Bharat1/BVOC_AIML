@@ -12,7 +12,7 @@ import { IoMdMicrophone } from "react-icons/io";
 const communities = {
   tech: {
     id: "tech",
-    name: "Techincal Commitee",
+    name: "Technical Committee",
     tagline: "Build. Break. Innovate.",
     Icon: FaCode,
     TabIcon: HiLightningBolt,
@@ -37,17 +37,14 @@ const communities = {
       { title: "Web3 Workshop", date: "Mar 10", participants: 15, status: "upcoming", icon: HiSparkles },
     ],
     members_list: [
-      { name: "Piyush", role: "Lead Developer", initials: "PI" },
-      { name: "Ramzan", role: "Backend Dev", initials: "RA" },
-      { name: "Kazim", role: "Frontend Dev", initials: "KA" },
-      { name: "Sanskar", role: "Full Stack", initials: "SA" },
-      { name: "Affan", role: "UI Engineer", initials: "AF" },
-      { name: "Farhan", role: "DevOps", initials: "FA" },
+      { name: "Ramzan Khan",       role: "President",         initials: "RK" },
+      { name: "Vishesh Jaiswar",   role: "Committee Member",  initials: "VJ" },
+      { name: "Obaidullah Shaikh", role: "Committee Member",  initials: "OS" },
     ],
   },
   sports: {
     id: "sports",
-    name: "Sports Commitee",
+    name: "Sports Committee",
     tagline: "Sweat. Compete. Win.",
     Icon: FaTrophy,
     TabIcon: FaTrophy,
@@ -72,17 +69,13 @@ const communities = {
       { title: "Football League", date: "Mar 22", participants: 18, status: "upcoming", icon: MdSportsFootball },
     ],
     members_list: [
-      { name: "Taha", role: "Cricket Captain", initials: "TA" },
-      { name: "Yaseen", role: "Football Lead", initials: "YA" },
-      { name: "Zaid", role: "Chess Champion", initials: "ZA" },
-      { name: "Asif", role: "Badminton", initials: "AS" },
-      { name: "Faiz", role: "Athletics", initials: "FA" },
-      { name: "Sudeep", role: "Kabaddi", initials: "SU" },
+      { name: "Pravin Chettiar", role: "President",         initials: "PC" },
+      { name: "Affan Khan",      role: "Committee Member",  initials: "AK" },
     ],
   },
   culture: {
     id: "culture",
-    name: "Culture Commitee",
+    name: "Cultural Committee",
     tagline: "Express. Create. Celebrate.",
     Icon: FaPalette,
     TabIcon: FaPalette,
@@ -107,12 +100,10 @@ const communities = {
       { title: "Art Exhibition", date: "Mar 28", participants: 20, status: "upcoming", icon: FaPalette },
     ],
     members_list: [
-      { name: "Nafisa", role: "Creative Head", initials: "NA" },
-      { name: "Tamanna", role: "Dance Lead", initials: "TA" },
-      { name: "Sajiya", role: "Music", initials: "SA" },
-      { name: "Pravin", role: "Drama", initials: "PR" },
-      { name: "Vishesh", role: "Photography", initials: "VI" },
-      { name: "Obaidullah", role: "Art", initials: "OB" },
+      { name: "Ahmed Khan",    role: "President",         initials: "AK" },
+      { name: "Tamanna Ansari",role: "Vice President",    initials: "TA" },
+      { name: "Irfan Shaikh",  role: "Committee Member",  initials: "IS" },
+      { name: "Asif Sayyed",   role: "Committee Member",  initials: "AS" },
     ],
   },
 };
@@ -166,16 +157,16 @@ export default function StudentCommunity() {
             </div>
             <h1
               className="text-4xl sm:text-6xl font-black tracking-tight mb-3 transition-all duration-500"
-            //   style={{
-            //     background: `linear-gradient(135deg, #1a1a2e 30%, ${c.color1} 70%, ${c.color2})`,
-            //     WebkitBackgroundClip: "text",
-            //     WebkitTextFillColor: "transparent",
-            //   }}
+              // style={{
+              //   background: `linear-gradient(135deg, #1a1a2e 30%, ${c.color1} 70%, ${c.color2})`,
+              //   WebkitBackgroundClip: "text",
+              //   WebkitTextFillColor: "transparent",
+              // }}
             >
               Student Communities
             </h1>
             <p className="text-gray-400 text-sm sm:text-base font-medium">
-              Where passion meets purpose · B.Voc IT Batch 2025–2028
+              Where passion meets purpose · B.Voc AIML Batch 2025–2028
             </p>
           </div>
 

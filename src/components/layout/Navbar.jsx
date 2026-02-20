@@ -23,7 +23,7 @@ const navItems = [
     children: [
       { name: "Jio", href: "/explore/jio" },
       { name: "IIT Bombay", href: "/explore/iit-bombay" },
-      { name: "IFEX 2026", href: "/explore/ifex" },
+      { name: "Nexcore", href: "/explore/nexcore" },
       { name: "Students Community", href: "/explore/students-community" },
       { name: "Sports", href: "/explore/sports" },
       { name: "Student Profiles", href: "/explore/student-profiles" },
@@ -89,6 +89,9 @@ const Navbar = () => {
     window.open(href, "_blank");
   };
 
+  const FILE_ID = "1dJq9lGzkHFW-ykgabIOc2CW5hu9rHPeK"; // 🔁 Replace with your Google Drive file ID
+  const driveEmbedUrl = `https://drive.google.com/file/d/${FILE_ID}/preview`;
+
   const isActive = (href) => href && !href.startsWith("http") && pathname === href;
 
   return (
@@ -123,35 +126,62 @@ const Navbar = () => {
         }
       `}</style>
 
-      {/* ── YouTube Video Modal ── */}
+      {/* ── Campus Video Modal — Fully Responsive ── */}
       {videoOpen && (
         <div
-          className="video-modal-overlay fixed inset-0 z-[999] flex items-center justify-center bg-black/75 px-4"
+          className="video-modal-overlay fixed inset-0 z-[999] flex items-center justify-center bg-black/85 p-3 sm:p-5 md:p-10"
           onClick={() => setVideoOpen(false)}
         >
           <div
-            className="video-modal-content relative w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl bg-black"
+            className="video-modal-content relative w-full flex flex-col rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-[#0d0d0d]"
+            style={{ maxWidth: "min(860px, 96vw)", maxHeight: "92vh" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={() => setVideoOpen(false)}
-              className="absolute top-3 right-3 z-10 p-1.5 rounded-full bg-white/20 hover:bg-white/40 transition"
-              aria-label="Close video"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
-            {/* YouTube Embed */}
-            <div className="aspect-video w-full">
+            {/* ── Header ── */}
+            <div className="flex items-center justify-between px-4 py-3 bg-[#111] border-b border-white/10 flex-shrink-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                  <Play className="w-3.5 h-3.5 fill-orange-400 text-orange-400" />
+                </div>
+                <span className="text-white text-sm font-bold truncate">Campus Video</span>
+                <span className="text-white/30 text-xs hidden sm:inline truncate">· Nexcore Institute of Technology</span>
+              </div>
+              <button
+                onClick={() => setVideoOpen(false)}
+                className="flex-shrink-0 ml-3 p-1.5 rounded-full bg-white/10 hover:bg-red-500/80 transition-all duration-200 flex items-center justify-center group"
+                aria-label="Close video"
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-white/70 group-hover:text-white" />
+              </button>
+            </div>
+
+            {/* ── Video — 16:9 aspect ratio, fills available space ── */}
+            <div className="relative w-full flex-1 bg-black" style={{ paddingTop: "56.25%" }}>
               <iframe
-                src={`https://www.youtube.com/embed/${
-                  navItems.find((i) => i.type === "video")?.youtubeId
-                }?autoplay=1&rel=0`}
+                src={driveEmbedUrl}
                 title="Campus Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; fullscreen"
                 allowFullScreen
-                className="w-full h-full"
+                style={{
+                  position: "absolute",
+                  top: 0, left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  display: "block",
+                }}
               />
+            </div>
+
+            {/* ── Footer ── */}
+            <div className="flex items-center justify-between px-4 py-2.5 bg-[#111] border-t border-white/10 flex-shrink-0">
+              <span className="text-white/30 text-[11px] hidden sm:block">Press Esc to close</span>
+              <button
+                onClick={() => setVideoOpen(false)}
+                className="ml-auto text-[11px] font-semibold text-white/40 hover:text-white/80 transition px-3 py-1 rounded-lg hover:bg-white/10"
+              >
+                Close ✕
+              </button>
             </div>
           </div>
         </div>

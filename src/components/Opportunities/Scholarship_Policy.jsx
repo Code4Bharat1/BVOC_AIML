@@ -22,12 +22,13 @@ export default function Scholarship_Policy() {
     //   "Must be enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program."
     // ],
 
-    "Benefits:",
-    [
-      "Up to ₹10,000/- tuition fee waiver for the first year.",
-      "Limited scholarships available for up to 250 students.",
-      "Scholarship amount will be adjusted against tuition fees."
-    ],
+  "Benefits:",
+[
+  "Each selected student will receive a scholarship of ₹10,000.",
+  "Limited to 250 students on merit basis.",
+  "Total scholarship fund of ₹25 Lakhs allocated for this scheme.",
+  "Amount will be adjusted against tuition fees."
+],
 
     // "Application Requirements:",
     // [

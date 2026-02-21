@@ -95,11 +95,11 @@ const ScholarshipPopup = () => {
 
                   {/* Live Badge */}
                   <div className="relative z-10 flex items-center gap-2 mb-4">
-                    {/* <div className="pulse-ring relative flex items-center justify-center">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full relative z-10" />
-                    </div> */}
-                    <span className="text-blue-600 text-[11px] font-bold tracking-wider">
-                      SCHOLARSHIP OPENS 16th MARCH 2026
+                    <div className="pulse-ring relative flex items-center justify-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full relative z-10" />
+                    </div>
+                    <span className="text-red-600 text-[11px] font-bold tracking-wider">
+                      REGISTRATION CLOSING SOON
                     </span>
                   </div>
 
@@ -125,6 +125,19 @@ const ScholarshipPopup = () => {
                     </p>
                     <p className="text-[10px] text-blue-500 font-semibold mt-1.5">
                       🏅 Twenty Five Lakh Rupees
+                    </p>
+                  </div>
+
+                  {/* Exam Dates Box */}
+                  <div className="relative z-10 w-full bg-orange-50 border border-orange-200 rounded-xl px-3 py-3 mb-4 text-center">
+                    <p className="text-[9px] font-bold text-gray-400 tracking-wider mb-1 uppercase">
+                      Exam Dates
+                    </p>
+                    <p className="text-sm font-extrabold text-orange-600 leading-tight">
+                      27, 28, 29 March
+                    </p>
+                    <p className="text-[9px] text-orange-500 font-medium mt-1">
+                      📝 Online • 90 Minutes
                     </p>
                   </div>
 
@@ -180,19 +193,18 @@ const ScholarshipPopup = () => {
                   </div>
 
                   {/* Eyebrow */}
-                  <p className="text-[11px] font-bold text-gray-400 tracking-widest mb-2">
-                    ADMISSIONS OPEN ON 16th MARCH 2026
+                  <p className="text-[11px] font-bold text-red-500 tracking-widest mb-2">
+                    ⏰ REGISTRATION CLOSES 25 MARCH
                   </p>
 
                   {/* Title */}
                   <h3 className="text-xl sm:text-[22px] font-extrabold text-gray-900 leading-tight mb-2">
-                    Scholarship Registration Opens Soon 🎉
+                    Scholarship Examination 2026 🎓
                   </h3>
 
                   <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
-                    Apply for the 2026 Scholarship Program — registration starts from{" "}
-                    <strong className="text-blue-600">16th March 2026</strong>.{" "}
-                    Limited seats available.
+                    Register now for the Scholarship Examination. Registration closes on{" "}
+                    <strong className="text-red-600">25 March</strong>. Don't miss out!
                   </p>
 
                   {/* ₹25,00,000/- Box — stacked, no overlap */}
@@ -216,25 +228,55 @@ const ScholarshipPopup = () => {
                     </p>
                   </motion.div>
 
-                  {/* Registration Date Card */}
+                  {/* Exam Details Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.52 }}
-                    className="bg-green-50 border-2 border-green-200 rounded-lg md:rounded-xl p-3 sm:p-4 flex items-center gap-3 mb-4"
+                    className="bg-orange-50 border-2 border-orange-200 rounded-lg md:rounded-xl p-3 sm:p-4 mb-3"
                   >
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 bg-green-100 border border-green-300 rounded-lg flex items-center justify-center text-lg sm:text-xl">
-                      🗓️
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 bg-orange-100 border border-orange-300 rounded-lg flex items-center justify-center text-lg sm:text-xl">
+                        📝
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-[9px] sm:text-[10px] font-bold text-orange-700 tracking-wider mb-0.5">
+                          SCHOLARSHIP EXAMINATION
+                        </div>
+                        <div className="text-base sm:text-lg font-extrabold text-gray-900 mb-1">
+                          27, 28, 29 March
+                        </div>
+                        <div className="text-[10px] sm:text-[11px] text-gray-600 space-y-0.5">
+                          <div>✓ Mode: <span className="font-semibold">Online</span></div>
+                          <div>✓ Duration: <span className="font-semibold">90 Minutes</span></div>
+                          <div>✓ Pattern: <span className="font-semibold">MCQ-based</span></div>
+                          <div className="text-orange-600 font-semibold mt-1">
+                            Choose any one date to appear
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Registration Closing Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.58 }}
+                    className="bg-red-50 border-2 border-red-200 rounded-lg md:rounded-xl p-3 sm:p-4 flex items-center gap-3 mb-4"
+                  >
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 bg-red-100 border border-red-300 rounded-lg flex items-center justify-center text-lg sm:text-xl">
+                      ⏰
                     </div>
                     <div>
-                      <div className="text-[9px] sm:text-[10px] font-bold text-green-700 tracking-wider mb-0.5">
-                        SCHOLARSHIP REGISTRATION OPENS
+                      <div className="text-[9px] sm:text-[10px] font-bold text-red-700 tracking-wider mb-0.5">
+                        REGISTRATION CLOSES
                       </div>
                       <div className="text-lg sm:text-xl font-extrabold text-gray-900">
-                        16th March 2026
+                        25 March 2025
                       </div>
-                      <div className="text-[10px] sm:text-[11px] text-green-600 font-semibold mt-0.5">
-                        ✓ Mark your calendar — limited seats!
+                      <div className="text-[10px] sm:text-[11px] text-red-600 font-semibold mt-0.5">
+                        ⚠️ Limited time remaining — Register now!
                       </div>
                     </div>
                   </motion.div>
@@ -254,13 +296,13 @@ const ScholarshipPopup = () => {
                       Learn More <FaArrowRight className="text-xs" />
                     </Link>
                     <a
-                      href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20%E2%82%B925%20Lakh%20Scholarship%20at%20Nexcore%20Institute."
+                      href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20register%20for%20the%20%E2%82%B925%20Lakh%20Scholarship%20Examination%20at%20Nexcore%20Institute."
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleClose}
                       className="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 text-green-600 hover:text-white px-4 sm:px-5 py-3 rounded-lg text-[13px] font-bold border-2 border-green-200 hover:border-green-600 transition-all active:scale-95 no-underline"
                     >
-                      <FaWhatsapp className="text-sm" /> WhatsApp
+                      <FaWhatsapp className="text-sm" /> Register Now
                     </a>
                   </motion.div>
 

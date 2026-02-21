@@ -4,34 +4,39 @@ import { Award, GraduationCap, Heart } from "lucide-react";
 
 export default function Scholarship_Policy() {
   const scholarshipData = [
-    {
-      heading: "Meritorious Student Scholarship",
-      icon: Award,
-      color: "blue",
-      para: [
-        "Objective :",
-        [
-          "To recognize and reward academic excellence among students who have demonstrated outstanding performance in their Class 12 board examinations.",
-        ],
-        "Eligibility Criteria:",
-        [
-          "Minimum 85% aggregate marks in Class 12 (Any recognized board).",
-          "Scholarship applicable only in the first academic year (can be extended based on academic performance).",
-          "Must have enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program.",
-        ],
-        "Benefits:",
-        [
-          "₹25,000/- waiver on tuition fees for the first year.",
-          "Scholarship amount will be adjusted against the tuition fees.",
-        ],
-        "Application Requirements:",
-        [
-          "Submission of Class 12 mark sheet.",
-          "Character certificate from last attended institution.",
-          "Written statement (200 words) on why the student wants to pursue their chosen program.",
-        ],
-      ],
-    },
+   {
+  heading: "Meritorious Student Scholarship",
+  icon: Award,
+  color: "blue",
+  para: [
+    "Objective:",
+    [
+      "To recognize and reward academic excellence among students who have demonstrated strong performance in their Class 12 board examinations."
+    ],
+
+    // "Eligibility Criteria:",
+    // [
+    //   "Students must have passed Class 12 from a recognized board.",
+    //   "Merit requirement is currently under review (previously 85% minimum).",
+    //   "Final eligibility criteria will be decided after academic committee approval.",
+    //   "Must be enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program."
+    // ],
+
+    "Benefits:",
+    [
+      "Up to ₹10,000/- tuition fee waiver for the first year.",
+      "Limited scholarships available for up to 250 students.",
+      "Scholarship amount will be adjusted against tuition fees."
+    ],
+
+    // "Application Requirements:",
+    // [
+    //   "Submission of Class 12 mark sheet.",
+    //   "Character certificate from last attended institution.",
+    //   "Written statement (200 words) explaining why the student wants to pursue their chosen program."
+    // ]
+  ]
+},
     {
       heading: "Underprivileged & Rural Background Scholarship",
       icon: Heart,

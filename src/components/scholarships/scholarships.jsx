@@ -48,28 +48,28 @@ const steps = [
   { 
     num: "01", 
     title: "Register", 
-    desc: "Fill out the scholarship registration form to apply for the program.", 
+    desc: "Fill out the scholarship registration form before 25 March deadline.", 
     icon: FaEdit,
     color: "#0066cc"
   },
   { 
     num: "02", 
-    title: "Test", 
-    desc: "Appear for the scholarship test conducted by Nexcore Institute.", 
+    title: "Exam", 
+    desc: "Appear for 90-minute online scholarship exam on 27, 28, or 29 March.", 
     icon: FaPencilAlt,
     color: "#7c3aed"
   },
   { 
     num: "03", 
     title: "Result", 
-    desc: "Results will be declared after evaluation of your test performance.", 
+    desc: "Results will be declared after evaluation of your exam performance.", 
     icon: FaClipboardCheck,
     color: "#16a34a"
   },
   { 
     num: "04", 
-    title: "Announcement", 
-    desc: "Final scholarship recipients are announced and awards are confirmed.", 
+    title: "Award", 
+    desc: "Successful candidates receive scholarship awards for their studies.", 
     icon: FaTrophy,
     color: "#ea580c"
   },
@@ -82,7 +82,7 @@ const ScholarshipsPage = () => {
         {/* ══════════ HERO ══════════ */}
         <section style={{ position: "relative", overflow: "hidden", paddingTop: "8rem", paddingBottom: "5rem", padding: "8rem 1rem 5rem" }}>
           <div style={{ maxWidth: "72rem", margin: "0 auto", position: "relative", zIndex: 10 }}>
-            {/* Live badge */}
+            {/* Live badge - UPDATED TO RED URGENCY */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -93,21 +93,21 @@ const ScholarshipsPage = () => {
                 alignItems: "center",
                 gap: "0.5rem",
                 padding: "0.5rem 1rem",
-                background: "#e7f3ff",
-                color: "#0066cc",
+                background: "#fee2e2",
+                color: "#dc2626",
                 borderRadius: "50px",
                 fontSize: "0.875rem",
                 fontWeight: "600",
-                border: "1px solid #b3d9ff"
+                border: "1px solid #fca5a5"
               }}>
                 <span style={{
                   width: "0.5rem",
                   height: "0.5rem",
-                  background: "#10b981",
+                  background: "#dc2626",
                   borderRadius: "50%",
                   animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
                 }} />
-                SCHOLARSHIP OPENS 16th MARCH
+                ⏰ REGISTRATION CLOSES 25 MARCH
               </span>
             </motion.div>
 
@@ -128,6 +128,7 @@ const ScholarshipsPage = () => {
               <span style={{ color: "#000" }}> Program 2026</span>
             </motion.h1>
 
+            {/* UPDATED DESCRIPTION */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -142,13 +143,13 @@ const ScholarshipsPage = () => {
               }}
             >
               We're awarding{" "}
-              <span style={{ fontWeight: "700", color: "#0066cc" }}> ₹25,00,000/-</span>{" "}
-              in merit-based scholarships. Registration opens{" "}
-              <span style={{ fontWeight: "700", color: "#000" }}>16th March 2026</span>.{" "}
-              Scholarships will be awarded to students who successfully pass our scholarship test.
+              <span style={{ fontWeight: "700", color: "#0066cc" }}>₹25,00,000/-</span>{" "}
+              in merit-based scholarships. Registration closes{" "}
+              <span style={{ fontWeight: "700", color: "#dc2626" }}>25 March</span>.{" "}
+              Examination on <span style={{ fontWeight: "700", color: "#000" }}>27, 28, 29 March</span>.
             </motion.p>
 
-            {/* Pills */}
+            {/* Pills - UPDATED */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -203,7 +204,7 @@ const ScholarshipsPage = () => {
                 fontWeight: "600",
                 border: "1px solid #fed7aa"
               }}>
-                🎓 Merit-Based
+                📝 Online Exam
               </span>
             </motion.div>
 
@@ -220,7 +221,31 @@ const ScholarshipsPage = () => {
               }}
             >
               <motion.a
-                href="tel:+91 919594402822"
+                href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20register%20for%20the%20Scholarship%20Examination."
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "1rem 2rem",
+                  background: "#16a34a",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: "700",
+                  fontSize: "1.125rem",
+                  boxShadow: "0 4px 12px rgba(22, 163, 74, 0.3)",
+                  textDecoration: "none",
+                  transition: "all 0.3s"
+                }}
+              >
+                <FaWhatsapp />
+                Register Now
+              </motion.a>
+              <motion.a
+                href="tel:+919594402822"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
@@ -245,7 +270,7 @@ const ScholarshipsPage = () => {
           </div>
         </section>
 
-        {/* ══════════ ₹25 LAKH CARD ══════════ */}
+        {/* ══════════ ₹25 LAKH CARD + EXAM INFO ══════════ */}
         <section style={{ padding: "4rem 1rem", background: "#fff" }}>
           <div style={{ maxWidth: "72rem", margin: "0 auto" }}>
             <motion.div
@@ -287,24 +312,24 @@ const ScholarshipsPage = () => {
                       color: "#0066cc",
                       marginBottom: "1rem"
                     }}>
-                       ₹25,00,000/-
+                      ₹25,00,000/-
                     </h2>
                     <p style={{
                       fontSize: "1.125rem",
                       color: "#4a5568"
                     }}>
-                      Merit-based scholarships for students who pass the scholarship test
+                      Merit-based scholarships for students who pass the scholarship examination
                     </p>
                   </div>
 
-                  {/* Registration date card */}
+                  {/* UPDATED: Exam Details Card */}
                   <div style={{
                     background: "#fff7ed",
                     borderRadius: "12px",
                     padding: "1.5rem",
                     border: "2px solid #fed7aa"
                   }}>
-                    <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>🗓️</div>
+                    <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>📝</div>
                     <p style={{
                       fontSize: "0.75rem",
                       fontWeight: "700",
@@ -312,7 +337,7 @@ const ScholarshipsPage = () => {
                       marginBottom: "0.25rem",
                       letterSpacing: "0.05em"
                     }}>
-                      REGISTRATION OPENS ON
+                      SCHOLARSHIP EXAMINATION
                     </p>
                     <p style={{
                       fontSize: "1.875rem",
@@ -320,20 +345,66 @@ const ScholarshipsPage = () => {
                       color: "#ea580c",
                       marginBottom: "0.75rem"
                     }}>
-                      16th March 2026
+                      27, 28, 29 March
                     </p>
+                    <div style={{
+                      fontSize: "0.875rem",
+                      color: "#9a3412",
+                      marginBottom: "0.5rem"
+                    }}>
+                      <div>✓ Mode: <strong>Online</strong></div>
+                      <div>✓ Duration: <strong>90 Minutes</strong></div>
+                      <div>✓ Pattern: <strong>MCQ-based</strong></div>
+                    </div>
                     <div style={{
                       display: "flex",
                       alignItems: "center",
                       gap: "0.5rem",
                       color: "#ea580c",
-                      fontSize: "0.875rem",
-                      fontWeight: "600"
+                      fontSize: "0.75rem",
+                      fontWeight: "600",
+                      marginTop: "0.75rem"
                     }}>
                       <FaCheckCircle />
-                      Mark your calendar — limited seats!
+                      Choose any one date to appear
                     </div>
                   </div>
+                </div>
+
+                {/* ADDED: Registration Closing Alert */}
+                <div style={{
+                  marginTop: "2rem",
+                  padding: "1.5rem",
+                  background: "#fee2e2",
+                  border: "2px solid #fca5a5",
+                  borderRadius: "12px",
+                  textAlign: "center"
+                }}>
+                  <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>⏰</div>
+                  <p style={{
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    color: "#991b1b",
+                    marginBottom: "0.25rem",
+                    letterSpacing: "0.05em"
+                  }}>
+                    REGISTRATION CLOSES
+                  </p>
+                  <p style={{
+                    fontSize: "1.5rem",
+                    fontWeight: "900",
+                    color: "#dc2626",
+                    marginBottom: "0.5rem"
+                  }}>
+                    25 March 2025
+                  </p>
+                  <p style={{
+                    fontSize: "0.875rem",
+                    color: "#991b1b",
+                    fontWeight: "600"
+                  }}>
+                    ⚠️ Limited time remaining — Register now!
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -380,7 +451,7 @@ const ScholarshipsPage = () => {
                 maxWidth: "42rem",
                 margin: "0 auto"
               }}>
-                A simple 4-step process to secure your scholarship. Only students who pass the test will receive scholarships.
+                A simple 4-step process to secure your scholarship. Register before 25 March and appear for the exam.
               </p>
             </motion.div>
 
@@ -506,7 +577,7 @@ const ScholarshipsPage = () => {
               marginBottom: "2rem"
             }}>
               <motion.a
-                href="https://wa.me/919594402822"
+                href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20register%20for%20the%20Scholarship%20Examination."
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -533,7 +604,7 @@ const ScholarshipsPage = () => {
               </motion.a>
 
               <motion.a
-                href="tel:+91 919594402822"
+                href="tel:+919594402822"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{

@@ -145,7 +145,7 @@ const ScholarshipsPage = () => {
               We're awarding{" "}
               <span style={{ fontWeight: "700", color: "#0066cc" }}>₹25,00,000/-</span>{" "}
               in merit-based scholarships. Registration closes{" "}
-              <span style={{ fontWeight: "700", color: "#dc2626" }}>25th March</span>.{" "}
+              <span style={{ fontWeight: "700", color: "#dc2626" }}>25th, March</span>.{" "}
               Examination on <span style={{ fontWeight: "700", color: "#000" }}>27th, 28th, 29th March</span>.
             </motion.p>
 

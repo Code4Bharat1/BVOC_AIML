@@ -48,14 +48,14 @@ const steps = [
   { 
     num: "01", 
     title: "Register", 
-    desc: "Fill out the scholarship registration form before 25 March deadline.", 
+    desc: "Fill out the scholarship registration form before 25th March deadline.", 
     icon: FaEdit,
     color: "#0066cc"
   },
   { 
     num: "02", 
     title: "Exam", 
-    desc: "Appear for 90-minute online scholarship exam on 27, 28, or 29 March.", 
+    desc: "Appear for 90-minute online scholarship exam on 27th, 28th, 29th March.", 
     icon: FaPencilAlt,
     color: "#7c3aed"
   },
@@ -107,7 +107,7 @@ const ScholarshipsPage = () => {
                   borderRadius: "50%",
                   animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
                 }} />
-                ⏰ REGISTRATION CLOSES 25 MARCH
+                ⏰ REGISTRATION CLOSES 25th MARCH
               </span>
             </motion.div>
 
@@ -145,8 +145,8 @@ const ScholarshipsPage = () => {
               We're awarding{" "}
               <span style={{ fontWeight: "700", color: "#0066cc" }}>₹25,00,000/-</span>{" "}
               in merit-based scholarships. Registration closes{" "}
-              <span style={{ fontWeight: "700", color: "#dc2626" }}>25 March</span>.{" "}
-              Examination on <span style={{ fontWeight: "700", color: "#000" }}>27, 28, 29 March</span>.
+              <span style={{ fontWeight: "700", color: "#dc2626" }}>25th March</span>.{" "}
+              Examination on <span style={{ fontWeight: "700", color: "#000" }}>27th, 28th, 29th March</span>.
             </motion.p>
 
             {/* Pills - UPDATED */}
@@ -345,7 +345,7 @@ const ScholarshipsPage = () => {
                       color: "#ea580c",
                       marginBottom: "0.75rem"
                     }}>
-                      27, 28, 29 March
+                      27th, 28th, 29th March
                     </p>
                     <div style={{
                       fontSize: "0.875rem",
@@ -396,7 +396,7 @@ const ScholarshipsPage = () => {
                     color: "#dc2626",
                     marginBottom: "0.5rem"
                   }}>
-                    25 March 2025
+                    25th March 2025
                   </p>
                   <p style={{
                     fontSize: "0.875rem",
@@ -451,7 +451,7 @@ const ScholarshipsPage = () => {
                 maxWidth: "42rem",
                 margin: "0 auto"
               }}>
-                A simple 4-step process to secure your scholarship. Register before 25 March and appear for the exam.
+                A simple 4-step process to secure your scholarship. Register before 25th March and appear for the exam.
               </p>
             </motion.div>
 

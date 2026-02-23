@@ -98,7 +98,7 @@ const ScholarshipPopup = () => {
                     <div className="pulse-ring relative flex items-center justify-center">
                       <div className="w-2 h-2 bg-red-600 rounded-full relative z-10" />
                     </div>
-                    <span className="text-red-600 text-[11px] font-bold tracking-wider">
+                    <span className="text-red-600 text-[11px] ml-3 font-bold tracking-wider">
                       REGISTRATION CLOSING SOON
                     </span>
                   </div>
@@ -134,7 +134,7 @@ const ScholarshipPopup = () => {
                       Exam Dates
                     </p>
                     <p className="text-sm font-extrabold text-orange-600 leading-tight">
-                      27, 28, 29 March
+                      27th, 28th, 29th March
                     </p>
                     <p className="text-[9px] text-orange-500 font-medium mt-1">
                       📝 Online • 90 Minutes
@@ -194,7 +194,7 @@ const ScholarshipPopup = () => {
 
                   {/* Eyebrow */}
                   <p className="text-[11px] font-bold text-red-500 tracking-widest mb-2">
-                    ⏰ REGISTRATION CLOSES 25 MARCH
+                    ⏰ REGISTRATION CLOSES 25th MARCH
                   </p>
 
                   {/* Title */}
@@ -204,7 +204,7 @@ const ScholarshipPopup = () => {
 
                   <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
                     Register now for the Scholarship Examination. Registration closes on{" "}
-                    <strong className="text-red-600">25 March</strong>. Don't miss out!
+                    <strong className="text-red-600">25th March</strong>. Don't miss out!
                   </p>
 
                   {/* ₹25,00,000/- Box — stacked, no overlap */}
@@ -244,7 +244,7 @@ const ScholarshipPopup = () => {
                           SCHOLARSHIP EXAMINATION
                         </div>
                         <div className="text-base sm:text-lg font-extrabold text-gray-900 mb-1">
-                          27, 28, 29 March
+                          27th, 28th, 29th March
                         </div>
                         <div className="text-[10px] sm:text-[11px] text-gray-600 space-y-0.5">
                           <div>✓ Mode: <span className="font-semibold">Online</span></div>
@@ -273,7 +273,7 @@ const ScholarshipPopup = () => {
                         REGISTRATION CLOSES
                       </div>
                       <div className="text-lg sm:text-xl font-extrabold text-gray-900">
-                        25 March 2025
+                        25th March 2025
                       </div>
                       <div className="text-[10px] sm:text-[11px] text-red-600 font-semibold mt-0.5">
                         ⚠️ Limited time remaining — Register now!

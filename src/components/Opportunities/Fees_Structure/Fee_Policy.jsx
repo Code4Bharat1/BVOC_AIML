@@ -1,5 +1,5 @@
 "use client";
-import { DollarSign, Calendar, FileText, CreditCard } from "lucide-react";
+import { DollarSign, Calendar, FileText, CreditCard, IndianRupee } from "lucide-react";
 import React from "react";
 import Link from "next/link";
 
@@ -35,7 +35,7 @@ export default function Fee_Policy() {
                 className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center"
                 style={{ backgroundColor: '#007BFF' }}
               >
-                <DollarSign className="text-white w-7 h-7 lg:w-8 lg:h-8" />
+                <IndianRupee className="text-white w-7 h-7 lg:w-8 lg:h-8" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#2C2C2C' }}>
                 Total Program Fee

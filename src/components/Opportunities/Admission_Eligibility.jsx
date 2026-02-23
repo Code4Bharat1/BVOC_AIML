@@ -16,9 +16,8 @@ export default function Admission_Eligibility() {
     {
       heading: "Minimum Marks",
       description: [
-        "General category candidates should have at least 50% aggregate marks in 10+2.",
-        "Reserved category candidates (SC/ST/OBC/PwD) are eligible with a minimum of 40% aggregate marks.",
-      ],
+  "Only students who have passed 12th or are currently studying in 12th are eligible."
+],
       image: "/eligibility_criteria/Criteria2.svg",
       icon: <Percent className="w-6 h-6" />,
       color: "orange",

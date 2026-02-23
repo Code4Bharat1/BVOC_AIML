@@ -25,7 +25,7 @@ export default function Scholarship_Policy() {
   "Benefits:",
 [
   "Each selected student will receive a scholarship of ₹10,000.",
-  "Limited to 250 students on merit basis.",
+  " 250 students on merit basis.",
   "Total scholarship fund of ₹25 Lakhs allocated for this scheme.",
   "Amount will be adjusted against tuition fees."
 ],
@@ -49,14 +49,14 @@ export default function Scholarship_Policy() {
         ],
         "Eligibility Criteria:",
         [
-          "Annual family income less than ₹2.5 Lakhs (Income Certificate required).",
+          // "Annual family income less than ₹2.5 Lakhs (Income Certificate required).",
           "Must belong to a rural area (verified via residential proof).",
           "Must have passed Class 12 from a recognized board.",
           "Enrolled in Bachelor of Data Science and Artificial Intelligence or Bachelor of Multimedia and Animation program.",
         ],
         "Benefits:",
         [
-          "Up to ₹25,000/- tuition fee waiver.",
+          "₹10,000/- tuition fee waiver.",
           "Additional support for hostel or transportation, subject to availability and need.",
         ],
         "Rules & Regulations:",

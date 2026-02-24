@@ -25,7 +25,7 @@ const programs = [
     icon: FaBrain,
     name: "Bachelor of Data Science & Artificial Intelligence",
     shortName: "Data Science & AI",
-    badge: "B.Voc · 3 Years · Online / Offline",
+    badge: "B.Voc · 3 Years ·  Offline",
     borderColor: "border-blue-100",
     textColor: "text-blue-600",
     iconBg: "bg-blue-100",

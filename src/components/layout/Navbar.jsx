@@ -23,7 +23,7 @@ const navItems = [
     children: [
       { name: "Jio", href: "/explore/jio" },
       { name: "IIT Bombay", href: "/explore/iit-bombay" },
-      { name: "Nexcore", href: "/explore/nexcore" },
+      { name: "IFEX 2026", href: "/explore/ifex" },
       { name: "Students Community", href: "/explore/students-community" },
       { name: "Sports", href: "/explore/sports" },
       { name: "Student Profiles", href: "/explore/student-profiles" },

@@ -49,11 +49,13 @@ const Footer = () => {
     },
   ];
 
-  const exploreLinks = [
-    { href: "/infrastructure", label: "Infrastructure" },
-    { href: "/learn-grow", label: "Learn & Grow" },
-    { href: "/whychooseus", label: "Why We're Different" },
-  ];
+ 
+const exploreLinks = [
+  { href: "/infrastructure", label: "Infrastructure" },
+  { href: "/learn-grow", label: "Learn & Grow" },
+  { href: "/whychooseus", label: "Why We're Different" },
+  { href: "/faq", label: "FAQ" },
+];
 
   const policyLinks = [
     { href: "/selection-policy", label: "Selection Policy" },

@@ -24,8 +24,6 @@ export default function Scholarship_Policy() {
 
   "Benefits:",
 [
-  "Each selected student will receive a scholarship of ₹10,000.",
-  " 250 students on merit basis.",
   "Total scholarship fund of ₹25 Lakhs allocated for this scheme.",
   "Amount will be adjusted against tuition fees."
 ],
@@ -56,7 +54,6 @@ export default function Scholarship_Policy() {
         ],
         "Benefits:",
         [
-          "₹10,000/- tuition fee waiver.",
           "Additional support for hostel or transportation, subject to availability and need.",
         ],
         "Rules & Regulations:",
@@ -91,7 +88,6 @@ export default function Scholarship_Policy() {
         ],
         "Benefits:",
         [
-          "Up to ₹25,000/- tuition fee waiver.",
           "Mentorship and skill-building workshops specifically designed for female students.",
           "Networking support for internships and placements.",
         ],

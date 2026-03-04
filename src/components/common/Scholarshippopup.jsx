@@ -431,13 +431,17 @@ const ScholarshipPopup = () => {
                             ⏰ Registration Closes 25th March
                           </p>
 
+                      
+
                           <div>
                             <h3 className="text-[17px] sm:text-[20px] md:text-[22px] font-black text-slate-900 leading-tight mb-1">
                               Scholarship Examination 2026 🎓
                             </h3>
-                            <p className="text-[11px] sm:text-[13px] text-slate-500 leading-relaxed">
-                              Register before <strong className="text-red-600">25th March</strong> to secure your scholarship!
-                            </p>
+                           
+                           <p className="text-[13px] sm:text-[11px] font-black text-red-500 tracking-[0.14em] uppercase">
+                            Free Examination and Counseling
+                          </p>
+                            
                           </div>
 
                           {/* Amount */}

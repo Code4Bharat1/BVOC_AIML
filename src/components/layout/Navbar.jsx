@@ -18,7 +18,7 @@ const navItems = [
   },
   // Dropdown: Explore
   {
-    name: "Explore",
+    name: "Industrial Visit",
     type: "dropdown",
     children: [
       { name: "Jio", href: "/explore/jio" },

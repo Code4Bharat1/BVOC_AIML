@@ -557,7 +557,7 @@ const ScholarshipPopup = () => {
                         27th, 28th, 29th March
                       </p>
                       <p className="text-[8px] text-orange-500/80 font-medium mt-0.5">
-                        📝 Online · 90 Minutes
+                        📝 Online · 60 Minutes
                       </p>
                     </div>
 

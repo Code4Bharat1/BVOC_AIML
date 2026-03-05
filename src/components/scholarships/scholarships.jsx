@@ -418,7 +418,7 @@ const ScholarshipsPage = () => {
                         ✓ Mode: <strong>Online</strong>
                       </div>
                       <div>
-                        ✓ Duration: <strong>90 Minutes</strong>
+                        ✓ Duration: <strong>60 Minutes</strong>
                       </div>
                       <div>
                         ✓ Pattern: <strong>MCQ-based</strong>

@@ -1,16 +1,16 @@
-"use client";
-import React, { useRef, useState } from "react";
-import { Phone, Mail, MapPin, Globe } from "lucide-react";
-import toast from "react-hot-toast";
+'use client';
+import React, { useRef, useState } from 'react';
+import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const ContactPage = () => {
   const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -20,42 +20,47 @@ const ContactPage = () => {
   };
 
   const handleSubmit = () => {
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error("Please fill all required fields");
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      toast.error('Please fill all required fields');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const whatsappNumber = "919594402822";
+      const whatsappNumber = '919594402822';
       const message = `New Contact Form Submission
 
 Name: ${formData.name}
 Email: ${formData.email}
-Phone: ${formData.phone || "Not provided"}
+Phone: ${formData.phone || 'Not provided'}
 Subject: ${formData.subject}
 
 Message:
 ${formData.message}`;
 
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        message
+        message,
       )}`;
 
-      window.open(whatsappURL, "_blank");
+      window.open(whatsappURL, '_blank');
 
       setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
       });
 
-      toast.success("Message sent successfully!");
+      toast.success('Message sent successfully!');
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -64,35 +69,35 @@ ${formData.message}`;
   const contactInfo = [
     {
       icon: Phone,
-      title: "Phone",
-      content: "+91 9594402822",
-      sub: "Mon–Sat 8:00 AM – 5:30 PM",
-      href: "tel:+919594402822",
-      color: "#007BFF",
+      title: 'Phone',
+      content: '+91 9594402822',
+      sub: 'Mon–Sat 8:00 AM – 5:30 PM',
+      href: 'tel:+919594402822',
+      color: '#007BFF',
     },
     {
       icon: Mail,
-      title: "Email",
-      content: "admin@nexcoreinstitute.org",
+      title: 'Email',
+      content: 'admin@nexcoreinstitute.org',
       sub: "We'll respond within 24 hours",
-      href: "mailto:admin@nexcoreinstitute.org",
-      color: "#FF7F00",
+      href: 'mailto:admin@nexcoreinstitute.org',
+      color: '#FF7F00',
     },
     {
       icon: MapPin,
-      title: "Institute Location",
-      content: "Mumbai, Maharashtra",
-      sub: "India – 400001",
-      href: "https://maps.app.goo.gl/VBg1XznP8dy9dzGd6",
-      color: "#007BFF",
+      title: 'Institute Location',
+      content: 'Mumbai, Maharashtra',
+      sub: 'India – 400007',
+      href: 'https://maps.app.goo.gl/VBg1XznP8dy9dzGd6',
+      color: '#007BFF',
     },
     {
       icon: Globe,
-      title: "Website",
-      content: "www.nexcoreinstitute.org",
-      sub: "Visit our main website",
-      href: "https://www.nexcoreinstitute.org",
-      color: "#FF7F00",
+      title: 'Website',
+      content: 'www.nexcoreinstitute.org',
+      sub: 'Visit our main website',
+      href: 'https://www.nexcoreinstitute.org',
+      color: '#FF7F00',
     },
   ];
 
@@ -101,7 +106,10 @@ ${formData.message}`;
       <section ref={sectionRef} className="relative py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 mt-10">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: '#007BFF' }}>
+            <h1
+              className="text-5xl md:text-7xl font-bold mb-6"
+              style={{ color: '#007BFF' }}
+            >
               Let's Talk
             </h1>
             <p className="text-lg max-w-3xl mx-auto text-gray-600">
@@ -141,7 +149,10 @@ ${formData.message}`;
 
             {/* Form */}
             <div className="lg:col-span-2 p-8 rounded-xl border border-gray-200 shadow-md bg-white order-2 lg:order-2">
-              <h2 className="text-3xl font-bold mb-8" style={{ color: '#007BFF' }}>
+              <h2
+                className="text-3xl font-bold mb-8"
+                style={{ color: '#007BFF' }}
+              >
                 Connect to a Counselor
               </h2>
 
@@ -184,7 +195,9 @@ ${formData.message}`;
                     <option value="AI & ML">AI & ML</option>
                     <option value="Cyber Security">Cyber Security</option>
                     <option value="AI & Robotics">AI & Robotics</option>
-                    <option value="Graphic Animation , VFX & Multimedia">Graphic Animation</option>
+                    <option value="Graphic Animation , VFX & Multimedia">
+                      Graphic Animation
+                    </option>
                   </select>
                 </div>
 
@@ -203,7 +216,7 @@ ${formData.message}`;
                   className="w-full py-4 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 disabled:opacity-50"
                   style={{ backgroundColor: '#007BFF' }}
                 >
-                  {isSubmitting ? "Sending..." : "Send via WhatsApp"}
+                  {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
                 </button>
               </div>
             </div>

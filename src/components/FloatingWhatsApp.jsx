@@ -1,16 +1,16 @@
-"use client";
-import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
+'use client';
+import React from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const FloatingWhatsApp = () => {
-  const whatsappNumber = "919594402822";
-  const message = "Hello, I want to know more.";
+  const whatsappNumber = '9892398976';
+  const message = 'Hello, I want to know more.';
 
   const handleClick = () => {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
+      message,
     )}`;
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   };
 
   return (

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import React, { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
 
 const ShapeTheFuture = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section className="relative py-16 lg:py-24 px-4 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
@@ -79,7 +79,7 @@ const ShapeTheFuture = () => {
               transition={{ delay: 0.5, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Ready To Shape{" "}
+              Ready To Shape{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
                 The Future?
               </span>
@@ -122,20 +122,19 @@ const ShapeTheFuture = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2.5">
-                {[
-                  "Data Science & AI",
-                  "Multimedia & Animation"
-                ].map((program, idx) => (
-                  <motion.span
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.9 + idx * 0.1 }}
-                    className="inline-block px-4 py-2 bg-slate-50 border-2 border-slate-200 text-slate-700 text-sm font-medium rounded hover:border-slate-300 hover:bg-white transition-colors duration-300"
-                  >
-                    {program}
-                  </motion.span>
-                ))}
+                {['Data Science & AI', 'Multimedia & Animation'].map(
+                  (program, idx) => (
+                    <motion.span
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 0.9 + idx * 0.1 }}
+                      className="inline-block px-4 py-2 bg-slate-50 border-2 border-slate-200 text-slate-700 text-sm font-medium rounded hover:border-slate-300 hover:bg-white transition-colors duration-300"
+                    >
+                      {program}
+                    </motion.span>
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -147,7 +146,7 @@ const ShapeTheFuture = () => {
               viewport={{ once: true }}
             >
               <a
-                href="https://wa.me/919594402822?text=Hi, I'm interested in enrolling in your course!"
+                href="https://wa.me/9892398976?text=Hi, I'm interested in enrolling in your course!"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -158,7 +157,7 @@ const ShapeTheFuture = () => {
                 >
                   {/* Hover gradient overlay */}
                   <div className="absolute inset-0 bg-slate-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   <span className="relative z-10 flex items-center gap-2">
                     Get Started
                     <motion.span
@@ -172,8 +171,12 @@ const ShapeTheFuture = () => {
                   {/* Shimmer effect */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                    animate={{ x: ["-100%", "100%"] }}
-                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                    animate={{ x: ['-100%', '100%'] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: 1,
+                    }}
                   />
                 </motion.button>
               </a>
@@ -186,7 +189,8 @@ const ShapeTheFuture = () => {
               transition={{ delay: 1.4, duration: 0.6 }}
               className="mt-6 text-sm text-slate-500"
             >
-              Your future starts now — and we're here to guide you every step of the way.
+              Your future starts now — and we're here to guide you every step of
+              the way.
             </motion.p>
           </div>
 

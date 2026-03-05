@@ -33,7 +33,7 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      const whatsappNumber = '919594402822';
+      const whatsappNumber = '9892398976';
       const message = `New Contact Form Submission
 
 Name: ${formData.name}
@@ -72,7 +72,7 @@ ${formData.message}`;
       title: 'Phone',
       content: '+91 9594402822',
       sub: 'Mon–Sat 8:00 AM – 5:30 PM',
-      href: 'tel:+919594402822',
+      href: 'tel:+9892398976',
       color: '#007BFF',
     },
     {

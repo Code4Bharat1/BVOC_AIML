@@ -1,61 +1,67 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaBrain, FaRobot, FaShieldAlt, FaPalette, FaCheckCircle } from "react-icons/fa";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  FaBrain,
+  FaRobot,
+  FaShieldAlt,
+  FaPalette,
+  FaCheckCircle,
+} from 'react-icons/fa';
+import Image from 'next/image';
 
 const RegistrationFormPopup = ({ isOpen, onClose }) => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    studentName: "",
-    whatsappNumber: "",
-    parentsNumber: "",
-    qualification: "",
-    courseInterested: "",
+    studentName: '',
+    whatsappNumber: '',
+    parentsNumber: '',
+    qualification: '',
+    courseInterested: '',
   });
 
   const courses = [
     {
-      name: "Bachelor of Data Science and Artificial Intelligence",
+      name: 'Bachelor of Data Science and Artificial Intelligence',
       icon: FaBrain,
-      color: "text-slate-400",
+      color: 'text-slate-400',
     },
     {
-      name: "Bachelor of Multimedia and Animation",
+      name: 'Bachelor of Multimedia and Animation',
       icon: FaPalette,
-      color: "text-slate-400",
+      color: 'text-slate-400',
     },
   ];
 
   const qualifications = [
-    "10th Pass",
-    "12th Pass",
-    "Graduate",
-    "Post Graduate",
-    "Other",
+    '10th Pass',
+    '12th Pass',
+    'Graduate',
+    'Post Graduate',
+    'Other',
   ];
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape" && isOpen) onClose();
+      if (e.key === 'Escape' && isOpen) onClose();
     };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
   const handleChange = (e) => {
@@ -90,24 +96,24 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(message);
-    
+
     // WhatsApp number (without +91)
-    const whatsappNumber = "919594402822";
-    
+    const whatsappNumber = '9892398976';
+
     // Create WhatsApp URL
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
+
     // Open WhatsApp in a new tab
     window.open(whatsappURL, '_blank');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    
+    console.log('Form submitted:', formData);
+
     // Send WhatsApp message
     sendWhatsAppMessage();
-    
+
     setIsSubmitted(true);
     setTimeout(() => {
       handleClose();
@@ -118,17 +124,21 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
     setIsSubmitted(false);
     setCurrentStep(1);
     setFormData({
-      studentName: "",
-      whatsappNumber: "",
-      parentsNumber: "",
-      qualification: "",
-      courseInterested: "",
+      studentName: '',
+      whatsappNumber: '',
+      parentsNumber: '',
+      qualification: '',
+      courseInterested: '',
     });
     onClose();
   };
 
   const validateStep1 = () => {
-    return formData.studentName && formData.whatsappNumber.length === 10 && formData.parentsNumber.length === 10;
+    return (
+      formData.studentName &&
+      formData.whatsappNumber.length === 10 &&
+      formData.parentsNumber.length === 10
+    );
   };
 
   const nextStep = () => {
@@ -176,7 +186,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                     className="inline-block mb-6"
                   >
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
@@ -191,7 +201,8 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
 
                   {/* Success Message */}
                   <p className="text-slate-600 mb-8 text-lg">
-                    Thank you, {formData.studentName}! Your application has been submitted successfully.
+                    Thank you, {formData.studentName}! Your application has been
+                    submitted successfully.
                   </p>
 
                   {/* Details Card */}
@@ -202,15 +213,23 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                     <ul className="space-y-3 text-slate-600">
                       <li className="flex items-start">
                         <span className="mr-2">•</span>
-                        <span>We'll contact you on +91 {formData.whatsappNumber} within 24 hours</span>
+                        <span>
+                          We'll contact you on +91 {formData.whatsappNumber}{' '}
+                          within 24 hours
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <span className="mr-2">•</span>
-                        <span>Course details for {formData.courseInterested} will be shared</span>
+                        <span>
+                          Course details for {formData.courseInterested} will be
+                          shared
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <span className="mr-2">•</span>
-                        <span>Check your WhatsApp for admission process updates</span>
+                        <span>
+                          Check your WhatsApp for admission process updates
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -234,7 +253,7 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                   {/* Left Side - Branding */}
                   <div className="hidden md:flex flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white relative overflow-hidden">
                     {/* Subtle decorative elements */}
-                   
+
                     <div className="relative z-10">
                       {/* Logo */}
                       <div className="w-28 h-28 bg-white rounded-xl flex items-center justify-center overflow-hidden mb-6 shadow-xl">
@@ -251,7 +270,9 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                       {/* Title */}
                       <div>
                         <h2 className="text-4xl font-bold mb-4 leading-tight">
-                          Welcome to<br />Nexcore Institute of Technology
+                          Welcome to
+                          <br />
+                          Nexcore Institute of Technology
                         </h2>
                         <p className="text-slate-300 text-lg">
                           Start your journey to becoming a tech professional
@@ -264,17 +285,24 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                           <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                             📚
                           </div>
-                          <span className="font-medium">3 Year Degree Programs</span>
+                          <span className="font-medium">
+                            3 Year Degree Programs
+                          </span>
                         </div>
 
                         {courses.map((course, i) => {
                           const IconComponent = course.icon;
                           return (
-                            <div key={i} className="flex items-start gap-3 text-slate-300">
+                            <div
+                              key={i}
+                              className="flex items-start gap-3 text-slate-300"
+                            >
                               <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-1">
                                 <IconComponent className="text-lg" />
                               </div>
-                              <span className="text-sm leading-relaxed">{course.name}</span>
+                              <span className="text-sm leading-relaxed">
+                                {course.name}
+                              </span>
                             </div>
                           );
                         })}
@@ -330,8 +358,8 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               <div
                                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                                   currentStep >= step
-                                    ? "bg-slate-900 text-white"
-                                    : "bg-slate-100 text-slate-400"
+                                    ? 'bg-slate-900 text-white'
+                                    : 'bg-slate-100 text-slate-400'
                                 }`}
                               >
                                 {step}
@@ -339,7 +367,9 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                               {step < 2 && (
                                 <div
                                   className={`h-1 w-24 mx-2 transition-all ${
-                                    currentStep > step ? "bg-slate-900" : "bg-slate-200"
+                                    currentStep > step
+                                      ? 'bg-slate-900'
+                                      : 'bg-slate-200'
                                   }`}
                                 />
                               )}
@@ -447,7 +477,9 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all bg-white"
                                 required
                               >
-                                <option value="">Select your qualification</option>
+                                <option value="">
+                                  Select your qualification
+                                </option>
                                 {qualifications.map((qual, i) => (
                                   <option key={i} value={qual}>
                                     {qual}
@@ -482,11 +514,30 @@ const RegistrationFormPopup = ({ isOpen, onClose }) => {
                                 📋 Registration Summary
                               </h4>
                               <div className="space-y-2 text-sm text-slate-600">
-                                <p><span className="font-medium">Name:</span> {formData.studentName}</p>
-                                <p><span className="font-medium">WhatsApp:</span> +91 {formData.whatsappNumber}</p>
-                                <p><span className="font-medium">Parent's Number:</span> +91 {formData.parentsNumber}</p>
-                                <p><span className="font-medium">Qualification:</span> {formData.qualification}</p>
-                                <p><span className="font-medium">Course:</span> {formData.courseInterested}</p>
+                                <p>
+                                  <span className="font-medium">Name:</span>{' '}
+                                  {formData.studentName}
+                                </p>
+                                <p>
+                                  <span className="font-medium">WhatsApp:</span>{' '}
+                                  +91 {formData.whatsappNumber}
+                                </p>
+                                <p>
+                                  <span className="font-medium">
+                                    Parent's Number:
+                                  </span>{' '}
+                                  +91 {formData.parentsNumber}
+                                </p>
+                                <p>
+                                  <span className="font-medium">
+                                    Qualification:
+                                  </span>{' '}
+                                  {formData.qualification}
+                                </p>
+                                <p>
+                                  <span className="font-medium">Course:</span>{' '}
+                                  {formData.courseInterested}
+                                </p>
                               </div>
                             </div>
                           </motion.div>

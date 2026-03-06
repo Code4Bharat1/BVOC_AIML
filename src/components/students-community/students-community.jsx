@@ -1,7 +1,7 @@
-"use client";
-import { useState, useEffect } from "react";
-import Navbar from "../layout/Navbar";
-import Footer from "../layout/Footer";
+'use client';
+import { useState, useEffect } from 'react';
+import Navbar from '../layout/Navbar';
+import Footer from '../layout/Footer';
 
 import { FaCode, FaTrophy, FaPalette, FaUsers, FaCalendarAlt, FaWhatsapp, FaStar, FaCheckCircle, FaClock } from "react-icons/fa";
 import { HiLightningBolt, HiSparkles } from "react-icons/hi";
@@ -21,9 +21,9 @@ const BRAND = {
 
 const communities = {
   tech: {
-    id: "tech",
-    name: "Technical Committee",
-    tagline: "Build. Break. Innovate.",
+    id: 'tech',
+    name: 'Technical Committee',
+    tagline: 'Build. Break. Innovate.',
     Icon: FaCode,
     TabIcon: HiLightningBolt,
     members: 3,
@@ -32,62 +32,98 @@ const communities = {
     description:
       "A collaborative space for developers, designers, and tech enthusiasts. We build real projects, host hackathons, and push the boundaries of what's possible with technology.",
     activities: [
-      { label: "Hackathons", icon: HiLightningBolt },
-      { label: "Code Reviews", icon: BsCodeSlash },
-      { label: "Tech Talks", icon: FaStar },
-      { label: "Open Source", icon: FaCode },
-      { label: "Workshops", icon: HiSparkles },
+      { label: 'Hackathons', icon: HiLightningBolt },
+      { label: 'Code Reviews', icon: BsCodeSlash },
+      { label: 'Tech Talks', icon: FaStar },
+      { label: 'Open Source', icon: FaCode },
+      { label: 'Workshops', icon: HiSparkles },
     ],
     recentEvents: [
-      { title: "React Hackathon 2025", date: "Jan 15", participants: 12, status: "completed", icon: HiLightningBolt },
-      { title: "DSA Marathon", date: "Feb 3", participants: 8, status: "completed", icon: FaCode },
-      { title: "Web3 Workshop", date: "Mar 10", participants: 15, status: "upcoming", icon: HiSparkles },
+      {
+        title: 'React Hackathon 2025',
+        date: 'Jan 15',
+        participants: 12,
+        status: 'completed',
+        icon: HiLightningBolt,
+      },
+      {
+        title: 'DSA Marathon',
+        date: 'Feb 3',
+        participants: 8,
+        status: 'completed',
+        icon: FaCode,
+      },
+      {
+        title: 'Web3 Workshop',
+        date: 'Mar 10',
+        participants: 15,
+        status: 'upcoming',
+        icon: HiSparkles,
+      },
     ],
     members_list: [
-      { name: "Ramzan Khan",       role: "President",         initials: "RK" },
-      { name: "Vishesh Jaiswar",   role: "Committee Member",  initials: "VJ" },
-      { name: "Obaidullah Shaikh", role: "Committee Member",  initials: "OS" },
+      { name: 'Ramzan Khan', role: 'President', initials: 'RK' },
+      { name: 'Vishesh Jaiswar', role: 'Committee Member', initials: 'VJ' },
+      { name: 'Obaidullah Shaikh', role: 'Committee Member', initials: 'OS' },
     ],
   },
   sports: {
-    id: "sports",
-    name: "Sports Committee",
-    tagline: "Sweat. Compete. Win.",
+    id: 'sports',
+    name: 'Sports Committee',
+    tagline: 'Sweat. Compete. Win.',
     Icon: FaTrophy,
     TabIcon: FaTrophy,
     members: 2,
     events: 6,
     projects: 4,
     description:
-      "From cricket to chess, our Sports Community brings students together through friendly competition and fitness. We train hard, play fair, and celebrate every victory as a team.",
+      'From cricket to chess, our Sports Community brings students together through friendly competition and fitness. We train hard, play fair, and celebrate every victory as a team.',
     activities: [
-      { label: "Cricket", icon: MdSportsCricket },
-      { label: "Football", icon: MdSportsFootball },
-      { label: "Chess", icon: FaTrophy },
-      { label: "Kabaddi", icon: FaUsers },
-      { label: "Badminton", icon: FaStar },
+      { label: 'Cricket', icon: MdSportsCricket },
+      { label: 'Football', icon: MdSportsFootball },
+      { label: 'Chess', icon: FaTrophy },
+      { label: 'Kabaddi', icon: FaUsers },
+      { label: 'Badminton', icon: FaStar },
     ],
     recentEvents: [
-      { title: "Inter-Batch Cricket", date: "Jan 20", participants: 22, status: "completed", icon: MdSportsCricket },
-      { title: "Chess Championship", date: "Feb 14", participants: 10, status: "completed", icon: FaTrophy },
-      { title: "Football League", date: "Mar 22", participants: 18, status: "upcoming", icon: MdSportsFootball },
+      {
+        title: 'Inter-Batch Cricket',
+        date: 'Jan 20',
+        participants: 22,
+        status: 'completed',
+        icon: MdSportsCricket,
+      },
+      {
+        title: 'Chess Championship',
+        date: 'Feb 14',
+        participants: 10,
+        status: 'completed',
+        icon: FaTrophy,
+      },
+      {
+        title: 'Football League',
+        date: 'Mar 22',
+        participants: 18,
+        status: 'upcoming',
+        icon: MdSportsFootball,
+      },
     ],
     members_list: [
-      { name: "Pravin Chettiar", role: "President",         initials: "PC" },
-      { name: "Affan Khan",      role: "Committee Member",  initials: "AK" },
+      { name: 'Pravin Chettiar', role: 'President', initials: 'PC' },
+      { name: 'Affan Khan', role: 'Committee Member', initials: 'AK' },
     ],
   },
   culture: {
-    id: "culture",
-    name: "Cultural Committee",
-    tagline: "Express. Create. Celebrate.",
+    id: 'culture',
+    name: 'Cultural Committee',
+    tagline: 'Express. Create. Celebrate.',
     Icon: FaPalette,
     TabIcon: FaPalette,
     members: 4,
     events: 10,
     projects: 7,
     description:
-      "Art, music, drama, and everything in between. The Culture Community is where creativity flows freely. We organize fests, open mics, exhibitions, and celebrate the richness of student life.",
+      'Art, music, drama, and everything in between. The Culture Community is where creativity flows freely. We organize fests, open mics, exhibitions, and celebrate the richness of student life.',
     activities: [
   { label: "Quran Recitation & Tajweed Circle", icon: IoMdMicrophone },
   { label: "Seerat-un-Nabi ﷺ Workshop", icon: HiSparkles },
@@ -163,7 +199,7 @@ const tabs = [
 ];
 
 export default function StudentCommunity() {
-  const [active, setActive] = useState("culture");
+  const [active, setActive] = useState('culture');
   const [mounted, setMounted] = useState(false);
 
   const c = communities[active];
@@ -198,7 +234,6 @@ export default function StudentCommunity() {
         />
 
         <div className="px-4 sm:px-6 pt-10 pb-20 relative z-10">
-
           {/* ── Header ── */}
           <div className="text-center mb-10">
             <div
@@ -267,11 +302,10 @@ export default function StudentCommunity() {
             className="max-w-5xl mx-auto"
             style={{
               opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateY(0)" : "translateY(16px)",
-              transition: "opacity 0.4s ease, transform 0.4s ease",
+              transform: mounted ? 'translateY(0)' : 'translateY(16px)',
+              transition: 'opacity 0.4s ease, transform 0.4s ease',
             }}
           >
-
             {/* Hero Card */}
             <div
               className="relative rounded-3xl p-6 sm:p-10 mb-6 overflow-hidden border bg-white"
@@ -337,7 +371,6 @@ export default function StudentCommunity() {
 
             {/* Bottom 2-col */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
               {/* Activities */}
               <div
                 className="bg-white border rounded-2xl p-6 transition-shadow hover:shadow-md"
@@ -422,10 +455,11 @@ export default function StudentCommunity() {
                               : { background: "#f1f5f9", color: "#94a3b8" }
                           }
                         >
-                          {ev.status === "upcoming"
-                            ? <FaClock className="text-[9px]" />
-                            : <FaCheckCircle className="text-[9px]" />
-                          }
+                          {ev.status === 'upcoming' ? (
+                            <FaClock className="text-[9px]" />
+                          ) : (
+                            <FaCheckCircle className="text-[9px]" />
+                          )}
                           {ev.status}
                         </span>
                       </div>
@@ -460,7 +494,9 @@ export default function StudentCommunity() {
                         borderColor: `${BRAND.primary}18`,
                         background: BRAND.light,
                         opacity: mounted ? 1 : 0,
-                        transform: mounted ? "translateY(0)" : "translateY(12px)",
+                        transform: mounted
+                          ? 'translateY(0)'
+                          : 'translateY(12px)',
                         transition: `opacity 0.4s ease ${i * 70}ms, transform 0.4s ease ${i * 70}ms, box-shadow 0.2s`,
                       }}
                       onMouseEnter={e => e.currentTarget.style.boxShadow = `0 8px 24px ${BRAND.primary}20`}
@@ -515,7 +551,7 @@ export default function StudentCommunity() {
                 Connect with us and become part of something bigger.
               </p>
               <a
-                href={`https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20join%20the%20${encodeURIComponent(c.name)}%20at%20Nexcore!`}
+                href={`https://wa.me/9892398976?text=Hi%2C%20I%20want%20to%20join%20the%20${encodeURIComponent(c.name)}%20at%20Nexcore!`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 text-white font-bold text-sm px-8 py-3.5 rounded-xl no-underline hover:opacity-90 transition-all duration-200 hover:scale-105 relative z-10"

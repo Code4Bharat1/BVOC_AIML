@@ -1,7 +1,7 @@
-"use client";
-import { useState, useEffect } from "react";
-import Navbar from "../layout/Navbar";
-import Footer from "../layout/Footer";
+'use client';
+import { useState, useEffect } from 'react';
+import Navbar from '../layout/Navbar';
+import Footer from '../layout/Footer';
 
 import {
   FaTrophy, FaWhatsapp, FaUsers, FaCalendarAlt, FaMedal,
@@ -369,11 +369,13 @@ export default function SportsPage() {
                 <GiWhistle /> Nexcore Institute of Technology
               </div>
               <h1 className="text-5xl sm:text-7xl font-black text-white tracking-tight leading-none mb-4">
-                Sports<br />
+                Sports
+                <br />
                 <span className="text-white/60">Community</span>
               </h1>
               <p className="text-white/70 text-base sm:text-lg font-medium mb-8 max-w-md">
-                Sweat. Compete. Win. — Where Nexcore athletes train hard, play fair, and celebrate every victory together.
+                Sweat. Compete. Win. — Where Nexcore athletes train hard, play
+                fair, and celebrate every victory together.
               </p>
               <div className="flex flex-wrap gap-3">
                 {statsRow.map(({ label, value, icon: Icon }) => (
@@ -383,8 +385,12 @@ export default function SportsPage() {
                     style={{ background: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.2)" }}
                   >
                     <Icon className="text-white text-sm" />
-                    <span className="text-white font-black text-lg leading-none">{value}+</span>
-                    <span className="text-white/70 text-xs font-semibold">{label}</span>
+                    <span className="text-white font-black text-lg leading-none">
+                      {value}+
+                    </span>
+                    <span className="text-white/70 text-xs font-semibold">
+                      {label}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -645,7 +651,9 @@ export default function SportsPage() {
                         borderColor: `${BRAND.primary}15`,
                         background: BRAND.light,
                         opacity: membersVisible.includes(i) ? 1 : 0,
-                        transform: membersVisible.includes(i) ? "translateY(0)" : "translateY(12px)",
+                        transform: membersVisible.includes(i)
+                          ? 'translateY(0)'
+                          : 'translateY(12px)',
                         transition: `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms`,
                       }}
                       onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 8px 24px ${BRAND.primary}20`; e.currentTarget.style.background = "white"; }}
@@ -688,7 +696,7 @@ export default function SportsPage() {
                 Whether you're a seasoned athlete or just starting out — every sport, every level, everyone is welcome at Nexcore Sports Community.
               </p>
               <a
-                href="https://wa.me/919594402822?text=Hi%2C%20I%20want%20to%20join%20the%20Sports%20Community%20at%20Nexcore!"
+                href="https://wa.me/9892398976?text=Hi%2C%20I%20want%20to%20join%20the%20Sports%20Community%20at%20Nexcore!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 text-white font-bold text-sm px-8 py-3.5 rounded-xl no-underline hover:opacity-90 hover:scale-105 transition-all duration-200 relative z-10"

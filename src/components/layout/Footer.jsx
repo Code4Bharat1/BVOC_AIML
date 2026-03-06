@@ -1,90 +1,88 @@
-"use client";
+'use client';
 
-import { MapPin, Phone, Mail, Heart } from "lucide-react";
+import { MapPin, Phone, Mail, Heart } from 'lucide-react';
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
   FaWhatsapp,
-} from "react-icons/fa";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+} from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   const socialLinks = [
-    { 
-      icon: <FaFacebookF />, 
-      url: "https://www.facebook.com/profile.php?id=61585525156166",
-      label: "Facebook",
-      color: "hover:bg-blue-600"
+    {
+      icon: <FaFacebookF />,
+      url: 'https://www.facebook.com/profile.php?id=61585525156166',
+      label: 'Facebook',
+      color: 'hover:bg-blue-600',
     },
-    { 
-      icon: <FaInstagram />, 
-      url: "https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0",
-      label: "Instagram",
-      color: "hover:bg-pink-600"
+    {
+      icon: <FaInstagram />,
+      url: 'https://www.instagram.com/nexcoreinstitute?igsh=eDF4NHR3ZG50NWE0',
+      label: 'Instagram',
+      color: 'hover:bg-pink-600',
     },
-    { 
-      icon: <FaLinkedinIn />, 
-      url: "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all",
-      label: "LinkedIn",
-      color: "hover:bg-blue-700"
+    {
+      icon: <FaLinkedinIn />,
+      url: 'https://www.linkedin.com/school/nexcore-institute-of-technology-nit/posts/?feedView=all',
+      label: 'LinkedIn',
+      color: 'hover:bg-blue-700',
     },
-    { 
-      icon: <FaYoutube />, 
-      url: "https://www.youtube.com/@NexcoreInstitute",
-      label: "YouTube",
-      color: "hover:bg-red-600"
+    {
+      icon: <FaYoutube />,
+      url: 'https://www.youtube.com/@NexcoreInstitute',
+      label: 'YouTube',
+      color: 'hover:bg-red-600',
     },
-    { 
-      icon: <FaWhatsapp />, 
-      url: "https://wa.me/919594402822",
-      label: "WhatsApp",
-      color: "hover:bg-green-600"
+    {
+      icon: <FaWhatsapp />,
+      url: 'https://wa.me/9892398976',
+      label: 'WhatsApp',
+      color: 'hover:bg-green-600',
     },
   ];
 
- 
-const exploreLinks = [
-  { href: "/infrastructure", label: "Infrastructure" },
-  { href: "/learn-grow", label: "Learn & Grow" },
-  { href: "/whychooseus", label: "Why We're Different" },
-  { href: "/faq", label: "FAQ" },
-];
+  const exploreLinks = [
+    { href: '/infrastructure', label: 'Infrastructure' },
+    { href: '/learn-grow', label: 'Learn & Grow' },
+    { href: '/whychooseus', label: "Why We're Different" },
+    { href: '/faq', label: 'FAQ' },
+  ];
 
   const policyLinks = [
-    { href: "/selection-policy", label: "Selection Policy" },
-    { href: "/eligibility-criteria", label: "Eligibility Criteria" },
-    { href: "/placement-policy", label: "Placement Policy" },
-    { href: "/scholarship-policy", label: "Scholarship Policy" },
-    { href: "/fees-policy", label: "Fees Policy" },
+    { href: '/selection-policy', label: 'Selection Policy' },
+    { href: '/eligibility-criteria', label: 'Eligibility Criteria' },
+    { href: '/placement-policy', label: 'Placement Policy' },
+    { href: '/scholarship-policy', label: 'Scholarship Policy' },
+    { href: '/fees-policy', label: 'Fees Policy' },
   ];
 
- const contactInfo = [
-  {
-    icon: <MapPin className="w-4 h-4" />,
-    text: "Campus At Kurla West, Mumbai 400070",
-    color: "text-blue-600",
-  },
-  {
-    icon: <Phone className="w-4 h-4" />,
-    text: "+91 919594402822",
-    color: "text-orange-500",
-    href: "tel:+919594402822",
-  },
-  {
-    icon: <Mail className="w-4 h-4" />,
-    text: "director@nexcoreinstitute.org",
-    color: "text-amber-500",
-    href: "mailto:director@nexcoreinstitute.org",
-  },
-];
-
+  const contactInfo = [
+    {
+      icon: <MapPin className="w-4 h-4" />,
+      text: 'Campus At Kurla West, Mumbai 400070',
+      color: 'text-blue-600',
+    },
+    {
+      icon: <Phone className="w-4 h-4" />,
+      text: '+91 9892398976',
+      color: 'text-orange-500',
+      href: 'tel:+9892398976',
+    },
+    {
+      icon: <Mail className="w-4 h-4" />,
+      text: 'director@nexcoreinstitute.org',
+      color: 'text-amber-500',
+      href: 'mailto:director@nexcoreinstitute.org',
+    },
+  ];
 
   if (!mounted) return null;
 
@@ -98,7 +96,7 @@ const exploreLinks = [
             linear-gradient(to right, #007BFF 1px, transparent 1px),
             linear-gradient(to bottom, #007BFF 1px, transparent 1px)
           `,
-          backgroundSize: "60px 60px",
+          backgroundSize: '60px 60px',
         }}
       />
 
@@ -120,8 +118,8 @@ const exploreLinks = [
               </div>
             </Link>
             <p className="text-slate-700 leading-relaxed text-sm font-medium">
-              A next-generation institute empowering students with real-world
-              AI and technology skills for industry-ready careers.
+              A next-generation institute empowering students with real-world AI
+              and technology skills for industry-ready careers.
             </p>
           </div>
 
@@ -187,7 +185,9 @@ const exploreLinks = [
                       {item.text}
                     </a>
                   ) : (
-                    <span className="text-slate-700 font-medium">{item.text}</span>
+                    <span className="text-slate-700 font-medium">
+                      {item.text}
+                    </span>
                   )}
                 </li>
               ))}
@@ -229,19 +229,19 @@ const exploreLinks = [
 
           {/* Copyright */}
           <div className="text-center text-xs sm:text-sm text-slate-700 font-medium order-3 md:order-2">
-            © 2011 - 2026{" "}
-            <Link 
-              href="/" 
+            © 2011 - 2026{' '}
+            <Link
+              href="/"
               className="text-blue-600 font-bold hover:text-blue-700 transition-colors"
             >
               Nexcore Institute Of Technology
-            </Link>{" "}
+            </Link>{' '}
             — All Rights Reserved
           </div>
 
           {/* Design Credit */}
           <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-700 font-medium order-2 md:order-3">
-            Designed by{" "}
+            Designed by{' '}
             {/* <Heart className="w-3.5 h-3.5 fill-current text-red-500 animate-pulse" /> */}
             <a
               href="https://nexcorealliance.com/"

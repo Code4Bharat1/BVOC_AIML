@@ -8,7 +8,7 @@ export default function GlobalPopups() {
   const pathname = usePathname();
 
   // Pages jahan popup NAHI dikhana hai
-  const excludePopupPages = ['/scholarships', '/brochure'];
+  const excludePopupPages = ['/scholarships', '/brochure','/industrial-visit'];
   
   // Check if current page is in exclude list
   const shouldShowPopup = !excludePopupPages.includes(pathname);

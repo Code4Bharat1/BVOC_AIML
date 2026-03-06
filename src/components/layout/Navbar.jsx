@@ -21,9 +21,10 @@ const navItems = [
     name: "Explore",
     type: "dropdown",
     children: [
-      { name: "Jio", href: "/explore/jio" },
-      { name: "IIT Bombay", href: "/explore/iit-bombay" },
-      { name: "IFEX 2026", href: "/explore/ifex" },
+      // { name: "Jio", href: "/explore/jio" },
+      // { name: "IIT Bombay", href: "/explore/iit-bombay" },
+      // { name: "IFEX 2026", href: "/explore/ifex" },
+      {name:"Industrial Visit",href:"/industrial-visit"},
       { name: "Students Community", href: "/explore/students-community" },
       { name: "Sports", href: "/explore/sports" },
       { name: "Student Profiles", href: "/explore/student-profiles" },

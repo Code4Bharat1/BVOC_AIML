@@ -87,7 +87,7 @@ ${formData.message}`;
       icon: MapPin,
       title: 'Institute Location',
       content: 'Mumbai, Maharashtra',
-      sub: 'India – 400007',
+      sub: 'India – 400070',
       href: 'https://maps.app.goo.gl/VBg1XznP8dy9dzGd6',
       color: '#007BFF',
     },

@@ -741,7 +741,7 @@ const ScholarshipPopup = () => {
                                 </div>
                                 <div>
                                   ✓{' '}
-                                  <span className="font-semibold">90 Min</span>
+                                  <span className="font-semibold">60 Min</span>
                                 </div>
                                 <div>
                                   ✓ <span className="font-semibold">MCQ</span>
@@ -778,19 +778,21 @@ const ScholarshipPopup = () => {
                           </div>
 
                           {/* CTAs */}
-                          <motion.div
+                           <motion.div
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.58 }}
                             className="flex flex-col sm:flex-row gap-2.5"
                           >
-                            <button
-                              onClick={() => setView('form')}
-                              className="flex-1 flex items-center justify-center gap-2 cta-shimmer text-white px-4 py-3 rounded-xl text-[12px] sm:text-[13px] font-black shadow-md hover:shadow-lg active:scale-95 transition-all border-none cursor-pointer"
+                            <a
+                              href="https://scholarship.nexcoreinstitute.org/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1 flex items-center justify-center gap-2 cta-shimmer text-white px-4 py-3 rounded-xl text-[12px] sm:text-[13px] font-black shadow-md hover:shadow-lg active:scale-95 transition-all no-underline"
                             >
                               Apply for Scholarship{' '}
                               <FaArrowRight className="text-[10px]" />
-                            </button>
+                            </a>
                             <Link
                               href="/scholarships"
                               onClick={handleClose}

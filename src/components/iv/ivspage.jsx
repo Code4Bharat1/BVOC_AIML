@@ -32,27 +32,32 @@ const BRAND = {
 const VISIT_PHOTOS = {
   1: [
     // Jio visit photos
-    "/images/iv/jio/photo1.jpg",   // 👈 Apna path
-    "/images/iv/jio/photo2.jpg",
-    "/images/iv/jio/photo3.jpg",
-    "/images/iv/jio/photo4.jpg",
-    "/images/iv/jio/photo5.jpg",
+    "/images/iv/4.jpg",   // 👈 Apna path
+    "/images/iv/7.jpg",
+    "/images/iv/8.jpg",
+    "/images/iv/9.jpg",
+    "/images/iv/11.jpg",
+     "/images/iv/17.jpg",
   ],
   2: [
     // iFX visit photos
-    "/images/iv/ifx/photo1.jpg",   // 👈 Apna path
-    "/images/iv/ifx/photo2.jpg",
-    "/images/iv/ifx/photo3.jpg",
-    "/images/iv/ifx/photo4.jpg",
-    "/images/iv/ifx/photo5.jpg",
+    "/images/iv/1.jpg",   // 👈 Apna path
+    "/images/iv/2.jpg",
+    "/images/iv/3.jpg",
+    "/images/iv/4.jpg",
+    "/images/iv/5.jpg",
+    "/images/iv/10.jpg",
+     "/images/iv/18.jpg",
   ],
   3: [
     // IIT Bombay visit photos
-    "/images/iv/iit/photo1.jpg",   // 👈 Apna path
-    "/images/iv/iit/photo2.jpg",
-    "/images/iv/iit/photo3.jpg",
-    "/images/iv/iit/photo4.jpg",
-    "/images/iv/iit/photo5.jpg",
+    "/images/iv/11.jpg",   // 👈 Apna path
+    "/images/iv/12.jpg",
+    "/images/iv/13.jpg",
+    "/images/iv/14.jpg",
+    "/images/iv/15.jpg",
+     "/images/iv/16.jpg",
+      "/images/iv/6.jpg",
   ],
 };
 // ================================================================
@@ -82,7 +87,7 @@ const visits = [
   {
     id: 2,
     company: "IFEX E2026",
-    fullName: "iFEX EXPO International 2026",
+    fullName: "IFEX EXPO International 2026",
     location: "Mumbai, Maharashtra",
     date: "2026-01-22",
     branch: "Finance & IT",
@@ -193,8 +198,7 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0"
-          style={{ background: `linear-gradient(to top, ${BRAND.dark}cc 0%, transparent 55%)` }} />
+        
 
         {/* Photo count badge — top left */}
         <div

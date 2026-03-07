@@ -31,17 +31,34 @@ const BRAND = {
 // 📸 PHOTO PATHS — Yahan apne photos ke paths daal do
 // ================================================================
 const CRICKET_PHOTOS = [
-  "/images/sports/cricket/photo1.jpg",   // 👈 Yahan apna path
-  "/images/sports/cricket/photo2.jpg",   // 👈 Yahan apna path
-  "/images/sports/cricket/photo3.jpg",   // 👈 Yahan apna path
+  "/images/sports/s1.jpg",   // 👈 Yahan apna path
+  "/images/sports/s2.jpg",   // 👈 Yahan apna path
+  "/images/sports/s3.jpg",
+  "/images/sports/s4.jpg",   // 👈 Yahan apna path
+  "/images/sports/s5.jpg",
+  "/images/sports/s6.jpg",
+  "/images/sports/s7.jpg",
+  "/images/sports/s8.jpg",
+  "/images/sports/s9.jpg",
+  "/images/sports/s10.jpg",
+  "/images/sports/s11.jpg",
+  "/images/sports/s12.jpg",
+  "/images/sports/s13.jpg",
+  "/images/sports/s14.jpg",
+  "/images/sports/s15.jpg",
+  "/images/sports/s16.jpg",
+  "/images/sports/s17.jpg",
+  "/images/sports/s18.jpg",
+  "/images/sports/s19.jpg",
+  "/images/sports/s20.jpg",
+  "/images/sports/s21.jpg",
+  
   // Aur photos add karo isi tarah...
 ];
 
 const FOOTBALL_PHOTOS = [
-  "/images/sports/football/photo1.jpg",  // 👈 Yahan apna path
-  "/images/sports/football/photo2.jpg",  // 👈 Yahan apna path
-  "/images/sports/football/photo3.jpg",  // 👈 Yahan apna path
-  // Aur photos add karo isi tarah...
+ "/images/sports/s14.jpg",
+  "/images/sports/s15.jpg",
 ];
 // ================================================================
 
@@ -149,10 +166,10 @@ function PhotoSlider({ photos, fallbackImage, title }) {
         />
 
         {/* Gradient overlay */}
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{ background: `linear-gradient(to top, ${BRAND.dark}cc 0%, transparent 55%)` }}
-        />
+        /> */}
 
         {/* Gallery badge (top left) */}
         {photos && photos.length > 0 && (

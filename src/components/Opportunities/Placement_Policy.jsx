@@ -1,9 +1,16 @@
 "use client";
-import { Briefcase, CheckCircle, UserCheck, AlertTriangle, FileText, ArrowRight } from "lucide-react";
+
+import {
+  Briefcase,
+  CheckCircle,
+  UserCheck,
+  AlertTriangle,
+  FileText,
+  ArrowRight,
+} from "lucide-react";
 import Head from "next/head";
 
 export default function Placement_Policy() {
-
   const policyItems = [
     {
       image: "/placement_policy/image1.svg",
@@ -76,104 +83,29 @@ export default function Placement_Policy() {
 
   return (
     <>
-      {/* ================= SEO START ================= */}
       <Head>
-
-        <title>
-          Guaranteed Placement Policy | Data Science & AI | Multimedia & Animation
-        </title>
+        <title>Guaranteed Placement Policy | Data Science & AI</title>
 
         <meta
           name="description"
-          content="Learn about the guaranteed placement policy for Bachelor of Data Science & Artificial Intelligence and Bachelor of Multimedia & Animation programs including eligibility criteria, student responsibilities, and placement support."
-        />
-
-        <meta
-          name="keywords"
-          content="placement guarantee AI course, data science placement policy, multimedia animation placement program, AI course with placement guarantee, Nexcore placement policy, AI degree placement support"
+          content="Guaranteed placement policy for Data Science, AI and Multimedia programs including eligibility criteria and responsibilities."
         />
 
         <meta name="robots" content="index, follow" />
-
-        <link
-          rel="canonical"
-          href="https://yourdomain.com/opportunities/placement-policy"
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Guaranteed Placement Policy | Data Science & AI | Multimedia & Animation"
-        />
-
-        <meta
-          property="og:description"
-          content="Explore the guaranteed placement policy including eligibility criteria, responsibilities, and placement support for Data Science, AI, and Multimedia programs."
-        />
-
-        <meta
-          property="og:url"
-          content="https://yourdomain.com/opportunities/placement-policy"
-        />
-
-        <meta property="og:type" content="website" />
-
-        <meta
-          property="og:image"
-          content="https://yourdomain.com/og-image.jpg"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta
-          name="twitter:title"
-          content="Guaranteed Placement Policy | Data Science & AI Programs"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Understand the guaranteed placement policy, eligibility rules, and job support for AI, Data Science, and Multimedia degree programs."
-        />
-
-        <meta
-          name="twitter:image"
-          content="https://yourdomain.com/og-image.jpg"
-        />
-
       </Head>
-      {/* ================= SEO END ================= */}
 
       <div className="relative bg-gradient-to-b from-slate-50 to-white py-16 px-4 overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent" />
-
         <div className="max-w-7xl mx-auto relative z-10">
-
           <div className="text-center mb-12">
-
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               <span className="text-blue-600">Guaranteed</span> Placement Policy
             </h1>
 
-            <h2 className="text-2xl font-semibold mb-4 text-orange-500">
-              Introduction
-            </h2>
-
             <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed text-slate-700">
-              Nexcore Institute of Technology guarantees placement support for every student enrolled
-              in the <span className="font-semibold text-blue-600">Bachelor of Data Science and Artificial Intelligence</span> or{" "}
-              <span className="font-semibold text-orange-500">Bachelor of Multimedia and Animation</span> programs.
-              This policy outlines the terms, responsibilities, and eligibility
-              criteria for students to qualify for the guaranteed placement offer.
+              Nexcore Institute of Technology guarantees placement support for
+              every student enrolled in the Bachelor of Data Science and AI or
+              Multimedia and Animation programs.
             </p>
-
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
-            </div>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -191,9 +123,44 @@ export default function Placement_Policy() {
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
-
         </div>
       </div>
     </>
+  );
+}
+
+/* ================= Policy Card Component ================= */
+
+function PolicyCard({ item }) {
+  return (
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+      <div className="p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
+            {item.icon}
+          </div>
+
+          <h3 className="text-xl font-semibold text-slate-900">
+            {item.heading}
+          </h3>
+        </div>
+
+        <div className="space-y-2 text-slate-700">
+          {item.description.map((desc, i) => {
+            if (Array.isArray(desc)) {
+              return (
+                <ul key={i} className="list-disc pl-6 space-y-1">
+                  {desc.map((li, j) => (
+                    <li key={j}>{li}</li>
+                  ))}
+                </ul>
+              );
+            }
+
+            return <p key={i}>{desc}</p>;
+          })}
+        </div>
+      </div>
+    </div>
   );
 }

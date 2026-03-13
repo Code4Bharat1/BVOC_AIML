@@ -94,78 +94,11 @@ export default function Scholarship_Policy() {
 
   return (
     <>
-      {/* ================= SEO START ================= */}
       <Head>
-
-        <title>
-          Scholarship Policy | Data Science, AI & Multimedia Programs
-        </title>
-
-        <meta
-          name="description"
-          content="Explore scholarship opportunities for students enrolling in Bachelor of Data Science & Artificial Intelligence and Bachelor of Multimedia & Animation programs including merit-based, rural background, and women in tech scholarships."
-        />
-
-        <meta
-          name="keywords"
-          content="AI scholarship India, data science scholarship program, women in tech scholarship India, multimedia animation scholarship, Nexcore Institute scholarship policy, AI degree scholarship"
-        />
-
-        <meta name="robots" content="index, follow" />
-
-        <link
-          rel="canonical"
-          href="https://yourdomain.com/opportunities/scholarship-policy"
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Scholarship Policy | Data Science & AI | Multimedia Programs"
-        />
-
-        <meta
-          property="og:description"
-          content="Learn about scholarship programs including merit scholarships, rural support scholarships, and women in tech scholarships."
-        />
-
-        <meta
-          property="og:url"
-          content="https://yourdomain.com/opportunities/scholarship-policy"
-        />
-
-        <meta property="og:type" content="website" />
-
-        <meta
-          property="og:image"
-          content="https://yourdomain.com/og-image.jpg"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta
-          name="twitter:title"
-          content="Scholarship Policy | Data Science & AI Programs"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Explore scholarship opportunities for AI, Data Science, and Multimedia students including merit and women in tech scholarships."
-        />
-
-        <meta
-          name="twitter:image"
-          content="https://yourdomain.com/og-image.jpg"
-        />
-
+        <title>Scholarship Policy | Data Science, AI & Multimedia Programs</title>
       </Head>
-      {/* ================= SEO END ================= */}
 
       <div className="relative bg-gradient-to-b from-slate-50 to-white py-16 px-4 overflow-hidden mt-20">
-
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent" />
 
         <div className="max-w-6xl mx-auto relative z-10">
 
@@ -175,27 +108,11 @@ export default function Scholarship_Policy() {
               <span className="text-blue-600">Scholarship Policy</span> Document
             </h1>
 
-            <div className="flex items-center justify-center gap-2 mt-6 mb-6">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
-            </div>
-
             <p className="text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-slate-700">
-              This document outlines the{" "}
-              <span className="font-semibold text-blue-600">Scholarship policies</span>{" "}
-              for students enrolling in the{" "}
-              <span className="font-semibold text-orange-500">
-                Bachelor of Data Science and Artificial Intelligence
-              </span>{" "}
-              or{" "}
-              <span className="font-semibold text-orange-500">
-                Bachelor of Multimedia and Animation
-              </span>{" "}
-              programs offered by{" "}
-              <span className="font-semibold text-blue-600">Nexcore Institute of Technology</span> in
-              collaboration with{" "}
-              <span className="font-semibold text-slate-900">Recognized University.</span>
+              This document outlines the scholarship policies for students enrolling in the
+              Bachelor of Data Science and Artificial Intelligence or
+              Bachelor of Multimedia and Animation programs at
+              Nexcore Institute of Technology.
             </p>
 
           </div>
@@ -209,5 +126,51 @@ export default function Scholarship_Policy() {
         </div>
       </div>
     </>
+  );
+}
+
+
+/* ================= Scholarship Card ================= */
+
+function ScholarshipCard({ item }) {
+
+  const Icon = item.icon;
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6">
+
+      <div className="flex items-center gap-3 mb-4">
+
+        <div className={`p-3 rounded-xl ${item.color === "blue" ? "bg-blue-100 text-blue-600" : "bg-orange-100 text-orange-600"}`}>
+          <Icon className="w-6 h-6" />
+        </div>
+
+        <h3 className="text-xl font-semibold text-slate-900">
+          {item.heading}
+        </h3>
+
+      </div>
+
+      <div className="space-y-3 text-slate-700">
+
+        {item.para.map((content, i) => {
+
+          if (Array.isArray(content)) {
+            return (
+              <ul key={i} className="list-disc pl-6 space-y-1">
+                {content.map((li, j) => (
+                  <li key={j}>{li}</li>
+                ))}
+              </ul>
+            );
+          }
+
+          return <p key={i} className="font-semibold">{content}</p>;
+
+        })}
+
+      </div>
+
+    </div>
   );
 }

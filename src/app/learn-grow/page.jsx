@@ -1,13 +1,14 @@
 export const metadata = {
-  title: "Placement Policy | Nexcore INTITUTE OF TECHNOLOGY",
+  title: "Placement Policy | Nexcore Institute of Technology",
   description:
-    "Learn about placement support, career guidance, and job assistance for BVOC students at Nexcore INTITUTE OF TECHNOLOGY.",
+    "Learn about placement support, career guidance, internship opportunities, and job assistance for BVOC students at Nexcore Institute of Technology.",
+
   openGraph: {
-    title: "BVOC Placement Policy",
+    title: "BVOC Placement Policy | Nexcore Institute",
     description:
-      "Career-focused placement assistance for skill-based BVOC programs.",
+      "Career-focused placement assistance and internship opportunities for skill-based BVOC programs at Nexcore Institute.",
     url: "https://nexcoreinstitute.org/placement-policy",
-    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
+    siteName: "Nexcore Institute of Technology",
   },
 };
 
@@ -26,9 +27,10 @@ import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
-    <div className="min-h-screen">
-      <main>
-        <Navbar />
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="flex-grow">
         <PlacementAssistance />
         <InternAndPlacementCards />
         <FlexibleCareerSupport />
@@ -36,10 +38,11 @@ const Page = () => {
         <YourCareerStarts />
         <Testimonials2 />
         <OurSyllabus />
-          <ModernInfra />
-          <Footer />
+        <ModernInfra />
         {/* <AllSemesters /> */}
       </main>
+
+      <Footer />
     </div>
   );
 };

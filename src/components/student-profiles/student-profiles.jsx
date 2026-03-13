@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 
@@ -13,9 +14,6 @@ const BRAND = {
   muted:   "#64748B",
 };
 
-// ================================================================
-// 📸 STUDENT PHOTOS — Sirf yahan apne photo paths daal do
-// ================================================================
 const STUDENT_PHOTOS = {
   1:  "/images/students/piyush.jpeg",
   2:  "/images/students/pravin.jpeg",
@@ -40,7 +38,6 @@ const STUDENT_PHOTOS = {
   22: "/images/students/nafisa.jpeg",
   23: "/images/students/obaidullah.jpeg",
 };
-// ================================================================
 
 const students = [
   { id: 1,  name: "Piyush",     batch: "2025-28", branch: "IT", skills: ["React", "Node.js"] },
@@ -71,7 +68,6 @@ function getInitials(name) {
   return name.slice(0, 2).toUpperCase();
 }
 
-// ── Card (separated so imgError state is per-card) ────────────
 function StudentCard({ student, photo, isVis, index }) {
   const [imgError, setImgError] = useState(false);
   const showPhoto = photo && !imgError;
@@ -96,13 +92,10 @@ function StudentCard({ student, photo, isVis, index }) {
         e.currentTarget.style.borderColor = `${BRAND.primary}18`;
       }}
     >
-      {/* Top color bar */}
       <div
         className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
-        // style={{ background: `linear-gradient(90deg, ${BRAND.primary}, ${BRAND.accent})` }}
       />
 
-      {/* Avatar / Photo */}
       <div
         className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center text-xl font-black text-white mb-3 shadow-md border-2"
         style={{
@@ -122,17 +115,14 @@ function StudentCard({ student, photo, isVis, index }) {
         )}
       </div>
 
-      {/* Name */}
       <h3 className="font-bold text-base tracking-tight mb-1" style={{ color: BRAND.text }}>
         {student.name}
       </h3>
 
-      {/* Batch */}
       <span className="text-xs font-medium mb-5" style={{ color: BRAND.muted }}>
         {student.batch}
       </span>
 
-      {/* View Profile button */}
       <a
         href={`https://profile.nexcoreinstitute.org/${student.name.toLowerCase()}.html`}
         target="_blank"
@@ -149,7 +139,6 @@ function StudentCard({ student, photo, isVis, index }) {
   );
 }
 
-// ── Main Page ────────────────────────────────────────────────
 export default function StudentDirectory() {
   const [search, setSearch]   = useState("");
   const [filter, setFilter]   = useState("All");
@@ -170,11 +159,39 @@ export default function StudentDirectory() {
 
   return (
     <>
+      <Head>
+        <title>Student Directory | B.Voc Batch 2025-28 | Nexcore Institute of Technology</title>
+        <meta
+          name="description"
+          content="Meet the talented students of Nexcore Institute of Technology — B.Voc batch 2025-28. Skilled in React, Python, ML, DevOps, Blockchain, Flutter and more. View student profiles."
+        />
+        <meta
+          name="keywords"
+          content="Nexcore student directory, BVOC students 2025 2028, Nexcore Institute of Technology students, student profiles Nexcore, IT CS students Mumbai, BVOC AI ML students, Nexcore batch 2025"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://yourwebsite.com/explore/student-profiles" />
+        <meta property="og:title" content="Student Directory | B.Voc Batch 2025-28 | Nexcore Institute" />
+        <meta
+          property="og:description"
+          content="Browse the student directory of Nexcore Institute of Technology — B.Voc batch 2025-28 with skills in AI, ML, React, DevOps, Blockchain and more."
+        />
+        <meta property="og:url" content="https://yourwebsite.com/explore/student-profiles" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://yourwebsite.com/images/students-og.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Student Directory | Nexcore Institute of Technology" />
+        <meta
+          name="twitter:description"
+          content="Meet Nexcore's B.Voc 2025-28 students skilled in AI, ML, React, DevOps and more."
+        />
+        <meta name="twitter:image" content="https://yourwebsite.com/images/students-og.jpg" />
+      </Head>
+
       <Navbar />
 
       <main className="min-h-screen bg-white relative overflow-hidden">
-
-        {/* Dot pattern */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           style={{
@@ -182,7 +199,6 @@ export default function StudentDirectory() {
             backgroundSize: "28px 28px",
           }}
         />
-        {/* Top gradient wash */}
         <div
           className="fixed inset-0 pointer-events-none z-0"
           style={{ background: `linear-gradient(180deg, ${BRAND.light} 0%, white 40%)` }}
@@ -206,15 +222,7 @@ export default function StudentDirectory() {
 
           {/* ── Controls ── */}
           <div className="flex flex-wrap gap-3 justify-center mb-4">
-            {/* Search */}
-            
-
-            {/* Branch filter */}
-            
           </div>
-
-          {/* Count */}
-          
 
           {/* ── Cards Grid ── */}
           <div

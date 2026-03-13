@@ -1,27 +1,12 @@
-User-agent: *
+# robots.txt for https://nexcoreinstitute.org
 
-# Allow full site crawling
+User-agent: *
 Allow: /
 
-# Allow sitemap access
-Allow: /sitemap.xml
-
-# Block admin panel
-Disallow: /admin/
-
-# Block private/internal pages
+# Block unnecessary system folders if they exist
+Disallow: /cgi-bin/
+Disallow: /tmp/
 Disallow: /private/
 
-# Block authentication pages
-Disallow: /login/
-Disallow: /forgotpassword/
-
-# Block search results page
-Disallow: /search
-
-# Allow images (SEO)
-Allow: /images/
-Allow: /_next/image/
-Allow: /public/
-
+# Sitemap location
 Sitemap: https://nexcoreinstitute.org/sitemap.xml

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 const CARD_SIZE = "w-72 h-80 lg:w-[25rem] lg:h-96";
 
@@ -118,56 +119,95 @@ function InfraImgVid() {
     activeFilter === "All" ? infraData : infraData.filter((s) => s.heading === activeFilter);
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-16 bg-[#F8FAFC] overflow-hidden">
-      {/* Filter Buttons */}
-      <div className="mb-12 w-full flex justify-center">
-        <div className="flex gap-4 overflow-x-auto px-4 py-2">
-          {["All", "Conference", "Workspaces"].map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-8 py-3 rounded-full font-semibold border ${
-                activeFilter === filter
-                  ? "bg-[#0A2540] text-white border-transparent"
-                  : "bg-white text-slate-700 border-slate-300"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-      </div>
+    <>
+      <Head>
+        {/* Basic SEO */}
+        <title>Infrastructure Gallery | Conference Rooms & Workspaces | BVOC AI & ML</title>
+        <meta
+          name="description"
+          content="Explore our world-class infrastructure including conference rooms and modern workspaces at BVOC AI & ML program. Designed for hands-on learning and collaboration."
+        />
+        <meta
+          name="keywords"
+          content="BVOC AI ML infrastructure gallery, conference room, workspace, modern facilities, AI ML college campus, learning spaces, technology infrastructure, BVOC program"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      {filteredData.map((section, index) => (
-        <div key={index} className="p-5">
-          <h2 className="text-4xl lg:text-5xl font-semibold mb-10 text-center text-[#0A2540]">
-            {section.heading}
-          </h2>
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://yourwebsite.com/infrastructure" />
 
-          <div
-            className="flex space-x-4 overflow-x-auto justify-center pb-4"
-            ref={(el) => (scrollContainerRefs.current[index] = el)}
-          >
-            {section.items.map((item, idx) => (
-              <InfraCard
-                key={idx}
-                item={item}
-                onClick={(item) => setSelectedItem(item)}
-              />
+        {/* Open Graph */}
+        <meta property="og:title" content="Infrastructure Gallery | Conference Rooms & Workspaces | BVOC AI & ML" />
+        <meta
+          property="og:description"
+          content="Browse our modern conference rooms, workspaces and learning facilities built for AI & ML students."
+        />
+        <meta property="og:url" content="https://yourwebsite.com/infrastructure" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://yourwebsite.com/images/infrastructure-gallery-og.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Infrastructure Gallery | BVOC AI & ML Program" />
+        <meta
+          name="twitter:description"
+          content="Modern conference rooms and workspaces designed for AI & ML students."
+        />
+        <meta name="twitter:image" content="https://yourwebsite.com/images/infrastructure-gallery-og.jpg" />
+      </Head>
+
+      <div className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-16 bg-[#F8FAFC] overflow-hidden">
+        {/* Filter Buttons */}
+        <div className="mb-12 w-full flex justify-center">
+          <div className="flex gap-4 overflow-x-auto px-4 py-2">
+            {["All", "Conference", "Workspaces"].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-8 py-3 rounded-full font-semibold border ${
+                  activeFilter === filter
+                    ? "bg-[#0A2540] text-white border-transparent"
+                    : "bg-white text-slate-700 border-slate-300"
+                }`}
+              >
+                {filter}
+              </button>
             ))}
           </div>
         </div>
-      ))}
 
-      <Modal
-        item={selectedItem}
-        onClose={() => setSelectedItem(null)}
-        onNext={() => {}}
-        onPrev={() => {}}
-        hasNext={false}
-        hasPrev={false}
-      />
-    </div>
+        {filteredData.map((section, index) => (
+          <div key={index} className="p-5">
+            <h2 className="text-4xl lg:text-5xl font-semibold mb-10 text-center text-[#0A2540]">
+              {section.heading}
+            </h2>
+
+            <div
+              className="flex space-x-4 overflow-x-auto justify-center pb-4"
+              ref={(el) => (scrollContainerRefs.current[index] = el)}
+            >
+              {section.items.map((item, idx) => (
+                <InfraCard
+                  key={idx}
+                  item={item}
+                  onClick={(item) => setSelectedItem(item)}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <Modal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+          onNext={() => {}}
+          onPrev={() => {}}
+          hasNext={false}
+          hasPrev={false}
+        />
+      </div>
+    </>
   );
 }
 

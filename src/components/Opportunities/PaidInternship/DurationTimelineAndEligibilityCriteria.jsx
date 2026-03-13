@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Clock, CheckCircle, Star } from "lucide-react";
+import Head from "next/head";
 
 const DurationTimelineAndEligibilityCriteria = () => {
   const [stars, setStars] = useState([]);
@@ -36,6 +37,65 @@ const DurationTimelineAndEligibilityCriteria = () => {
 
   return (
     <>
+      {/* ================= SEO START ================= */}
+      <Head>
+        <title>
+          Paid Internship Duration & Eligibility | B.Voc AI & ML Program
+        </title>
+
+        <meta
+          name="description"
+          content="Learn about the duration, timeline, and eligibility criteria for paid internships in the B.Voc AI & ML program. Students gain real industry experience starting from the second year."
+        />
+
+        <meta
+          name="keywords"
+          content="AI ML internship, paid internship AI ML, B.Voc AI ML internship, AI ML student internship program, eligibility criteria AI internship, internship timeline AI ML, AI ML paid internship program"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link
+          rel="canonical"
+          href="https://yourdomain.com/opportunities/paid-internship"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Paid Internship Duration & Eligibility | B.Voc AI & ML Program"
+        />
+        <meta
+          property="og:description"
+          content="Explore internship duration, timeline, and eligibility requirements for the B.Voc AI & ML paid internship program."
+        />
+        <meta
+          property="og:url"
+          content="https://yourdomain.com/opportunities/paid-internship"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Paid Internship Duration & Eligibility | B.Voc AI & ML Program"
+        />
+        <meta
+          name="twitter:description"
+          content="Understand internship duration, eligibility requirements, and industry exposure for AI & ML students."
+        />
+        <meta
+          name="twitter:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+      </Head>
+      {/* ================= SEO END ================= */}
+
       {/*================ Duration and Timeline Section ===============*/}
       <div className="w-full py-10 px-4 md:px-10 bg-gradient-to-b from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] relative overflow-hidden">
         {/* Background Stars */}
@@ -76,16 +136,12 @@ const DurationTimelineAndEligibilityCriteria = () => {
             {timelineItems.map((text, idx) => (
               <div key={idx} className="group">
                 <div className="relative w-[280px] md:w-[320px] h-[280px] md:h-[320px] rounded-2xl overflow-hidden">
-                  {/* Gradient Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 to-purple-700/20 backdrop-blur-sm"></div>
 
-                  {/* Animated Border */}
                   <div className="absolute inset-0 rounded-2xl border-2 border-gradient-to-r from-cyan-400 to-orange-400 opacity-70 group-hover:opacity-100 transition-opacity"></div>
 
-                  {/* Glow Effect */}
                   <div className="absolute inset-0 rounded-2xl border-[2px] border-transparent bg-gradient-to-r from-cyan-500/30 via-purple-500/30 to-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
 
-                  {/* Content */}
                   <div className="relative h-full flex items-center justify-center px-6">
                     <div className="text-center">
                       <div className="mb-4 flex justify-center">
@@ -107,7 +163,6 @@ const DurationTimelineAndEligibilityCriteria = () => {
 
       {/*=============== Eligibility Criteria Section ==============*/}
       <div className="w-full bg-gradient-to-b from-[#2d1b69] via-[#1a3a5c] to-[#0f2847] py-10 relative overflow-hidden">
-        {/* Background Stars */}
         <div className="absolute inset-0 pointer-events-none">
           {stars.map((star) => (
             <div
@@ -125,7 +180,6 @@ const DurationTimelineAndEligibilityCriteria = () => {
         </div>
 
         <div className="relative z-10">
-          {/* Heading */}
           <div className="mx-auto w-max bg-gradient-to-r from-purple-700 to-cyan-600 rounded-2xl px-12 py-6 border-2 border-cyan-400/80 shadow-lg shadow-cyan-500/50 mb-10">
             <h2 className="text-white text-2xl md:text-4xl font-bold text-center flex items-center gap-3">
               <CheckCircle className="w-8 h-8" />
@@ -133,30 +187,27 @@ const DurationTimelineAndEligibilityCriteria = () => {
             </h2>
           </div>
 
-          {/* Content: Grid Layout */}
           <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 px-4 lg:px-0">
-            {/* Left: Visual Element */}
             <div className="lg:w-1/2 flex justify-center items-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-orange-500/30 rounded-2xl blur-xl opacity-60"></div>
                 <div className="relative w-80 h-80 rounded-2xl bg-gradient-to-br from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/70 backdrop-blur-sm flex items-center justify-center p-8">
                   <div className="text-center">
-  <Star className="w-20 h-20 mx-auto text-orange-400 mb-4 animate-pulse" />
-  <img
-    src="/paid-internship/EligiblityCriteriaImg.svg"
-    alt="Eligibility Criteria"
-    className="mx-auto mb-4 w-32 h-32"
-  />
-  <p className="text-white font-semibold text-base md:text-lg leading-relaxed">
-    Eligibility Criteria for Paid Internships from 2nd Year Onwards
-  </p>
-</div>
-
+                    <Star className="w-20 h-20 mx-auto text-orange-400 mb-4 animate-pulse" />
+                    <img
+                      src="/paid-internship/EligiblityCriteriaImg.svg"
+                      alt="Eligibility Criteria for AI and Machine Learning Paid Internship Program"
+                      className="mx-auto mb-4 w-32 h-32"
+                    />
+                    <p className="text-white font-semibold text-base md:text-lg leading-relaxed">
+                      Eligibility Criteria for Paid Internships from 2nd Year
+                      Onwards
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right: List */}
             <div className="lg:w-1/2">
               <div className="space-y-6">
                 {eligibilityCriteria.map((criterion, idx) => (

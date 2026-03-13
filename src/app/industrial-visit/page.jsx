@@ -1,15 +1,24 @@
-import IVPage from '@/components/iv/ivspage'
+export const metadata = {
+  title: "Industrial Visits | Nexcore Institute – BVOC Programs",
+  description:
+    "Explore industrial visits organized by Nexcore Institute that provide students with real-world exposure, industry interaction, and practical learning opportunities.",
 
-import React from 'react'
+  openGraph: {
+    title: "Industrial Visits | Nexcore Institute",
+    description:
+      "Discover how Nexcore Institute organizes industrial visits to help students gain practical industry exposure.",
+    url: "https://nexcoreinstitute.org/industrial-visits",
+    siteName: "Nexcore Institute",
+  },
+};
 
-const page = () => {
+import IVPage from "@/components/iv/ivspage";
+import React from "react";
+
+export default function Page() {
   return (
     <div>
-       
-      <IVPage/>
-     
+      <IVPage />
     </div>
-  )
+  );
 }
-
-export default page

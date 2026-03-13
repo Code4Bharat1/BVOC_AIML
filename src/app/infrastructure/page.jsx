@@ -1,20 +1,15 @@
 export const metadata = {
-  title: "Infrastructure | Nexcore INTITUTE OF TECHNOLOGY",
+  title: "Infrastructure | Nexcore Institute of Technology",
   description:
-    "Explore modern infrastructure, labs, and learning facilities provided by Nexcore INTITUTE OF TECHNOLOGY for BVOC students.",
+    "Explore modern infrastructure, labs, and advanced learning facilities provided by Nexcore Institute of Technology for BVOC students.",
   openGraph: {
-    title: "Our Infrastructure",
+    title: "Infrastructure | Nexcore Institute",
     description:
-      "State-of-the-art infrastructure supporting practical and skill-based education.",
+      "State-of-the-art infrastructure supporting practical and skill-based education at Nexcore Institute.",
     url: "https://nexcoreinstitute.org/infrastructure",
-    siteName: "Nexcore INTITUTE OF TECHNOLOGY",
+    siteName: "Nexcore Institute of Technology",
   },
 };
-
-
-
-
-
 
 import React from "react";
 import Hero from "@/components/Infrastructure/Hero";
@@ -25,17 +20,16 @@ import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
-    <div className="flex flex-col min-h-screen ">
-      <main className="flex-grow ">
-        {" "}
-        {/* Add padding top to prevent overlap with fixed navbar */}
-        {/* Page content goes here */}
-        <Navbar/>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="flex-grow">
         <Hero />
-        <ModernInfra /> 
+        <ModernInfra />
         {/* <InfraImgVid /> */}
-        <Footer/>
       </main>
+
+      <Footer />
     </div>
   );
 };

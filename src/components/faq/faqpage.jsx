@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import Head from 'next/head';
 
 const categories = [
   {
@@ -286,6 +287,65 @@ const FAQPage = () => {
 
   return (
     <>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        {/* ✅ Basic SEO */}
+        <title>FAQs | B.Voc Scholarship 2026 | Nexcore Institute of Technology</title>
+        <meta
+          name="description"
+          content="Find answers to all your questions about the ₹25 Lakh B.Voc Scholarship 2026 at Nexcore Institute of Technology — eligibility, exam dates, scholarship details, programs, and career placement."
+        />
+        <meta
+          name="keywords"
+          content="Nexcore FAQ, B.Voc scholarship FAQ, BVOC eligibility 2026, scholarship exam dates, B.Voc admission questions, AI ML course FAQ, animation VFX course FAQ, Nexcore Institute scholarship, BVOC UGC recognized, NAAC accredited BVOC"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/faq" />
+
+        {/* ✅ Open Graph */}
+        <meta
+          property="og:title"
+          content="FAQs | ₹25 Lakh B.Voc Scholarship 2026 | Nexcore Institute of Technology"
+        />
+        <meta
+          property="og:description"
+          content="Got questions about the B.Voc Scholarship 2026? Find answers on eligibility, exam pattern, scholarship seats, programs, and placement at Nexcore Institute of Technology."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nexcoreinstitute.org/faq" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.png" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="FAQs | B.Voc Scholarship 2026 | Nexcore Institute of Technology"
+        />
+        <meta
+          name="twitter:description"
+          content="All your B.Voc scholarship & admission questions answered — eligibility, exam dates, programs, and placements."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.png" />
+
+        {/* ✅ Structured Data — FAQPage Schema (helps Google show FAQs directly in search results) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer,
+              },
+            })),
+          })}
+        </script>
+      </Head>
+
       <Navbar />
       <div style={{ minHeight: '100vh', background: '#f8f9fa' }}>
         {/* HERO SECTION */}

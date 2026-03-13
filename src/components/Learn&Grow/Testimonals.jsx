@@ -43,21 +43,34 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-t from-[#33135B] via-[#460E73] to-[#8E1DBA] py-20 px-6 lg:px-12 rounded-t-[3rem] text-white">
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+    <section
+      aria-labelledby="testimonials-heading"
+      className="relative overflow-hidden bg-gradient-to-t from-[#33135B] via-[#460E73] to-[#8E1DBA] py-20 px-6 lg:px-12 rounded-t-[3rem] text-white"
+    >
+      {/* Section Header */}
+      <header className="max-w-7xl mx-auto text-center mb-12">
+        <h2
+          id="testimonials-heading"
+          className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+        >
           What Our <span className="text-[#AC6CFF]">Students & Clients</span> Say
         </h2>
-        <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Hear from the professionals and learners who’ve experienced success with us.
-        </p>
-      </div>
 
-      <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
+        <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          Hear from learners and professionals who have experienced growth,
+          career success, and real-world opportunities with our programs.
+        </p>
+      </header>
+
+      {/* Testimonials Slider */}
+      <div
+        className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10"
+        aria-label="Student testimonials and success stories"
+      >
         <AnimatedTestimonials testimonials={testimonials} />
       </div>
 
-      {/* Subtle glow effect */}
+      {/* Glow effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(172,108,255,0.15),transparent_70%)] pointer-events-none"></div>
     </section>
   );

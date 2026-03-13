@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
+import Head from 'next/head';
 import {
   FaGraduationCap,
   FaFlask,
@@ -105,6 +106,73 @@ export default function IITBombayPage() {
 
   return (
     <>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        {/* ✅ Basic SEO */}
+        <title>IIT Bombay Collaboration | Nexcore Institute of Technology</title>
+        <meta
+          name="description"
+          content="Nexcore Institute of Technology's academic partnership with IIT Bombay gives B.Voc students access to world-class research labs, joint workshops, guest lectures, mentorship, and IIT Bombay certifications."
+        />
+        <meta
+          name="keywords"
+          content="Nexcore IIT Bombay partnership, IIT Bombay collaboration BVOC, Nexcore Institute IIT, IIT Bombay mentorship program, joint workshops IIT Bombay, B.Voc IIT Bombay certification, Nexcore research program, IIT Bombay Techfest Nexcore, BVOC IIT collaboration India"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/iit-bombay" />
+
+        {/* ✅ Open Graph */}
+        <meta
+          property="og:title"
+          content="IIT Bombay × Nexcore Institute | Academic Excellence Partnership"
+        />
+        <meta
+          property="og:description"
+          content="Nexcore's collaboration with IIT Bombay offers B.Voc students research exposure, joint certifications, lab access, and mentorship from IIT alumni."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nexcoreinstitute.org/iit-bombay" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.png" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="IIT Bombay × Nexcore | Academic Excellence Partnership"
+        />
+        <meta
+          name="twitter:description"
+          content="B.Voc students at Nexcore get IIT Bombay research access, joint certifications, mentorship & more through our exclusive academic partnership."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.png" />
+
+        {/* ✅ Structured Data — EducationalOccupationalProgram Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOccupationalProgram",
+            "name": "IIT Bombay × Nexcore Academic Collaboration",
+            "description":
+              "Nexcore Institute of Technology's partnership with IIT Bombay providing B.Voc students access to research labs, joint workshops, guest lectures, mentorship, and co-signed certifications.",
+            "url": "https://nexcoreinstitute.org/iit-bombay",
+            "provider": {
+              "@type": "EducationalOrganization",
+              "@id": "https://nexcoreinstitute.org/#organization",
+              "name": "Nexcore Institute of Technology",
+              "url": "https://nexcoreinstitute.org",
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "Academic Partnership",
+              "description":
+                "Joint workshops, research exposure, guest lectures, lab access, mentorship, and IIT Bombay co-signed certifications.",
+            },
+          })}
+        </script>
+      </Head>
+
       <Navbar />
       <main className="min-h-screen bg-[#FAF5FF] relative overflow-hidden">
         {/* Dot pattern */}

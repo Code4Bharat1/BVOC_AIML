@@ -1,53 +1,50 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+
   const baseUrl = "https://nexcoreinstitute.org";
+
   const today = new Date().toISOString().split("T")[0];
 
-  const staticUrls = [
-    { path: "", priority: "1.0" },
-    { path: "whychooseus", priority: "0.9" },
-    { path: "learn-grow", priority: "0.9" },
-    { path: "opportunities", priority: "0.9" },
-    { path: "infrastructure", priority: "0.8" },
-    { path: "eligibility-criteria", priority: "0.8" },
-    { path: "fees-policy", priority: "0.7" },
-    { path: "internship-policy", priority: "0.7" },
-    { path: "placement-policy", priority: "0.7" },
-    { path: "scholarship-policy", priority: "0.6" },
-    { path: "selection-policy", priority: "0.6" },
-    { path: "contact", priority: "0.6" },
+  const urls = [
+    { path: "", priority: "1.0", changefreq: "weekly" },
+
+    // main pages
+    { path: "about", priority: "0.9", changefreq: "monthly" },
+    { path: "courses", priority: "0.9", changefreq: "monthly" },
+    { path: "placements", priority: "0.8", changefreq: "monthly" },
+    { path: "gallery", priority: "0.8", changefreq: "monthly" },
+    { path: "contact", priority: "0.8", changefreq: "monthly" },
+
+    // programs
+    { path: "bvoc-ai-machine-learning", priority: "0.9", changefreq: "monthly" },
+    { path: "bvoc-graphic-animation-vfx", priority: "0.9", changefreq: "monthly" },
+
+    // optional future SEO pages
+    { path: "admissions", priority: "0.8", changefreq: "monthly" },
+    { path: "faculty", priority: "0.7", changefreq: "monthly" }
   ];
 
-  const programs = ["ai-ml", "data-science", "software-development"];
-  const programUrls = programs.map((slug) => ({
-    path: `bvoc/${slug}`,
-    priority: "0.8",
-  }));
-
-  const urls = [...staticUrls, ...programUrls];
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
 ${urls
-  .map(({ path, priority }) => {
-    const loc = path ? `${baseUrl}/${path}` : baseUrl;
-    return `
-  <url>
-    <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-  })
+  .map(
+    ({ path, priority, changefreq }) => `
+<url>
+  <loc>${baseUrl}/${path}</loc>
+  <lastmod>${today}</lastmod>
+  <changefreq>${changefreq}</changefreq>
+  <priority>${priority}</priority>
+</url>`
+  )
   .join("")}
+
 </urlset>`;
 
-  return new NextResponse(xml, {
-    status: 200,
+  return new NextResponse(sitemap, {
     headers: {
-      "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "public, max-age=86400",
+      "Content-Type": "application/xml",
     },
   });
 }

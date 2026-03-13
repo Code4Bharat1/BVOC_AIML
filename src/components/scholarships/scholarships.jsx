@@ -1,4 +1,5 @@
 'use client';
+import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { IoCallSharp, IoMailSharp } from 'react-icons/io5';
 import {
@@ -78,6 +79,82 @@ const steps = [
 const ScholarshipsPage = () => {
   return (
     <>
+      {/* ══════════ SEO HEAD ══════════ */}
+      <Head>
+        {/* Basic SEO */}
+        <title>Scholarship Program 2026 | Nexcore Institute of Technology – Win Up to ₹25,00,000</title>
+        <meta
+          name="description"
+          content="Apply for Nexcore Institute of Technology Scholarship Program 2026. Win merit-based scholarships worth ₹25,00,000. Register before 25th March. Online exam on 27th, 28th & 29th March. NAAC A+ Accredited & UGC Recognized."
+        />
+        <meta
+          name="keywords"
+          content="Nexcore Institute scholarship 2026, NIT scholarship exam, scholarship for engineering students Mumbai, merit scholarship Mumbai college, NAAC A+ accredited college Mumbai, UGC recognized institute scholarship, Nexcore Institute of Technology, scholarship exam March 2026, engineering scholarship Mumbai, technology institute scholarship India, nexcoreinstitute.org scholarship, free scholarship exam online, scholarship registration 2026"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://nexcoreinstitute.org/scholarships" />
+
+        {/* Open Graph (Facebook / WhatsApp) */}
+        <meta property="og:title" content="Scholarship Program 2026 | Nexcore Institute – ₹25,00,000 in Scholarships" />
+        <meta
+          property="og:description"
+          content="Win merit-based scholarships worth ₹25,00,000 at Nexcore Institute of Technology. Register before 25th March 2026. Online MCQ exam on 27th, 28th & 29th March. NAAC A+ & UGC Recognized."
+        />
+        <meta property="og:url" content="https://nexcoreinstitute.org/scholarships" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Scholarship Program 2026 | Nexcore Institute – ₹25,00,000" />
+        <meta
+          name="twitter:description"
+          content="Apply now for Nexcore Institute Scholarship 2026. ₹25,00,000 in merit-based scholarships. Register before 25th March. Online exam 27–29 March."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+
+        {/* Structured Data – Scholarship Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "EducationalOccupationalProgram",
+              "name": "Nexcore Institute Scholarship Program 2026",
+              "description": "Merit-based scholarship program offering ₹25,00,000 to eligible students. Online MCQ exam on 27th, 28th & 29th March 2026.",
+              "url": "https://nexcoreinstitute.org/scholarships",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Nexcore Institute of Technology",
+                "url": "https://nexcoreinstitute.org/",
+                "sameAs": [
+                  "https://www.facebook.com/profile.php?id=61585525156166",
+                  "https://www.instagram.com/nexcoreinstitute",
+                  "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/",
+                  "https://www.youtube.com/@NexcoreInstitute"
+                ],
+                "telephone": "+919892398976",
+                "accreditation": "NAAC A+",
+                "hasCredential": "UGC Recognized"
+              },
+              "applicationDeadline": "2026-03-25",
+              "startDate": "2026-03-27",
+              "endDate": "2026-03-29",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR",
+                "description": "Merit-based scholarship worth up to ₹25,00,000"
+              }
+            }
+          `}
+        </script>
+      </Head>
+
       <div style={{ minHeight: '100vh', background: '#f8f9fa' }}>
         {/* ══════════ HERO ══════════ */}
         <section

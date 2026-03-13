@@ -1,5 +1,7 @@
 "use client";
 
+import Head from "next/head";
+import Script from "next/script";
 import { useState } from "react";
 import {
   CheckCircle,
@@ -43,15 +45,15 @@ const WhyChooseBVoc = () => {
   ];
 
   const features = [
-    { 
-      icon: <Rocket className="w-7 h-7" />, 
-      title: "Quick Launch", 
+    {
+      icon: <Rocket className="w-7 h-7" />,
+      title: "Quick Launch",
       desc: "Start earning faster",
       color: "blue"
     },
-    { 
-      icon: <Brain className="w-7 h-7" />, 
-      title: "AI & ML Focus", 
+    {
+      icon: <Brain className="w-7 h-7" />,
+      title: "AI & ML Focus",
       desc: "Future-proof skills",
       color: "orange"
     },
@@ -70,105 +72,193 @@ const WhyChooseBVoc = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-slate-50 to-white py-20 px-4 overflow-hidden">
-      {/* Simplified background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
+    <>
+      {/* ══════════ SEO HEAD ══════════ */}
+      <Head>
+        <title>Why Choose B.Voc? | Nexcore Institute of Technology Mumbai – AI, ML & Data Science</title>
+        <meta
+          name="description"
+          content="Discover why B.Voc at Nexcore Institute of Technology is better than B.Tech, B.E and B.Sc. 3x faster job readiness, 95% placement rate, 50+ industry partners, AI & ML focus, hands-on internships. NAAC A+ Accredited college in Mumbai."
+        />
+        <meta
+          name="keywords"
+          content="why choose B.Voc Mumbai, B.Voc vs B.Tech Mumbai, B.Voc AI ML Data Science Mumbai, best B.Voc college Mumbai, Nexcore Institute B.Voc, job ready degree Mumbai, 95% placement college Mumbai, industry partners college Mumbai, fast track career Mumbai, NAAC A+ B.Voc college, UGC recognized B.Voc Mumbai, nexcoreinstitute.org B.Voc, B.Voc advantages Mumbai, AI ML college Mumbai, practical degree Mumbai"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/" />
+        <meta property="og:title" content="Why Choose B.Voc? | Nexcore Institute of Technology – AI, ML & Data Science Mumbai" />
+        <meta
+          property="og:description"
+          content="B.Voc at Nexcore Institute offers 3x faster job readiness, 95% placement rate, AI & ML focus and 50+ industry partners. Better than B.Tech, B.E & B.Sc. NAAC A+ Mumbai."
+        />
+        <meta property="og:url" content="https://nexcoreinstitute.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Why Choose B.Voc? | Nexcore Institute Mumbai – AI & ML" />
+        <meta
+          name="twitter:description"
+          content="B.Voc at Nexcore Institute — 3x faster job readiness, 95% placement, AI & ML skills. Better than B.Tech & B.Sc. NAAC A+ Accredited Mumbai college."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+      </Head>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-blue-200 bg-blue-50">
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-xs font-bold tracking-wider text-blue-700">
-              YOUR FUTURE STARTS HERE
-            </span>
+      {/* ══════════ JSON-LD SCHEMA ══════════ */}
+      <Script
+        id="why-bvoc-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "B.Voc – Bachelor of Vocation",
+            "description": "Industry-driven B.Voc program at Nexcore Institute of Technology Mumbai with AI, ML & Data Science focus. 3x faster job readiness, 95% placement rate, 50+ industry partners.",
+            "url": "https://nexcoreinstitute.org/",
+            "provider": {
+              "@type": "EducationalOrganization",
+              "name": "Nexcore Institute of Technology",
+              "url": "https://nexcoreinstitute.org/",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61585525156166",
+                "https://www.instagram.com/nexcoreinstitute",
+                "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/",
+                "https://www.youtube.com/@NexcoreInstitute"
+              ],
+              "telephone": "+919892398976",
+              "accreditation": "NAAC A+",
+              "hasCredential": "UGC Recognized"
+            },
+            "about": [
+              {
+                "@type": "Thing",
+                "name": "Artificial Intelligence"
+              },
+              {
+                "@type": "Thing",
+                "name": "Machine Learning"
+              },
+              {
+                "@type": "Thing",
+                "name": "Data Science"
+              }
+            ],
+            "educationalCredentialAwarded": "Bachelor of Vocation (B.Voc)",
+            "occupationalCredentialAwarded": "UGC & NSQF Recognized Degree",
+            "teaches": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Data Science",
+              "Industry Projects",
+              "Internships"
+            ]
+          })
+        }}
+      />
+
+      <div className="relative bg-gradient-to-b from-slate-50 to-white py-20 px-4 overflow-hidden">
+        {/* Simplified background */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-blue-200 bg-blue-50">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-bold tracking-wider text-blue-700">
+                YOUR FUTURE STARTS HERE
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+              Why Choose <span className="text-blue-600">B.Voc</span>
+              <span className="text-orange-500">?</span>
+            </h1>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
-            Why Choose <span className="text-blue-600">B.Voc</span>
-            <span className="text-orange-500">?</span>
-          </h1>
-        </div>
-
-        {/* Main Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Left Card - Image & Stats */}
-          <div className="bg-white border-2 border-slate-200 rounded-2xl shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow">
-            <div className="h-64 md:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-slate-100 mb-6 border border-slate-200">
-              <img
-                src="/bvoc-image.png"
-                alt="B.Voc illustration"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="grid grid-cols-3 gap-3">
-              {stats.map((stat, i) => (
-                <div
-                  key={i}
-                  className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:scale-105 transition-transform"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-slate-600 mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Card - Content */}
-          <div className="bg-white border-2 border-slate-200 rounded-2xl shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow">
-            {/* Header Section */}
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-md">
-                  <Rocket className="text-white w-6 h-6" />
-                </div>
-                <h2 className="text-xl md:text-2xl font-bold text-blue-600">
-                  Fast-Track Your Career
-                </h2>
-              </div>
-              <p className="text-slate-600 leading-relaxed">
-                Industry-driven curriculum, internships, and real-world projects
-                make you job-ready faster than traditional degrees.
-              </p>
-            </div>
-
-            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-6" />
-
-            {/* Comparison Cards */}
-            <div className="space-y-3 mb-6">
-              {comparisons.map((item, i) => (
-                <ComparisonCard
-                  key={i}
-                  item={item}
-                  isHovered={hoveredCard === i}
-                  onHover={() => setHoveredCard(i)}
-                  onLeave={() => setHoveredCard(null)}
+          {/* Main Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left Card - Image & Stats */}
+            <div className="bg-white border-2 border-slate-200 rounded-2xl shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow">
+              <div className="h-64 md:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-slate-100 mb-6 border border-slate-200">
+                <img
+                  src="/bvoc-image.png"
+                  alt="B.Voc illustration"
+                  className="w-full h-full object-cover"
                 />
-              ))}
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                {stats.map((stat, i) => (
+                  <div
+                    key={i}
+                    className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:scale-105 transition-transform"
+                  >
+                    <div className="text-2xl md:text-3xl font-bold text-blue-600">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-slate-600 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Bottom Info Box */}
-            <div className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
-              <p className="text-slate-700 leading-relaxed">
-                <span className="font-semibold text-blue-700">B.Voc</span> equips you with industry-ready skills so you can start your
-                career earlier and grow faster.
-              </p>
+            {/* Right Card - Content */}
+            <div className="bg-white border-2 border-slate-200 rounded-2xl shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow">
+              {/* Header Section */}
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-md">
+                    <Rocket className="text-white w-6 h-6" />
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold text-blue-600">
+                    Fast-Track Your Career
+                  </h2>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  Industry-driven curriculum, internships, and real-world projects
+                  make you job-ready faster than traditional degrees.
+                </p>
+              </div>
+
+              <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-6" />
+
+              {/* Comparison Cards */}
+              <div className="space-y-3 mb-6">
+                {comparisons.map((item, i) => (
+                  <ComparisonCard
+                    key={i}
+                    item={item}
+                    isHovered={hoveredCard === i}
+                    onHover={() => setHoveredCard(i)}
+                    onLeave={() => setHoveredCard(null)}
+                  />
+                ))}
+              </div>
+
+              {/* Bottom Info Box */}
+              <div className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
+                <p className="text-slate-700 leading-relaxed">
+                  <span className="font-semibold text-blue-700">B.Voc</span> equips you with industry-ready skills so you can start your
+                  career earlier and grow faster.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {features.map((f, i) => (
-            <FeatureCard key={i} feature={f} />
-          ))}
+          {/* Bottom Features Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map((f, i) => (
+              <FeatureCard key={i} feature={f} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

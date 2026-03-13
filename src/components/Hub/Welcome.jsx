@@ -20,7 +20,7 @@ const Welcome = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* ================= LEFT CONTENT ================= */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -192,10 +192,10 @@ const Welcome = () => {
               </div>
 
               {/* Professional Tech Illustration */}
-              <svg 
-                width="550" 
-                height="550" 
-                viewBox="0 0 550 550" 
+              <svg
+                width="550"
+                height="550"
+                viewBox="0 0 550 550"
                 fill="none"
                 className="relative z-10"
               >
@@ -238,7 +238,7 @@ const Welcome = () => {
 
                   {/* Monitor Frame - Much Larger */}
                   <rect x="120" y="100" width="310" height="300" rx="16" fill="#1E293B" />
-                  
+
                   {/* Screen Bezel */}
                   <rect x="130" y="110" width="290" height="280" rx="12" fill="url(#screenGlow)" />
 
@@ -253,7 +253,7 @@ const Welcome = () => {
 
                 {/* ========== SCREEN CONTENT - DATA VISUALIZATION ========== */}
                 <g opacity="0.95">
-                  
+
                   {/* Header Section - Title Bar */}
                   <motion.rect
                     initial={{ width: 0 }}
@@ -261,7 +261,7 @@ const Welcome = () => {
                     transition={{ duration: 0.6, delay: 1 }}
                     x="150" y="135" width="250" height="30" rx="6" fill="#1E40AF" opacity="0.3"
                   />
-                  
+
                   {/* Window Dots */}
                   {[0, 1, 2].map((i) => (
                     <motion.circle
@@ -367,7 +367,7 @@ const Welcome = () => {
                 </g>
 
                 {/* ========== FLOATING ACADEMIC ICONS ========== */}
-                
+
                 {/* Graduation Cap - Top Left - Larger */}
                 <motion.g
                   initial={{ scale: 0, rotate: -45, opacity: 0 }}
@@ -423,14 +423,16 @@ const Welcome = () => {
                   <circle cx="480" cy="283" r="18" fill="none" stroke="#F59E0B" strokeWidth="4" />
                   <rect x="473" y="302" width="14" height="6" rx="3" fill="#F59E0B" />
                   <rect x="475" y="310" width="10" height="12" rx="3" fill="#F59E0B" />
-                  
+
                   {/* Light rays */}
                   {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
                     const rad = (angle * Math.PI) / 180;
-                    const x1 = 480 + Math.cos(rad) * 25;
-                    const y1 = 283 + Math.sin(rad) * 25;
-                    const x2 = 480 + Math.cos(rad) * 35;
-                    const y2 = 283 + Math.sin(rad) * 35;
+
+                    const x1 = Number((480 + Math.cos(rad) * 25).toFixed(3));
+                    const y1 = Number((283 + Math.sin(rad) * 25).toFixed(3));
+
+                    const x2 = Number((480 + Math.cos(rad) * 35).toFixed(3));
+                    const y2 = Number((283 + Math.sin(rad) * 35).toFixed(3));
                     return (
                       <motion.line
                         key={i}
@@ -472,7 +474,7 @@ const Welcome = () => {
                   <circle cx="450" cy="440" r="40" fill="#2563EB" opacity="0.1" />
                   <circle cx="450" cy="440" r="30" fill="none" stroke="#3B82F6" strokeWidth="10" />
                   <circle cx="450" cy="440" r="15" fill="#3B82F6" />
-                  
+
                   {/* Gear teeth */}
                   {[0, 90, 180, 270].map((angle, i) => {
                     const rad = (angle * Math.PI) / 180;

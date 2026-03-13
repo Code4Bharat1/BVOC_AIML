@@ -1,5 +1,6 @@
 "use client";
 import { GraduationCap, Percent, Calendar, ArrowRight, Check } from "lucide-react";
+import Head from "next/head";
 
 export default function Admission_Eligibility() {
   const criteriaItems = [
@@ -16,8 +17,8 @@ export default function Admission_Eligibility() {
     {
       heading: "Minimum Marks",
       description: [
-  "Only students who have passed 12th or are currently studying in 12th are eligible."
-],
+        "Only students who have passed 12th or are currently studying in 12th are eligible."
+      ],
       image: "/eligibility_criteria/Criteria2.svg",
       icon: <Percent className="w-6 h-6" />,
       color: "orange",
@@ -32,53 +33,113 @@ export default function Admission_Eligibility() {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-slate-50 to-white py-16 px-4 overflow-hidden mt-20">
-      {/* Simple background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent" />
+    <>
+      {/* ================= SEO START ================= */}
+      <Head>
+        <title>
+          Admission Eligibility Criteria | B.Voc Data Science & AI | Multimedia & Animation
+        </title>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-slate-900">
-            Admission Eligibility Criteria
-          </h1>
+        <meta
+          name="description"
+          content="Check the admission eligibility criteria for Bachelor of Data Science and Artificial Intelligence and Bachelor of Multimedia and Animation programs. Learn about educational qualifications, minimum marks, and age limits."
+        />
 
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-lg md:text-xl text-slate-700 leading-relaxed">
-              <span className="font-semibold text-blue-600">Bachelor of Data Science and Artificial Intelligence</span>
-              {" "}and{" "}
-              <span className="font-semibold text-orange-500">Bachelor of Multimedia and Animation</span>
-            </h2>
+        <meta
+          name="keywords"
+          content="B.Voc Data Science admission eligibility, AI course eligibility after 12th, Multimedia animation admission criteria, AI degree eligibility India, data science course after 12th, multimedia course eligibility"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link
+          rel="canonical"
+          href="https://yourdomain.com/opportunities/admission-eligibility"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Admission Eligibility Criteria | B.Voc Data Science & AI | Multimedia & Animation"
+        />
+        <meta
+          property="og:description"
+          content="Learn the eligibility criteria for admission into Bachelor of Data Science & AI and Bachelor of Multimedia & Animation programs."
+        />
+        <meta
+          property="og:url"
+          content="https://yourdomain.com/opportunities/admission-eligibility"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Admission Eligibility Criteria | B.Voc Data Science & AI"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore eligibility criteria for admission to Data Science, Artificial Intelligence, and Multimedia programs."
+        />
+        <meta
+          name="twitter:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+      </Head>
+      {/* ================= SEO END ================= */}
+
+      <div className="relative bg-gradient-to-b from-slate-50 to-white py-16 px-4 overflow-hidden mt-20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-slate-900">
+              Admission Eligibility Criteria
+            </h1>
+
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-lg md:text-xl text-slate-700 leading-relaxed">
+                <span className="font-semibold text-blue-600">
+                  Bachelor of Data Science and Artificial Intelligence
+                </span>{" "}
+                and{" "}
+                <span className="font-semibold text-orange-500">
+                  Bachelor of Multimedia and Animation
+                </span>
+              </h2>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+              <div className="w-2 h-2 rounded-full bg-orange-500" />
+              <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
+            </div>
           </div>
 
-          {/* Simple divider */}
-          <div className="flex items-center justify-center gap-2 mt-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
-            <div className="w-2 h-2 rounded-full bg-orange-500" />
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
+          <div className="flex flex-col gap-6 mb-12">
+            {criteriaItems.map((item, index) => (
+              <CriteriaCard key={index} item={item} index={index} />
+            ))}
           </div>
-        </div>
 
-        {/* Eligibility Cards */}
-        <div className="flex flex-col gap-6 mb-12">
-          {criteriaItems.map((item, index) => (
-            <CriteriaCard key={index} item={item} index={index} />
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="text-center">
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-orange-500 text-white font-bold rounded-xl text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            Apply Now
-            <ArrowRight className="w-5 h-5" />
-          </a>
+          <div className="text-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-orange-500 text-white font-bold rounded-xl text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Apply Now
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -106,7 +167,6 @@ const CriteriaCard = ({ item, index }) => {
     <div className="group">
       <div className={`bg-white rounded-2xl border-2 ${styles.border} ${styles.hoverBorder} shadow-sm hover:shadow-lg transition-all duration-300 p-6 md:p-8`}>
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-          {/* Image with Icon Badge */}
           <div className="relative flex-shrink-0">
             <div className="w-48 h-48 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 p-6 flex items-center justify-center">
               <img
@@ -117,13 +177,11 @@ const CriteriaCard = ({ item, index }) => {
               />
             </div>
 
-            {/* Icon Badge */}
             <div className={`absolute -top-3 -right-3 w-12 h-12 ${styles.icon} rounded-xl flex items-center justify-center text-white shadow-lg border-2 border-white`}>
               {item.icon}
             </div>
           </div>
 
-          {/* Content */}
           <div className="flex-1 text-center md:text-left">
             <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${styles.heading}`}>
               {item.heading}

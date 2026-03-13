@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FileCheck, MessageSquare, Heart, Users, BookOpen, Zap } from "lucide-react";
+import Head from "next/head";
 
 function TermsConditionAndSupport() {
   const [stars, setStars] = useState([]);
@@ -60,6 +61,65 @@ function TermsConditionAndSupport() {
 
   return (
     <>
+      {/* ================= SEO START ================= */}
+      <Head>
+        <title>
+          Internship Terms & Conditions | Support & Career Guidance | B.Voc AI & ML
+        </title>
+
+        <meta
+          name="description"
+          content="Understand the internship terms, conditions, and career support provided to B.Voc AI & ML students. The internship and placement cell offers mentorship, resume support, and career guidance."
+        />
+
+        <meta
+          name="keywords"
+          content="AI ML internship terms and conditions, AI ML internship policy, student internship agreement, AI ML career guidance, internship support AI ML program, placement cell AI ML students"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link
+          rel="canonical"
+          href="https://yourdomain.com/opportunities/paid-internship"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Internship Terms & Conditions | Support & Career Guidance | B.Voc AI & ML"
+        />
+        <meta
+          property="og:description"
+          content="Explore internship policies, student agreements, and the support system available for AI & ML students through the internship and placement cell."
+        />
+        <meta
+          property="og:url"
+          content="https://yourdomain.com/opportunities/paid-internship"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Internship Terms & Conditions | Support & Career Guidance | B.Voc AI & ML"
+        />
+        <meta
+          name="twitter:description"
+          content="Learn about internship terms, agreements, and career support for AI & ML students including mentorship and placement guidance."
+        />
+        <meta
+          name="twitter:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
+      </Head>
+      {/* ================= SEO END ================= */}
+
       {/* =============== Terms & Condition Section ================== */}
       <div className="w-full bg-gradient-to-b from-[#0f2847] via-[#1a3a5c] to-[#2d1b69] py-12 px-4 min-h-screen relative overflow-hidden">
         {/* Background Stars */}
@@ -104,7 +164,6 @@ function TermsConditionAndSupport() {
                 key={term.id}
                 className="group relative flex items-center gap-6 lg:gap-8"
               >
-                {/* Icon Box */}
                 <div className="flex-shrink-0">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 to-orange-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -114,7 +173,6 @@ function TermsConditionAndSupport() {
                   </div>
                 </div>
 
-                {/* Card content */}
                 <div className="flex-1">
                   <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-cyan-600/20 to-purple-700/20 border-2 border-cyan-400/60 backdrop-blur-sm p-6 lg:p-8 hover:shadow-lg hover:shadow-cyan-500/40 transition-all">
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -149,7 +207,6 @@ function TermsConditionAndSupport() {
         </div>
 
         <div className="relative z-10">
-          {/* Heading */}
           <div className="mx-auto w-max mb-14">
             <div className="rounded-2xl bg-gradient-to-r from-purple-700 to-cyan-600 px-6 md:px-12 py-4 md:py-6 border-2 border-cyan-400/80 shadow-lg shadow-cyan-500/50">
               <h2 className="text-white text-xl md:text-2xl lg:text-4xl font-bold text-center flex items-center gap-3">
@@ -159,9 +216,7 @@ function TermsConditionAndSupport() {
             </div>
           </div>
 
-          {/* Content: Grid Layout */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12 px-4 lg:px-0">
-            {/* Left: Visual Element */}
             <div className="lg:w-1/2 flex justify-center items-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-orange-500/30 rounded-2xl blur-xl opacity-60"></div>
@@ -176,7 +231,6 @@ function TermsConditionAndSupport() {
               </div>
             </div>
 
-            {/* Right: List */}
             <div className="lg:w-1/2">
               <div className="space-y-6">
                 <h3 className="text-white text-xl lg:text-2xl font-bold mb-8 text-center lg:text-left">

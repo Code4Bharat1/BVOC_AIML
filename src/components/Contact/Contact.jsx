@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 import toast from 'react-hot-toast';
+import Head from 'next/head';
 
 const ContactPage = () => {
   const sectionRef = useRef(null);
@@ -102,128 +103,208 @@ ${formData.message}`;
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden p-5">
-      <section ref={sectionRef} className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16 mt-10">
-            <h1
-              className="text-5xl md:text-7xl font-bold mb-6"
-              style={{ color: '#007BFF' }}
-            >
-              Let's Talk
-            </h1>
-            <p className="text-lg max-w-3xl mx-auto text-gray-600">
-              Ready to transform your vision into reality? Let's connect.
-            </p>
-          </div>
+    <>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        {/* ✅ Basic SEO */}
+        <title>Contact Us | Nexcore Institute of Technology – Mumbai</title>
+        <meta
+          name="description"
+          content="Get in touch with Nexcore Institute of Technology. Contact our counselors for B.Voc admissions in AI & ML, Cyber Security, Graphic Animation, and VFX & Multimedia. Call, email, or visit us in Mumbai."
+        />
+        <meta
+          name="keywords"
+          content="Nexcore Institute contact, B.Voc admission enquiry, contact Nexcore Mumbai, BVOC counselor contact, AI ML admission contact, animation course enquiry Mumbai, cyber security admission India, Nexcore Institute of Technology phone number, Nexcore Institute address"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/contact" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div className="space-y-6 order-1 lg:order-1">
-              {contactInfo.map((info, index) => (
-                <a
-                  key={index}
-                  href={info.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 bg-white"
-                >
-                  <div
-                    className="w-14 h-14 flex items-center justify-center rounded-lg text-white"
-                    style={{ backgroundColor: info.color }}
-                  >
-                    <info.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-gray-800">
-                      {info.title}
-                    </h3>
-                    <p className="font-bold" style={{ color: info.color }}>
-                      {info.content}
-                    </p>
-                    <p className="text-sm text-gray-500">{info.sub}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
+        {/* ✅ Open Graph */}
+        <meta
+          property="og:title"
+          content="Contact Nexcore Institute of Technology | B.Voc Admissions Mumbai"
+        />
+        <meta
+          property="og:description"
+          content="Reach out to Nexcore Institute of Technology for B.Voc admissions in AI & ML, Cyber Security, Graphic Animation, and VFX & Multimedia. Our counselors are ready to help."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nexcoreinstitute.org/contact" />
+        <meta
+          property="og:image"
+          content="https://nexcoreinstitute.org/og-image.png"
+        />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:locale" content="en_IN" />
 
-            {/* Form */}
-            <div className="lg:col-span-2 p-8 rounded-xl border border-gray-200 shadow-md bg-white order-2 lg:order-2">
-              <h2
-                className="text-3xl font-bold mb-8"
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact Nexcore Institute of Technology | Mumbai"
+        />
+        <meta
+          name="twitter:description"
+          content="Connect with Nexcore Institute counselors for B.Voc admissions in AI, Animation, VFX & Cyber Security."
+        />
+        <meta
+          name="twitter:image"
+          content="https://nexcoreinstitute.org/og-image.png"
+        />
+
+        {/* ✅ Structured Data — ContactPage Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Nexcore Institute of Technology",
+            "url": "https://nexcoreinstitute.org/contact",
+            "description":
+              "Contact page for Nexcore Institute of Technology – B.Voc admissions in AI & ML, Cyber Security, Graphic Animation, and VFX & Multimedia.",
+            "publisher": {
+              "@type": "EducationalOrganization",
+              "@id": "https://nexcoreinstitute.org/#organization",
+              "name": "Nexcore Institute of Technology",
+              "url": "https://nexcoreinstitute.org",
+              "logo": "https://nexcoreinstitute.org/logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400070",
+                "addressCountry": "IN",
+              },
+              "telephone": "+91-9594402822",
+              "email": "admin@nexcoreinstitute.org",
+            },
+          })}
+        </script>
+      </Head>
+
+      {/* ✅ Main UI — unchanged from your original */}
+      <div className="min-h-screen bg-gray-50 relative overflow-hidden p-5">
+        <section ref={sectionRef} className="relative py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16 mt-10">
+              <h1
+                className="text-5xl md:text-7xl font-bold mb-6"
                 style={{ color: '#007BFF' }}
               >
-                Connect to a Counselor
-              </h2>
+                Let's Talk
+              </h1>
+              <p className="text-lg max-w-3xl mx-auto text-gray-600">
+                Ready to transform your vision into reality? Let's connect.
+              </p>
+            </div>
 
-              <div className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Full Name"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email Address"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Phone Number"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
-                  />
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Contact Info */}
+              <div className="space-y-6 order-1 lg:order-1">
+                {contactInfo.map((info, index) => (
+                  <a
+                    key={index}
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 bg-white"
                   >
-                    <option value="">Select Subject</option>
-                    <option value="AI & ML">AI & ML</option>
-                    <option value="Cyber Security">Cyber Security</option>
-                    <option value="AI & Robotics">AI & Robotics</option>
-                    <option value="Graphic Animation , VFX & Multimedia">
-                      Graphic Animation
-                    </option>
-                  </select>
-                </div>
+                    <div
+                      className="w-14 h-14 flex items-center justify-center rounded-lg text-white"
+                      style={{ backgroundColor: info.color }}
+                    >
+                      <info.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-gray-800">
+                        {info.title}
+                      </h3>
+                      <p className="font-bold" style={{ color: info.color }}>
+                        {info.content}
+                      </p>
+                      <p className="text-sm text-gray-500">{info.sub}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
 
-                <textarea
-                  name="message"
-                  rows="6"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Your Message"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200 resize-none"
-                />
-
-                <button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="w-full py-4 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 disabled:opacity-50"
-                  style={{ backgroundColor: '#007BFF' }}
+              {/* Form */}
+              <div className="lg:col-span-2 p-8 rounded-xl border border-gray-200 shadow-md bg-white order-2 lg:order-2">
+                <h2
+                  className="text-3xl font-bold mb-8"
+                  style={{ color: '#007BFF' }}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
-                </button>
+                  Connect to a Counselor
+                </h2>
+
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Full Name"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Email Address"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Phone Number"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
+                    />
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200"
+                    >
+                      <option value="">Select Subject</option>
+                      <option value="AI & ML">AI & ML</option>
+                      <option value="Cyber Security">Cyber Security</option>
+                      <option value="AI & Robotics">AI & Robotics</option>
+                      <option value="Graphic Animation , VFX & Multimedia">
+                        Graphic Animation
+                      </option>
+                    </select>
+                  </div>
+
+                  <textarea
+                    name="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Your Message"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg outline-none focus:border-blue-500 transition-colors duration-200 resize-none"
+                  />
+
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
+                    className="w-full py-4 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 disabled:opacity-50"
+                    style={{ backgroundColor: '#007BFF' }}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 

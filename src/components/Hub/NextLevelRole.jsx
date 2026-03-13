@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const NextLevelRole = () => {
+
   const topRoles = [
     "AI SOFTWARE\nENGINEER",
     "ROBOTICS ENGINEER\n(AI/ML FOCUS)",
@@ -20,19 +21,33 @@ const NextLevelRole = () => {
   ];
 
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-80px" });
+
+  const isInView = useInView(containerRef, {
+    once: true,
+    margin: "-80px",
+  });
 
   const containerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.12 } },
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: {
+      opacity: 0,
+      y: 24,
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.55, ease: "easeOut" },
+      transition: {
+        duration: 0.55,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -45,7 +60,8 @@ const NextLevelRole = () => {
           "linear-gradient(180deg, #F4F8FF 0%, #EEF3FB 60%, #F9FBFF 100%)",
       }}
     >
-      {/* ===== Subtle Grid Background ===== */}
+
+      {/* GRID BACKGROUND */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
@@ -57,14 +73,14 @@ const NextLevelRole = () => {
         }}
       />
 
-      {/* ===== Decorative Blobs ===== */}
+      {/* DECORATIVE BLOBS */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#007BFF]/10 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] bg-[#FF7F00]/10 blur-[140px] rounded-full" />
 
       <div className="relative max-w-7xl mx-auto">
 
-        {/* ===== TITLE ===== */}
-        <motion.div
+        {/* HEADER */}
+        <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -81,12 +97,12 @@ const NextLevelRole = () => {
           <div className="w-28 h-[3px] bg-[#FF7F00] mx-auto rounded-full mb-6" />
 
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Unlock advanced career opportunities driven by artificial intelligence
-            and emerging technologies.
+            Unlock advanced career opportunities driven by artificial
+            intelligence and emerging technologies.
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* ===== TOP GRID ===== */}
+        {/* TOP GRID */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
           variants={containerVariants}
@@ -94,10 +110,11 @@ const NextLevelRole = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {topRoles.map((role, i) => (
-            <motion.div
+            <motion.article
               key={i}
               variants={itemVariants}
               whileHover={{ y: -8 }}
+              aria-label={role}
               className="
                 group relative
                 bg-white/70 backdrop-blur-xl
@@ -110,17 +127,17 @@ const NextLevelRole = () => {
                 transition-all
               "
             >
-              {/* Accent Top Bar */}
+              {/* TOP ACCENT */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-[#007BFF] rounded-t-2xl opacity-70" />
 
               <p className="font-semibold text-[#2C2C2C] whitespace-pre-line leading-snug text-base">
                 {role}
               </p>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
 
-        {/* ===== SUB TITLE ===== */}
+        {/* SUBTITLE */}
         <motion.h3
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -130,7 +147,7 @@ const NextLevelRole = () => {
           Go Big With Impact
         </motion.h3>
 
-        {/* ===== BOTTOM GRID ===== */}
+        {/* BOTTOM GRID */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8"
           variants={containerVariants}
@@ -138,10 +155,11 @@ const NextLevelRole = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {bottomRoles.map((role, i) => (
-            <motion.div
+            <motion.article
               key={i}
               variants={itemVariants}
               whileHover={{ y: -8 }}
+              aria-label={role}
               className="
                 group relative
                 bg-white/70 backdrop-blur-xl
@@ -154,13 +172,13 @@ const NextLevelRole = () => {
                 transition-all
               "
             >
-              {/* Accent Top Bar */}
+              {/* TOP ACCENT */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-[#FF7F00] rounded-t-2xl opacity-70" />
 
               <p className="font-semibold text-[#2C2C2C] whitespace-pre-line leading-snug text-base">
                 {role}
               </p>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
 

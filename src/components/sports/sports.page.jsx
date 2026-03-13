@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 
@@ -17,7 +18,6 @@ import { HiSparkles, HiLightningBolt } from "react-icons/hi";
 import { BsPersonFill, BsShieldFill, BsImages } from "react-icons/bs";
 import { IoMdTimer } from "react-icons/io";
 
-// ── Brand colors ──
 const BRAND = {
   primary: "#1A56DB",
   accent: "#3B82F6",
@@ -27,14 +27,11 @@ const BRAND = {
   muted: "#64748B",
 };
 
-// ================================================================
-// 📸 PHOTO PATHS — Yahan apne photos ke paths daal do
-// ================================================================
 const CRICKET_PHOTOS = [
-  "/images/sports/s1.jpg",   // 👈 Yahan apna path
-  "/images/sports/s2.jpg",   // 👈 Yahan apna path
+  "/images/sports/s1.jpg",
+  "/images/sports/s2.jpg",
   "/images/sports/s3.jpg",
-  "/images/sports/s4.jpg",   // 👈 Yahan apna path
+  "/images/sports/s4.jpg",
   "/images/sports/s5.jpg",
   "/images/sports/s6.jpg",
   "/images/sports/s7.jpg",
@@ -52,17 +49,13 @@ const CRICKET_PHOTOS = [
   "/images/sports/s19.jpg",
   "/images/sports/s20.jpg",
   "/images/sports/s21.jpg",
-  
-  // Aur photos add karo isi tarah...
 ];
 
 const FOOTBALL_PHOTOS = [
- "/images/sports/s14.jpg",
+  "/images/sports/s14.jpg",
   "/images/sports/s15.jpg",
 ];
-// ================================================================
 
-// ── Data ──────────────────────────────────────────────────────
 const sports = [
   { id: "cricket",   name: "Cricket",   icon: MdSportsCricket,  players: 11, status: "Active Season" },
   { id: "football",  name: "Football",  icon: MdSportsFootball, players: 11, status: "Active Season" },
@@ -134,7 +127,6 @@ const statsRow = [
   { label: "Trophies Won", value: 4,  icon: GiTrophy            },
 ];
 
-// ── Photo Slider Component ────────────────────────────────────
 function PhotoSlider({ photos, fallbackImage, title }) {
   const [current, setCurrent] = useState(0);
   const [lightbox, setLightbox] = useState(false);
@@ -156,7 +148,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
 
   return (
     <>
-      {/* Slider */}
       <div className="relative h-52 overflow-hidden bg-gray-100 group/slider">
         <img
           src={currentSrc}
@@ -164,14 +155,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
           className="w-full h-full object-cover transition-all duration-500"
           onError={() => setImgError((e) => ({ ...e, [current]: true }))}
         />
-
-        {/* Gradient overlay */}
-        {/* <div
-          className="absolute inset-0"
-          style={{ background: `linear-gradient(to top, ${BRAND.dark}cc 0%, transparent 55%)` }}
-        /> */}
-
-        {/* Gallery badge (top left) */}
         {photos && photos.length > 0 && (
           <div
             className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold backdrop-blur-sm border"
@@ -181,8 +164,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
             {photos.length} Photos
           </div>
         )}
-
-        {/* Expand button (top right) */}
         <button
           onClick={() => setLightbox(true)}
           className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 border"
@@ -190,8 +171,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
         >
           <FaExpand className="text-[10px]" />
         </button>
-
-        {/* Prev / Next arrows */}
         {hasMultiple && (
           <>
             <button
@@ -208,8 +187,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
             >
               <FaChevronRight className="text-xs" />
             </button>
-
-            {/* Dots */}
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
               {allPhotos.map((_, i) => (
                 <button
@@ -226,8 +203,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
             </div>
           </>
         )}
-
-        {/* Thumbnail strip (bottom when multiple) */}
         {hasMultiple && (
           <div className="absolute bottom-0 left-0 right-0 flex gap-1 p-2 pt-0 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 overflow-x-auto">
             {allPhotos.map((src, i) => (
@@ -252,7 +227,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
         )}
       </div>
 
-      {/* Lightbox */}
       {lightbox && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
@@ -262,34 +236,23 @@ function PhotoSlider({ photos, fallbackImage, title }) {
           <button
             className="absolute top-4 right-4 text-white text-2xl font-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
             onClick={() => setLightbox(false)}
-          >
-            ✕
-          </button>
-
+          >✕</button>
           {hasMultiple && (
             <>
-              <button
-                onClick={prev}
-                className="absolute left-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-              >
+              <button onClick={prev} className="absolute left-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
                 <FaChevronLeft className="text-xl" />
               </button>
-              <button
-                onClick={next}
-                className="absolute right-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-              >
+              <button onClick={next} className="absolute right-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
                 <FaChevronRight className="text-xl" />
               </button>
             </>
           )}
-
           <img
             src={currentSrc}
             alt={`${title} - photo ${current + 1}`}
             className="max-w-[90vw] max-h-[85vh] object-contain rounded-xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
-
           {hasMultiple && (
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
               {allPhotos.map((_, i) => (
@@ -306,7 +269,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
               ))}
             </div>
           )}
-
           <p className="absolute bottom-6 right-6 text-white/50 text-xs">
             {current + 1} / {allPhotos.length}
           </p>
@@ -316,7 +278,6 @@ function PhotoSlider({ photos, fallbackImage, title }) {
   );
 }
 
-// ── Main Component ─────────────────────────────────────────────
 export default function SportsPage() {
   const [activeSport, setActiveSport]       = useState("all");
   const [mounted, setMounted]               = useState(false);
@@ -341,8 +302,37 @@ export default function SportsPage() {
 
   return (
     <>
-      <Navbar />
+      <Head>
+        <title>Sports Community | Cricket, Football, Chess & More | Nexcore Institute</title>
+        <meta
+          name="description"
+          content="Nexcore Institute of Technology's Sports Community — featuring cricket, football, chess, badminton and kabaddi. Inter-college champions, 18+ athletes, 4 trophies won. Join our sports team today!"
+        />
+        <meta
+          name="keywords"
+          content="Nexcore sports community, Nexcore cricket team, Nexcore football team, inter-college sports Mumbai, BVOC AI ML sports, college sports community, Nexcore Institute athletics, sports events college Mumbai, cricket championship college"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://yourwebsite.com/explore/sports" />
+        <meta property="og:title" content="Sports Community | Cricket, Football, Chess & More | Nexcore Institute" />
+        <meta
+          property="og:description"
+          content="Join Nexcore's thriving sports community — cricket champions, football league, chess tournaments and more. 18+ athletes, 4 trophies, 5 sports."
+        />
+        <meta property="og:url" content="https://yourwebsite.com/explore/sports" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://yourwebsite.com/images/sports-og.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sports Community | Nexcore Institute of Technology" />
+        <meta
+          name="twitter:description"
+          content="Cricket, football, chess, badminton and kabaddi at Nexcore Institute. Inter-college champions with 4 trophies won."
+        />
+        <meta name="twitter:image" content="https://yourwebsite.com/images/sports-og.jpg" />
+      </Head>
 
+      <Navbar />
       <main className="min-h-screen bg-white relative overflow-hidden">
         <div
           className="fixed inset-0 pointer-events-none z-0"
@@ -369,15 +359,6 @@ export default function SportsPage() {
             className="relative overflow-hidden pt-32 pb-16 px-5"
             style={{ background: `linear-gradient(135deg, ${BRAND.dark}, ${BRAND.primary})` }}
           >
-            <div
-              // className="absolute inset-0 opacity-10"
-              // style={{
-              //   backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
-              //   backgroundSize: "20px 20px",
-              // }}
-            />
-            {/* <FaTrophy className="absolute -right-8 -bottom-6 text-white opacity-[0.07]" style={{ fontSize: 220 }} /> */}
-
             <div className="max-w-5xl mx-auto relative z-10">
               <div
                 className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5 text-[11px] font-bold text-white tracking-widest uppercase mb-5"
@@ -391,8 +372,7 @@ export default function SportsPage() {
                 <span className="text-white/60">Community</span>
               </h1>
               <p className="text-white/70 text-base sm:text-lg font-medium mb-8 max-w-md">
-                Sweat. Compete. Win. — Where Nexcore athletes train hard, play
-                fair, and celebrate every victory together.
+                Sweat. Compete. Win. — Where Nexcore athletes train hard, play fair, and celebrate every victory together.
               </p>
               <div className="flex flex-wrap gap-3">
                 {statsRow.map(({ label, value, icon: Icon }) => (
@@ -402,12 +382,8 @@ export default function SportsPage() {
                     style={{ background: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.2)" }}
                   >
                     <Icon className="text-white text-sm" />
-                    <span className="text-white font-black text-lg leading-none">
-                      {value}+
-                    </span>
-                    <span className="text-white/70 text-xs font-semibold">
-                      {label}
-                    </span>
+                    <span className="text-white font-black text-lg leading-none">{value}+</span>
+                    <span className="text-white/70 text-xs font-semibold">{label}</span>
                   </div>
                 ))}
               </div>
@@ -463,7 +439,7 @@ export default function SportsPage() {
               </div>
             </div>
 
-            {/* ── EVENTS WITH PHOTO SLIDER ── */}
+            {/* ── EVENTS ── */}
             <div className="mb-10">
               <h2 className="text-2xl font-black mb-1 flex items-center gap-2" style={{ color: BRAND.dark }}>
                 <FaCalendarAlt style={{ color: BRAND.primary }} />
@@ -478,7 +454,6 @@ export default function SportsPage() {
               <p className="text-sm mb-6" style={{ color: BRAND.muted }}>
                 Hover on photo cards to browse gallery · Click expand icon for fullscreen
               </p>
-
               {filteredEvents.length === 0 ? (
                 <div
                   className="text-center py-16 rounded-2xl border"
@@ -512,26 +487,14 @@ export default function SportsPage() {
                           e.currentTarget.style.transform = "translateY(0)";
                         }}
                       >
-                        {/* Photo Slider */}
-                        <PhotoSlider
-                          photos={ev.photos}
-                          fallbackImage={ev.fallbackImage}
-                          title={ev.title}
-                        />
-
-                        {/* Card body */}
+                        <PhotoSlider photos={ev.photos} fallbackImage={ev.fallbackImage} title={ev.title} />
                         <div className="p-4">
                           <div className="flex items-start justify-between gap-2 mb-3">
                             <div className="flex items-center gap-2">
-                              <div
-                                className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                                style={{ background: BRAND.light }}
-                              >
+                              <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: BRAND.light }}>
                                 <EvIcon className="text-sm" style={{ color: BRAND.primary }} />
                               </div>
-                              <h4 className="font-bold text-sm leading-snug" style={{ color: BRAND.text }}>
-                                {ev.title}
-                              </h4>
+                              <h4 className="font-bold text-sm leading-snug" style={{ color: BRAND.text }}>{ev.title}</h4>
                             </div>
                             <span
                               className="text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 flex-shrink-0 border"
@@ -545,20 +508,16 @@ export default function SportsPage() {
                               {ev.status}
                             </span>
                           </div>
-
                           <div className="flex items-center justify-between">
                             <p className="text-xs flex items-center gap-1" style={{ color: BRAND.muted }}>
-                              <IoMdTimer className="text-[10px]" style={{ color: BRAND.primary }} />
-                              {ev.date}
+                              <IoMdTimer className="text-[10px]" style={{ color: BRAND.primary }} />{ev.date}
                             </p>
                             <p className="text-xs flex items-center gap-1" style={{ color: BRAND.muted }}>
-                              <FaUsers className="text-[10px]" style={{ color: BRAND.primary }} />
-                              {ev.participants} participants
+                              <FaUsers className="text-[10px]" style={{ color: BRAND.primary }} />{ev.participants} participants
                             </p>
                             {hasGallery && (
                               <p className="text-xs flex items-center gap-1" style={{ color: BRAND.primary }}>
-                                <BsImages className="text-[10px]" />
-                                {ev.photos.length} photos
+                                <BsImages className="text-[10px]" />{ev.photos.length} photos
                               </p>
                             )}
                           </div>
@@ -572,8 +531,6 @@ export default function SportsPage() {
 
             {/* ── 2-COL: Achievements + Leaderboard ── */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-
-              {/* Achievements */}
               <div className="bg-white border rounded-2xl p-6 shadow-sm" style={{ borderColor: `${BRAND.primary}18` }}>
                 <h3 className="font-black text-lg mb-5 flex items-center gap-2" style={{ color: BRAND.dark }}>
                   <span className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: BRAND.light }}>
@@ -609,7 +566,6 @@ export default function SportsPage() {
                 </div>
               </div>
 
-              {/* Leaderboard */}
               <div className="bg-white border rounded-2xl p-6 shadow-sm" style={{ borderColor: `${BRAND.primary}18` }}>
                 <h3 className="font-black text-lg mb-5 flex items-center gap-2" style={{ color: BRAND.dark }}>
                   <span className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: BRAND.light }}>
@@ -668,9 +624,7 @@ export default function SportsPage() {
                         borderColor: `${BRAND.primary}15`,
                         background: BRAND.light,
                         opacity: membersVisible.includes(i) ? 1 : 0,
-                        transform: membersVisible.includes(i)
-                          ? 'translateY(0)'
-                          : 'translateY(12px)',
+                        transform: membersVisible.includes(i) ? 'translateY(0)' : 'translateY(12px)',
                         transition: `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms`,
                       }}
                       onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 8px 24px ${BRAND.primary}20`; e.currentTarget.style.background = "white"; }}
@@ -725,7 +679,6 @@ export default function SportsPage() {
           </div>
         </div>
       </main>
-
       <Footer />
     </>
   );

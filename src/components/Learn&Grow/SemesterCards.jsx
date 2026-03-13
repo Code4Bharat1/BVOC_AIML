@@ -45,33 +45,45 @@ const cardsData = [
 
 const SemesterCards = () => {
   return (
-    <section className="relative w-full bg-slate-50 py-20 px-6">
+    <section
+      aria-labelledby="programs-heading"
+      className="relative w-full bg-slate-50 py-20 px-6"
+    >
       {/* Heading */}
-      <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <header className="text-center mb-16 max-w-3xl mx-auto">
+        <h2
+          id="programs-heading"
+          className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+        >
           Our Programs
         </h2>
         <p className="text-lg text-slate-600">
           Choose a learning path that matches your goals — from short-term skill
           programs to full vocational degrees.
         </p>
-      </div>
+      </header>
 
       {/* Cards */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cardsData.map((card, index) => {
           const Icon = card.icon;
+
           return (
-            <div
+            <article
               key={index}
+              aria-label={`${card.title} program information`}
               className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 hover:border-blue-400 hover:-translate-y-1"
             >
               {/* Icon */}
-              <div 
+              <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                 style={{ backgroundColor: `${card.accent}15` }}
               >
-                <Icon className="w-6 h-6" style={{ color: card.accent }} />
+                <Icon
+                  className="w-6 h-6"
+                  style={{ color: card.accent }}
+                  aria-hidden="true"
+                />
               </div>
 
               {/* Tag */}
@@ -105,7 +117,7 @@ const SemesterCards = () => {
                 className="mt-6 h-1 w-12 rounded-full transition-all duration-300 group-hover:w-full"
                 style={{ backgroundColor: card.accent }}
               />
-            </div>
+            </article>
           );
         })}
       </div>

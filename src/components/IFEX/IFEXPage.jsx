@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import Image from 'next/image';
+import Head from 'next/head';
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -195,6 +196,82 @@ export default function IFEXPage() {
 
   return (
     <>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        {/* ✅ Basic SEO */}
+        <title>Nexcore at IFEX 2026 | Bombay Exhibition Centre, Mumbai</title>
+        <meta
+          name="description"
+          content="Nexcore Institute of Technology is participating in IFEX 2026 at Bombay Exhibition Centre, Mumbai. Meet our students, see live project demos, attend hackathons, and explore B.Voc admissions."
+        />
+        <meta
+          name="keywords"
+          content="IFEX 2026, Nexcore IFEX, Bombay Exhibition Centre, IFEX Mumbai 2026, Nexcore Institute IFEX, B.Voc student showcase, industry expo Mumbai 2026, Nexcore pavilion IFEX, tech expo Mumbai, education fair Mumbai 2026"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/ifex" />
+
+        {/* ✅ Open Graph */}
+        <meta
+          property="og:title"
+          content="Nexcore at IFEX 2026 | Bombay Exhibition Centre, Mumbai"
+        />
+        <meta
+          property="og:description"
+          content="Visit Nexcore Institute of Technology at Hall 5, Bombay Exhibition Centre during IFEX 2026. Student showcases, hackathons, placement drives, and more."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nexcoreinstitute.org/ifex" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.png" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Nexcore at IFEX 2026 | Bombay Exhibition Centre, Mumbai"
+        />
+        <meta
+          name="twitter:description"
+          content="Meet Team Nexcore at IFEX 2026 — student projects, hackathons, placement drives & B.Voc admissions at Bombay Exhibition Centre."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.png" />
+
+        {/* ✅ Structured Data — Event Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "Nexcore at IFEX 2026",
+            "description":
+              "Nexcore Institute of Technology participates in IFEX 2026 at Bombay Exhibition Centre, Mumbai — featuring student project showcases, hackathons, placement drives, and B.Voc admission information.",
+            "url": "https://nexcoreinstitute.org/ifex",
+            "image": "https://nexcoreinstitute.org/og-image.png",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+              "@type": "Place",
+              "name": "Bombay Exhibition Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Western Express Highway, Goregaon (E)",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400063",
+                "addressCountry": "IN",
+              },
+            },
+            "organizer": {
+              "@type": "EducationalOrganization",
+              "@id": "https://nexcoreinstitute.org/#organization",
+              "name": "Nexcore Institute of Technology",
+              "url": "https://nexcoreinstitute.org",
+            },
+          })}
+        </script>
+      </Head>
+
       <Navbar />
       <main className="min-h-screen bg-[#F4F7FC] relative overflow-hidden">
         {/* Dot pattern */}

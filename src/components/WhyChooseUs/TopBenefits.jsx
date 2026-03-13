@@ -1,4 +1,6 @@
 "use client";
+import Head from "next/head";
+import Script from "next/script";
 import { useState, useEffect } from "react";
 import {
   Sparkles,
@@ -62,102 +64,200 @@ const CenteredBoxWithCards = () => {
   if (!isClient) return null;
 
   return (
-    <div className="relative bg-gradient-to-b from-slate-50 to-white py-20 px-4 overflow-hidden">
-      {/* Simplified background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
+    <>
+      {/* ══════════ SEO HEAD ══════════ */}
+      <Head>
+        <title>Top Benefits of B.Voc Programs | Nexcore Institute of Technology Mumbai</title>
+        <meta
+          name="description"
+          content="Discover the top benefits of studying at Nexcore Institute of Technology Mumbai — job-ready skills from Day 1, international projects, built-in internships, earn while you learn, and UGC & NSQF recognized qualifications. NAAC A+ Accredited."
+        />
+        <meta
+          name="keywords"
+          content="top benefits B.Voc Mumbai, job ready skills college Mumbai, internship during college Mumbai, earn while you learn Mumbai, UGC NSQF recognized degree Mumbai, international projects college Mumbai, Nexcore Institute benefits, NAAC A+ college benefits Mumbai, industry training college Mumbai, nexcoreinstitute.org benefits, career fast track Mumbai, best college for jobs Mumbai, practical skills college Mumbai"
+        />
+        <meta name="author" content="Nexcore Institute of Technology" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://nexcoreinstitute.org/" />
+        <meta property="og:title" content="Top Benefits of B.Voc Programs | Nexcore Institute of Technology" />
+        <meta
+          property="og:description"
+          content="Job-ready skills, international projects, built-in internships, earn while you learn, and UGC & NSQF recognized degrees at Nexcore Institute Mumbai. NAAC A+."
+        />
+        <meta property="og:url" content="https://nexcoreinstitute.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Nexcore Institute of Technology" />
+        <meta property="og:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Top Benefits of B.Voc Programs | Nexcore Institute Mumbai" />
+        <meta
+          name="twitter:description"
+          content="Job-ready skills, internships, international projects & UGC recognized degrees at Nexcore Institute Mumbai. Fast-track your career with NAAC A+ education."
+        />
+        <meta name="twitter:image" content="https://nexcoreinstitute.org/og-image.jpg" />
+      </Head>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full bg-blue-50 border border-blue-200">
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-xs font-bold tracking-wider uppercase text-blue-700">
-              Career Benefits
-            </span>
-          </div>
+      {/* ══════════ JSON-LD SCHEMA ══════════ */}
+      <Script
+        id="top-benefits-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Top Benefits of Nexcore Institute of Technology B.Voc Programs",
+            "description": "Key career benefits of studying at Nexcore Institute of Technology Mumbai including job-ready skills, internships, international projects and UGC & NSQF recognition.",
+            "url": "https://nexcoreinstitute.org/",
+            "numberOfItems": 5,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Job-Ready Skills from Day 1",
+                "description": "Hands-on industry-driven training from the start with live projects and global challenges."
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work on International Projects",
+                "description": "Collaborate with global industry leaders and gain international job market experience."
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Built-in Internships",
+                "description": "Real-world internships and projects integrated into the curriculum."
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Earn While You Learn",
+                "description": "Internship opportunities to gain hands-on experience while earning financial independence."
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Recognized by UGC & NSQF",
+                "description": "UGC-approved and NSQF-certified qualifications opening doors to global opportunities."
+              }
+            ],
+            "provider": {
+              "@type": "EducationalOrganization",
+              "name": "Nexcore Institute of Technology",
+              "url": "https://nexcoreinstitute.org/",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61585525156166",
+                "https://www.instagram.com/nexcoreinstitute",
+                "https://www.linkedin.com/school/nexcore-institute-of-technology-nit/",
+                "https://www.youtube.com/@NexcoreInstitute"
+              ],
+              "telephone": "+919892398976",
+              "accreditation": "NAAC A+",
+              "hasCredential": "UGC Recognized"
+            }
+          })
+        }}
+      />
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-blue-600">Top Benefits:</span>{" "}
-            <span className="text-slate-900">The Fast-Track to Your Career</span>
-          </h1>
-          
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Discover how our program gives you a competitive edge in the job market
-          </p>
-        </div>
+      <div className="relative bg-gradient-to-b from-slate-50 to-white py-20 px-4 overflow-hidden">
+        {/* Simplified background */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
 
-        {/* Desktop Cards Grid */}
-        <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
-          {cards.map((card, index) => (
-            <BenefitCard key={index} {...card} />
-          ))}
-        </div>
-
-        {/* Mobile Accordion */}
-        <div className="md:hidden flex flex-col gap-3 max-w-xl mx-auto mb-20">
-          {cards.map((card, index) => (
-            <AccordionItem
-              key={index}
-              card={card}
-              isOpen={openIndex === index}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            />
-          ))}
-        </div>
-
-        {/* Why It Works Section */}
-        <div className="mt-20">
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Why It <span className="text-blue-600">Works</span> for You
-            </h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              A structured journey that transforms learning into career success
+            <div className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full bg-blue-50 border border-blue-200">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-bold tracking-wider uppercase text-blue-700">
+                Career Benefits
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-blue-600">Top Benefits:</span>{" "}
+              <span className="text-slate-900">The Fast-Track to Your Career</span>
+            </h1>
+
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Discover how our program gives you a competitive edge in the job market
             </p>
           </div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-300 via-orange-300 to-purple-300 -translate-x-1/2" />
+          {/* Desktop Cards Grid */}
+          <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
+            {cards.map((card, index) => (
+              <BenefitCard key={index} {...card} />
+            ))}
+          </div>
 
-            <div className="flex flex-col gap-16">
-              <TimelineCard
-                align="left"
-                step="01"
-                title="Real-World Exposure"
-                text="Work on live projects, collaborate with industry experts, and gain experience from day one."
-                color="blue"
+          {/* Mobile Accordion */}
+          <div className="md:hidden flex flex-col gap-3 max-w-xl mx-auto mb-20">
+            {cards.map((card, index) => (
+              <AccordionItem
+                key={index}
+                card={card}
+                isOpen={openIndex === index}
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
               />
+            ))}
+          </div>
 
-              <TimelineCard
-                align="right"
-                step="02"
-                title="Flexible Learning Path"
-                text="Exit when it makes sense, stack credentials, and qualify as you progress."
-                color="orange"
-              />
+          {/* Why It Works Section */}
+          <div className="mt-20">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                Why It <span className="text-blue-600">Works</span> for You
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                A structured journey that transforms learning into career success
+              </p>
+            </div>
 
-              <TimelineCard
-                align="left"
-                step="03"
-                title="Global Opportunities"
-                text="Work on international projects and open doors to a global career."
-                color="purple"
-              />
+            <div className="relative max-w-5xl mx-auto">
+              {/* Timeline Line */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-300 via-orange-300 to-purple-300 -translate-x-1/2" />
 
-              <TimelineCard
-                align="right"
-                step="04"
-                title="Career-Ready Outcome"
-                text="Graduate with verified skills, experience, and industry recognition."
-                color="emerald"
-              />
+              <div className="flex flex-col gap-16">
+                <TimelineCard
+                  align="left"
+                  step="01"
+                  title="Real-World Exposure"
+                  text="Work on live projects, collaborate with industry experts, and gain experience from day one."
+                  color="blue"
+                />
+
+                <TimelineCard
+                  align="right"
+                  step="02"
+                  title="Flexible Learning Path"
+                  text="Exit when it makes sense, stack credentials, and qualify as you progress."
+                  color="orange"
+                />
+
+                <TimelineCard
+                  align="left"
+                  step="03"
+                  title="Global Opportunities"
+                  text="Work on international projects and open doors to a global career."
+                  color="purple"
+                />
+
+                <TimelineCard
+                  align="right"
+                  step="04"
+                  title="Career-Ready Outcome"
+                  text="Graduate with verified skills, experience, and industry recognition."
+                  color="emerald"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -184,7 +284,7 @@ const BenefitCard = ({ image, icon, heading, description, color }) => {
     <div className="group relative">
       {/* Hover glow */}
       <div className={`absolute -inset-0.5 bg-gradient-to-br ${styles.glow} rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300`} />
-      
+
       {/* Card */}
       <div className={`relative h-full bg-white border-2 ${styles.border} ${styles.hoverBorder} rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300`}>
         {/* Image Section */}
@@ -302,11 +402,11 @@ const TimelineCard = ({ align, step, title, text, color }) => {
           </span>
           <div className="h-px flex-1 bg-slate-200" />
         </div>
-        
+
         <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
           {title}
         </h4>
-        
+
         <p className="text-slate-600 leading-relaxed">
           {text}
         </p>

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Head from "next/head";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -25,42 +26,34 @@ const BRAND = {
   border:  "#DBEAFE",
 };
 
-// ================================================================
-// 📸 PHOTO PATHS — Yahan apne visit photos ke paths daal do
-// Har visit ke liye 5 photos add karo
-// ================================================================
 const VISIT_PHOTOS = {
   1: [
-    // Jio visit photos
-    "/images/iv/4.jpg",   // 👈 Apna path
+    "/images/iv/4.jpg",
     "/images/iv/7.jpg",
     "/images/iv/8.jpg",
     "/images/iv/9.jpg",
     "/images/iv/11.jpg",
-     "/images/iv/17.jpg",
+    "/images/iv/17.jpg",
   ],
   2: [
-    // iFX visit photos
-    "/images/iv/1.jpg",   // 👈 Apna path
+    "/images/iv/1.jpg",
     "/images/iv/2.jpg",
     "/images/iv/3.jpg",
     "/images/iv/4.jpg",
     "/images/iv/5.jpg",
     "/images/iv/10.jpg",
-     "/images/iv/18.jpg",
+    "/images/iv/18.jpg",
   ],
   3: [
-    // IIT Bombay visit photos
-    "/images/iv/11.jpg",   // 👈 Apna path
+    "/images/iv/11.jpg",
     "/images/iv/12.jpg",
     "/images/iv/13.jpg",
     "/images/iv/14.jpg",
     "/images/iv/15.jpg",
-     "/images/iv/16.jpg",
-      "/images/iv/6.jpg",
+    "/images/iv/16.jpg",
+    "/images/iv/6.jpg",
   ],
 };
-// ================================================================
 
 const visits = [
   {
@@ -131,7 +124,6 @@ const visits = [
 const fmtDate = (d) =>
   new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
 
-// ── Scroll Reveal Hook ────────────────────────────────────────
 function useReveal(delay = 0) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -148,7 +140,6 @@ function useReveal(delay = 0) {
   return { ref, visible };
 }
 
-// ── Animated Counter ─────────────────────────────────────────
 function Counter({ target, suffix = "" }) {
   const [count, setCount] = useState(0);
   const { ref, visible } = useReveal();
@@ -166,14 +157,12 @@ function Counter({ target, suffix = "" }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-// ── Photo Slider ──────────────────────────────────────────────
 function PhotoSlider({ visitId, fallbackImages, title }) {
   const [current, setCurrent] = useState(0);
   const [lightbox, setLightbox] = useState(false);
   const [imgErrors, setImgErrors] = useState({});
 
   const customPhotos = VISIT_PHOTOS[visitId] || [];
-  // Use custom photos if set, else fallback Unsplash
   const allPhotos = customPhotos.length > 0 ? customPhotos : fallbackImages;
   const total = allPhotos.length;
 
@@ -187,7 +176,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
 
   return (
     <>
-      {/* Main slider */}
       <div className="relative h-56 overflow-hidden bg-gray-100 group/slider cursor-pointer"
         onClick={() => setLightbox(true)}>
         <img
@@ -196,11 +184,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover/slider:scale-105"
           onError={() => setImgErrors((e) => ({ ...e, [current]: true }))}
         />
-
-        {/* Dark overlay */}
-        
-
-        {/* Photo count badge — top left */}
         <div
           className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold backdrop-blur-sm border"
           style={{ background: "rgba(239,246,255,0.92)", color: BRAND.primary, borderColor: `${BRAND.primary}30` }}
@@ -208,8 +191,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
           <BsImages className="text-[10px]" />
           {total} Photos
         </div>
-
-        {/* Expand icon — top right */}
         <button
           onClick={(e) => { e.stopPropagation(); setLightbox(true); }}
           className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 border"
@@ -217,8 +198,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
         >
           <FaExpand className="text-[9px]" />
         </button>
-
-        {/* Prev / Next */}
         <button
           onClick={prev}
           className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 border"
@@ -233,8 +212,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
         >
           <FaChevronRight className="text-xs" />
         </button>
-
-        {/* Dot indicators */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
           {allPhotos.map((_, i) => (
             <button
@@ -251,7 +228,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
         </div>
       </div>
 
-      {/* Thumbnail strip */}
       <div
         className="flex gap-1.5 p-2 overflow-x-auto"
         style={{ background: BRAND.light, scrollbarWidth: "none" }}
@@ -276,7 +252,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
         ))}
       </div>
 
-      {/* Lightbox */}
       {lightbox && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
@@ -287,25 +262,20 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
             className="absolute top-4 right-4 text-white text-xl font-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
             onClick={() => setLightbox(false)}
           >✕</button>
-
           <button
             onClick={prev}
             className="absolute left-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
           ><FaChevronLeft className="text-xl" /></button>
-
           <button
             onClick={next}
             className="absolute right-4 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
           ><FaChevronRight className="text-xl" /></button>
-
           <img
             src={getSrc(current)}
             alt={`${title} ${current + 1}`}
             className="max-w-[88vw] max-h-[82vh] object-contain rounded-xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
-
-          {/* Lightbox dots */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
             {allPhotos.map((_, i) => (
               <button
@@ -323,8 +293,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
           <p className="absolute bottom-6 right-6 text-white/50 text-xs">
             {current + 1} / {total}
           </p>
-
-          {/* Lightbox thumbnails */}
           <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex gap-2">
             {allPhotos.map((_, i) => (
               <button
@@ -344,7 +312,6 @@ function PhotoSlider({ visitId, fallbackImages, title }) {
   );
 }
 
-// ── Visit Card ───────────────────────────────────────────────
 function IVCard({ v, delay }) {
   const { ref, visible } = useReveal(delay);
   const Icon = v.icon;
@@ -369,16 +336,9 @@ function IVCard({ v, delay }) {
         e.currentTarget.style.boxShadow = `0 2px 16px ${BRAND.primary}0a`;
       }}
     >
-      {/* Photo Slider */}
-      <PhotoSlider
-        visitId={v.id}
-        fallbackImages={v.fallbackImages}
-        title={v.company}
-      />
+      <PhotoSlider visitId={v.id} fallbackImages={v.fallbackImages} title={v.company} />
 
-      {/* Card body */}
       <div className="p-5">
-        {/* Company header */}
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-3">
             <div
@@ -407,22 +367,13 @@ function IVCard({ v, delay }) {
           </span>
         </div>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-3">
-          <span
-            className="text-[11px] font-bold px-2.5 py-1 rounded-lg"
-            style={{ background: BRAND.light, color: BRAND.primary }}
-          >{v.branch}</span>
-          <span
-            className="text-[11px] font-bold px-2.5 py-1 rounded-lg"
-            style={{ background: "#fff7ed", color: "#9a3412" }}
-          >{v.year}</span>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg" style={{ background: BRAND.light, color: BRAND.primary }}>{v.branch}</span>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg" style={{ background: "#fff7ed", color: "#9a3412" }}>{v.year}</span>
         </div>
 
-        {/* Description */}
         <p className="text-sm leading-relaxed mb-4" style={{ color: BRAND.muted }}>{v.description}</p>
 
-        {/* Highlights */}
         <div className="grid grid-cols-2 gap-1.5 mb-4">
           {v.highlights.map((h, idx) => (
             <div
@@ -439,7 +390,6 @@ function IVCard({ v, delay }) {
           ))}
         </div>
 
-        {/* Footer */}
         <div
           className="flex items-center justify-between pt-4 border-t"
           style={{ borderColor: `${BRAND.primary}15` }}
@@ -467,7 +417,6 @@ function IVCard({ v, delay }) {
   );
 }
 
-// ── Main Page ────────────────────────────────────────────────
 export default function IVPage() {
   const [filter, setFilter] = useState("all");
   const [mounted, setMounted] = useState(false);
@@ -482,6 +431,43 @@ export default function IVPage() {
 
   return (
     <>
+      <Head>
+        {/* Basic SEO */}
+        <title>Industrial Visits | Jio, IIT Bombay, IFEX | BVOC AI & ML Program</title>
+        <meta
+          name="description"
+          content="BVOC AI & ML students explore top industry leaders like Reliance Jio, IIT Bombay, and IFEX Expo. Real-world industrial visits bridging classroom knowledge with professional experience."
+        />
+        <meta
+          name="keywords"
+          content="BVOC AI ML industrial visits, Jio visit, IIT Bombay visit, IFEX expo, industry exposure program, BVOC student visits, real world learning, AI ML college Mumbai, industrial training, campus to corporate"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://yourwebsite.com/industrial-visits" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Industrial Visits | Jio, IIT Bombay, IFEX | BVOC AI & ML Program" />
+        <meta
+          property="og:description"
+          content="Our BVOC AI & ML students visit top organizations like Jio, IIT Bombay and IFEX to gain real-world industry exposure and professional insights."
+        />
+        <meta property="og:url" content="https://yourwebsite.com/industrial-visits" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://yourwebsite.com/images/industrial-visits-og.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Industrial Visits | BVOC AI & ML Program" />
+        <meta
+          name="twitter:description"
+          content="Students visit Jio, IIT Bombay and IFEX for real-world industry exposure in the BVOC AI & ML program."
+        />
+        <meta name="twitter:image" content="https://yourwebsite.com/images/industrial-visits-og.jpg" />
+      </Head>
+
       <Navbar />
 
       <main className="min-h-screen bg-white relative overflow-hidden">
@@ -511,17 +497,9 @@ export default function IVPage() {
             className="relative overflow-hidden pt-32 pb-16 px-5"
             style={{ background: `linear-gradient(135deg, ${BRAND.dark}, ${BRAND.primary})` }}
           >
-            <div
-              className="absolute inset-0 opacity-10"
-            //   style={{
-            //     backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
-            //     backgroundSize: "20px 20px",
-            //   }}
-            />
-            {/* <GiFactory className="absolute -right-8 -bottom-6 text-white opacity-[0.07]" style={{ fontSize: 220 }} /> */}
+            <div className="absolute inset-0 opacity-10" />
 
             <div className="max-w-6xl mx-auto relative z-10">
-              {/* Pill */}
               <div
                 className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5 text-[11px] font-bold text-white tracking-widest uppercase mb-5"
                 style={{ background: "rgba(255,255,255,0.15)", borderColor: "rgba(255,255,255,0.25)" }}
@@ -534,7 +512,6 @@ export default function IVPage() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Left */}
                 <div>
                   <h1 className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none mb-4">
                     Industrial<br />
@@ -544,17 +521,12 @@ export default function IVPage() {
                     Bridging classroom knowledge with real-world industry experience. Our students visit top organizations to gain practical insights and professional exposure.
                   </p>
                 </div>
-
-                {/* Right — stats */}
-                
               </div>
             </div>
           </div>
 
           {/* ── CARDS SECTION ── */}
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
-
-            {/* Section header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
               <div>
                 <div className="flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase mb-2" style={{ color: "#f97316" }}>
@@ -565,44 +537,18 @@ export default function IVPage() {
                   Exploring <span style={{ color: BRAND.primary }}>Industry Leaders</span>
                 </h2>
               </div>
-
-              {/* Filter tabs */}
-              {/* <div
-                className="flex gap-1 p-1.5 rounded-2xl border self-start sm:self-auto"
-                style={{ background: BRAND.light, borderColor: `${BRAND.primary}20` }}
-              >
-                {["all", "completed", "upcoming"].map((f) => (
-                  <button
-                    key={f}
-                    onClick={() => setFilter(f)}
-                    className="px-5 py-2 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer border-none"
-                    style={
-                      filter === f
-                        ? { background: `linear-gradient(135deg, ${BRAND.primary}, ${BRAND.accent})`, color: "white", boxShadow: `0 4px 14px ${BRAND.primary}33` }
-                        : { background: "transparent", color: BRAND.muted }
-                    }
-                  >
-                    {f === "all" ? "All Visits" : f.charAt(0).toUpperCase() + f.slice(1)}
-                  </button>
-                ))}
-              </div> */}
             </div>
 
-            {/* Hint */}
             <p className="text-sm mb-6" style={{ color: BRAND.muted }}>
               Hover on photos to browse gallery · Click expand or photo for fullscreen
             </p>
 
-            {/* Cards grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((v, i) => (
                 <IVCard key={v.id} v={v} delay={i * 130} />
               ))}
             </div>
           </div>
-
-          {/* ── CTA ── */}
-         
         </div>
       </main>
 
